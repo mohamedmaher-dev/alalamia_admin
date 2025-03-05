@@ -10,4 +10,5 @@ Future<void> _blocDiInit() async {
   di.registerFactory(() => OrdersCubit(di<OrdersRebo>()));
   di.registerFactory(() => InvoiceCubit());
   di.registerFactory(() => FcmCubit());
+  di.registerFactory(() => OrdersSearchCubit());
 }

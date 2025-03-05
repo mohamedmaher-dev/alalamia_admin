@@ -10,6 +10,7 @@ import 'package:alalamia_admin/modules/auth/sign_in/controllers/sign_in_cubit/si
 import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit.dart';
 import 'package:alalamia_admin/modules/notification/controllers/send_fcm/send_fcm_cubit.dart';
 import 'package:alalamia_admin/modules/orders/controlers/orders/orders_cubit.dart';
+import 'package:alalamia_admin/modules/orders/controlers/orders_search/orders_search_cubit.dart';
 import 'package:alalamia_admin/modules/orders/controlers/orders_tab/orders_tab_cubit.dart';
 import 'package:alalamia_admin/modules/orders/data/rebos/orders_rebo.dart';
 import 'package:alalamia_admin/modules/orders/services/api_orders_service.dart';

@@ -21,6 +21,7 @@ part 'widgets/general_body.dart';
 part 'widgets/order_state_steps.dart';
 part 'widgets/cart_body.dart';
 part 'widgets/notifi_body.dart';
+part 'widgets/table_body.dart';
 
 class OneOrderView extends StatelessWidget {
   const OneOrderView({super.key, required this.orderItem});
@@ -45,46 +46,39 @@ class _OneOrderViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fcmCubit = context.read<FcmCubit>();
-    return MultiBlocListener(
-      listeners: [
-        BlocListener<InvoiceCubit, InvoiceState>(listener: inVoiceListener),
-        BlocListener<FcmCubit, FcmState>(listener: fcmListener),
-      ],
-      child: Scaffold(
-        appBar: AppBar(
-          title: ListTile(
-            title: Text(orderItem.cart.user.name),
-            subtitle: Text(orderItem.requestNumber),
+    return Scaffold(
+      appBar: AppBar(
+        title: ListTile(
+          title: Text(orderItem.cart.user.name),
+          subtitle: Text(orderItem.requestNumber),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                context: context,
+                builder:
+                    (context) => _NotifiBody(
+                      fcmCubit: fcmCubit,
+                      fcmToken: orderItem.cart.user.fcm,
+                    ),
+              );
+            },
+            icon: const Icon(Icons.add_alert),
           ),
-          actions: [
-            IconButton(
-              onPressed: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  context: context,
-                  builder:
-                      (context) => _NotifiBody(
-                        fcmCubit: fcmCubit,
-                        fcmToken: orderItem.cart.user.fcm,
-                      ),
-                );
-              },
-              icon: const Icon(Icons.add_alert),
-            ),
-          ],
-        ),
-        body: Stack(
-          children: [
-            ListView(
-              children: [
-                _GeneralBody(orderItem: orderItem),
-                if (orderItem.cart.items.isNotEmpty)
-                  _CartBody(orderItem: orderItem),
-              ],
-            ),
-            _FloatBrn(orderItem: orderItem),
-          ],
-        ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          ListView(
+            children: [
+              _GeneralBody(orderItem: orderItem),
+              if (orderItem.cart.items.isNotEmpty) _TableBody(order: orderItem),
+            ],
+          ),
+          _FloatBrn(orderItem: orderItem),
+        ],
       ),
     );
   }

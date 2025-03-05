@@ -13,22 +13,35 @@ Widget _invoiceTableContent({required Font font, required OrderItem order}) {
             index % 2 == 0 ? pw.BoxDecoration(color: PdfColors.grey100) : null,
         children:
             [
-              pw.Text(
-                order.cart.items[index].productName,
-                style: pw.TextStyle(font: font, fontSize: 12),
+              pw.Padding(
+                padding: pw.EdgeInsets.all(kNormalPadding),
+                child: pw.Text(
+                  order.cart.items[index].productName,
+                  style: pw.TextStyle(font: font, fontSize: 12),
+                ),
               ),
-              pw.Text(
-                order.cart.items[index].itemPrice,
-                style: pw.TextStyle(font: font, fontSize: 12),
-                textAlign: pw.TextAlign.center,
+              pw.Padding(
+                padding: pw.EdgeInsets.all(kNormalPadding),
+                child: pw.Text(
+                  order.cart.items[index].pivot.quantity,
+                  style: pw.TextStyle(font: font, fontSize: 12),
+                  textAlign: pw.TextAlign.center,
+                ),
               ),
-              pw.Text(
-                order.cart.items[index].pivot.quantity,
-                style: pw.TextStyle(font: font, fontSize: 12),
-                textAlign: pw.TextAlign.center,
+              pw.Padding(
+                padding: pw.EdgeInsets.all(kNormalPadding),
+                child: pw.Text(
+                  order.cart.items[index].itemPrice,
+                  style: pw.TextStyle(font: font, fontSize: 12),
+                  textAlign: pw.TextAlign.center,
+                ),
               ),
             ].reversed.toList(),
       );
     }),
+    border: TableBorder.all(
+      color: PdfColors.black,
+      style: pw.BorderStyle.dashed,
+    ),
   );
 }

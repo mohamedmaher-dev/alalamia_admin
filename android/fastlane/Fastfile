@@ -32,7 +32,6 @@ platform :android do
       android_artifact_path: apk_path,
       testers: "mohamedmaher.personal@gmail.com",
       debug: true,
-      # release_notes: "test release notes",
     )
   end
 
@@ -45,7 +44,8 @@ platform :android do
       firebase_cli_token: ENV['FIREBASE_CLI_TOKEN'],
       android_artifact_type: "APK",
       android_artifact_path: apk_path,
-      groups: "app_testers",
+      groups: "testers",
+      debug: true,
     )
   end
 end

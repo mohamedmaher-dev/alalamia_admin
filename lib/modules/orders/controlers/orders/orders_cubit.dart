@@ -1,62 +1,39 @@
-import 'package:alalamia_admin/core/networking/api_error_model.dart';
 import 'package:alalamia_admin/modules/orders/data/models/orders/orders_response_model.dart';
 import 'package:alalamia_admin/modules/orders/data/rebos/orders_rebo.dart';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 part 'orders_state.dart';
 part 'orders_cubit.freezed.dart';
 
 class OrdersCubit extends Cubit<OrdersState> {
-  final TextEditingController searchController = TextEditingController();
-  late OrdersResponseModel ordersResponseModel;
+  late final pagingController = PagingController<int, OrderItem>(
+    getNextPageKey: (state) => _getNextPageKey(state),
+    fetchPage: (pageKey) => _getOrders(pageKey),
+  );
   final OrdersRebo ordersRebo;
-  OrdersCubit(this.ordersRebo) : super(OrdersState.loading());
+  OrdersCubit(this.ordersRebo) : super(OrdersState.initial());
 
-  Future<void> getOrders(int page) async {
-    emit(OrdersState.loading());
-    final result = await ordersRebo.getOrders();
-    result.when(
-      success: (data) {
-        if (data.trackingRequests.orderItems.isEmpty) {
-          emit(OrdersState.empty());
-        } else {
-          ordersResponseModel = data;
-          emit(OrdersState.success(list: data.trackingRequests.orderItems));
-        }
-      },
-      failure: (error) {
-        emit(OrdersState.failure(e: error));
-      },
-    );
-  }
-
-  search(String text) {
-    text = text.trim().toLowerCase();
-    if (text.isEmpty) {
-      emit(
-        OrdersState.success(
-          list: ordersResponseModel.trackingRequests.orderItems,
-        ),
-      );
+  int? _getNextPageKey(PagingState<int, OrderItem> state) {
+    if (state.pages == null) {
+      return 1;
     } else {
-      final result =
-          ordersResponseModel.trackingRequests.orderItems.where((element) {
-            if (element.cart.user.name.trim().toLowerCase().contains(text) ||
-                element.cart.user.phone.trim().toLowerCase().contains(text) ||
-                element.requestNumber.trim().toLowerCase().contains(text)) {
-              return true;
-            } else {
-              return false;
-            }
-          }).toList();
-
-      if (result.isEmpty) {
-        emit(OrdersState.empty());
+      if (state.pages!.last.isEmpty) {
+        return null;
       } else {
-        emit(OrdersState.success(list: result));
+        return state.keys!.last + 1;
       }
     }
+  }
+
+  Future<List<OrderItem>> _getOrders(int page) async {
+    final result = await ordersRebo.getOrders(page);
+    return result.trackingRequests.orderItems;
+  }
+
+  @override
+  Future<void> close() {
+    pagingController.dispose();
+    return super.close();
   }
 }

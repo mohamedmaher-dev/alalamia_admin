@@ -40,8 +40,8 @@ Future<Uint8List> createStyledInvoice(OrderItem order) async {
             _invoiceTableContent(font: font, order: order),
             // Summary
             pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-            pw.Divider(thickness: 1),
             _invoiceSummary(font: font, order: order),
+            pw.Divider(thickness: 1),
           ],
         );
       },

@@ -26,12 +26,30 @@ class _OrderItemBody extends StatelessWidget {
                 subtitle: Text(language.client_name),
                 trailing: Icon(CupertinoIcons.right_chevron),
               ),
-              ListTile(
-                leading: Icon(CupertinoIcons.phone),
-                title: Text(model.cart.user.phone, style: TextStyles.tsP12B),
-                subtitle: Text(language.client_number),
+              Row(
+                children: [
+                  Expanded(
+                    child: ListTile(
+                      leading: Icon(CupertinoIcons.phone),
+                      title: Text(
+                        model.cart.user.phone,
+                        style: TextStyles.tsP12B,
+                      ),
+                      subtitle: Text(language.client_number),
+                    ),
+                  ),
+                  Expanded(
+                    child: ListTile(
+                      leading: Icon(CupertinoIcons.clock),
+                      title: Text(
+                        Jiffy.parse(model.orderDate).fromNow(),
+                        style: TextStyles.tsP12B,
+                      ),
+                      subtitle: Text(language.order_date),
+                    ),
+                  ),
+                ],
               ),
-              Divider(),
               Row(
                 children: [
                   Expanded(
@@ -57,13 +75,19 @@ class _OrderItemBody extends StatelessWidget {
                 ],
               ),
               Divider(),
-              ListTile(
-                leading: Icon(CupertinoIcons.calendar),
-                title: Text(
-                  Jiffy.parse(model.orderDate).yMMMMEEEEdjm,
-                  style: TextStyles.tsP12B,
+              Container(
+                width: double.infinity,
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(kNormalPadding),
+                margin: EdgeInsets.all(kNormalMargin),
+                decoration: BoxDecoration(
+                  color: ColorManger.myGold,
+                  borderRadius: BorderRadius.circular(kNormalRadius),
                 ),
-                subtitle: Text(language.order_date),
+                child: Text(
+                  'في انتظار الموافقة',
+                  style: TextStyles.ts12B.copyWith(color: Colors.black),
+                ),
               ),
             ],
           ),
