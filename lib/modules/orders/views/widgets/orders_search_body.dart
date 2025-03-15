@@ -5,6 +5,7 @@ class _OrdersSearchBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final language = Language.of(context);
     return Expanded(
       child: BlocBuilder<OrdersSearchCubit, OrdersSearchState>(
         builder: (context, state) {
@@ -22,7 +23,7 @@ class _OrdersSearchBody extends StatelessWidget {
                 ),
             empty:
                 () =>
-                    const EmptyView(icon: Icons.list, text: 'No orders found'),
+                    EmptyView(icon: Icons.list, text: language.no_orders_found),
           );
         },
       ),

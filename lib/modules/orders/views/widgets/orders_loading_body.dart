@@ -2,7 +2,7 @@ part of '../orders_view.dart';
 
 class _OrdersLoadingBody extends StatelessWidget {
   const _OrdersLoadingBody();
-  final List<OrderItem> items = fakeOrderResponse;
+  final List<OrdersDatum> items = fakeOrdersResponseModel;
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -19,21 +19,21 @@ mixin _$OrdersSearchState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() disabled,
-    required TResult Function(List<OrderItem> orders) enabled,
+    required TResult Function(List<OrdersDatum> orders) enabled,
     required TResult Function() empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? disabled,
-    TResult? Function(List<OrderItem> orders)? enabled,
+    TResult? Function(List<OrdersDatum> orders)? enabled,
     TResult? Function()? empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? disabled,
-    TResult Function(List<OrderItem> orders)? enabled,
+    TResult Function(List<OrdersDatum> orders)? enabled,
     TResult Function()? empty,
     required TResult orElse(),
   }) =>
@@ -125,7 +125,7 @@ class _$DisabledModeImpl implements DisabledMode {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() disabled,
-    required TResult Function(List<OrderItem> orders) enabled,
+    required TResult Function(List<OrdersDatum> orders) enabled,
     required TResult Function() empty,
   }) {
     return disabled();
@@ -135,7 +135,7 @@ class _$DisabledModeImpl implements DisabledMode {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? disabled,
-    TResult? Function(List<OrderItem> orders)? enabled,
+    TResult? Function(List<OrdersDatum> orders)? enabled,
     TResult? Function()? empty,
   }) {
     return disabled?.call();
@@ -145,7 +145,7 @@ class _$DisabledModeImpl implements DisabledMode {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? disabled,
-    TResult Function(List<OrderItem> orders)? enabled,
+    TResult Function(List<OrdersDatum> orders)? enabled,
     TResult Function()? empty,
     required TResult orElse(),
   }) {
@@ -200,7 +200,7 @@ abstract class _$$EnabledModeImplCopyWith<$Res> {
           _$EnabledModeImpl value, $Res Function(_$EnabledModeImpl) then) =
       __$$EnabledModeImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<OrderItem> orders});
+  $Res call({List<OrdersDatum> orders});
 }
 
 /// @nodoc
@@ -222,7 +222,7 @@ class __$$EnabledModeImplCopyWithImpl<$Res>
       orders: null == orders
           ? _value._orders
           : orders // ignore: cast_nullable_to_non_nullable
-              as List<OrderItem>,
+              as List<OrdersDatum>,
     ));
   }
 }
@@ -230,12 +230,12 @@ class __$$EnabledModeImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$EnabledModeImpl implements EnabledMode {
-  const _$EnabledModeImpl({required final List<OrderItem> orders})
+  const _$EnabledModeImpl({required final List<OrdersDatum> orders})
       : _orders = orders;
 
-  final List<OrderItem> _orders;
+  final List<OrdersDatum> _orders;
   @override
-  List<OrderItem> get orders {
+  List<OrdersDatum> get orders {
     if (_orders is EqualUnmodifiableListView) return _orders;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_orders);
@@ -270,7 +270,7 @@ class _$EnabledModeImpl implements EnabledMode {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() disabled,
-    required TResult Function(List<OrderItem> orders) enabled,
+    required TResult Function(List<OrdersDatum> orders) enabled,
     required TResult Function() empty,
   }) {
     return enabled(orders);
@@ -280,7 +280,7 @@ class _$EnabledModeImpl implements EnabledMode {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? disabled,
-    TResult? Function(List<OrderItem> orders)? enabled,
+    TResult? Function(List<OrdersDatum> orders)? enabled,
     TResult? Function()? empty,
   }) {
     return enabled?.call(orders);
@@ -290,7 +290,7 @@ class _$EnabledModeImpl implements EnabledMode {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? disabled,
-    TResult Function(List<OrderItem> orders)? enabled,
+    TResult Function(List<OrdersDatum> orders)? enabled,
     TResult Function()? empty,
     required TResult orElse(),
   }) {
@@ -336,10 +336,10 @@ class _$EnabledModeImpl implements EnabledMode {
 }
 
 abstract class EnabledMode implements OrdersSearchState {
-  const factory EnabledMode({required final List<OrderItem> orders}) =
+  const factory EnabledMode({required final List<OrdersDatum> orders}) =
       _$EnabledModeImpl;
 
-  List<OrderItem> get orders;
+  List<OrdersDatum> get orders;
 
   /// Create a copy of OrdersSearchState
   /// with the given fields replaced by the non-null parameter values.
@@ -390,7 +390,7 @@ class _$EmptyModeImpl implements EmptyMode {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() disabled,
-    required TResult Function(List<OrderItem> orders) enabled,
+    required TResult Function(List<OrdersDatum> orders) enabled,
     required TResult Function() empty,
   }) {
     return empty();
@@ -400,7 +400,7 @@ class _$EmptyModeImpl implements EmptyMode {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? disabled,
-    TResult? Function(List<OrderItem> orders)? enabled,
+    TResult? Function(List<OrdersDatum> orders)? enabled,
     TResult? Function()? empty,
   }) {
     return empty?.call();
@@ -410,7 +410,7 @@ class _$EmptyModeImpl implements EmptyMode {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? disabled,
-    TResult Function(List<OrderItem> orders)? enabled,
+    TResult Function(List<OrdersDatum> orders)? enabled,
     TResult Function()? empty,
     required TResult orElse(),
   }) {

@@ -1,8 +1,8 @@
-import 'package:alalamia_admin/modules/orders/data/models/orders/orders_response_model.dart';
-import 'package:alalamia_admin/modules/orders/services/api_orders_service.dart';
+import 'package:alalamia_admin/core/networking/api_service.dart';
+import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/orders_response_model.dart';
 
 class OrdersRebo {
-  final ApiOrdersService apiOrdersService;
+  final ApiService apiOrdersService;
   OrdersRebo({required this.apiOrdersService});
 
   Future<OrdersResponseModel> getOrders(int page) =>

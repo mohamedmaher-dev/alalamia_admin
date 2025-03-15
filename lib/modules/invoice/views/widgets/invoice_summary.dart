@@ -1,11 +1,15 @@
 part of '../invoice_view.dart';
 
-Widget _invoiceSummary({required Font font, required OrderItem order}) {
+Widget _invoiceSummary({
+  required Font font,
+  required OrdersDetailsResponseModel order,
+  required String currency,
+}) {
   return pw.Container(
     margin: const pw.EdgeInsets.only(bottom: 10),
     alignment: pw.Alignment.center,
     child: pw.Table(
-      columnWidths: {0: pw.FlexColumnWidth(1), 1: pw.FlexColumnWidth(3)},
+      columnWidths: {0: pw.FlexColumnWidth(1), 1: pw.FlexColumnWidth(4)},
       children: [
         pw.TableRow(
           children:
@@ -24,7 +28,7 @@ Widget _invoiceSummary({required Font font, required OrderItem order}) {
                 pw.Padding(
                   padding: pw.EdgeInsets.all(kNormalPadding),
                   child: pw.Text(
-                    "${order.cart.priceSum.toString()} ${order.cart.user.wallet.currencyName}",
+                    "${order.priceSum} $currency",
                     style: pw.TextStyle(
                       font: font,
                       fontSize: 15,

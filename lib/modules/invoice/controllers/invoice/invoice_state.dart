@@ -8,7 +8,7 @@ class InvoiceState with _$InvoiceState {
   const factory InvoiceState.showSuccess({
     required Uint8List pdfData,
     required InvoiceCubit cubit,
-    required OrderItem orderItem,
+    required OrdersDetailsResponseModel order,
   }) = _ShowSuccess;
   const factory InvoiceState.saveLoading() = _SaveLoading;
   const factory InvoiceState.saveSuccess() = _SaveSuccess;

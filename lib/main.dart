@@ -5,7 +5,6 @@ import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
 import 'package:alalamia_admin/core/localization/app_localization_controller.dart';
 import 'package:alalamia_admin/core/themes/app_theme_controller.dart';
-import 'package:alalamia_admin/modules/notification/services/fcm_manger.dart';
 import 'package:alalamia_admin/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await FCMManger.init();
   await diInit();
   await di<LocalStorageService>().init();
   await di<AppLocalizationController>().init();

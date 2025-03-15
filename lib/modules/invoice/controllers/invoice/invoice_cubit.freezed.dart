@@ -21,8 +21,8 @@ mixin _$InvoiceState {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)
+    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)
         showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
@@ -34,8 +34,8 @@ mixin _$InvoiceState {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
@@ -47,8 +47,8 @@ mixin _$InvoiceState {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
@@ -157,8 +157,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)
+    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)
         showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
@@ -173,8 +173,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
@@ -189,8 +189,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
@@ -298,8 +298,8 @@ class _$ShowLoadingImpl implements _ShowLoading {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)
+    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)
         showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
@@ -314,8 +314,8 @@ class _$ShowLoadingImpl implements _ShowLoading {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
@@ -330,8 +330,8 @@ class _$ShowLoadingImpl implements _ShowLoading {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
@@ -439,8 +439,8 @@ class _$ShowFailureImpl implements _ShowFailure {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)
+    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)
         showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
@@ -455,8 +455,8 @@ class _$ShowFailureImpl implements _ShowFailure {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
@@ -471,8 +471,8 @@ class _$ShowFailureImpl implements _ShowFailure {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
@@ -542,7 +542,10 @@ abstract class _$$ShowSuccessImplCopyWith<$Res> {
           _$ShowSuccessImpl value, $Res Function(_$ShowSuccessImpl) then) =
       __$$ShowSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem});
+  $Res call(
+      {Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order});
 }
 
 /// @nodoc
@@ -560,7 +563,7 @@ class __$$ShowSuccessImplCopyWithImpl<$Res>
   $Res call({
     Object? pdfData = null,
     Object? cubit = null,
-    Object? orderItem = null,
+    Object? order = null,
   }) {
     return _then(_$ShowSuccessImpl(
       pdfData: null == pdfData
@@ -571,10 +574,10 @@ class __$$ShowSuccessImplCopyWithImpl<$Res>
           ? _value.cubit
           : cubit // ignore: cast_nullable_to_non_nullable
               as InvoiceCubit,
-      orderItem: null == orderItem
-          ? _value.orderItem
-          : orderItem // ignore: cast_nullable_to_non_nullable
-              as OrderItem,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as OrdersDetailsResponseModel,
     ));
   }
 }
@@ -583,18 +586,18 @@ class __$$ShowSuccessImplCopyWithImpl<$Res>
 
 class _$ShowSuccessImpl implements _ShowSuccess {
   const _$ShowSuccessImpl(
-      {required this.pdfData, required this.cubit, required this.orderItem});
+      {required this.pdfData, required this.cubit, required this.order});
 
   @override
   final Uint8List pdfData;
   @override
   final InvoiceCubit cubit;
   @override
-  final OrderItem orderItem;
+  final OrdersDetailsResponseModel order;
 
   @override
   String toString() {
-    return 'InvoiceState.showSuccess(pdfData: $pdfData, cubit: $cubit, orderItem: $orderItem)';
+    return 'InvoiceState.showSuccess(pdfData: $pdfData, cubit: $cubit, order: $order)';
   }
 
   @override
@@ -604,13 +607,12 @@ class _$ShowSuccessImpl implements _ShowSuccess {
             other is _$ShowSuccessImpl &&
             const DeepCollectionEquality().equals(other.pdfData, pdfData) &&
             (identical(other.cubit, cubit) || other.cubit == cubit) &&
-            (identical(other.orderItem, orderItem) ||
-                other.orderItem == orderItem));
+            (identical(other.order, order) || other.order == order));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(pdfData), cubit, orderItem);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(pdfData), cubit, order);
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
@@ -626,14 +628,14 @@ class _$ShowSuccessImpl implements _ShowSuccess {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)
+    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)
         showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
     required TResult Function() saveFailure,
   }) {
-    return showSuccess(pdfData, cubit, orderItem);
+    return showSuccess(pdfData, cubit, order);
   }
 
   @override
@@ -642,14 +644,14 @@ class _$ShowSuccessImpl implements _ShowSuccess {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
     TResult? Function()? saveFailure,
   }) {
-    return showSuccess?.call(pdfData, cubit, orderItem);
+    return showSuccess?.call(pdfData, cubit, order);
   }
 
   @override
@@ -658,8 +660,8 @@ class _$ShowSuccessImpl implements _ShowSuccess {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
@@ -667,7 +669,7 @@ class _$ShowSuccessImpl implements _ShowSuccess {
     required TResult orElse(),
   }) {
     if (showSuccess != null) {
-      return showSuccess(pdfData, cubit, orderItem);
+      return showSuccess(pdfData, cubit, order);
     }
     return orElse();
   }
@@ -723,11 +725,11 @@ abstract class _ShowSuccess implements InvoiceState {
   const factory _ShowSuccess(
       {required final Uint8List pdfData,
       required final InvoiceCubit cubit,
-      required final OrderItem orderItem}) = _$ShowSuccessImpl;
+      required final OrdersDetailsResponseModel order}) = _$ShowSuccessImpl;
 
   Uint8List get pdfData;
   InvoiceCubit get cubit;
-  OrderItem get orderItem;
+  OrdersDetailsResponseModel get order;
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
@@ -780,8 +782,8 @@ class _$SaveLoadingImpl implements _SaveLoading {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)
+    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)
         showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
@@ -796,8 +798,8 @@ class _$SaveLoadingImpl implements _SaveLoading {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
@@ -812,8 +814,8 @@ class _$SaveLoadingImpl implements _SaveLoading {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
@@ -921,8 +923,8 @@ class _$SaveSuccessImpl implements _SaveSuccess {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)
+    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)
         showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
@@ -937,8 +939,8 @@ class _$SaveSuccessImpl implements _SaveSuccess {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
@@ -953,8 +955,8 @@ class _$SaveSuccessImpl implements _SaveSuccess {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
@@ -1062,8 +1064,8 @@ class _$SaveFailureImpl implements _SaveFailure {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)
+    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)
         showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
@@ -1078,8 +1080,8 @@ class _$SaveFailureImpl implements _SaveFailure {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
@@ -1094,8 +1096,8 @@ class _$SaveFailureImpl implements _SaveFailure {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(
-            Uint8List pdfData, InvoiceCubit cubit, OrderItem orderItem)?
+    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
+            OrdersDetailsResponseModel order)?
         showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,

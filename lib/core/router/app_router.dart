@@ -2,8 +2,8 @@ import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/controllers/sign_in_cubit/sign_in_cubit.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/views/sign_in_view.dart';
 import 'package:alalamia_admin/modules/home/views/home_view.dart';
-import 'package:alalamia_admin/modules/one_order/views/one_order_view.dart';
-import 'package:alalamia_admin/modules/orders/data/models/orders/orders_response_model.dart';
+import 'package:alalamia_admin/modules/order_details/views/one_order_view.dart';
+import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/datum.dart';
 import 'package:alalamia_admin/modules/settings/views/settings_view.dart';
 import 'package:alalamia_admin/modules/splash/controllers/splash/splash_cubit.dart';
 import 'package:alalamia_admin/modules/splash/views/splash_view.dart';
@@ -40,10 +40,10 @@ class AppRouter {
         builder: (context, state) => HomeView(),
       ),
       GoRoute(
-        path: AppPages.oneOrder.path,
+        path: AppPages.orderDetails.path,
         builder:
             (context, state) =>
-                OneOrderView(orderItem: state.extra as OrderItem),
+                OrderDetailsView(args: state.extra as OrdersDatum),
       ),
       GoRoute(
         path: AppPages.settings.path,
@@ -54,9 +54,9 @@ class AppRouter {
 
   static pushReplacement(AppPages page, {Object? extra}) =>
       routerConfig.go(page.path, extra: extra);
-  static push(AppPages page, {Object? extra}) =>
+  static Future<void> push(AppPages page, {Object? extra}) =>
       routerConfig.push(page.path, extra: extra);
   static pushAndRemoveUntil(AppPages page, {Object? extra}) =>
       routerConfig.go(page.path, extra: extra);
-  static pop({Object? extra}) => routerConfig.pop();
+  static pop() => routerConfig.pop();
 }

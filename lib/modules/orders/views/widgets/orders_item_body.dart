@@ -6,15 +6,19 @@ class _OrderItemBody extends StatelessWidget {
     required this.model,
     required this.isLoading,
   });
-  final OrderItem model;
+  final OrdersDatum model;
   final int index;
   final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<OrdersCubit>();
     final language = Language.of(context);
     return GestureDetector(
-      onTap: () => AppRouter.push(AppPages.oneOrder, extra: model),
+      onTap: () async {
+        await AppRouter.push(AppPages.orderDetails, extra: model);
+        cubit.pagingController.refresh();
+      },
       child: Skeletonizer(
         enabled: isLoading,
         child: Card(
@@ -22,7 +26,7 @@ class _OrderItemBody extends StatelessWidget {
             children: [
               ListTile(
                 leading: Icon(CupertinoIcons.person),
-                title: Text(model.cart.user.name, style: TextStyles.tsP12B),
+                title: Text(model.userName, style: TextStyles.tsP12B),
                 subtitle: Text(language.client_name),
                 trailing: Icon(CupertinoIcons.right_chevron),
               ),
@@ -31,10 +35,7 @@ class _OrderItemBody extends StatelessWidget {
                   Expanded(
                     child: ListTile(
                       leading: Icon(CupertinoIcons.phone),
-                      title: Text(
-                        model.cart.user.phone,
-                        style: TextStyles.tsP12B,
-                      ),
+                      title: Text(model.phone, style: TextStyles.tsP12B),
                       subtitle: Text(language.client_number),
                     ),
                   ),
@@ -42,7 +43,7 @@ class _OrderItemBody extends StatelessWidget {
                     child: ListTile(
                       leading: Icon(CupertinoIcons.clock),
                       title: Text(
-                        Jiffy.parse(model.orderDate).fromNow(),
+                        Jiffy.parse(model.bookingDate).fromNow(),
                         style: TextStyles.tsP12B,
                       ),
                       subtitle: Text(language.order_date),
@@ -64,12 +65,12 @@ class _OrderItemBody extends StatelessWidget {
                   ),
                   Expanded(
                     child: ListTile(
-                      leading: Icon(CupertinoIcons.cart),
+                      leading: Icon(CupertinoIcons.money_dollar_circle),
                       title: Text(
-                        '${model.cart.items.length} ${language.product}',
+                        model.paymentType.paymentTypeText,
                         style: TextStyles.tsP12B,
                       ),
-                      subtitle: Text(language.count_of_products),
+                      subtitle: Text(language.payment_type),
                     ),
                   ),
                 ],
@@ -81,11 +82,11 @@ class _OrderItemBody extends StatelessWidget {
                 padding: EdgeInsets.all(kNormalPadding),
                 margin: EdgeInsets.all(kNormalMargin),
                 decoration: BoxDecoration(
-                  color: ColorManger.myGold,
+                  color: model.status.orderStatusColor,
                   borderRadius: BorderRadius.circular(kNormalRadius),
                 ),
                 child: Text(
-                  'في انتظار الموافقة',
+                  model.status.orderStatusText,
                   style: TextStyles.ts12B.copyWith(color: Colors.black),
                 ),
               ),

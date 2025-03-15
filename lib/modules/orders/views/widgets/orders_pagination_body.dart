@@ -4,12 +4,13 @@ class _OrdersPaginationBody extends StatelessWidget {
   const _OrdersPaginationBody();
   @override
   Widget build(BuildContext context) {
+    final language = Language.of(context);
     final cubit = context.read<OrdersCubit>();
     return PagingListener(
       controller: cubit.pagingController,
       builder:
           (context, state, fetchNextPage) => Expanded(
-            child: PagedListView<int, OrderItem>(
+            child: PagedListView<int, OrdersDatum>(
               physics:
                   state.isLoading && state.keys == null
                       ? NeverScrollableScrollPhysics()
@@ -29,12 +30,15 @@ class _OrdersPaginationBody extends StatelessWidget {
                       ),
                     ),
                 newPageErrorIndicatorBuilder:
-                    (context) => Center(child: Text("Something went wrong")),
-                noItemsFoundIndicatorBuilder:
                     (context) =>
-                        EmptyView(icon: Icons.list, text: 'No orders found'),
+                        Center(child: Text(language.something_went_wrong)),
+                noItemsFoundIndicatorBuilder:
+                    (context) => EmptyView(
+                      icon: Icons.list,
+                      text: language.no_orders_found,
+                    ),
                 noMoreItemsIndicatorBuilder:
-                    (context) => Center(child: Text('No more orders')),
+                    (context) => Center(child: Text(language.no_more_orders)),
                 itemBuilder:
                     (context, item, index) => _OrderItemBody(
                       index: index,

@@ -21,7 +21,11 @@ class AppSnackBar {
       padding: EdgeInsets.all(25.w),
       content: AwesomeSnackbarContent(
         title:
-            type == ContentType.failure ? language.failure : language.success,
+            type == ContentType.failure
+                ? language.failure
+                : type == ContentType.success
+                ? language.success
+                : language.warning,
         message: msg,
         contentType: type,
       ),

@@ -9,7 +9,7 @@ class _SettingsGeneralBodyView extends StatelessWidget {
     final language = Language.of(context);
     return Column(
       children: [
-        ListTile(title: Text(language.general, style: TextStyles.tsP15B)),
+        ListTile(title: Text(language.general, style: TextStyles.ts15B)),
         Card(
           child: Column(
             children: [
@@ -51,7 +51,6 @@ class _SettingsGeneralBodyView extends StatelessWidget {
                       title: language.log_out,
                       subtitle: language.are_you_sure_you_want_to_log_out,
                       onPressed: () async {
-                        AppRouter.pop();
                         await LocalStorageService.deleteUserCredential();
                         AppRouter.pushReplacement(AppPages.splash);
                       },
