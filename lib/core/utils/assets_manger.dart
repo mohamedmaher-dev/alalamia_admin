@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class AssetsManger {
   AssetsManger._();
-  
+
   /// Assets for fontsTajawalBlack
   /// assets/fonts/Tajawal-Black.ttf
   static const String fontsTajawalBlack = "assets/fonts/Tajawal-Black.ttf";
@@ -12,11 +12,13 @@ class AssetsManger {
 
   /// Assets for fontsTajawalExtraBold
   /// assets/fonts/Tajawal-ExtraBold.ttf
-  static const String fontsTajawalExtraBold = "assets/fonts/Tajawal-ExtraBold.ttf";
+  static const String fontsTajawalExtraBold =
+      "assets/fonts/Tajawal-ExtraBold.ttf";
 
   /// Assets for fontsTajawalExtraLight
   /// assets/fonts/Tajawal-ExtraLight.ttf
-  static const String fontsTajawalExtraLight = "assets/fonts/Tajawal-ExtraLight.ttf";
+  static const String fontsTajawalExtraLight =
+      "assets/fonts/Tajawal-ExtraLight.ttf";
 
   /// Assets for fontsTajawalLight
   /// assets/fonts/Tajawal-Light.ttf
@@ -40,7 +42,8 @@ class AssetsManger {
 
   /// Assets for imagesHorizontalLogo
   /// assets/images/horizontal_logo.png
-  static const String imagesHorizontalLogo = "assets/images/horizontal_logo.png";
+  static const String imagesHorizontalLogo =
+      "assets/images/horizontal_logo.png";
 
   /// Assets for imagesKsa
   /// assets/images/ksa.png
@@ -50,4 +53,3 @@ class AssetsManger {
   /// assets/images/uae.png
   static const String imagesUae = "assets/images/uae.png";
 }
-

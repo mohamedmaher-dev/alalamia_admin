@@ -9,7 +9,7 @@ import 'package:alalamia_admin/core/widgets/change_country_btn.dart';
 import 'package:alalamia_admin/core/widgets/change_language_btn.dart';
 import 'package:alalamia_admin/core/widgets/pop_loading.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/controllers/sign_in_cubit/sign_in_cubit.dart';
-import 'package:alalamia_admin/modules/auth/sign_in/models/sign_in_request_model.dart';
+import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 part 'widgets/form_body.dart';

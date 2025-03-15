@@ -599,6 +599,396 @@ class Language {
       args: [],
     );
   }
+
+  /// `لا يوجد بيانات`
+  String get no_data {
+    return Intl.message(
+      'لا يوجد بيانات',
+      name: 'no_data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `محفظة العالمية`
+  String get alalmia_wallet {
+    return Intl.message(
+      'محفظة العالمية',
+      name: 'alalmia_wallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `نقدًا`
+  String get cash {
+    return Intl.message(
+      'نقدًا',
+      name: 'cash',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `باي بال`
+  String get paypal {
+    return Intl.message(
+      'باي بال',
+      name: 'paypal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `بطاقة`
+  String get card {
+    return Intl.message(
+      'بطاقة',
+      name: 'card',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `طريقة الدفع`
+  String get payment_type {
+    return Intl.message(
+      'طريقة الدفع',
+      name: 'payment_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قيد المراجعة`
+  String get status_review {
+    return Intl.message(
+      'قيد المراجعة',
+      name: 'status_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تمت الموافقة`
+  String get status_approved {
+    return Intl.message(
+      'تمت الموافقة',
+      name: 'status_approved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قيد التجهيز`
+  String get status_preparing {
+    return Intl.message(
+      'قيد التجهيز',
+      name: 'status_preparing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `في الطريق`
+  String get status_on_the_way {
+    return Intl.message(
+      'في الطريق',
+      name: 'status_on_the_way',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم التوصيل`
+  String get status_delivered {
+    return Intl.message(
+      'تم التوصيل',
+      name: 'status_delivered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم الالغاء`
+  String get status_canceled {
+    return Intl.message(
+      'تم الالغاء',
+      name: 'status_canceled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `معلومات أخرى`
+  String get other_info {
+    return Intl.message(
+      'معلومات أخرى',
+      name: 'other_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `موافقة`
+  String get approve {
+    return Intl.message(
+      'موافقة',
+      name: 'approve',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رفض`
+  String get reject {
+    return Intl.message(
+      'رفض',
+      name: 'reject',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `وصف`
+  String get description {
+    return Intl.message(
+      'وصف',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `وصف الموقع`
+  String get location_desc {
+    return Intl.message(
+      'وصف الموقع',
+      name: 'location_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مزيد من المعلومات`
+  String get more_info {
+    return Intl.message(
+      'مزيد من المعلومات',
+      name: 'more_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تغيير حالة الطلب بنجاح`
+  String get order_status_change_successfully {
+    return Intl.message(
+      'تم تغيير حالة الطلب بنجاح',
+      name: 'order_status_change_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `فشل تغيير حالة الطلب`
+  String get failure_to_change_order_status {
+    return Intl.message(
+      'فشل تغيير حالة الطلب',
+      name: 'failure_to_change_order_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `موافقة على هذا الطلب`
+  String get approve_this_order {
+    return Intl.message(
+      'موافقة على هذا الطلب',
+      name: 'approve_this_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد موافقة على هذا الطلب؟`
+  String get do_you_want_to_approve_this_order {
+    return Intl.message(
+      'هل تريد موافقة على هذا الطلب؟',
+      name: 'do_you_want_to_approve_this_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إلغاء هذا الطلب`
+  String get reject_this_order {
+    return Intl.message(
+      'إلغاء هذا الطلب',
+      name: 'reject_this_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد إلغاء هذا الطلب؟`
+  String get do_you_want_to_reject_this_order {
+    return Intl.message(
+      'هل تريد إلغاء هذا الطلب؟',
+      name: 'do_you_want_to_reject_this_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `احصائيات`
+  String get statistics {
+    return Intl.message(
+      'احصائيات',
+      name: 'statistics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `معلومات العميل`
+  String get client_info {
+    return Intl.message(
+      'معلومات العميل',
+      name: 'client_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الكمية`
+  String get quantity {
+    return Intl.message(
+      'الكمية',
+      name: 'quantity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `السعر`
+  String get price {
+    return Intl.message(
+      'السعر',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `وحدة`
+  String get unit {
+    return Intl.message(
+      'وحدة',
+      name: 'unit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تغيير الحالة`
+  String get change_status {
+    return Intl.message(
+      'تغيير الحالة',
+      name: 'change_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل أنت متأكد أنك تريد تغيير حالة هذا الطلب؟`
+  String get are_you_sure_you_want_to_change_this_order_status {
+    return Intl.message(
+      'هل أنت متأكد أنك تريد تغيير حالة هذا الطلب؟',
+      name: 'are_you_sure_you_want_to_change_this_order_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تحذير`
+  String get warning {
+    return Intl.message(
+      'تحذير',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هذه هي حالة الطلب الحالية`
+  String get this_is_current_status_of_the_order {
+    return Intl.message(
+      'هذه هي حالة الطلب الحالية',
+      name: 'this_is_current_status_of_the_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `- اضغط لتغيير الحالة -`
+  String get click_to_change_status {
+    return Intl.message(
+      '- اضغط لتغيير الحالة -',
+      name: 'click_to_change_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رقم شحنة آرامكس`
+  String get aramex_number {
+    return Intl.message(
+      'رقم شحنة آرامكس',
+      name: 'aramex_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رقم الصنف`
+  String get product_code {
+    return Intl.message(
+      'رقم الصنف',
+      name: 'product_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حدث خطأ ما`
+  String get something_went_wrong {
+    return Intl.message(
+      'حدث خطأ ما',
+      name: 'something_went_wrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد طلبات`
+  String get no_orders_found {
+    return Intl.message(
+      'لا يوجد طلبات',
+      name: 'no_orders_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد طلبات أخرى`
+  String get no_more_orders {
+    return Intl.message(
+      'لا يوجد طلبات أخرى',
+      name: 'no_more_orders',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Language> {

@@ -3,9 +3,7 @@ import 'package:dio/dio.dart';
 import 'api_error_model.dart';
 import 'api_result.dart';
 
-Future<ApiResult<RS>> apiTryCatch<RS>({
-  required Future<RS> apiCall,
-}) async {
+Future<ApiResult<RS>> apiTryCatch<RS>({required Future<RS> apiCall}) async {
   try {
     final response = await apiCall;
     return ApiResult.success(response);

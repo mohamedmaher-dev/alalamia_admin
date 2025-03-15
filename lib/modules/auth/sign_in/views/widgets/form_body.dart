@@ -24,6 +24,8 @@ class _FormBody extends StatelessWidget {
                 borderSide: BorderSide.none,
               ),
             ),
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
             validator: (value) => FormValidation.validateEmail(value),
           ),
           SizedBox(height: kSpacingBetweenWidgetsHight),
@@ -52,6 +54,7 @@ class _FormBody extends StatelessWidget {
                   ),
                 ),
                 obscureText: !signIn.isShowPassword,
+                textInputAction: TextInputAction.done,
                 validator: (value) => FormValidation.validatePassword(value),
               );
             },

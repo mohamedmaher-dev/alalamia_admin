@@ -41,9 +41,12 @@ dependencies:
   jiffy: ^6.3.2
   skeletonizer: ^1.4.3
   easy_stepper: ^0.8.5+1
+  infinite_scroll_pagination: ^5.0.0
+  salomon_bottom_bar: ^3.3.2
+  syncfusion_flutter_gauges: ^28.2.9
 
   # ===== State Mangement =====
-  flutter_bloc: ^9.0.0
+  flutter_bloc: ^9.1.0
   bloc: ^9.0.0
 
   # ===== Firebase =====
@@ -71,6 +74,9 @@ dependencies:
   # ==== Security =====
   envied: ^1.1.1
   flutter_secure_storage: ^9.2.4
+
+  # ===== Map =====
+  map_launcher: ^3.5.0
 
   # ===== PDF =====
   pdf: ^3.11.3

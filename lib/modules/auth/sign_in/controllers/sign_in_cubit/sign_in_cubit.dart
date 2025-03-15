@@ -2,8 +2,8 @@ import 'package:alalamia_admin/core/local_storage/models/user_credential_model.d
 import 'package:alalamia_admin/core/models/country_model.dart';
 import 'package:alalamia_admin/core/networking/api_error_model.dart';
 import 'package:alalamia_admin/core/networking/dio_factory.dart';
-import 'package:alalamia_admin/modules/auth/rebos/auth_rebo.dart';
-import 'package:alalamia_admin/modules/auth/sign_in/models/sign_in_request_model.dart';
+import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
+import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

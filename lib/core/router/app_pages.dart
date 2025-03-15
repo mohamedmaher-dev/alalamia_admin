@@ -4,7 +4,7 @@ enum AppPages {
   signIn(path: '/auth/signIn'),
   home(path: '/home'),
   settings(path: '/settings'),
-  oneOrder(path: '/orders/oneOrder'),
+  orderDetails(path: '/orders/:orderId'),
   splash(path: '/');
 
   const AppPages({required this.path});

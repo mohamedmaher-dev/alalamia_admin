@@ -13,6 +13,8 @@ void Function(BuildContext, InvoiceState) inVoiceListener = (context, state) {
     showLoading: () => PopLoading.show(),
     showSuccess:
         (pdfData, cubit, order) => showModalBottomSheet(
+          showDragHandle: false,
+          backgroundColor: Colors.transparent,
           context: context,
           builder:
               (context) => Scaffold(

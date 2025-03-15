@@ -4,16 +4,18 @@ import 'dart:typed_data';
 import 'package:alalamia_admin/core/localization/generated/l10n.dart';
 import 'package:alalamia_admin/modules/invoice/services/save_invoice_result.dart';
 import 'package:alalamia_admin/modules/invoice/views/invoice_view.dart';
-import 'package:alalamia_admin/modules/orders/data/models/orders/orders_response_model.dart';
+import 'package:alalamia_admin/modules/order_details/data/models/orders_details_response_model/orders_details_response_model.dart';
+import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/datum.dart';
 import 'package:external_path/external_path.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class InvoiceRebo {
   Future<SaveInvoiceResult<Uint8List>> createPdfData(
-    OrderItem orderItem,
+    OrdersDetailsResponseModel order,
+    OrdersDatum orderDetailsArgs,
   ) async {
     try {
-      final pdfData = await createStyledInvoice(orderItem);
+      final pdfData = await createStyledInvoice(order, orderDetailsArgs);
       return SaveInvoiceResult.success(pdfData);
     } catch (e) {
       return SaveInvoiceResult.failure(e.toString());
@@ -21,7 +23,7 @@ class InvoiceRebo {
   }
 
   Future<SaveInvoiceResult<void>> saveInvoice(
-    OrderItem orderItem,
+    OrdersDetailsResponseModel order,
     Uint8List pdfData,
   ) async {
     try {
@@ -35,7 +37,7 @@ class InvoiceRebo {
         final folder = await ExternalPath.getExternalStoragePublicDirectory(
           ExternalPath.DIRECTORY_DOCUMENTS,
         );
-        final file = File('$folder/${orderItem.requestNumber}.pdf');
+        final file = File('$folder/${order.requestNo}.pdf');
         await file.create(recursive: true);
         await file.writeAsBytes(pdfData);
         return SaveInvoiceResult.success(null);

@@ -1,19 +1,23 @@
 part of '../invoice_view.dart';
 
-Widget _invoiceInfo({required Font font, required OrderItem orderIem}) {
+Widget _invoiceInfo({
+  required Font font,
+  required OrdersDetailsResponseModel order,
+  required String userPhone,
+}) {
   return pw.Column(
     crossAxisAlignment: pw.CrossAxisAlignment.start,
     children: [
       _invoiceInfoRow(
         font: font,
-        value1: "اسم العميل : ${orderIem.cart.user.name}",
-        value2: 'رقم الهاتف : ${orderIem.cart.user.phone}',
+        value1: "اسم العميل : ${order.userName}",
+        value2: 'رقم الهاتف : $userPhone',
       ),
       pw.Container(
         alignment: pw.Alignment.centerRight,
         height: 20,
         child: pw.Text(
-          'العنوان : ${orderIem.address == null ? 'لا يوجد بيانات' : orderIem.address!.addressName}',
+          'العنوان : ${order.address!.name}',
           style: pw.TextStyle(font: font, fontSize: 15),
         ),
       ),
@@ -21,7 +25,7 @@ Widget _invoiceInfo({required Font font, required OrderItem orderIem}) {
         alignment: pw.Alignment.centerRight,
         height: 20,
         child: pw.Text(
-          "رقم الطلب : ${orderIem.requestNumber}",
+          "رقم الطلب : ${order.requestNo}",
           style: pw.TextStyle(font: font, fontSize: 15),
         ),
       ),
@@ -29,7 +33,7 @@ Widget _invoiceInfo({required Font font, required OrderItem orderIem}) {
         alignment: pw.Alignment.centerRight,
         height: 20,
         child: pw.Text(
-          'تاريخ الطلب : ${Jiffy.parse(orderIem.orderDate).yMMMEdjm}',
+          'تاريخ الطلب : ${Jiffy.parse(order.createdAt!).yMMMEdjm}',
           style: pw.TextStyle(font: font, fontSize: 15),
         ),
       ),

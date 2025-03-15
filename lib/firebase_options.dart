@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '646433117706',
     projectId: 'matjeralalmia',
     storageBucket: 'matjeralalmia.appspot.com',
-    androidClientId: '646433117706-a6usq6i46ct76v6m53ju6imumh2r8p4a.apps.googleusercontent.com',
+    androidClientId:
+        '646433117706-a6usq6i46ct76v6m53ju6imumh2r8p4a.apps.googleusercontent.com',
     iosBundleId: 'com.alalamia.admin',
   );
 }

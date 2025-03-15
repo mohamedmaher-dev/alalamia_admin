@@ -38,7 +38,10 @@ class _PopUpConfirm extends StatelessWidget {
                   Expanded(
                     child: GeneralBtn(
                       title: language.yes,
-                      onPressed: onPressed,
+                      onPressed: () {
+                        Navigator.pop(context);
+                        onPressed();
+                      },
                     ),
                   ),
                   SizedBox(width: 10.w),

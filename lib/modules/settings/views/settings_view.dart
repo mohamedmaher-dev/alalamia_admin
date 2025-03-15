@@ -31,28 +31,12 @@ class _SettingsBodyState extends State<_SettingsBody> {
   @override
   Widget build(BuildContext context) {
     final mainBloc = BlocProvider.of<MainCubit>(context);
-    final language = Language.of(context);
     return BlocBuilder<MainCubit, MainState>(
       builder: (context, state) {
-        return PopScope(
-          canPop: false,
-          onPopInvokedWithResult: (didPop, result) {
-            AppRouter.pushAndRemoveUntil(AppPages.home);
-          },
-          child: Scaffold(
-            appBar: AppBar(
-              title: Text(language.settings),
-              leading: IconButton(
-                onPressed: () {
-                  AppRouter.pushReplacement(AppPages.home);
-                },
-                icon: const Icon(Icons.arrow_back),
-              ),
-            ),
-            body: ListView(
-              padding: EdgeInsets.all(10.w),
-              children: [_SettingsGeneralBodyView(mainBloc: mainBloc)],
-            ),
+        return Scaffold(
+          body: ListView(
+            padding: EdgeInsets.all(10.w),
+            children: [_SettingsGeneralBodyView(mainBloc: mainBloc)],
           ),
         );
       },

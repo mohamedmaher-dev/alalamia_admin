@@ -18,6 +18,7 @@ class ColorManger {
       _isDark ? Color(0xff3d4146) : Color(0xffe0e4e8);
   static Color get red => colorScheme.error;
   static Color get background => colorScheme.surface;
+  static Color get cardBackground => colorScheme.surfaceContainerLow;
 
   static ColorScheme get colorScheme =>
       !_isDark

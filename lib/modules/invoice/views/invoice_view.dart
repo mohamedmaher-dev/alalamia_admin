@@ -1,6 +1,7 @@
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/utils/assets_manger.dart';
-import 'package:alalamia_admin/modules/orders/data/models/orders/orders_response_model.dart';
+import 'package:alalamia_admin/modules/order_details/data/models/orders_details_response_model/orders_details_response_model.dart';
+import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/datum.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:jiffy/jiffy.dart';
 import 'package:pdf/pdf.dart';
@@ -13,7 +14,10 @@ part 'widgets/invoice_table_header.dart';
 part 'widgets/invoice_table_content.dart';
 part 'widgets/invoice_summary.dart';
 
-Future<Uint8List> createStyledInvoice(OrderItem order) async {
+Future<Uint8List> createStyledInvoice(
+  OrdersDetailsResponseModel order,
+  OrdersDatum orderArgs,
+) async {
   final fontData = await rootBundle.load(AssetsManger.fontsTajawalRegular);
   final font = pw.Font.ttf(fontData);
   final pdf = pw.Document();
@@ -32,7 +36,7 @@ Future<Uint8List> createStyledInvoice(OrderItem order) async {
             pw.Divider(thickness: 1),
             // Invoice Info
             pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-            _invoiceInfo(font: font, orderIem: order),
+            _invoiceInfo(font: font, order: order, userPhone: orderArgs.phone),
             // Table Header
             pw.SizedBox(height: kSpacingBetweenWidgetsHight),
             _invoiceTableHeader(font: font),
@@ -40,8 +44,12 @@ Future<Uint8List> createStyledInvoice(OrderItem order) async {
             _invoiceTableContent(font: font, order: order),
             // Summary
             pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+            _invoiceSummary(
+              font: font,
+              order: order,
+              currency: orderArgs.currency,
+            ),
             pw.Divider(thickness: 1),
-            _invoiceSummary(font: font, order: order),
           ],
         );
       },
