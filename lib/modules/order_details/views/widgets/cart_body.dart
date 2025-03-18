@@ -6,118 +6,101 @@ class _CartBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final language = Language.of(context);
-    return Column(
-      children: [
-        Divider(),
+    return Padding(
+      padding: EdgeInsets.all(kNormalPadding),
+      child: Column(
+        spacing: kSpacingBetweenWidgetsHight,
+        children: [
+          Table(
+            columnWidths: const {
+              0: FlexColumnWidth(1),
+              1: FlexColumnWidth(1),
+              2: FlexColumnWidth(1),
+              3: FlexColumnWidth(3),
+              4: FlexColumnWidth(1),
+            },
+            children: [_buildTableHeader()],
+          ),
 
-        ListTile(
-          leading: Icon(CupertinoIcons.cart_fill),
-          title: Text(language.the_cart, style: TextStyles.ts15B),
-        ),
-
-        Card(
-          child: Padding(
-            padding: EdgeInsets.all(kNormalPadding),
-            child: Column(
-              spacing: kSpacingBetweenWidgetsHight,
-              children: [
-                Table(
-                  columnWidths: const {
-                    0: FlexColumnWidth(1),
-                    1: FlexColumnWidth(1),
-                    2: FlexColumnWidth(1),
-                    3: FlexColumnWidth(3),
-                    4: FlexColumnWidth(1),
-                  },
-                  children: [
-                    TableRow(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(kNormalPadding),
-                          child: Text(
-                            language.quantity,
-                            style: TextStyles.ts10B.copyWith(
-                              color: Colors.black,
-                            ),
-                            textAlign: TextAlign.center,
-                            maxLines: 1,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(kNormalPadding),
-                          child: Text(
-                            language.unit,
-                            style: TextStyles.ts10B.copyWith(
-                              color: Colors.black,
-                            ),
-                            textAlign: TextAlign.center,
-                            maxLines: 1,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(kNormalPadding),
-                          child: Text(
-                            language.product_code,
-                            style: TextStyles.ts10B.copyWith(
-                              color: Colors.black,
-                            ),
-                            textAlign: TextAlign.center,
-                            maxLines: 1,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(kNormalPadding),
-                          child: Text(
-                            language.product_name,
-                            style: TextStyles.ts10B.copyWith(
-                              color: Colors.black,
-                            ),
-                            textAlign: TextAlign.start,
-                            maxLines: 1,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(kNormalPadding),
-                          child: Text(
-                            language.price,
-                            style: TextStyles.ts10B.copyWith(
-                              color: Colors.black,
-                            ),
-                            textAlign: TextAlign.center,
-                            maxLines: 1,
-                          ),
-                        ),
-                      ],
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(kNormalRadius),
-                        color: ColorManger.myGold,
-                      ),
-                    ),
-                  ],
+          Expanded(
+            child: SingleChildScrollView(
+              child: Table(
+                columnWidths: const {
+                  0: FlexColumnWidth(1),
+                  1: FlexColumnWidth(1),
+                  2: FlexColumnWidth(1),
+                  3: FlexColumnWidth(3),
+                  4: FlexColumnWidth(1),
+                },
+                children: _buildTableRow(cart),
+                border: TableBorder.all(
+                  color: ColorManger.myGold,
+                  borderRadius: BorderRadius.circular(kNormalRadius),
                 ),
-
-                Table(
-                  columnWidths: const {
-                    0: FlexColumnWidth(1),
-                    1: FlexColumnWidth(1),
-                    2: FlexColumnWidth(1),
-                    3: FlexColumnWidth(3),
-                    4: FlexColumnWidth(1),
-                  },
-                  children: _buildTableRow(cart),
-                  border: TableBorder.all(
-                    color: ColorManger.myGold,
-                    borderRadius: BorderRadius.circular(kNormalRadius),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
+}
+
+TableRow _buildTableHeader() {
+  final language = Language.current;
+  return TableRow(
+    children: [
+      Padding(
+        padding: EdgeInsets.all(kNormalPadding),
+        child: Text(
+          language.quantity,
+          style: TextStyles.ts10B.copyWith(color: Colors.black),
+          textAlign: TextAlign.center,
+          maxLines: 1,
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(kNormalPadding),
+        child: Text(
+          language.unit,
+          style: TextStyles.ts10B.copyWith(color: Colors.black),
+          textAlign: TextAlign.center,
+          maxLines: 1,
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(kNormalPadding),
+        child: Text(
+          language.product_code,
+          style: TextStyles.ts10B.copyWith(color: Colors.black),
+          textAlign: TextAlign.center,
+          maxLines: 1,
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(kNormalPadding),
+        child: Text(
+          language.product_name,
+          style: TextStyles.ts10B.copyWith(color: Colors.black),
+          textAlign: TextAlign.start,
+          maxLines: 1,
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(kNormalPadding),
+        child: Text(
+          language.price,
+          style: TextStyles.ts10B.copyWith(color: Colors.black),
+          textAlign: TextAlign.center,
+          maxLines: 1,
+        ),
+      ),
+    ],
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(kNormalRadius),
+      color: ColorManger.myGold,
+    ),
+  );
 }
 
 List<TableRow> _buildTableRow(List<CartDetail> cart) {

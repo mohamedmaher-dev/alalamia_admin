@@ -22,36 +22,33 @@ Future<Uint8List> createStyledInvoice(
   final font = pw.Font.ttf(fontData);
   final pdf = pw.Document();
   pdf.addPage(
-    pw.Page(
+    pw.MultiPage(
       textDirection: pw.TextDirection.rtl,
       pageFormat: PdfPageFormat.a4,
       margin: const pw.EdgeInsets.all(32),
       build: (pw.Context context) {
-        return pw.Column(
-          crossAxisAlignment: pw.CrossAxisAlignment.start,
-          children: [
-            // Title
-            _invoiceTitle(font: font),
-            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-            pw.Divider(thickness: 1),
-            // Invoice Info
-            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-            _invoiceInfo(font: font, order: order, userPhone: orderArgs.phone),
-            // Table Header
-            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-            _invoiceTableHeader(font: font),
-            // Table Content
-            _invoiceTableContent(font: font, order: order),
-            // Summary
-            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-            _invoiceSummary(
-              font: font,
-              order: order,
-              currency: orderArgs.currency,
-            ),
-            pw.Divider(thickness: 1),
-          ],
-        );
+        return [
+          // Title
+          _invoiceTitle(font: font),
+          pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+          pw.Divider(thickness: 1),
+          // Invoice Info
+          pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+          _invoiceInfo(font: font, order: order, userPhone: orderArgs.phone),
+          // Table Header
+          pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+          _invoiceTableHeader(font: font),
+          // Table Content
+          _invoiceTableContent(font: font, order: order),
+          // Summary
+          pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+          _invoiceSummary(
+            font: font,
+            order: order,
+            currency: orderArgs.currency,
+          ),
+          pw.Divider(thickness: 1),
+        ];
       },
     ),
   );

@@ -92,5 +92,11 @@
     "product_code" : "رقم الصنف",
     "something_went_wrong" : "حدث خطأ ما",
     "no_orders_found" : "لا يوجد طلبات",
-    "no_more_orders" : "لا يوجد طلبات أخرى"
+    "no_more_orders" : "لا يوجد طلبات أخرى",
+    "cart" : "السلة",
+    "other" : "آخرى",
+    "order_status" : "حالة الطلب",
+    "order_summary" : "ملخص الطلب",
+    "order_details" : "تفاصيل الطلب"
+ 
 }

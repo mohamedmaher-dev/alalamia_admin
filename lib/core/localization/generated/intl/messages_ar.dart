@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("محتوى الإشعار"),
         "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
         "card": MessageLookupByLibrary.simpleMessage("بطاقة"),
+        "cart": MessageLookupByLibrary.simpleMessage("السلة"),
         "cash": MessageLookupByLibrary.simpleMessage("نقدًا"),
         "change_status": MessageLookupByLibrary.simpleMessage("تغيير الحالة"),
         "click_to_change_status":
@@ -95,10 +96,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "order": MessageLookupByLibrary.simpleMessage("طلب"),
         "order_date": MessageLookupByLibrary.simpleMessage("تاريخ الطلب"),
+        "order_details": MessageLookupByLibrary.simpleMessage("تفاصيل الطلب"),
         "order_number": MessageLookupByLibrary.simpleMessage("رقم الطلب"),
+        "order_status": MessageLookupByLibrary.simpleMessage("حالة الطلب"),
         "order_status_change_successfully":
             MessageLookupByLibrary.simpleMessage("تم تغيير حالة الطلب بنجاح"),
+        "order_summary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
         "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
+        "other": MessageLookupByLibrary.simpleMessage("آخرى"),
         "other_info": MessageLookupByLibrary.simpleMessage("معلومات أخرى"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "password_must_be_at_least_8_characters":

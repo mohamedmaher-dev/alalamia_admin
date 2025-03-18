@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Body of notification"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "card": MessageLookupByLibrary.simpleMessage("Card"),
+        "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "cash": MessageLookupByLibrary.simpleMessage("Cash"),
         "change_status": MessageLookupByLibrary.simpleMessage("Change status"),
         "click_to_change_status":
@@ -97,11 +98,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "order": MessageLookupByLibrary.simpleMessage("Order"),
         "order_date": MessageLookupByLibrary.simpleMessage("Order date"),
+        "order_details": MessageLookupByLibrary.simpleMessage("Order details"),
         "order_number": MessageLookupByLibrary.simpleMessage("Order number"),
+        "order_status": MessageLookupByLibrary.simpleMessage("Order status"),
         "order_status_change_successfully":
             MessageLookupByLibrary.simpleMessage(
                 "Order status change successfully"),
+        "order_summary": MessageLookupByLibrary.simpleMessage("Order summary"),
         "orders": MessageLookupByLibrary.simpleMessage("Orders"),
+        "other": MessageLookupByLibrary.simpleMessage("Other"),
         "other_info": MessageLookupByLibrary.simpleMessage("Other info"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "password_must_be_at_least_8_characters":

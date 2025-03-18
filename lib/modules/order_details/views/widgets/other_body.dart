@@ -9,7 +9,6 @@ class _OtherBody extends StatelessWidget {
     final language = Language.of(context);
     return Column(
       children: [
-        Divider(),
         ListTile(
           leading: Icon(Icons.more_rounded),
           title: Text(language.other_info, style: TextStyles.ts15B),
@@ -18,12 +17,12 @@ class _OtherBody extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: kNormalMargin),
           child: Column(
             children: [
-              if (order.requestNo != null || order.requestNo!.isNotEmpty)
-                ListTile(
-                  leading: Icon(CupertinoIcons.money_dollar),
-                  title: Text(args.paymentType.paymentTypeText),
-                  subtitle: Text(language.payment_type),
-                ),
+              ListTile(
+                leading: Icon(CupertinoIcons.money_dollar),
+                title: Text(args.paymentType.paymentTypeText),
+                subtitle: Text(language.payment_type),
+              ),
+              Divider(),
               ListTile(
                 leading: Icon(Icons.delivery_dining),
                 title: Text(language.no_data),

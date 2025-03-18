@@ -10,7 +10,6 @@ class _AddressBody extends StatelessWidget {
     final language = Language.of(context);
     return Column(
       children: [
-        Divider(),
         ListTile(
           leading: Icon(CupertinoIcons.location_circle_fill),
           title: Text(language.address, style: TextStyles.ts15B),
@@ -36,7 +35,7 @@ class _AddressBody extends StatelessWidget {
                   );
                 },
               ),
-
+              Divider(),
               ListTile(
                 leading: Icon(Icons.short_text_rounded),
                 title: Text(order.address!.desc!.nullToString, maxLines: 2),

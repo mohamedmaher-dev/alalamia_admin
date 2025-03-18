@@ -17,7 +17,7 @@ class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           HomePages.statistics => language.statistics,
           HomePages.orders => language.orders,
           HomePages.settings => language.settings,
-        }),
+        }, style: TextStyles.ts15B),
         subtitle: Text(LocalStorageService.userCredential!.email),
       ),
     );
