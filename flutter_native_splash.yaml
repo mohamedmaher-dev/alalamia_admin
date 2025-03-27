@@ -1,0 +1,19 @@
+icon_path: &icon_path assets/icon/icon.png
+color_light: &color_light "#00102B"
+color_dark: &color_dark "#00102B"
+
+flutter_native_splash:
+  color: *color_light
+  image: *icon_path
+  color_dark: *color_dark
+  image_dark: *icon_path
+  android_12:
+    image: *icon_path
+    color: *color_light
+    icon_background_color: *color_light
+    image_dark: *icon_path
+    color_dark: *color_light
+    icon_background_color_dark: *color_light
+  android: true
+  ios: true
+  web: false

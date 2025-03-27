@@ -1,0 +1,51 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+require 'dotenv'
+Dotenv.load('../../.env')
+
+default_platform(:android)
+
+platform :android do
+  desc "Lane for  Android App Distribution" 
+  
+  lane :dev do
+    apk_path = "../build/app/outputs/flutter-apk/app-release.apk"
+    sh "flutter clean"
+    sh "flutter build apk --release --no-tree-shake-icons"
+    release =  firebase_app_distribution(
+      app: ENV['FIREBASE_ANDROID_APP_ID'],
+      firebase_cli_token: ENV['FIREBASE_CLI_TOKEN'],
+      android_artifact_type: "APK",
+      android_artifact_path: apk_path,
+      testers: "mohamedmaher.personal@gmail.com",
+      debug: true,
+    )
+  end
+
+  lane :test do
+    apk_path = "../build/app/outputs/flutter-apk/app-release.apk"
+    sh "flutter clean"
+    sh "flutter build apk --release --no-tree-shake-icons"
+    release =  firebase_app_distribution(
+      app: ENV['FIREBASE_ANDROID_APP_ID'],
+      firebase_cli_token: ENV['FIREBASE_CLI_TOKEN'],
+      android_artifact_type: "APK",
+      android_artifact_path: apk_path,
+      groups: "testers",
+      debug: true,
+    )
+  end
+end
