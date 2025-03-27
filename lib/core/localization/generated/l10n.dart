@@ -989,6 +989,56 @@ class Language {
       args: [],
     );
   }
+
+  /// `السلة`
+  String get cart {
+    return Intl.message(
+      'السلة',
+      name: 'cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `آخرى`
+  String get other {
+    return Intl.message(
+      'آخرى',
+      name: 'other',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حالة الطلب`
+  String get order_status {
+    return Intl.message(
+      'حالة الطلب',
+      name: 'order_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ملخص الطلب`
+  String get order_summary {
+    return Intl.message(
+      'ملخص الطلب',
+      name: 'order_summary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاصيل الطلب`
+  String get order_details {
+    return Intl.message(
+      'تفاصيل الطلب',
+      name: 'order_details',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Language> {

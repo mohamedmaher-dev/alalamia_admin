@@ -92,6 +92,10 @@
     "product_code" : "Code",
     "something_went_wrong" : "Something went wrong",
     "no_orders_found" : "No orders found",
-    "no_more_orders" : "No more orders"
-
+    "no_more_orders" : "No more orders",
+    "cart" : "Cart",
+    "other" : "Other",
+    "order_status" : "Order status",
+    "order_summary" : "Order summary",
+    "order_details" : "Order details"
 }

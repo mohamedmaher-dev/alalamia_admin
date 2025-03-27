@@ -30,15 +30,20 @@ class _HomeViewBody extends StatelessWidget {
     final cubit = context.read<HomeNavCubit>();
     return BlocBuilder<HomeNavCubit, HomeNavState>(
       builder: (context, state) {
-        return Scaffold(
-          appBar: _HomeAppBar(currentPage: state.page),
-          body: PageView(
-            controller: cubit.controller,
-            physics: NeverScrollableScrollPhysics(),
-            children: HomePages.values.map((e) => e.view).toList(),
-          ),
-          bottomNavigationBar: _HomeBottomNavBar(
-            currentIndex: state.page.currentIndex,
+        return PopScope(
+          onPopInvokedWithResult:
+              (didPop, result) => cubit.changePage(HomePages.defaultPage),
+          canPop: false,
+          child: Scaffold(
+            appBar: _HomeAppBar(currentPage: state.page),
+            body: PageView(
+              controller: cubit.controller,
+              physics: NeverScrollableScrollPhysics(),
+              children: HomePages.values.map((e) => e.view).toList(),
+            ),
+            bottomNavigationBar: _HomeBottomNavBar(
+              currentIndex: state.page.currentIndex,
+            ),
           ),
         );
       },
