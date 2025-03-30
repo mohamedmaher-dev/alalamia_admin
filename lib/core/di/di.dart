@@ -1,10 +1,8 @@
-import 'package:alalamia_admin/core/cubit/main_cubit.dart';
+import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/env/env.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
-import 'package:alalamia_admin/core/localization/app_localization_controller.dart';
 import 'package:alalamia_admin/core/networking/api_service.dart';
 import 'package:alalamia_admin/core/networking/dio_factory.dart';
-import 'package:alalamia_admin/core/themes/app_theme_controller.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/controllers/sign_in_cubit/sign_in_cubit.dart';
 import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit.dart';

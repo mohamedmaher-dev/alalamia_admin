@@ -1,11 +1,12 @@
 part of "../settings_view.dart";
 
 class _SettingsGeneralBodyView extends StatelessWidget {
-  const _SettingsGeneralBodyView({required this.mainBloc});
-  final MainCubit mainBloc;
+  const _SettingsGeneralBodyView({required this.appConfig});
+  final AppConfig appConfig;
 
   @override
   Widget build(BuildContext context) {
+    final AppConfig appConfig = context.read<AppConfig>();
     final language = Language.of(context);
     return Column(
       children: [
@@ -17,9 +18,9 @@ class _SettingsGeneralBodyView extends StatelessWidget {
                 title: Text(language.night_mode),
                 leading: const Icon(Icons.dark_mode),
                 trailing: Switch(
-                  value: AppThemeController.themeMode == ThemeMode.dark,
+                  value: appConfig.state.isDarkMode,
                   onChanged: (value) async {
-                    mainBloc.changeTheme();
+                    appConfig.changeTheme();
                   },
                 ),
               ),
@@ -32,7 +33,7 @@ class _SettingsGeneralBodyView extends StatelessWidget {
                     elevation: WidgetStatePropertyAll(0),
                   ),
                   onPressed: () {
-                    mainBloc.changeLanguage();
+                    appConfig.changeLanguage();
                   },
                   child: Text(language.language_name),
                 ),

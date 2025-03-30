@@ -1,4 +1,4 @@
-import 'package:alalamia_admin/core/cubit/main_cubit.dart';
+import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
 import 'package:alalamia_admin/core/router/app_router.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/localization/generated/l10n.dart';
-import '../../../core/themes/app_theme_controller.dart';
 part 'widgets/settings_general_body_view.dart';
 
 class SettingsView extends StatelessWidget {
@@ -30,13 +29,13 @@ class _SettingsBody extends StatefulWidget {
 class _SettingsBodyState extends State<_SettingsBody> {
   @override
   Widget build(BuildContext context) {
-    final mainBloc = BlocProvider.of<MainCubit>(context);
-    return BlocBuilder<MainCubit, MainState>(
+    final mainBloc = BlocProvider.of<AppConfig>(context);
+    return BlocBuilder<AppConfig, AppConfigModel>(
       builder: (context, state) {
         return Scaffold(
           body: ListView(
             padding: EdgeInsets.all(10.w),
-            children: [_SettingsGeneralBodyView(mainBloc: mainBloc)],
+            children: [_SettingsGeneralBodyView(appConfig: mainBloc)],
           ),
         );
       },

@@ -1,23 +1,24 @@
 import 'dart:convert';
 import 'package:alalamia_admin/core/local_storage/local_storage_consts.dart';
-import 'package:alalamia_admin/core/local_storage/models/app_settings_model.dart';
 import 'package:alalamia_admin/core/local_storage/models/user_credential_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
 class LocalStorageService {
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
-  late Box<AppSettingsModel?> _appSettingsBox;
   static late Box<UserCredential?> _userCredentialBox;
 
   Future<void> init() async {
     await Hive.initFlutter();
-    Hive.registerAdapter(AppSettingsModelAdapter());
     Hive.registerAdapter(UserCredentialAdapter());
-    _appSettingsBox = await Hive.openBox<AppSettingsModel>(
-      LocalStorageConsts.appSettingsBox,
-    );
     await _openUserCredentialBox();
+    HydratedBloc.storage = await HydratedStorage.build(
+      storageDirectory: HydratedStorageDirectory(
+        (await getTemporaryDirectory()).path,
+      ),
+    );
   }
 
   Future<void> _openUserCredentialBox() async {
@@ -46,8 +47,6 @@ class LocalStorageService {
   }
 
   static UserCredential? get userCredential => _userCredentialBox.get(0);
-  AppSettingsModel get getAppSettings =>
-      _appSettingsBox.get(0) ?? AppSettingsModel.defaultModel;
 
   Future<void> saveUserCredential({
     required UserCredential userCredential,
@@ -57,11 +56,5 @@ class LocalStorageService {
 
   static Future<void> deleteUserCredential() async {
     _userCredentialBox.delete(0);
-  }
-
-  Future<void> saveAppSettings({
-    required AppSettingsModel appSettingsModel,
-  }) async {
-    _appSettingsBox.put(0, appSettingsModel);
   }
 }

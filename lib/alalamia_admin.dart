@@ -1,7 +1,7 @@
-import 'package:alalamia_admin/core/cubit/main_cubit.dart';
-import 'package:alalamia_admin/core/localization/app_localization_controller.dart';
+import 'package:alalamia_admin/core/config/app_config_cubit.dart';
+import 'package:alalamia_admin/core/extension/bool_ext.dart';
+import 'package:alalamia_admin/core/extension/string_ext.dart';
 import 'package:alalamia_admin/core/router/app_router.dart';
-import 'package:alalamia_admin/core/themes/app_theme_controller.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,12 +14,12 @@ class AlalamiaAdmin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MainCubit, MainState>(
+    return BlocBuilder<AppConfig, AppConfigModel>(
       builder: (context, state) {
         return MaterialApp.router(
-          theme: AppThemeData.theme,
-          darkTheme: AppThemeData.theme,
-          themeMode: AppThemeController.themeMode,
+          theme: AppThemeData.lightTheme,
+          darkTheme: AppThemeData.darkTheme,
+          themeMode: state.isDarkMode.toThemeMode,
           debugShowCheckedModeBanner: false,
           routerConfig: AppRouter.routerConfig,
           localizationsDelegates: [
@@ -29,7 +29,7 @@ class AlalamiaAdmin extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: Language.delegate.supportedLocales,
-          locale: AppLocalizationController.locale,
+          locale: state.language.stringToLocale,
           builder: EasyLoading.init(),
         );
       },
