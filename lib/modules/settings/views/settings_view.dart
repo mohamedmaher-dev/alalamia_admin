@@ -29,13 +29,12 @@ class _SettingsBody extends StatefulWidget {
 class _SettingsBodyState extends State<_SettingsBody> {
   @override
   Widget build(BuildContext context) {
-    final mainBloc = BlocProvider.of<AppConfig>(context);
     return BlocBuilder<AppConfig, AppConfigModel>(
       builder: (context, state) {
         return Scaffold(
           body: ListView(
             padding: EdgeInsets.all(10.w),
-            children: [_SettingsGeneralBodyView(appConfig: mainBloc)],
+            children: [_SettingsGeneralBodyView()],
           ),
         );
       },

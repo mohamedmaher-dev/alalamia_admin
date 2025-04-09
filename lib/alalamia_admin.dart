@@ -15,11 +15,11 @@ class AlalamiaAdmin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppConfig, AppConfigModel>(
-      builder: (context, state) {
+      builder: (context, config) {
         return MaterialApp.router(
           theme: AppThemeData.lightTheme,
           darkTheme: AppThemeData.darkTheme,
-          themeMode: state.isDarkMode.toThemeMode,
+          themeMode: config.isDarkMode.toThemeMode,
           debugShowCheckedModeBanner: false,
           routerConfig: AppRouter.routerConfig,
           localizationsDelegates: [
@@ -29,7 +29,7 @@ class AlalamiaAdmin extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: Language.delegate.supportedLocales,
-          locale: state.language.stringToLocale,
+          locale: config.language.stringToLocale,
           builder: EasyLoading.init(),
         );
       },

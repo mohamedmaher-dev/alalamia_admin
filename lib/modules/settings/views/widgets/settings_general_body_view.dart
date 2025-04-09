@@ -1,8 +1,7 @@
 part of "../settings_view.dart";
 
 class _SettingsGeneralBodyView extends StatelessWidget {
-  const _SettingsGeneralBodyView({required this.appConfig});
-  final AppConfig appConfig;
+  const _SettingsGeneralBodyView();
 
   @override
   Widget build(BuildContext context) {
