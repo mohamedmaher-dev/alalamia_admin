@@ -9,8 +9,8 @@ import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit
 import 'package:alalamia_admin/modules/order_details/controllers/order_details/order_details_cubit.dart';
 import 'package:alalamia_admin/modules/order_details/controllers/order_status/order_status_cubit.dart';
 import 'package:alalamia_admin/modules/order_details/data/rebos/order_details_rebo.dart';
-import 'package:alalamia_admin/modules/orders/controlers/orders/orders_cubit.dart';
-import 'package:alalamia_admin/modules/orders/controlers/orders_search/orders_search_cubit.dart';
+import 'package:alalamia_admin/modules/orders/controllers/orders/orders_cubit.dart';
+import 'package:alalamia_admin/modules/orders/controllers/orders_search/orders_search_cubit.dart';
 import 'package:alalamia_admin/modules/orders/data/rebos/orders_rebo.dart';
 import 'package:alalamia_admin/modules/splash/controllers/splash/splash_cubit.dart';
 import 'package:alalamia_admin/modules/statistics/controllers/statistics/statistics_cubit.dart';

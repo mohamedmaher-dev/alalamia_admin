@@ -15,7 +15,7 @@ class ChangeLanguageBtn extends StatelessWidget {
         appConfig.changeLanguage();
       },
       child: BlocBuilder<AppConfig, AppConfigModel>(
-        builder: (context, state) {
+        builder: (context, config) {
           return Text(language.language_name);
         },
       ),

@@ -21,7 +21,7 @@ class OutlineBtn extends StatelessWidget {
       return FilledButton.icon(
         style: ButtonStyle(
           foregroundColor: WidgetStatePropertyAll(color),
-          backgroundColor: WidgetStatePropertyAll(ColorManger.transparent),
+          backgroundColor: WidgetStatePropertyAll(Colors.transparent),
           elevation: WidgetStatePropertyAll(0),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
@@ -38,7 +38,7 @@ class OutlineBtn extends StatelessWidget {
       return FilledButton(
         style: ButtonStyle(
           foregroundColor: WidgetStatePropertyAll(color),
-          backgroundColor: WidgetStatePropertyAll(ColorManger.transparent),
+          backgroundColor: WidgetStatePropertyAll(Colors.transparent),
           elevation: WidgetStatePropertyAll(0),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(

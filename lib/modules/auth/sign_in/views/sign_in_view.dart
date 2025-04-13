@@ -1,4 +1,3 @@
-import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/localization/generated/l10n.dart';
 import 'package:alalamia_admin/core/router/app_router.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
@@ -25,42 +24,38 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<SignInCubit>();
-    return BlocBuilder<AppConfig, AppConfigModel>(
-      builder: (context, state) {
-        return Scaffold(
-          appBar: AppBar(
-            forceMaterialTransparency: true,
-            actions: [ChangeLanguageBtn(), Spacer(), IconBtnChangeTheme()],
-          ),
-          body: Center(
-            child: ListView(
-              shrinkWrap: true,
-              padding: EdgeInsets.all(kMediumPadding),
-              children: [
-                _WelcomeBody(),
-                SizedBox(height: kSpacingBetweenWidgetsHight),
-                Card(
-                  child: Padding(
-                    padding: EdgeInsets.all(kNormalPadding),
-                    child: Column(
-                      spacing: kSpacingBetweenWidgetsHight,
-                      children: [
-                        _FormBody(),
-                        ChangeCountryBtn(
-                          onSelectionChanged: (value) {
-                            cubit.countryModel = value;
-                          },
-                        ),
-                        _SignInBtn(),
-                      ],
+    return Scaffold(
+      appBar: AppBar(
+        forceMaterialTransparency: true,
+        actions: [ChangeLanguageBtn(), Spacer(), IconBtnChangeTheme()],
+      ),
+      body: Center(
+        child: ListView(
+          shrinkWrap: true,
+          padding: EdgeInsets.all(kMediumPadding),
+          children: [
+            _WelcomeBody(),
+            SizedBox(height: kSpacingBetweenWidgetsHight),
+            Card(
+              child: Padding(
+                padding: EdgeInsets.all(kNormalPadding),
+                child: Column(
+                  spacing: kSpacingBetweenWidgetsHight,
+                  children: [
+                    _FormBody(),
+                    ChangeCountryBtn(
+                      onSelectionChanged: (value) {
+                        cubit.countryModel = value;
+                      },
                     ),
-                  ),
+                    _SignInBtn(),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-        );
-      },
+          ],
+        ),
+      ),
     );
   }
 }

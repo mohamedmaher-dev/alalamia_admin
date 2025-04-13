@@ -17,8 +17,8 @@ class AlalamiaAdmin extends StatelessWidget {
     return BlocBuilder<AppConfig, AppConfigModel>(
       builder: (context, config) {
         return MaterialApp.router(
-          theme: AppThemeData.lightTheme,
-          darkTheme: AppThemeData.darkTheme,
+          theme: AppThemeData.theme,
+          darkTheme: AppThemeData.theme,
           themeMode: config.isDarkMode.toThemeMode,
           debugShowCheckedModeBanner: false,
           routerConfig: AppRouter.routerConfig,

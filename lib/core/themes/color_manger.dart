@@ -1,25 +1,26 @@
 part of 'app_theme_data.dart';
 
 class ColorManger {
-  static final _appConfigState = di<AppConfig>().state;
-  ColorManger._();
-  static bool get _isDark =>
-      _appConfigState.isDarkMode.toThemeMode == ThemeMode.dark;
-  static const Color transparent = Colors.transparent;
-  static const Color white = Colors.white;
-  static const Color black = Colors.black;
+  const ColorManger._();
+  // Consts colors
   static const Color myBlue = Color(0xff001c51);
   static const Color backgroundBlue = Color(0xFF00102B);
   static const Color myGold = Color(0xffd2ab67);
   static const Color green = Colors.green;
   static const Color orange = Colors.orange;
   static const Color grey = Colors.grey;
-  static Color get primary =>
-      _isDark ? darkColorScheme.primary : lightColorScheme.primary;
-  static Color get red =>
-      _isDark ? darkColorScheme.error : lightColorScheme.error;
-
-  static ColorScheme lightColorScheme = const ColorScheme(
+  // App Config
+  static AppConfigModel get _appConfigModel => di<AppConfig>().state;
+  // Get ThemeMode
+  static bool get _isDark => _appConfigModel.isDarkMode;
+  // Get ColorScheme
+  static ColorScheme get _colorScheme =>
+      _isDark ? darkColorScheme : lightColorScheme;
+  // Daynamic Colors
+  static Color get primary => _colorScheme.primary;
+  static Color get red => _colorScheme.error;
+  // Light ColorScheme
+  static const ColorScheme lightColorScheme = ColorScheme(
     brightness: Brightness.light,
     primary: Color(0xffd2ab67),
     onPrimary: Color(0xFFFFFFFF),
@@ -71,7 +72,8 @@ class ColorManger {
     inversePrimary: Color(0xFF8DACDD),
     surfaceTint: Color(0xFF00296B),
   );
-  static ColorScheme darkColorScheme = const ColorScheme(
+  // Dark ColorScheme
+  static const ColorScheme darkColorScheme = ColorScheme(
     brightness: Brightness.dark,
     primary: Color(0xffd2ab67),
     onPrimary: Color(0xFF000000),

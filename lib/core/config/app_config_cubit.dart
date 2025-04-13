@@ -1,6 +1,6 @@
+export 'app_config_model.dart';
 import 'package:alalamia_admin/core/config/app_config_model.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-export 'app_config_model.dart';
 
 class AppConfig extends HydratedCubit<AppConfigModel> {
   AppConfig() : super(AppConfigModel());
@@ -12,7 +12,7 @@ class AppConfig extends HydratedCubit<AppConfigModel> {
   AppConfigModel? fromJson(Map<String, dynamic> json) =>
       AppConfigModel.fromJson(json);
   @override
-  Map<String, dynamic>? toJson(AppConfigModel state) => state.toJson();
+  Map<String, dynamic>? toJson(AppConfigModel model) => model.toJson();
 
   _getNewLanguage() => state.language == 'ar' ? 'en' : 'ar';
 }
