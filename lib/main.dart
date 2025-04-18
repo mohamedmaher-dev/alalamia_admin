@@ -3,6 +3,7 @@ import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/config/bloc_observer.dart';
 import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
+import 'package:alalamia_admin/core/notifications/notifications_service.dart';
 import 'package:alalamia_admin/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await diInit();
-  await di<LocalStorageService>().init();
+  await DependencyInjection.init();
+  await di<LocalStorageService>()();
+  await di<NotificationsService>()();
   Bloc.observer = MyBlocObserver();
   runApp(
     BlocProvider(

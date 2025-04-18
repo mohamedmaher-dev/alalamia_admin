@@ -121,6 +121,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_input_your_data_to_sign_in":
             MessageLookupByLibrary.simpleMessage(
                 "Please input your data to sign in"),
+        "please_input_your_email_and_password":
+            MessageLookupByLibrary.simpleMessage(
+                "Please input your email and password"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "product": MessageLookupByLibrary.simpleMessage("Product"),
         "product_code": MessageLookupByLibrary.simpleMessage("Code"),
@@ -153,6 +156,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Title of notification"),
         "total_price": MessageLookupByLibrary.simpleMessage("Total price"),
         "unit": MessageLookupByLibrary.simpleMessage("Unit"),
+        "unknown_error": MessageLookupByLibrary.simpleMessage("Unknown error"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "welcome_back": MessageLookupByLibrary.simpleMessage("Welcome back"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),

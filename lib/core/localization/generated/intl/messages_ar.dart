@@ -118,6 +118,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_input_your_data_to_sign_in":
             MessageLookupByLibrary.simpleMessage(
                 "برجاء ادخال بياناتك لتسجيل الدخول"),
+        "please_input_your_email_and_password":
+            MessageLookupByLibrary.simpleMessage(
+                "الرجاء إدخال بريدك الإلكتروني وكلمة المرور"),
         "price": MessageLookupByLibrary.simpleMessage("السعر"),
         "product": MessageLookupByLibrary.simpleMessage("منتج"),
         "product_code": MessageLookupByLibrary.simpleMessage("رقم الصنف"),
@@ -149,6 +152,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("عنوان الإشعار"),
         "total_price": MessageLookupByLibrary.simpleMessage("السعر الكلي"),
         "unit": MessageLookupByLibrary.simpleMessage("وحدة"),
+        "unknown_error": MessageLookupByLibrary.simpleMessage("خطأ غير معروف"),
         "warning": MessageLookupByLibrary.simpleMessage("تحذير"),
         "welcome_back": MessageLookupByLibrary.simpleMessage("مرحبا بعودتك"),
         "yes": MessageLookupByLibrary.simpleMessage("نعم"),

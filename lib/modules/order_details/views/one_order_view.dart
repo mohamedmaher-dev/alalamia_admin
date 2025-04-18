@@ -70,13 +70,9 @@ class _OrderDetailsViewBody extends StatelessWidget {
           success:
               (order) => Scaffold(
                 appBar: AppBar(
+                  centerTitle: true,
                   forceMaterialTransparency: true,
-                  title: ListTile(
-                    title: Text(
-                      language.order_details,
-                      style: TextStyles.ts15B,
-                    ),
-                  ),
+                  title: Text(language.order_details, style: TextStyles.ts15B),
                 ),
                 body: Padding(
                   padding: EdgeInsets.all(kNormalPadding),

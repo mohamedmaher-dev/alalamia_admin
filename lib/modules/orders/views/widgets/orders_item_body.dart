@@ -24,11 +24,55 @@ class _OrderItemBody extends StatelessWidget {
         child: Card(
           child: Column(
             children: [
-              ListTile(
-                leading: Icon(CupertinoIcons.person),
-                title: Text(model.userName, style: TextStyles.tsP12B),
-                subtitle: Text(language.client_name),
-                trailing: Icon(CupertinoIcons.right_chevron),
+              ExpansionTile(
+                tilePadding: EdgeInsetsDirectional.only(end: kLargePadding),
+                controlAffinity: ListTileControlAffinity.trailing,
+                title: ListTile(
+                  leading: Initicon(
+                    size: 35.r,
+                    text: model.userName,
+                    backgroundColor: ColorManger.myGold,
+                    borderRadius: BorderRadius.circular(kNormalRadius),
+                    style: TextStyle(
+                      fontFamily: AppThemeData.fontFamily,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  title: Text(model.userName, style: TextStyles.tsP12B),
+                  subtitle: Text(
+                    language.client_name,
+                    style: TextStyles.ts10N.copyWith(color: ColorManger.grey),
+                  ),
+                ),
+                children: [
+                  Divider(),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ListTile(
+                          leading: Icon(CupertinoIcons.number),
+                          title: Text(
+                            model.requestNumber,
+                            style: TextStyles.tsP12B,
+                          ),
+                          subtitle: Text(language.order_number),
+                        ),
+                      ),
+                      Expanded(
+                        child: ListTile(
+                          leading: Icon(CupertinoIcons.money_dollar_circle),
+                          title: Text(
+                            model.paymentType.paymentTypeText,
+                            style: TextStyles.tsP12B,
+                          ),
+                          subtitle: Text(language.payment_type),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Divider(),
+                ],
               ),
               Row(
                 children: [
@@ -51,30 +95,6 @@ class _OrderItemBody extends StatelessWidget {
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: ListTile(
-                      leading: Icon(CupertinoIcons.number),
-                      title: Text(
-                        model.requestNumber,
-                        style: TextStyles.tsP12B,
-                      ),
-                      subtitle: Text(language.order_number),
-                    ),
-                  ),
-                  Expanded(
-                    child: ListTile(
-                      leading: Icon(CupertinoIcons.money_dollar_circle),
-                      title: Text(
-                        model.paymentType.paymentTypeText,
-                        style: TextStyles.tsP12B,
-                      ),
-                      subtitle: Text(language.payment_type),
-                    ),
-                  ),
-                ],
-              ),
               Divider(),
               Container(
                 width: double.infinity,
@@ -85,9 +105,17 @@ class _OrderItemBody extends StatelessWidget {
                   color: model.status.orderStatusColor,
                   borderRadius: BorderRadius.circular(kNormalRadius),
                 ),
-                child: Text(
-                  model.status.orderStatusText,
-                  style: TextStyles.ts12B.copyWith(color: Colors.black),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        model.status.orderStatusText,
+                        style: TextStyles.ts12B.copyWith(color: Colors.black),
+                      ),
+                    ),
+                    Icon(CupertinoIcons.chevron_left, color: Colors.black),
+                  ],
                 ),
               ),
             ],

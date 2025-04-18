@@ -16,6 +16,9 @@ class AppThemeData {
     expansionTileTheme: _expansionTileThemeData,
     iconButtonTheme: _iconButtonTheme,
     bottomSheetTheme: BottomSheetThemeData(showDragHandle: true),
+    listTileTheme: ListTileThemeData(
+      subtitleTextStyle: TextStyles.ts10N.copyWith(color: Colors.grey),
+    ),
   );
 
   static get _pageTransitionsTheme => PageTransitionsTheme(
@@ -25,7 +28,7 @@ class AppThemeData {
     },
   );
 
-  static get fontFamily => 'tajawal';
+  static get fontFamily => 'Almarai';
 
   static get _expansionTileThemeData => ExpansionTileThemeData(
     shape: RoundedRectangleBorder(

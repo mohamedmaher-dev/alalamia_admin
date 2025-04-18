@@ -21,6 +21,7 @@ AppConfigModel _$AppConfigModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AppConfigModel {
   bool get isDarkMode => throw _privateConstructorUsedError;
+  bool get turnOnNotification => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
 
   /// Serializes this AppConfigModel to a JSON map.
@@ -39,7 +40,7 @@ abstract class $AppConfigModelCopyWith<$Res> {
           AppConfigModel value, $Res Function(AppConfigModel) then) =
       _$AppConfigModelCopyWithImpl<$Res, AppConfigModel>;
   @useResult
-  $Res call({bool isDarkMode, String language});
+  $Res call({bool isDarkMode, bool turnOnNotification, String language});
 }
 
 /// @nodoc
@@ -58,12 +59,17 @@ class _$AppConfigModelCopyWithImpl<$Res, $Val extends AppConfigModel>
   @override
   $Res call({
     Object? isDarkMode = null,
+    Object? turnOnNotification = null,
     Object? language = null,
   }) {
     return _then(_value.copyWith(
       isDarkMode: null == isDarkMode
           ? _value.isDarkMode
           : isDarkMode // ignore: cast_nullable_to_non_nullable
+              as bool,
+      turnOnNotification: null == turnOnNotification
+          ? _value.turnOnNotification
+          : turnOnNotification // ignore: cast_nullable_to_non_nullable
               as bool,
       language: null == language
           ? _value.language
@@ -81,7 +87,7 @@ abstract class _$$AppConfigModelImplCopyWith<$Res>
       __$$AppConfigModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isDarkMode, String language});
+  $Res call({bool isDarkMode, bool turnOnNotification, String language});
 }
 
 /// @nodoc
@@ -98,12 +104,17 @@ class __$$AppConfigModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isDarkMode = null,
+    Object? turnOnNotification = null,
     Object? language = null,
   }) {
     return _then(_$AppConfigModelImpl(
       isDarkMode: null == isDarkMode
           ? _value.isDarkMode
           : isDarkMode // ignore: cast_nullable_to_non_nullable
+              as bool,
+      turnOnNotification: null == turnOnNotification
+          ? _value.turnOnNotification
+          : turnOnNotification // ignore: cast_nullable_to_non_nullable
               as bool,
       language: null == language
           ? _value.language
@@ -116,7 +127,10 @@ class __$$AppConfigModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AppConfigModelImpl implements _AppConfigModel {
-  const _$AppConfigModelImpl({this.isDarkMode = true, this.language = 'ar'});
+  const _$AppConfigModelImpl(
+      {this.isDarkMode = true,
+      this.turnOnNotification = true,
+      this.language = 'ar'});
 
   factory _$AppConfigModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppConfigModelImplFromJson(json);
@@ -126,11 +140,14 @@ class _$AppConfigModelImpl implements _AppConfigModel {
   final bool isDarkMode;
   @override
   @JsonKey()
+  final bool turnOnNotification;
+  @override
+  @JsonKey()
   final String language;
 
   @override
   String toString() {
-    return 'AppConfigModel(isDarkMode: $isDarkMode, language: $language)';
+    return 'AppConfigModel(isDarkMode: $isDarkMode, turnOnNotification: $turnOnNotification, language: $language)';
   }
 
   @override
@@ -140,13 +157,16 @@ class _$AppConfigModelImpl implements _AppConfigModel {
             other is _$AppConfigModelImpl &&
             (identical(other.isDarkMode, isDarkMode) ||
                 other.isDarkMode == isDarkMode) &&
+            (identical(other.turnOnNotification, turnOnNotification) ||
+                other.turnOnNotification == turnOnNotification) &&
             (identical(other.language, language) ||
                 other.language == language));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, isDarkMode, language);
+  int get hashCode =>
+      Object.hash(runtimeType, isDarkMode, turnOnNotification, language);
 
   /// Create a copy of AppConfigModel
   /// with the given fields replaced by the non-null parameter values.
@@ -167,13 +187,17 @@ class _$AppConfigModelImpl implements _AppConfigModel {
 
 abstract class _AppConfigModel implements AppConfigModel {
   const factory _AppConfigModel(
-      {final bool isDarkMode, final String language}) = _$AppConfigModelImpl;
+      {final bool isDarkMode,
+      final bool turnOnNotification,
+      final String language}) = _$AppConfigModelImpl;
 
   factory _AppConfigModel.fromJson(Map<String, dynamic> json) =
       _$AppConfigModelImpl.fromJson;
 
   @override
   bool get isDarkMode;
+  @override
+  bool get turnOnNotification;
   @override
   String get language;
 

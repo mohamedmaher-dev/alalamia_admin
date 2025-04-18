@@ -1039,6 +1039,26 @@ class Language {
       args: [],
     );
   }
+
+  /// `الرجاء إدخال بريدك الإلكتروني وكلمة المرور`
+  String get please_input_your_email_and_password {
+    return Intl.message(
+      'الرجاء إدخال بريدك الإلكتروني وكلمة المرور',
+      name: 'please_input_your_email_and_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `خطأ غير معروف`
+  String get unknown_error {
+    return Intl.message(
+      'خطأ غير معروف',
+      name: 'unknown_error',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Language> {

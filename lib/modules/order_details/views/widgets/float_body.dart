@@ -17,7 +17,7 @@ class _FloatBody extends StatelessWidget {
           ListTile(
             leading: const Icon(CupertinoIcons.money_dollar_circle_fill),
             title: Text(
-              '${orderDetails.priceSum} ${args.currency}',
+              '${orderDetails.priceSum} ${args.countryModel.currency}',
               style: TextStyles.tsP15B,
             ),
             subtitle: Text(language.total_price),

@@ -7,6 +7,8 @@ class AppConfig extends HydratedCubit<AppConfigModel> {
 
   void changeLanguage() => emit(state.copyWith(language: _getNewLanguage()));
   void changeTheme() => emit(state.copyWith(isDarkMode: !state.isDarkMode));
+  void changeTurnOnNotification(bool value) =>
+      emit(state.copyWith(turnOnNotification: value));
 
   @override
   AppConfigModel? fromJson(Map<String, dynamic> json) =>

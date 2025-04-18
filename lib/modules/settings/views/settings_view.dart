@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/localization/generated/l10n.dart';
 part 'widgets/settings_general_body_view.dart';
+part 'widgets/settings_profile_body.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -34,7 +35,7 @@ class _SettingsBodyState extends State<_SettingsBody> {
         return Scaffold(
           body: ListView(
             padding: EdgeInsets.all(10.w),
-            children: [_SettingsGeneralBodyView()],
+            children: [_SettingsGeneralBodyView(), _SettingsProfileBody()],
           ),
         );
       },

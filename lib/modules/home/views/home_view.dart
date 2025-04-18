@@ -1,8 +1,8 @@
 import 'package:alalamia_admin/core/config/app_config_cubit.dart';
+import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
 import 'package:alalamia_admin/core/localization/generated/l10n.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
-import 'package:alalamia_admin/core/utils/assets_manger.dart';
 import 'package:alalamia_admin/modules/home/controllers/home_nav/home_nav_cubit.dart';
 import 'package:alalamia_admin/modules/home/views/home_pages.dart';
 import 'package:flutter/cupertino.dart';

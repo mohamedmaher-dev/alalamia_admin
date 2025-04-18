@@ -97,6 +97,8 @@
     "other" : "آخرى",
     "order_status" : "حالة الطلب",
     "order_summary" : "ملخص الطلب",
-    "order_details" : "تفاصيل الطلب"
- 
+    "order_details" : "تفاصيل الطلب",
+    "please_input_your_email_and_password" : "الرجاء إدخال بريدك الإلكتروني وكلمة المرور",
+    "unknown_error" : "خطأ غير معروف"
+
 }

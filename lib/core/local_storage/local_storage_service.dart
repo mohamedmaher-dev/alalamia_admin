@@ -5,15 +5,14 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+part 'user_credential_storage.dart';
 
 class LocalStorageService {
-  final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
-  static late Box<UserCredential?> _userCredentialBox;
+  final _userCredentialStorage = _UserCredentialStorage();
 
-  Future<void> init() async {
+  Future<void> call() async {
     await Hive.initFlutter();
-    Hive.registerAdapter(UserCredentialAdapter());
-    await _openUserCredentialBox();
+    await _userCredentialStorage();
     HydratedBloc.storage = await HydratedStorage.build(
       storageDirectory: HydratedStorageDirectory(
         (await getTemporaryDirectory()).path,
@@ -21,40 +20,15 @@ class LocalStorageService {
     );
   }
 
-  Future<void> _openUserCredentialBox() async {
-    await _secureStorage.read(key: LocalStorageConsts.hiveSecureKey).then((
-      value,
-    ) async {
-      if (value == null) {
-        final List<int> key = Hive.generateSecureKey();
-        _secureStorage.write(
-          key: LocalStorageConsts.hiveSecureKey,
-          value: key.toString(),
-        );
-        _userCredentialBox = await Hive.openBox<UserCredential>(
-          LocalStorageConsts.userCredentialBox,
-          encryptionCipher: HiveAesCipher(key),
-        );
-      } else {
-        final List<dynamic> keyIncoded = jsonDecode(value);
-        final List<int> key = List<int>.from(keyIncoded);
-        _userCredentialBox = await Hive.openBox<UserCredential>(
-          LocalStorageConsts.userCredentialBox,
-          encryptionCipher: HiveAesCipher(key),
-        );
-      }
-    });
-  }
-
-  static UserCredential? get userCredential => _userCredentialBox.get(0);
+  UserCredential? get userCredential =>
+      _userCredentialStorage._userCredentialBox.get(0);
 
   Future<void> saveUserCredential({
     required UserCredential userCredential,
   }) async {
-    _userCredentialBox.put(0, userCredential);
+    _userCredentialStorage._userCredentialBox.put(0, userCredential);
   }
 
-  static Future<void> deleteUserCredential() async {
-    _userCredentialBox.delete(0);
-  }
+  Future<void> deleteUserCredential() async =>
+      _userCredentialStorage._userCredentialBox.delete(0);
 }

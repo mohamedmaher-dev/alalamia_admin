@@ -5,7 +5,6 @@ import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/utils/assets_manger.dart';
 import 'package:alalamia_admin/core/utils/validation.dart';
 import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
-import 'package:alalamia_admin/core/widgets/change_country_btn.dart';
 import 'package:alalamia_admin/core/widgets/change_language_btn.dart';
 import 'package:alalamia_admin/core/widgets/icon_btn_change_theme.dart';
 import 'package:alalamia_admin/core/widgets/pop_loading.dart';
@@ -23,33 +22,35 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<SignInCubit>();
+    Language language = Language.of(context);
     return Scaffold(
       appBar: AppBar(
-        forceMaterialTransparency: true,
         actions: [ChangeLanguageBtn(), Spacer(), IconBtnChangeTheme()],
       ),
       body: Center(
         child: ListView(
           shrinkWrap: true,
-          padding: EdgeInsets.all(kMediumPadding),
           children: [
             _WelcomeBody(),
             SizedBox(height: kSpacingBetweenWidgetsHight),
             Card(
               child: Padding(
                 padding: EdgeInsets.all(kNormalPadding),
-                child: Column(
-                  spacing: kSpacingBetweenWidgetsHight,
-                  children: [
-                    _FormBody(),
-                    ChangeCountryBtn(
-                      onSelectionChanged: (value) {
-                        cubit.countryModel = value;
-                      },
-                    ),
-                    _SignInBtn(),
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    spacing: kSpacingBetweenWidgetsHight,
+                    children: [
+                      ListTile(
+                        leading: Icon(Icons.person),
+                        title: Text(language.sign_in, style: TextStyles.tsP15B),
+                        subtitle: Text(
+                          language.please_input_your_email_and_password,
+                        ),
+                      ),
+                      _FormBody(),
+                      _SignInBtn(),
+                    ],
+                  ),
                 ),
               ),
             ),

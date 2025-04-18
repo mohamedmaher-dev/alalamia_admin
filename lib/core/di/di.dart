@@ -3,6 +3,8 @@ import 'package:alalamia_admin/core/env/env.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
 import 'package:alalamia_admin/core/networking/api_service.dart';
 import 'package:alalamia_admin/core/networking/dio_factory.dart';
+import 'package:alalamia_admin/core/notifications/notifications_repo.dart';
+import 'package:alalamia_admin/core/notifications/notifications_service.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/controllers/sign_in_cubit/sign_in_cubit.dart';
 import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit.dart';
@@ -24,8 +26,11 @@ part 'rebos_di.dart';
 
 GetIt di = GetIt.instance;
 
-Future<void> diInit() async {
-  await _blocDiInit();
-  await _utilsDiInit();
-  await _rebosDIInit();
+class DependencyInjection {
+  DependencyInjection._();
+  static Future<void> init() async {
+    await _blocDiInit();
+    await _utilsDiInit();
+    await _rebosDIInit();
+  }
 }

@@ -6,6 +6,7 @@ part 'app_config_model.freezed.dart';
 class AppConfigModel with _$AppConfigModel {
   const factory AppConfigModel({
     @Default(true) bool isDarkMode,
+    @Default(true) bool turnOnNotification,
     @Default('ar') String language,
   }) = _AppConfigModel;
 

@@ -62,6 +62,7 @@ class ColorManger {
     surfaceContainerHigh: Color(0xFFEDEDED),
     // Text Form Field Background
     surfaceContainerHighest: Color(0xFFE7E7E7),
+    // On Surface Color
     onSurfaceVariant: Color(0xFF393939),
     outline: Color(0xFF919191),
     outlineVariant: Color(0xFFD1D1D1),
@@ -115,7 +116,8 @@ class ColorManger {
     surfaceContainerHigh: Color(0xFF1D1D1D),
     // Text Form Field Background
     surfaceContainerHighest: Color(0xff3d4146),
-    onSurfaceVariant: Color(0xFFCACACA),
+    // On Surface Color
+    onSurfaceVariant: Color(0xFFFFFFFF),
     outline: Color(0xFF777777),
     outlineVariant: Color(0xFF414141),
     shadow: Color(0xFF000000),
