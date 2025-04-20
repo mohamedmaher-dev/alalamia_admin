@@ -21,7 +21,7 @@ mixin _$SignInState {
     required TResult Function(bool isShowPassword) initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function(ApiErrorModel e) failure,
+    required TResult Function(ErrorInterface e) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$SignInState {
     TResult? Function(bool isShowPassword)? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function(ApiErrorModel e)? failure,
+    TResult? Function(ErrorInterface e)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$SignInState {
     TResult Function(bool isShowPassword)? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(ApiErrorModel e)? failure,
+    TResult Function(ErrorInterface e)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -161,7 +161,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(bool isShowPassword) initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function(ApiErrorModel e) failure,
+    required TResult Function(ErrorInterface e) failure,
   }) {
     return initial(isShowPassword);
   }
@@ -172,7 +172,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(bool isShowPassword)? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function(ApiErrorModel e)? failure,
+    TResult? Function(ErrorInterface e)? failure,
   }) {
     return initial?.call(isShowPassword);
   }
@@ -183,7 +183,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(bool isShowPassword)? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(ApiErrorModel e)? failure,
+    TResult Function(ErrorInterface e)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -286,7 +286,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(bool isShowPassword) initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function(ApiErrorModel e) failure,
+    required TResult Function(ErrorInterface e) failure,
   }) {
     return loading();
   }
@@ -297,7 +297,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(bool isShowPassword)? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function(ApiErrorModel e)? failure,
+    TResult? Function(ErrorInterface e)? failure,
   }) {
     return loading?.call();
   }
@@ -308,7 +308,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(bool isShowPassword)? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(ApiErrorModel e)? failure,
+    TResult Function(ErrorInterface e)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -403,7 +403,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(bool isShowPassword) initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function(ApiErrorModel e) failure,
+    required TResult Function(ErrorInterface e) failure,
   }) {
     return success();
   }
@@ -414,7 +414,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(bool isShowPassword)? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function(ApiErrorModel e)? failure,
+    TResult? Function(ErrorInterface e)? failure,
   }) {
     return success?.call();
   }
@@ -425,7 +425,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(bool isShowPassword)? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(ApiErrorModel e)? failure,
+    TResult Function(ErrorInterface e)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -482,7 +482,7 @@ abstract class _$$FailureImplCopyWith<$Res> {
           _$FailureImpl value, $Res Function(_$FailureImpl) then) =
       __$$FailureImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ApiErrorModel e});
+  $Res call({ErrorInterface e});
 }
 
 /// @nodoc
@@ -504,7 +504,7 @@ class __$$FailureImplCopyWithImpl<$Res>
       e: null == e
           ? _value.e
           : e // ignore: cast_nullable_to_non_nullable
-              as ApiErrorModel,
+              as ErrorInterface,
     ));
   }
 }
@@ -515,7 +515,7 @@ class _$FailureImpl implements _Failure {
   const _$FailureImpl({required this.e});
 
   @override
-  final ApiErrorModel e;
+  final ErrorInterface e;
 
   @override
   String toString() {
@@ -547,7 +547,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function(bool isShowPassword) initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function(ApiErrorModel e) failure,
+    required TResult Function(ErrorInterface e) failure,
   }) {
     return failure(e);
   }
@@ -558,7 +558,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function(bool isShowPassword)? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function(ApiErrorModel e)? failure,
+    TResult? Function(ErrorInterface e)? failure,
   }) {
     return failure?.call(e);
   }
@@ -569,7 +569,7 @@ class _$FailureImpl implements _Failure {
     TResult Function(bool isShowPassword)? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(ApiErrorModel e)? failure,
+    TResult Function(ErrorInterface e)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -617,9 +617,9 @@ class _$FailureImpl implements _Failure {
 }
 
 abstract class _Failure implements SignInState {
-  const factory _Failure({required final ApiErrorModel e}) = _$FailureImpl;
+  const factory _Failure({required final ErrorInterface e}) = _$FailureImpl;
 
-  ApiErrorModel get e;
+  ErrorInterface get e;
 
   /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.

@@ -10,30 +10,29 @@ enum CountryModel {
     id: 0,
   ),
   @JsonValue(2)
-  uae(
-    name: 'الإمارات - UAE',
-    imagePath: AssetsManger.imagesUae,
-    currency: 'AED',
-    id: 2,
-  ),
+  uae(name: 'الإمارات - UAE', currency: 'AED', id: 2, countryCode: 'ae'),
   @JsonValue(3)
-  ksa(
-    name: 'السعودية - KSA',
-    imagePath: AssetsManger.imagesKsa,
-    currency: 'SAR',
-    id: 3,
-  );
+  ksa(name: 'السعودية - KSA', currency: 'SAR', id: 3, countryCode: 'sa');
 
   final int id;
   final String name;
   final String currency;
-  final String imagePath;
+  final String? imagePath;
+  final String? countryCode;
   const CountryModel({
     required this.name,
     required this.currency,
-    required this.imagePath,
+    this.imagePath,
     required this.id,
+    this.countryCode,
   });
 
   static CountryModel get defaultCountry => CountryModel.global;
+
+  static CountryModel fromId(dynamic id) {
+    return CountryModel.values.firstWhere(
+      (element) => element.id == id,
+      orElse: () => CountryModel.global,
+    );
+  }
 }

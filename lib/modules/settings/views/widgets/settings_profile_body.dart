@@ -5,6 +5,7 @@ class _SettingsProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settingsCubit = context.read<SettingsCubit>();
     final language = Language.of(context);
     return Column(
       children: [
@@ -24,10 +25,7 @@ class _SettingsProfileBody extends StatelessWidget {
                       context: context,
                       title: language.log_out,
                       subtitle: language.are_you_sure_you_want_to_log_out,
-                      onPressed: () async {
-                        // await LocalStorageService.deleteUserCredential();
-                        AppRouter.pushReplacement(AppPages.splash);
-                      },
+                      onPressed: () => settingsCubit.signOut(),
                     );
                   },
                   child: Text(language.log_out),

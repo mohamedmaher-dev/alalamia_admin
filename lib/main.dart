@@ -7,16 +7,26 @@ import 'package:alalamia_admin/core/notifications/notifications_service.dart';
 import 'package:alalamia_admin/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
+  // Ensure that plugin services are initialized before running the app.
   WidgetsFlutterBinding.ensureInitialized();
+  // Set the preferred orientation of the app to portrait mode only.
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  // Initialize Firebase with the default options for the current platform.
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // Initialize dependency injection for the app.
   await DependencyInjection.init();
+  // Initialize the local storage service.
   await di<LocalStorageService>()();
+  // Initialize the notifications service.
   await di<NotificationsService>()();
+  // Initialize bloc observer for the app.
   Bloc.observer = MyBlocObserver();
+  // Initialize the app configuration and run the app.
   runApp(
     BlocProvider(
       create: (context) => di<AppConfig>(),

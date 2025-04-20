@@ -14,6 +14,7 @@ import 'package:alalamia_admin/modules/order_details/data/rebos/order_details_re
 import 'package:alalamia_admin/modules/orders/controllers/orders/orders_cubit.dart';
 import 'package:alalamia_admin/modules/orders/controllers/orders_search/orders_search_cubit.dart';
 import 'package:alalamia_admin/modules/orders/data/rebos/orders_rebo.dart';
+import 'package:alalamia_admin/modules/settings/views/controllers/settings/settings_cubit.dart';
 import 'package:alalamia_admin/modules/splash/controllers/splash/splash_cubit.dart';
 import 'package:alalamia_admin/modules/statistics/controllers/statistics/statistics_cubit.dart';
 import 'package:alalamia_admin/modules/statistics/data/rebos/statistics_rebos.dart';

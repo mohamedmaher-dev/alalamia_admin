@@ -1,5 +1,5 @@
+import 'package:alalamia_admin/core/data/data_result.dart';
 import 'package:alalamia_admin/core/extension/order_status_ext.dart';
-import 'package:alalamia_admin/core/networking/api_result.dart';
 import 'package:alalamia_admin/core/networking/api_service.dart';
 import 'package:alalamia_admin/core/networking/api_try_catch.dart';
 import 'package:alalamia_admin/modules/order_details/data/models/change_order_status_request_model.dart';
@@ -10,11 +10,11 @@ class OrderDetailsRebo {
   final ApiService apiService;
 
   OrderDetailsRebo(this.apiService);
-  Future<ApiResult<OrdersDetailsResponseModel>> getOrderDetails(
+  Future<DataResult<OrdersDetailsResponseModel>> getOrderDetails(
     String orderId,
   ) async => apiTryCatch(apiCall: apiService.orderDetails(orderId));
 
-  Future<ApiResult<void>> changeOrderStatus(
+  Future<DataResult<void>> changeOrderStatus(
     String orderId,
     OrderStatus orderStatus,
   ) async => apiTryCatch(

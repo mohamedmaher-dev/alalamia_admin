@@ -19,6 +19,9 @@ class AppThemeData {
     listTileTheme: ListTileThemeData(
       subtitleTextStyle: TextStyles.ts10N.copyWith(color: Colors.grey),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyles.ts12N.copyWith(color: Colors.grey),
+    ),
   );
 
   static get _pageTransitionsTheme => PageTransitionsTheme(
@@ -31,6 +34,10 @@ class AppThemeData {
   static get fontFamily => 'Almarai';
 
   static get _expansionTileThemeData => ExpansionTileThemeData(
+    collapsedShape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(kNormalRadius),
+    ),
+
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(kNormalRadius),
     ),

@@ -1,7 +1,7 @@
 part of '../one_order_view.dart';
 
-class _FloatBody extends StatelessWidget {
-  const _FloatBody(this.orderDetails, this.args);
+class _BottomBody extends StatelessWidget {
+  const _BottomBody(this.orderDetails, this.args);
   final OrdersDetailsResponseModel orderDetails;
   final OrdersDatum args;
 
@@ -15,9 +15,12 @@ class _FloatBody extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            leading: const Icon(CupertinoIcons.money_dollar_circle_fill),
+            leading: CurrencyView(
+              countryModel: args.countryModel,
+              textStyle: TextStyles.tsP15B,
+            ),
             title: Text(
-              '${orderDetails.priceSum} ${args.countryModel.currency}',
+              orderDetails.priceSum.toString(),
               style: TextStyles.tsP15B,
             ),
             subtitle: Text(language.total_price),

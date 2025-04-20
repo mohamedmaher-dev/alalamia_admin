@@ -21,8 +21,8 @@ class UserCredentialAdapter extends TypeAdapter<UserCredential> {
       password: fields[1] as String,
       token: fields[2] as String,
       countryName: fields[3] as String,
-      countryFlagPath: fields[4] as String,
-      countryId: fields[5] as int,
+      countryId: fields[4] as int,
+      countryCode: fields[5] as String?,
     );
   }
 
@@ -39,9 +39,9 @@ class UserCredentialAdapter extends TypeAdapter<UserCredential> {
       ..writeByte(3)
       ..write(obj.countryName)
       ..writeByte(4)
-      ..write(obj.countryFlagPath)
+      ..write(obj.countryId)
       ..writeByte(5)
-      ..write(obj.countryId);
+      ..write(obj.countryCode);
   }
 
   @override

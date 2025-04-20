@@ -3,13 +3,7 @@ import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/order_payment_type.dart';
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/order_status.dart';
 
-const List<OrdersDatum> fakeOrdersResponseModel = [
-  _orderDatum,
-  _orderDatum,
-  _orderDatum,
-];
-
-const _orderDatum = OrdersDatum(
+const fakeOrdersResponseModel = OrdersDatum(
   aramexId: 0,
   countryModel: CountryModel.global,
   id: 1,

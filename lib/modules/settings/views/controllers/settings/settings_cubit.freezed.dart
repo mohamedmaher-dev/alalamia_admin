@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'order_details_cubit.dart';
+part of 'settings_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,47 +15,47 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$OrderDetailsState {
+mixin _$SettingsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(AppConfigModel appConfigModel) initial,
     required TResult Function() loading,
-    required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ErrorInterface error) failure,
+    required TResult Function(ErrorInterface e) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AppConfigModel appConfigModel)? initial,
     TResult? Function()? loading,
-    TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ErrorInterface error)? failure,
+    TResult? Function(ErrorInterface e)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AppConfigModel appConfigModel)? initial,
     TResult Function()? loading,
-    TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ErrorInterface error)? failure,
+    TResult Function(ErrorInterface e)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) =>
@@ -63,24 +63,184 @@ mixin _$OrderDetailsState {
 }
 
 /// @nodoc
-abstract class $OrderDetailsStateCopyWith<$Res> {
-  factory $OrderDetailsStateCopyWith(
-          OrderDetailsState value, $Res Function(OrderDetailsState) then) =
-      _$OrderDetailsStateCopyWithImpl<$Res, OrderDetailsState>;
+abstract class $SettingsStateCopyWith<$Res> {
+  factory $SettingsStateCopyWith(
+          SettingsState value, $Res Function(SettingsState) then) =
+      _$SettingsStateCopyWithImpl<$Res, SettingsState>;
 }
 
 /// @nodoc
-class _$OrderDetailsStateCopyWithImpl<$Res, $Val extends OrderDetailsState>
-    implements $OrderDetailsStateCopyWith<$Res> {
-  _$OrderDetailsStateCopyWithImpl(this._value, this._then);
+class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
+    implements $SettingsStateCopyWith<$Res> {
+  _$SettingsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of OrderDetailsState
+  /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AppConfigModel appConfigModel});
+
+  $AppConfigModelCopyWith<$Res> get appConfigModel;
+}
+
+/// @nodoc
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$SettingsStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? appConfigModel = null,
+  }) {
+    return _then(_$InitialImpl(
+      appConfigModel: null == appConfigModel
+          ? _value.appConfigModel
+          : appConfigModel // ignore: cast_nullable_to_non_nullable
+              as AppConfigModel,
+    ));
+  }
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AppConfigModelCopyWith<$Res> get appConfigModel {
+    return $AppConfigModelCopyWith<$Res>(_value.appConfigModel, (value) {
+      return _then(_value.copyWith(appConfigModel: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl({required this.appConfigModel});
+
+  @override
+  final AppConfigModel appConfigModel;
+
+  @override
+  String toString() {
+    return 'SettingsState.initial(appConfigModel: $appConfigModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InitialImpl &&
+            (identical(other.appConfigModel, appConfigModel) ||
+                other.appConfigModel == appConfigModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, appConfigModel);
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AppConfigModel appConfigModel) initial,
+    required TResult Function() loading,
+    required TResult Function(ErrorInterface e) failure,
+  }) {
+    return initial(appConfigModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AppConfigModel appConfigModel)? initial,
+    TResult? Function()? loading,
+    TResult? Function(ErrorInterface e)? failure,
+  }) {
+    return initial?.call(appConfigModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AppConfigModel appConfigModel)? initial,
+    TResult Function()? loading,
+    TResult Function(ErrorInterface e)? failure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(appConfigModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial implements SettingsState {
+  const factory _Initial({required final AppConfigModel appConfigModel}) =
+      _$InitialImpl;
+
+  AppConfigModel get appConfigModel;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -92,13 +252,13 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$OrderDetailsStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$SettingsStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of OrderDetailsState
+  /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -109,7 +269,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'OrderDetailsState.loading()';
+    return 'SettingsState.loading()';
   }
 
   @override
@@ -124,9 +284,9 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(AppConfigModel appConfigModel) initial,
     required TResult Function() loading,
-    required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ErrorInterface error) failure,
+    required TResult Function(ErrorInterface e) failure,
   }) {
     return loading();
   }
@@ -134,9 +294,9 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AppConfigModel appConfigModel)? initial,
     TResult? Function()? loading,
-    TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ErrorInterface error)? failure,
+    TResult? Function(ErrorInterface e)? failure,
   }) {
     return loading?.call();
   }
@@ -144,9 +304,9 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AppConfigModel appConfigModel)? initial,
     TResult Function()? loading,
-    TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ErrorInterface error)? failure,
+    TResult Function(ErrorInterface e)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -158,8 +318,8 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
     return loading(this);
@@ -168,8 +328,8 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
     return loading?.call(this);
@@ -178,8 +338,8 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -190,156 +350,8 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements OrderDetailsState {
+abstract class _Loading implements SettingsState {
   const factory _Loading() = _$LoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$SuccessImplCopyWith<$Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({OrdersDetailsResponseModel orderDetails});
-}
-
-/// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$OrderDetailsStateCopyWithImpl<$Res, _$SuccessImpl>
-    implements _$$SuccessImplCopyWith<$Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of OrderDetailsState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? orderDetails = null,
-  }) {
-    return _then(_$SuccessImpl(
-      orderDetails: null == orderDetails
-          ? _value.orderDetails
-          : orderDetails // ignore: cast_nullable_to_non_nullable
-              as OrdersDetailsResponseModel,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SuccessImpl implements _Success {
-  const _$SuccessImpl({required this.orderDetails});
-
-  @override
-  final OrdersDetailsResponseModel orderDetails;
-
-  @override
-  String toString() {
-    return 'OrderDetailsState.success(orderDetails: $orderDetails)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl &&
-            (identical(other.orderDetails, orderDetails) ||
-                other.orderDetails == orderDetails));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, orderDetails);
-
-  /// Create a copy of OrderDetailsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ErrorInterface error) failure,
-  }) {
-    return success(orderDetails);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ErrorInterface error)? failure,
-  }) {
-    return success?.call(orderDetails);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ErrorInterface error)? failure,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(orderDetails);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Success implements OrderDetailsState {
-  const factory _Success(
-      {required final OrdersDetailsResponseModel orderDetails}) = _$SuccessImpl;
-
-  OrdersDetailsResponseModel get orderDetails;
-
-  /// Create a copy of OrderDetailsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -348,28 +360,28 @@ abstract class _$$FailureImplCopyWith<$Res> {
           _$FailureImpl value, $Res Function(_$FailureImpl) then) =
       __$$FailureImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorInterface error});
+  $Res call({ErrorInterface e});
 }
 
 /// @nodoc
 class __$$FailureImplCopyWithImpl<$Res>
-    extends _$OrderDetailsStateCopyWithImpl<$Res, _$FailureImpl>
+    extends _$SettingsStateCopyWithImpl<$Res, _$FailureImpl>
     implements _$$FailureImplCopyWith<$Res> {
   __$$FailureImplCopyWithImpl(
       _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of OrderDetailsState
+  /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? e = null,
   }) {
     return _then(_$FailureImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
+      null == e
+          ? _value.e
+          : e // ignore: cast_nullable_to_non_nullable
               as ErrorInterface,
     ));
   }
@@ -378,14 +390,14 @@ class __$$FailureImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FailureImpl implements _Failure {
-  const _$FailureImpl({required this.error});
+  const _$FailureImpl(this.e);
 
   @override
-  final ErrorInterface error;
+  final ErrorInterface e;
 
   @override
   String toString() {
-    return 'OrderDetailsState.failure(error: $error)';
+    return 'SettingsState.failure(e: $e)';
   }
 
   @override
@@ -393,13 +405,13 @@ class _$FailureImpl implements _Failure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FailureImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.e, e) || other.e == e));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, e);
 
-  /// Create a copy of OrderDetailsState
+  /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -410,33 +422,33 @@ class _$FailureImpl implements _Failure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(AppConfigModel appConfigModel) initial,
     required TResult Function() loading,
-    required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ErrorInterface error) failure,
+    required TResult Function(ErrorInterface e) failure,
   }) {
-    return failure(error);
+    return failure(e);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AppConfigModel appConfigModel)? initial,
     TResult? Function()? loading,
-    TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ErrorInterface error)? failure,
+    TResult? Function(ErrorInterface e)? failure,
   }) {
-    return failure?.call(error);
+    return failure?.call(e);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AppConfigModel appConfigModel)? initial,
     TResult Function()? loading,
-    TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ErrorInterface error)? failure,
+    TResult Function(ErrorInterface e)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(error);
+      return failure(e);
     }
     return orElse();
   }
@@ -444,8 +456,8 @@ class _$FailureImpl implements _Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
   }) {
     return failure(this);
@@ -454,8 +466,8 @@ class _$FailureImpl implements _Failure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
   }) {
     return failure?.call(this);
@@ -464,8 +476,8 @@ class _$FailureImpl implements _Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -476,12 +488,12 @@ class _$FailureImpl implements _Failure {
   }
 }
 
-abstract class _Failure implements OrderDetailsState {
-  const factory _Failure({required final ErrorInterface error}) = _$FailureImpl;
+abstract class _Failure implements SettingsState {
+  const factory _Failure(final ErrorInterface e) = _$FailureImpl;
 
-  ErrorInterface get error;
+  ErrorInterface get e;
 
-  /// Create a copy of OrderDetailsState
+  /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>

@@ -13,7 +13,7 @@ class SplashCubit extends Cubit<SplashState> {
   void start() async {
     await authRebo.getUserCredential().then((userCredential) async {
       if (userCredential != null) {
-        final signInResult = await authRebo.signIn(
+        final signInResult = await authRebo.refreshToken(
           SignInRequestModel(
             email: userCredential.email,
             password: userCredential.password,
@@ -24,7 +24,7 @@ class SplashCubit extends Cubit<SplashState> {
             DioFactory.setToken(success.token);
             emit(SplashState.successToLogin());
           },
-          failure: (failure) {
+          error: (failure) {
             emit(SplashState.failedToLogin());
           },
         );

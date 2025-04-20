@@ -2,14 +2,6 @@
 class AssetsManger {
   AssetsManger._();
   
-  /// Assets for backgroundAuthAuthBackDark
-  /// assets/background/auth/auth_back_dark.svg
-  static const String backgroundAuthAuthBackDark = "assets/background/auth/auth_back_dark.svg";
-
-  /// Assets for backgroundAuthAuthBackLight
-  /// assets/background/auth/auth_back_light.svg
-  static const String backgroundAuthAuthBackLight = "assets/background/auth/auth_back_light.svg";
-
   /// Assets for fontsAlmaraiRegular
   /// assets/fonts/Almarai-Regular.ttf
   static const String fontsAlmaraiRegular = "assets/fonts/Almarai-Regular.ttf";
@@ -33,6 +25,10 @@ class AssetsManger {
   /// Assets for imagesKsa
   /// assets/images/ksa.png
   static const String imagesKsa = "assets/images/ksa.png";
+
+  /// Assets for imagesKsaCurrency
+  /// assets/images/ksa_currency.svg
+  static const String imagesKsaCurrency = "assets/images/ksa_currency.svg";
 
   /// Assets for imagesUae
   /// assets/images/uae.png

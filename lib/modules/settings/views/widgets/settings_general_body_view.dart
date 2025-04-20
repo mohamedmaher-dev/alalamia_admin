@@ -5,50 +5,51 @@ class _SettingsGeneralBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settingsCubit = context.read<SettingsCubit>();
     final AppConfig appConfig = context.read<AppConfig>();
     final language = Language.of(context);
     return Column(
       children: [
         ListTile(title: Text(language.general, style: TextStyles.ts15B)),
         Card(
-          child: Column(
-            children: [
-              ListTile(
-                title: Text(language.night_mode),
-                leading: const Icon(Icons.dark_mode),
-                trailing: Switch(
-                  value: appConfig.state.isDarkMode,
-                  onChanged: (value) async {
-                    appConfig.changeTheme();
-                  },
-                ),
-              ),
-              const Divider(),
-              ListTile(
-                title: Text(language.notifications),
-                leading: const Icon(CupertinoIcons.bell_fill),
-                trailing: Switch(
-                  value: appConfig.state.turnOnNotification,
-                  onChanged: (value) async {
-                    appConfig.changeTurnOnNotification(value);
-                  },
-                ),
-              ),
-              const Divider(),
-              ListTile(
-                title: Text(language.current_language),
-                leading: const Icon(Icons.language),
-                trailing: ElevatedButton(
-                  style: const ButtonStyle(
-                    elevation: WidgetStatePropertyAll(0),
+          child: BlocBuilder<SettingsCubit, SettingsState>(
+            builder: (context, state) {
+              return Column(
+                children: [
+                  ListTile(
+                    title: Text(language.night_mode),
+                    leading: const Icon(Icons.dark_mode),
+                    trailing: Switch(
+                      value: appConfig.state.isDarkMode,
+                      onChanged: (value) => settingsCubit.changeTheme(),
+                    ),
                   ),
-                  onPressed: () {
-                    appConfig.changeLanguage();
-                  },
-                  child: Text(language.language_name),
-                ),
-              ),
-            ],
+                  const Divider(),
+                  ListTile(
+                    title: Text(language.notifications),
+                    leading: const Icon(CupertinoIcons.bell_fill),
+                    trailing: Switch(
+                      value: appConfig.state.turnOnNotification,
+                      onChanged:
+                          (value) =>
+                              settingsCubit.changeEnableNotifications(value),
+                    ),
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: Text(language.current_language),
+                    leading: const Icon(Icons.language),
+                    trailing: ElevatedButton(
+                      style: const ButtonStyle(
+                        elevation: WidgetStatePropertyAll(0),
+                      ),
+                      onPressed: () => settingsCubit.changeLanguage(),
+                      child: Text(language.language_name),
+                    ),
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ],

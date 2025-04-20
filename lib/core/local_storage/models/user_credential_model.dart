@@ -15,16 +15,16 @@ class UserCredential {
   @HiveField(3)
   final String countryName;
   @HiveField(4)
-  final String countryFlagPath;
-  @HiveField(5)
   final int countryId;
+  @HiveField(5)
+  final String? countryCode;
   UserCredential({
     required this.email,
     required this.password,
     required this.token,
     required this.countryName,
-    required this.countryFlagPath,
     required this.countryId,
+    this.countryCode,
   });
 
   factory UserCredential.fromAuth(
@@ -36,7 +36,6 @@ class UserCredential {
       password: requestData.password,
       token: data.token,
       countryName: data.countryModel.name,
-      countryFlagPath: data.countryModel.imagePath,
       countryId: data.countryModel.id,
     );
   }

@@ -1,53 +1,54 @@
 part of 'error_interface.dart';
 
 class ApiError extends ErrorInterface {
-  ApiError({required super.msg, required super.code});
+  ApiError._({required super.msg, super.code = 0});
+
+  factory ApiError.fromUnknown() {
+    return ApiError._(msg: Language.current.unknown_error);
+  }
 
   factory ApiError.fromDioException({required DioException dioException}) {
+    final language = Language.current;
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
-        return ApiError(msg: "Connection Timeout", code: 0);
+        return ApiError._(msg: language.connection_timeout);
       case DioExceptionType.sendTimeout:
-        return ApiError(msg: "Send Timeout", code: 0);
+        return ApiError._(msg: language.send_timeout);
       case DioExceptionType.receiveTimeout:
-        return ApiError(msg: "Receive Timeout", code: 0);
+        return ApiError._(msg: language.receive_timeout);
       case DioExceptionType.badCertificate:
-        return ApiError(msg: "Bad Certificate", code: 0);
+        return ApiError._(msg: language.bad_certificate);
       case DioExceptionType.badResponse:
         return _fromBadResponse(dioException: dioException);
       case DioExceptionType.cancel:
-        return ApiError(msg: "Connection Canceled", code: 0);
+        return ApiError._(msg: language.connection_canceled);
       case DioExceptionType.connectionError:
-        return ApiError(msg: "Connection Error", code: 0);
+        return ApiError._(msg: language.connection_error);
       case DioExceptionType.unknown:
-        return ApiError(msg: Language.current.unknown_error, code: 0);
+        return ApiError.fromUnknown();
     }
   }
-  factory ApiError.fromUnknown() {
-    return ApiError(msg: Language.current.unknown_error, code: 0);
-  }
-}
-
-ApiError _fromBadResponse({required DioException dioException}) {
-  final int code = dioException.response!.statusCode ?? 0;
-  final Response? response = dioException.response;
-  switch (code) {
-    case 400:
-      try {
-        return ApiError(
-          msg: response!.data['error']['password'][0],
-          code: code,
-        );
-      } catch (e) {
+  static ApiError _fromBadResponse({required DioException dioException}) {
+    final int code = dioException.response!.statusCode ?? 0;
+    final Response? response = dioException.response;
+    switch (code) {
+      case 400:
         try {
-          return ApiError(msg: response!.data['message'], code: code);
+          return ApiError._(
+            msg: response!.data['error']['password'][0],
+            code: code,
+          );
         } catch (e) {
-          return ApiError.fromUnknown();
+          try {
+            return ApiError._(msg: response!.data['message'], code: code);
+          } catch (e) {
+            return ApiError.fromUnknown();
+          }
         }
-      }
-    case 401:
-      return ApiError(msg: response!.data['error'], code: code);
-    default:
-      return ApiError.fromUnknown();
+      case 401:
+        return ApiError._(msg: response!.data['error'], code: code);
+      default:
+        return ApiError.fromUnknown();
+    }
   }
 }

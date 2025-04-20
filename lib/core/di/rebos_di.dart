@@ -5,6 +5,8 @@ Future<void> _rebosDIInit() async {
     () => AuthRebo(
       apiAuthService: di<ApiService>(),
       localStorageService: di<LocalStorageService>(),
+      notificationsService: di<NotificationsService>(),
+      appConfig: di<AppConfig>(),
     ),
   );
   di.registerLazySingleton(
@@ -16,9 +18,6 @@ Future<void> _rebosDIInit() async {
   di.registerLazySingleton(() => OrderDetailsRebo(di<ApiService>()));
   di.registerLazySingleton(() => StatisticsRebos(di<ApiService>()));
   di.registerLazySingleton(
-    () => NotificationsRepo(
-      appConfig: di<AppConfig>(),
-      notificationsService: di<NotificationsService>(),
-    ),
+    () => NotificationsRepo(notificationsService: di<NotificationsService>()),
   );
 }

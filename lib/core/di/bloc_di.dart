@@ -11,4 +11,8 @@ Future<void> _blocDiInit() async {
   di.registerFactory(
     () => StatisticsCubit(di<StatisticsRebos>(), di<OrdersRebo>()),
   );
+  di.registerFactory(
+    () =>
+        SettingsCubit(di<AppConfig>(), di<AuthRebo>(), di<NotificationsRepo>()),
+  );
 }

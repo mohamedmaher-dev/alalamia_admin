@@ -5,9 +5,6 @@ class _FCMService {
   Future<void> call() async {
     await requestPermission();
     await _backgroundFCM();
-    if (kDebugMode) {
-      await _fcm.subscribeToTopic(NotificationsConsts.adminTopicDebug);
-    }
   }
 
   Future<NotificationSettings> requestPermission() => _fcm.requestPermission(
@@ -22,9 +19,8 @@ class _FCMService {
   Future<void> _backgroundFCM() async => FirebaseMessaging.onBackgroundMessage(
     _firebaseMessagingBackgroundHandler,
   );
-
-  @pragma('vm:entry-point')
-  Future<void> _firebaseMessagingBackgroundHandler(
-    RemoteMessage message,
-  ) async => debugPrint('Handling a background message: ${message.messageId}');
 }
+
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async =>
+    debugPrint('Handling a background message: ${message.messageId}');

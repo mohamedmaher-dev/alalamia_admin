@@ -25,101 +25,172 @@ class _OrderItemBody extends StatelessWidget {
           child: Column(
             children: [
               ExpansionTile(
+                trailing: Icon(CupertinoIcons.chevron_down),
                 tilePadding: EdgeInsetsDirectional.only(end: kLargePadding),
                 controlAffinity: ListTileControlAffinity.trailing,
-                title: ListTile(
-                  leading: Initicon(
-                    size: 35.r,
-                    text: model.userName,
-                    backgroundColor: ColorManger.myGold,
-                    borderRadius: BorderRadius.circular(kNormalRadius),
-                    style: TextStyle(
-                      fontFamily: AppThemeData.fontFamily,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  title: Text(model.userName, style: TextStyles.tsP12B),
-                  subtitle: Text(
-                    language.client_name,
-                    style: TextStyles.ts10N.copyWith(color: ColorManger.grey),
-                  ),
-                ),
-                children: [
-                  Divider(),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ListTile(
-                          leading: Icon(CupertinoIcons.number),
-                          title: Text(
-                            model.requestNumber,
-                            style: TextStyles.tsP12B,
-                          ),
-                          subtitle: Text(language.order_number),
-                        ),
-                      ),
-                      Expanded(
-                        child: ListTile(
-                          leading: Icon(CupertinoIcons.money_dollar_circle),
-                          title: Text(
-                            model.paymentType.paymentTypeText,
-                            style: TextStyles.tsP12B,
-                          ),
-                          subtitle: Text(language.payment_type),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Divider(),
-                ],
+                title: _ClientTitleBody(model: model),
+                children: <Widget>[_ExpandedBody(model: model)],
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: ListTile(
-                      leading: Icon(CupertinoIcons.phone),
-                      title: Text(model.phone, style: TextStyles.tsP12B),
-                      subtitle: Text(language.client_number),
-                    ),
-                  ),
-                  Expanded(
-                    child: ListTile(
-                      leading: Icon(CupertinoIcons.clock),
-                      title: Text(
-                        Jiffy.parse(model.bookingDate).fromNow(),
-                        style: TextStyles.tsP12B,
-                      ),
-                      subtitle: Text(language.order_date),
-                    ),
-                  ),
-                ],
+              _RowDataItemOrderItem(
+                icon1: Icon(CupertinoIcons.phone),
+                title1: model.phone,
+                subTitle1: language.client_number,
+                icon2: Icon(CupertinoIcons.number),
+                title2: model.requestNumber,
+                subTitle2: language.order_number,
               ),
-              Divider(),
-              Container(
-                width: double.infinity,
-                alignment: Alignment.center,
-                padding: EdgeInsets.all(kNormalPadding),
-                margin: EdgeInsets.all(kNormalMargin),
-                decoration: BoxDecoration(
-                  color: model.status.orderStatusColor,
-                  borderRadius: BorderRadius.circular(kNormalRadius),
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        textAlign: TextAlign.center,
-                        model.status.orderStatusText,
-                        style: TextStyles.ts12B.copyWith(color: Colors.black),
-                      ),
-                    ),
-                    Icon(CupertinoIcons.chevron_left, color: Colors.black),
-                  ],
-                ),
-              ),
+              _StatusBody(model: model),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _DataItemOrderItem extends StatelessWidget {
+  const _DataItemOrderItem({
+    super.key,
+    required this.title,
+    required this.subTitle,
+    required this.icon,
+  });
+  final String title;
+  final String subTitle;
+  final Widget icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      dense: true,
+      leading: icon,
+      title: Text(title, style: TextStyles.tsP12B),
+      subtitle: Text(subTitle),
+    );
+  }
+}
+
+class _RowDataItemOrderItem extends StatelessWidget {
+  const _RowDataItemOrderItem({
+    super.key,
+    required this.title1,
+    required this.subTitle1,
+    required this.icon1,
+    required this.title2,
+    required this.subTitle2,
+    required this.icon2,
+  });
+  final String title1;
+  final String subTitle1;
+  final Widget icon1;
+  final String title2;
+  final String subTitle2;
+  final Widget icon2;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: _DataItemOrderItem(
+            title: title1,
+            subTitle: subTitle1,
+            icon: icon1,
+          ),
+        ),
+        Expanded(
+          child: _DataItemOrderItem(
+            title: title2,
+            subTitle: subTitle2,
+            icon: icon2,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ExpandedBody extends StatelessWidget {
+  const _ExpandedBody({required this.model});
+  final OrdersDatum model;
+
+  @override
+  Widget build(BuildContext context) {
+    final language = Language.of(context);
+    return Column(
+      children: [
+        _RowDataItemOrderItem(
+          title1: model.paymentType.paymentTypeText,
+          subTitle1: language.payment_type,
+          icon1: Icon(CupertinoIcons.money_dollar_circle),
+
+          title2: Jiffy.parseFromDateTime(
+            DateTime.parse(model.bookingDate).toUtc(),
+          ).from(Jiffy.parseFromDateTime(DateTime.now().toUtc())),
+          subTitle2: language.time_ago,
+          icon2: Icon(CupertinoIcons.clock),
+        ),
+
+        _DataItemOrderItem(
+          title: Jiffy.parse(model.bookingDate).yMMMMEEEEdjm,
+          subTitle: language.order_date,
+          icon: Icon(CupertinoIcons.calendar),
+        ), // Add more widgets here as needed
+      ],
+    );
+  }
+}
+
+class _StatusBody extends StatelessWidget {
+  const _StatusBody({super.key, required this.model});
+  final OrdersDatum model;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.center,
+      padding: EdgeInsets.all(kNormalPadding),
+      margin: EdgeInsets.all(kNormalMargin),
+      decoration: BoxDecoration(
+        color: model.status.orderStatusColor,
+        borderRadius: BorderRadius.circular(kNormalRadius),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              textAlign: TextAlign.center,
+              model.status.orderStatusText,
+              style: TextStyles.ts12B.copyWith(color: Colors.black),
+            ),
+          ),
+          Icon(CupertinoIcons.chevron_left_circle, color: Colors.black),
+        ],
+      ),
+    );
+  }
+}
+
+class _ClientTitleBody extends StatelessWidget {
+  const _ClientTitleBody({super.key, required this.model});
+  final OrdersDatum model;
+
+  @override
+  Widget build(BuildContext context) {
+    final language = Language.of(context);
+    return _DataItemOrderItem(
+      title: model.userName,
+      subTitle: language.client_name,
+      icon: Initicon(
+        size: 35.r,
+        text: model.userName,
+        backgroundColor: ColorManger.myGold,
+        borderRadius: BorderRadius.circular(kNormalRadius),
+        style: TextStyle(
+          fontFamily: AppThemeData.fontFamily,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );

@@ -1059,6 +1059,106 @@ class Language {
       args: [],
     );
   }
+
+  /// `انتهاء مهلة الاتصال`
+  String get connection_timeout {
+    return Intl.message(
+      'انتهاء مهلة الاتصال',
+      name: 'connection_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `انتهاء مهلة الإرسال`
+  String get send_timeout {
+    return Intl.message(
+      'انتهاء مهلة الإرسال',
+      name: 'send_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `انتهاء مهلة الاستلام`
+  String get receive_timeout {
+    return Intl.message(
+      'انتهاء مهلة الاستلام',
+      name: 'receive_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `شهادة سيئة`
+  String get bad_certificate {
+    return Intl.message(
+      'شهادة سيئة',
+      name: 'bad_certificate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم الغاء الاتصال`
+  String get connection_canceled {
+    return Intl.message(
+      'تم الغاء الاتصال',
+      name: 'connection_canceled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `خطأ في الاتصال`
+  String get connection_error {
+    return Intl.message(
+      'خطأ في الاتصال',
+      name: 'connection_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `فشل تسجيل الخروج`
+  String get failed_to_sign_out {
+    return Intl.message(
+      'فشل تسجيل الخروج',
+      name: 'failed_to_sign_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاذن غير ممنوح`
+  String get perrmission_not_granted {
+    return Intl.message(
+      'الاذن غير ممنوح',
+      name: 'perrmission_not_granted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاذن ممنوح`
+  String get perrmission_granted {
+    return Intl.message(
+      'الاذن ممنوح',
+      name: 'perrmission_granted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `منذ`
+  String get time_ago {
+    return Intl.message(
+      'منذ',
+      name: 'time_ago',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Language> {

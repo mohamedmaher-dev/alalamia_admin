@@ -1,4 +1,4 @@
-import 'package:alalamia_admin/core/networking/api_error_model.dart';
+import 'package:alalamia_admin/core/errors/error_interface.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_model.dart';
 import 'package:bloc/bloc.dart';
@@ -28,7 +28,7 @@ class SignInCubit extends Cubit<SignInState> {
       success: (data) {
         emit(SignInState.success());
       },
-      failure: (e) {
+      error: (e) {
         emit(SignInState.failure(e: e));
       },
     );

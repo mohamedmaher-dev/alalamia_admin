@@ -1,7 +1,6 @@
 import 'package:alalamia_admin/core/models/country_model.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChangeCountryBtn extends StatefulWidget {
   const ChangeCountryBtn({super.key, required this.onSelectionChanged});
@@ -36,7 +35,7 @@ class _ChangeCountryBtnState extends State<ChangeCountryBtn> {
             return ButtonSegment(
               value: country,
               label: Text(country.name),
-              icon: Image.asset(country.imagePath, height: 15.h),
+              // icon: Image.asset(country.imagePath, height: 15.h),
             );
           }).toList(),
       selected: {selectedCountry},
