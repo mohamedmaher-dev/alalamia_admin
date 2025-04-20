@@ -5,5 +5,5 @@ class SignInState with _$SignInState {
   const factory SignInState.initial(bool isShowPassword) = _Initial;
   const factory SignInState.loading() = _Loading;
   const factory SignInState.success() = _Success;
-  const factory SignInState.failure({required ApiErrorModel e}) = _Failure;
+  const factory SignInState.failure({required ErrorInterface e}) = _Failure;
 }

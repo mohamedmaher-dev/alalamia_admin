@@ -5,6 +5,7 @@ import 'package:alalamia_admin/core/extension/string_ext.dart';
 import 'package:alalamia_admin/core/localization/generated/l10n.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
+import 'package:alalamia_admin/core/widgets/currency_view.dart';
 import 'package:alalamia_admin/core/widgets/error_view.dart';
 import 'package:alalamia_admin/core/widgets/general_btn.dart';
 import 'package:alalamia_admin/core/widgets/loading_view.dart';
@@ -26,7 +27,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:map_launcher/map_launcher.dart';
-part 'widgets/float_body.dart';
+part 'widgets/bottom_body.dart';
 part 'widgets/order_state_steps.dart';
 part 'widgets/cart_body.dart';
 part 'widgets/general_body.dart';
@@ -70,13 +71,9 @@ class _OrderDetailsViewBody extends StatelessWidget {
           success:
               (order) => Scaffold(
                 appBar: AppBar(
+                  centerTitle: true,
                   forceMaterialTransparency: true,
-                  title: ListTile(
-                    title: Text(
-                      language.order_details,
-                      style: TextStyles.ts15B,
-                    ),
-                  ),
+                  title: Text(language.order_details, style: TextStyles.ts15B),
                 ),
                 body: Padding(
                   padding: EdgeInsets.all(kNormalPadding),
@@ -100,7 +97,7 @@ class _OrderDetailsViewBody extends StatelessWidget {
                         ),
                       ),
                       const Divider(),
-                      _FloatBody(order, args),
+                      _BottomBody(order, args),
                     ],
                   ),
                 ),

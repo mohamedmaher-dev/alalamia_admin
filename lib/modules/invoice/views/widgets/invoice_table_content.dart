@@ -28,7 +28,7 @@ Widget _invoiceTableContent({
               pw.Padding(
                 padding: pw.EdgeInsets.all(kNormalPadding),
                 child: pw.Text(
-                  order.cartDetail![index].productNumber.toString(),
+                  order.cartDetail![index].sku,
                   style: pw.TextStyle(font: font, fontSize: 12),
                   textAlign: pw.TextAlign.center,
                 ),

@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 final kNormalPadding = 5.w;
 final kNormalMargin = 5.w;
 final kNormalRadius = 10.r;
-final kBottonHight = 30.h;
+final kBottonHight = 35.h;
 final kSpacingBetweenWidgetsHight = 10.w;
 
 // Medium Spacing

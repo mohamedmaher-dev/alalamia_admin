@@ -6,6 +6,7 @@ import 'package:alalamia_admin/modules/order_details/data/models/orders_details_
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/orders_response_model.dart';
 import 'package:alalamia_admin/modules/statistics/data/models/statistics_response_model/statistics_response_model.dart';
 import 'package:dio/dio.dart';
+import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 part 'api_service.g.dart';
 
@@ -19,7 +20,10 @@ abstract class ApiService {
   );
   // Orders
   @GET(ApiConsts.orders)
-  Future<OrdersResponseModel> getOrders(@Query("page") int page);
+  Future<OrdersResponseModel> getOrders(
+    @Query("page") int page,
+    @Query('country_id') int countryId,
+  );
   @GET(ApiConsts.orderDetails)
   Future<OrdersDetailsResponseModel> orderDetails(
     @Path("orderId") String orderId,

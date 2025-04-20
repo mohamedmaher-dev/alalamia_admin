@@ -18,7 +18,7 @@ Future<Uint8List> createStyledInvoice(
   OrdersDetailsResponseModel order,
   OrdersDatum orderArgs,
 ) async {
-  final fontData = await rootBundle.load(AssetsManger.fontsTajawalRegular);
+  final fontData = await rootBundle.load(AssetsManger.fontsAlmaraiRegular);
   final font = pw.Font.ttf(fontData);
   final pdf = pw.Document();
   pdf.addPage(
@@ -45,7 +45,7 @@ Future<Uint8List> createStyledInvoice(
           _invoiceSummary(
             font: font,
             order: order,
-            currency: orderArgs.currency,
+            currency: orderArgs.countryModel.currency,
           ),
           pw.Divider(thickness: 1),
         ];

@@ -97,6 +97,17 @@
     "other" : "آخرى",
     "order_status" : "حالة الطلب",
     "order_summary" : "ملخص الطلب",
-    "order_details" : "تفاصيل الطلب"
- 
+    "order_details" : "تفاصيل الطلب",
+    "please_input_your_email_and_password" : "الرجاء إدخال بريدك الإلكتروني وكلمة المرور",
+    "unknown_error" : "خطأ غير معروف",
+    "connection_timeout" : "انتهاء مهلة الاتصال",
+    "send_timeout" : "انتهاء مهلة الإرسال",
+    "receive_timeout" : "انتهاء مهلة الاستلام",
+    "bad_certificate" : "شهادة سيئة",
+    "connection_canceled" : "تم الغاء الاتصال",
+    "connection_error" : "خطأ في الاتصال",
+    "failed_to_sign_out" : "فشل تسجيل الخروج",
+    "perrmission_not_granted" : "الاذن غير ممنوح",
+    "perrmission_granted" : "الاذن ممنوح",
+    "time_ago" : "منذ"
 }

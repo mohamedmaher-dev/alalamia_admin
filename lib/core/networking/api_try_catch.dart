@@ -1,15 +1,14 @@
+import 'package:alalamia_admin/core/data/data_result.dart';
+import 'package:alalamia_admin/core/errors/error_interface.dart';
 import 'package:dio/dio.dart';
 
-import 'api_error_model.dart';
-import 'api_result.dart';
-
-Future<ApiResult<RS>> apiTryCatch<RS>({required Future<RS> apiCall}) async {
+Future<DataResult<RS>> apiTryCatch<RS>({required Future<RS> apiCall}) async {
   try {
     final response = await apiCall;
-    return ApiResult.success(response);
+    return DataResult.success(response);
   } on DioException catch (e) {
-    return ApiResult.failure(ApiErrorModel.fromDioException(dioException: e));
+    return DataResult.error(ApiError.fromDioException(dioException: e));
   } catch (e) {
-    return ApiResult.failure(ApiErrorModel.fromUnknown(e: e));
+    return DataResult.error(ApiError.fromUnknown());
   }
 }

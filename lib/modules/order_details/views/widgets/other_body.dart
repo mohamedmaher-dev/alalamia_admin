@@ -25,7 +25,11 @@ class _OtherBody extends StatelessWidget {
               Divider(),
               ListTile(
                 leading: Icon(Icons.delivery_dining),
-                title: Text(language.no_data),
+                title: Text(
+                  args.aramexId == null
+                      ? language.no_data
+                      : args.aramexId.toString(),
+                ),
                 subtitle: Text(language.aramex_number),
               ),
             ],

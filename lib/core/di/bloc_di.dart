@@ -1,9 +1,6 @@
 part of 'di.dart';
 
 Future<void> _blocDiInit() async {
-  di.registerLazySingleton<MainCubit>(
-    () => MainCubit(di<AppLocalizationController>(), di<AppThemeController>()),
-  );
   di.registerFactory<SignInCubit>(() => SignInCubit(di<AuthRebo>()));
   di.registerFactory<SplashCubit>(() => SplashCubit(di<AuthRebo>()));
   di.registerFactory(() => OrdersCubit(di<OrdersRebo>()));
@@ -13,5 +10,9 @@ Future<void> _blocDiInit() async {
   di.registerFactory(() => OrderStatusCubit(di<OrderDetailsRebo>()));
   di.registerFactory(
     () => StatisticsCubit(di<StatisticsRebos>(), di<OrdersRebo>()),
+  );
+  di.registerFactory(
+    () =>
+        SettingsCubit(di<AppConfig>(), di<AuthRebo>(), di<NotificationsRepo>()),
   );
 }

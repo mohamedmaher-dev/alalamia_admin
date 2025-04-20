@@ -20,21 +20,21 @@ mixin _$OrderDetailsState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ApiErrorModel error) failure,
+    required TResult Function(ErrorInterface error) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ApiErrorModel error)? failure,
+    TResult? Function(ErrorInterface error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ApiErrorModel error)? failure,
+    TResult Function(ErrorInterface error)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +126,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ApiErrorModel error) failure,
+    required TResult Function(ErrorInterface error) failure,
   }) {
     return loading();
   }
@@ -136,7 +136,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ApiErrorModel error)? failure,
+    TResult? Function(ErrorInterface error)? failure,
   }) {
     return loading?.call();
   }
@@ -146,7 +146,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ApiErrorModel error)? failure,
+    TResult Function(ErrorInterface error)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -265,7 +265,7 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ApiErrorModel error) failure,
+    required TResult Function(ErrorInterface error) failure,
   }) {
     return success(orderDetails);
   }
@@ -275,7 +275,7 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ApiErrorModel error)? failure,
+    TResult? Function(ErrorInterface error)? failure,
   }) {
     return success?.call(orderDetails);
   }
@@ -285,7 +285,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ApiErrorModel error)? failure,
+    TResult Function(ErrorInterface error)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -348,7 +348,7 @@ abstract class _$$FailureImplCopyWith<$Res> {
           _$FailureImpl value, $Res Function(_$FailureImpl) then) =
       __$$FailureImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ApiErrorModel error});
+  $Res call({ErrorInterface error});
 }
 
 /// @nodoc
@@ -370,7 +370,7 @@ class __$$FailureImplCopyWithImpl<$Res>
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as ApiErrorModel,
+              as ErrorInterface,
     ));
   }
 }
@@ -381,7 +381,7 @@ class _$FailureImpl implements _Failure {
   const _$FailureImpl({required this.error});
 
   @override
-  final ApiErrorModel error;
+  final ErrorInterface error;
 
   @override
   String toString() {
@@ -412,7 +412,7 @@ class _$FailureImpl implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ApiErrorModel error) failure,
+    required TResult Function(ErrorInterface error) failure,
   }) {
     return failure(error);
   }
@@ -422,7 +422,7 @@ class _$FailureImpl implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ApiErrorModel error)? failure,
+    TResult? Function(ErrorInterface error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -432,7 +432,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ApiErrorModel error)? failure,
+    TResult Function(ErrorInterface error)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -477,9 +477,9 @@ class _$FailureImpl implements _Failure {
 }
 
 abstract class _Failure implements OrderDetailsState {
-  const factory _Failure({required final ApiErrorModel error}) = _$FailureImpl;
+  const factory _Failure({required final ErrorInterface error}) = _$FailureImpl;
 
-  ApiErrorModel get error;
+  ErrorInterface get error;
 
   /// Create a copy of OrderDetailsState
   /// with the given fields replaced by the non-null parameter values.

@@ -7,7 +7,8 @@ class DioFactory {
   DioFactory._();
   static Dio? _dio;
 
-  static Dio getDio() {
+  static Dio getDio(LocalStorageService localStorageService) {
+    final userCredential = localStorageService.userCredential;
     if (_dio == null) {
       const Duration timout = Duration(seconds: 30);
       _dio = Dio();
@@ -16,9 +17,7 @@ class DioFactory {
         ..options.sendTimeout = timout
         ..options.receiveTimeout = timout
         ..options.headers['Authorization'] =
-            LocalStorageService.userCredential == null
-                ? ''
-                : "Bearer ${LocalStorageService.userCredential!.token}"
+            userCredential == null ? '' : "Bearer ${userCredential.token}"
         ..interceptors.add(
           PrettyDioLogger(
             request: true,

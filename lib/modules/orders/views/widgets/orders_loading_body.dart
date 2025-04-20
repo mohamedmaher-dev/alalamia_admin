@@ -2,15 +2,16 @@ part of '../orders_view.dart';
 
 class _OrdersLoadingBody extends StatelessWidget {
   const _OrdersLoadingBody();
-  final List<OrdersDatum> items = fakeOrdersResponseModel;
+  final OrdersDatum item = fakeOrdersResponseModel;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _OrderItemBody(index: 0, model: items[0], isLoading: true),
-        _OrderItemBody(index: 1, model: items[1], isLoading: true),
-        _OrderItemBody(index: 2, model: items[2], isLoading: true),
-      ],
+    return SingleChildScrollView(
+      physics: const NeverScrollableScrollPhysics(),
+      child: Column(
+        children: List.generate(5, (index) {
+          return _OrderItemBody(index: index, model: item, isLoading: true);
+        }),
+      ),
     );
   }
 }

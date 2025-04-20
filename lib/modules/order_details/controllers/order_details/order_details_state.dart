@@ -6,6 +6,6 @@ class OrderDetailsState with _$OrderDetailsState {
   const factory OrderDetailsState.success({
     required OrdersDetailsResponseModel orderDetails,
   }) = _Success;
-  const factory OrderDetailsState.failure({required ApiErrorModel error}) =
+  const factory OrderDetailsState.failure({required ErrorInterface error}) =
       _Failure;
 }

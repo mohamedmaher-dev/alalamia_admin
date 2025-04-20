@@ -34,13 +34,21 @@ class StatisticsCubit extends Cubit<StatisticsState> {
     int currentPage = 1;
     bool isLastPage = false;
     while (!isLastPage) {
-      final result = await ordersRebo.getOrders(currentPage);
-      orders.addAll(result.trackingRequests.data);
-      currentPage = result.trackingRequests.currentPage;
-      int total = result.trackingRequests.total;
-      int perPage = result.trackingRequests.perPage;
-      isLastPage = (perPage * currentPage) >= total;
-      if (!isLastPage) currentPage++;
+      final result = await ordersRebo.getOrdersWithApiResult(currentPage);
+      result.when(
+        success: (data) {
+          orders.addAll(data.trackingRequests.data);
+          currentPage = data.trackingRequests.currentPage;
+          int total = data.trackingRequests.total;
+          int perPage = data.trackingRequests.perPage;
+          isLastPage = (perPage * currentPage) >= total;
+          if (!isLastPage) currentPage++;
+        },
+        error: (error) {
+          isLastPage = true;
+          emit(StatisticsState.failure());
+        },
+      );
     }
     if (orders.isNotEmpty) {
       emit(

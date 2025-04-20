@@ -82,10 +82,10 @@ class _$OrderDetailsTabStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tab = freezed,
+    Object? tab = null,
   }) {
     return _then(_value.copyWith(
-      tab: freezed == tab
+      tab: null == tab
           ? _value.tab
           : tab // ignore: cast_nullable_to_non_nullable
               as OrderDetailsTabsModel,
@@ -117,10 +117,10 @@ class __$$ChangeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tab = freezed,
+    Object? tab = null,
   }) {
     return _then(_$ChangeImpl(
-      tab: freezed == tab
+      tab: null == tab
           ? _value.tab
           : tab // ignore: cast_nullable_to_non_nullable
               as OrderDetailsTabsModel,
@@ -146,12 +146,11 @@ class _$ChangeImpl implements _Change {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeImpl &&
-            const DeepCollectionEquality().equals(other.tab, tab));
+            (identical(other.tab, tab) || other.tab == tab));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(tab));
+  int get hashCode => Object.hash(runtimeType, tab);
 
   /// Create a copy of OrderDetailsTabState
   /// with the given fields replaced by the non-null parameter values.

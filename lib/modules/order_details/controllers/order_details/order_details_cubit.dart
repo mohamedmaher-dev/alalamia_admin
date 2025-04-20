@@ -1,4 +1,4 @@
-import 'package:alalamia_admin/core/networking/api_error_model.dart';
+import 'package:alalamia_admin/core/errors/error_interface.dart';
 import 'package:alalamia_admin/modules/order_details/data/models/orders_details_response_model/orders_details_response_model.dart';
 import 'package:alalamia_admin/modules/order_details/data/rebos/order_details_rebo.dart';
 import 'package:bloc/bloc.dart';
@@ -17,7 +17,7 @@ class OrderDetailsCubit extends Cubit<OrderDetailsState> {
       success: (data) {
         emit(OrderDetailsState.success(orderDetails: data));
       },
-      failure: (ApiErrorModel error) {
+      error: (error) {
         emit(OrderDetailsState.failure(error: error));
       },
     );

@@ -123,10 +123,7 @@ List<TableRow> _buildTableRow(List<CartDetail> cart) {
         ),
         Padding(
           padding: const EdgeInsets.all(10),
-          child: Text(
-            _converQuantity(cart[index].productNumber.toString()),
-            textAlign: TextAlign.center,
-          ),
+          child: Text(cart[index].sku, textAlign: TextAlign.center),
         ),
         Padding(
           padding: const EdgeInsets.all(10),

@@ -1,5 +1,4 @@
 import 'package:alalamia_admin/core/extension/int_ext.dart';
-import 'package:alalamia_admin/core/networking/api_error_model.dart';
 import 'package:alalamia_admin/modules/order_details/data/rebos/order_details_rebo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -26,7 +25,7 @@ class OrderStatusCubit extends Cubit<OrderStatusState> {
         success: (data) {
           emit(OrderStatusState.success());
         },
-        failure: (ApiErrorModel error) {
+        error: (error) {
           emit(OrderStatusState.failure());
         },
       );

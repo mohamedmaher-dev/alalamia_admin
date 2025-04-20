@@ -35,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "are_you_sure_you_want_to_log_out":
             MessageLookupByLibrary.simpleMessage(
                 "Are you sure you want to log out?"),
+        "bad_certificate":
+            MessageLookupByLibrary.simpleMessage("Bad certificate"),
         "body_of_notification":
             MessageLookupByLibrary.simpleMessage("Body of notification"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -48,6 +50,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "client_name": MessageLookupByLibrary.simpleMessage("Client name"),
         "client_number": MessageLookupByLibrary.simpleMessage("Client number"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "connection_canceled":
+            MessageLookupByLibrary.simpleMessage("Connection canceled"),
+        "connection_error":
+            MessageLookupByLibrary.simpleMessage("Connection error"),
+        "connection_timeout":
+            MessageLookupByLibrary.simpleMessage("Connection timeout"),
         "count_of_products":
             MessageLookupByLibrary.simpleMessage("Count of products"),
         "current_language":
@@ -64,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter a valid email"),
         "extirnal_orders":
             MessageLookupByLibrary.simpleMessage("External orders"),
+        "failed_to_sign_out":
+            MessageLookupByLibrary.simpleMessage("Failed to sign out"),
         "failure": MessageLookupByLibrary.simpleMessage("Failure"),
         "failure_to_change_order_status": MessageLookupByLibrary.simpleMessage(
             "Failure to change order status"),
@@ -116,22 +126,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "paypal": MessageLookupByLibrary.simpleMessage("PayPal"),
         "permission_not_granted":
             MessageLookupByLibrary.simpleMessage("Permission not granted"),
+        "perrmission_granted":
+            MessageLookupByLibrary.simpleMessage("Permission granted"),
+        "perrmission_not_granted":
+            MessageLookupByLibrary.simpleMessage("Permission not granted"),
         "please_input_the_title_and_body": MessageLookupByLibrary.simpleMessage(
             "Please input the title and body"),
         "please_input_your_data_to_sign_in":
             MessageLookupByLibrary.simpleMessage(
                 "Please input your data to sign in"),
+        "please_input_your_email_and_password":
+            MessageLookupByLibrary.simpleMessage(
+                "Please input your email and password"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "product": MessageLookupByLibrary.simpleMessage("Product"),
         "product_code": MessageLookupByLibrary.simpleMessage("Code"),
         "product_name": MessageLookupByLibrary.simpleMessage("Product name"),
         "quantity": MessageLookupByLibrary.simpleMessage("Qt"),
+        "receive_timeout":
+            MessageLookupByLibrary.simpleMessage("Receive timeout"),
         "reject": MessageLookupByLibrary.simpleMessage("Reject"),
         "reject_this_order":
             MessageLookupByLibrary.simpleMessage("Cancel this order"),
         "search_here": MessageLookupByLibrary.simpleMessage("Search here"),
         "send_notification":
             MessageLookupByLibrary.simpleMessage("Send notification"),
+        "send_timeout": MessageLookupByLibrary.simpleMessage("Send timeout"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "something_went_wrong":
@@ -149,10 +169,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "this_is_current_status_of_the_order":
             MessageLookupByLibrary.simpleMessage(
                 "This is current status of the order"),
+        "time_ago": MessageLookupByLibrary.simpleMessage("Time ago"),
         "title_of_notification":
             MessageLookupByLibrary.simpleMessage("Title of notification"),
         "total_price": MessageLookupByLibrary.simpleMessage("Total price"),
         "unit": MessageLookupByLibrary.simpleMessage("Unit"),
+        "unknown_error": MessageLookupByLibrary.simpleMessage("Unknown error"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "welcome_back": MessageLookupByLibrary.simpleMessage("Welcome back"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),

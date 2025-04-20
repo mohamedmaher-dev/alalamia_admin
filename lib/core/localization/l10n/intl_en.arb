@@ -97,5 +97,17 @@
     "other" : "Other",
     "order_status" : "Order status",
     "order_summary" : "Order summary",
-    "order_details" : "Order details"
+    "order_details" : "Order details",
+    "please_input_your_email_and_password" : "Please input your email and password",
+    "unknown_error" : "Unknown error",
+    "connection_timeout" : "Connection timeout",
+    "send_timeout" : "Send timeout",
+    "receive_timeout" : "Receive timeout",
+    "bad_certificate" : "Bad certificate",
+    "connection_canceled" : "Connection canceled",
+    "connection_error" : "Connection error",
+    "failed_to_sign_out" : "Failed to sign out",
+    "perrmission_not_granted" : "Permission not granted",
+    "perrmission_granted" : "Permission granted",
+    "time_ago" : "Time ago"
 }
