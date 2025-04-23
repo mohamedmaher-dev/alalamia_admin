@@ -12,7 +12,8 @@ part of 'statistics_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$StatisticsState {
@@ -21,48 +22,64 @@ mixin _$StatisticsState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() failure,
-    required TResult Function(int orders, int underReview, int approved,
-            int prepareing, int onTheWay, int delivered, int cancelled)
-        success,
-  }) =>
-      throw _privateConstructorUsedError;
+    required TResult Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )
+    success,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? failure,
-    TResult? Function(int orders, int underReview, int approved, int prepareing,
-            int onTheWay, int delivered, int cancelled)?
-        success,
-  }) =>
-      throw _privateConstructorUsedError;
+    TResult? Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )?
+    success,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? failure,
-    TResult Function(int orders, int underReview, int approved, int prepareing,
-            int onTheWay, int delivered, int cancelled)?
-        success,
+    TResult Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )?
+    success,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Success value) success,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Success value)? success,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -70,15 +87,15 @@ mixin _$StatisticsState {
     TResult Function(_Failure value)? failure,
     TResult Function(_Success value)? success,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $StatisticsStateCopyWith<$Res> {
   factory $StatisticsStateCopyWith(
-          StatisticsState value, $Res Function(StatisticsState) then) =
-      _$StatisticsStateCopyWithImpl<$Res, StatisticsState>;
+    StatisticsState value,
+    $Res Function(StatisticsState) then,
+  ) = _$StatisticsStateCopyWithImpl<$Res, StatisticsState>;
 }
 
 /// @nodoc
@@ -98,8 +115,9 @@ class _$StatisticsStateCopyWithImpl<$Res, $Val extends StatisticsState>
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -107,8 +125,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$StatisticsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of StatisticsState
   /// with the given fields replaced by the non-null parameter values.
@@ -139,9 +158,16 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() failure,
-    required TResult Function(int orders, int underReview, int approved,
-            int prepareing, int onTheWay, int delivered, int cancelled)
-        success,
+    required TResult Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )
+    success,
   }) {
     return initial();
   }
@@ -152,9 +178,16 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? failure,
-    TResult? Function(int orders, int underReview, int approved, int prepareing,
-            int onTheWay, int delivered, int cancelled)?
-        success,
+    TResult? Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )?
+    success,
   }) {
     return initial?.call();
   }
@@ -165,9 +198,16 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? failure,
-    TResult Function(int orders, int underReview, int approved, int prepareing,
-            int onTheWay, int delivered, int cancelled)?
-        success,
+    TResult Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )?
+    success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -221,8 +261,9 @@ abstract class _Initial implements StatisticsState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -230,8 +271,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$StatisticsStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of StatisticsState
   /// with the given fields replaced by the non-null parameter values.
@@ -262,9 +304,16 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() failure,
-    required TResult Function(int orders, int underReview, int approved,
-            int prepareing, int onTheWay, int delivered, int cancelled)
-        success,
+    required TResult Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )
+    success,
   }) {
     return loading();
   }
@@ -275,9 +324,16 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? failure,
-    TResult? Function(int orders, int underReview, int approved, int prepareing,
-            int onTheWay, int delivered, int cancelled)?
-        success,
+    TResult? Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )?
+    success,
   }) {
     return loading?.call();
   }
@@ -288,9 +344,16 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? failure,
-    TResult Function(int orders, int underReview, int approved, int prepareing,
-            int onTheWay, int delivered, int cancelled)?
-        success,
+    TResult Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )?
+    success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -344,8 +407,9 @@ abstract class _Loading implements StatisticsState {
 /// @nodoc
 abstract class _$$FailureImplCopyWith<$Res> {
   factory _$$FailureImplCopyWith(
-          _$FailureImpl value, $Res Function(_$FailureImpl) then) =
-      __$$FailureImplCopyWithImpl<$Res>;
+    _$FailureImpl value,
+    $Res Function(_$FailureImpl) then,
+  ) = __$$FailureImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -353,8 +417,9 @@ class __$$FailureImplCopyWithImpl<$Res>
     extends _$StatisticsStateCopyWithImpl<$Res, _$FailureImpl>
     implements _$$FailureImplCopyWith<$Res> {
   __$$FailureImplCopyWithImpl(
-      _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
-      : super(_value, _then);
+    _$FailureImpl _value,
+    $Res Function(_$FailureImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of StatisticsState
   /// with the given fields replaced by the non-null parameter values.
@@ -385,9 +450,16 @@ class _$FailureImpl implements _Failure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() failure,
-    required TResult Function(int orders, int underReview, int approved,
-            int prepareing, int onTheWay, int delivered, int cancelled)
-        success,
+    required TResult Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )
+    success,
   }) {
     return failure();
   }
@@ -398,9 +470,16 @@ class _$FailureImpl implements _Failure {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? failure,
-    TResult? Function(int orders, int underReview, int approved, int prepareing,
-            int onTheWay, int delivered, int cancelled)?
-        success,
+    TResult? Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )?
+    success,
   }) {
     return failure?.call();
   }
@@ -411,9 +490,16 @@ class _$FailureImpl implements _Failure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? failure,
-    TResult Function(int orders, int underReview, int approved, int prepareing,
-            int onTheWay, int delivered, int cancelled)?
-        success,
+    TResult Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )?
+    success,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -467,17 +553,19 @@ abstract class _Failure implements StatisticsState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {int orders,
-      int underReview,
-      int approved,
-      int prepareing,
-      int onTheWay,
-      int delivered,
-      int cancelled});
+  $Res call({
+    int orders,
+    int underReview,
+    int approved,
+    int prepareing,
+    int onTheWay,
+    int delivered,
+    int cancelled,
+  });
 }
 
 /// @nodoc
@@ -485,8 +573,9 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$StatisticsStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of StatisticsState
   /// with the given fields replaced by the non-null parameter values.
@@ -501,50 +590,60 @@ class __$$SuccessImplCopyWithImpl<$Res>
     Object? delivered = null,
     Object? cancelled = null,
   }) {
-    return _then(_$SuccessImpl(
-      orders: null == orders
-          ? _value.orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as int,
-      underReview: null == underReview
-          ? _value.underReview
-          : underReview // ignore: cast_nullable_to_non_nullable
-              as int,
-      approved: null == approved
-          ? _value.approved
-          : approved // ignore: cast_nullable_to_non_nullable
-              as int,
-      prepareing: null == prepareing
-          ? _value.prepareing
-          : prepareing // ignore: cast_nullable_to_non_nullable
-              as int,
-      onTheWay: null == onTheWay
-          ? _value.onTheWay
-          : onTheWay // ignore: cast_nullable_to_non_nullable
-              as int,
-      delivered: null == delivered
-          ? _value.delivered
-          : delivered // ignore: cast_nullable_to_non_nullable
-              as int,
-      cancelled: null == cancelled
-          ? _value.cancelled
-          : cancelled // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+    return _then(
+      _$SuccessImpl(
+        orders:
+            null == orders
+                ? _value.orders
+                : orders // ignore: cast_nullable_to_non_nullable
+                    as int,
+        underReview:
+            null == underReview
+                ? _value.underReview
+                : underReview // ignore: cast_nullable_to_non_nullable
+                    as int,
+        approved:
+            null == approved
+                ? _value.approved
+                : approved // ignore: cast_nullable_to_non_nullable
+                    as int,
+        prepareing:
+            null == prepareing
+                ? _value.prepareing
+                : prepareing // ignore: cast_nullable_to_non_nullable
+                    as int,
+        onTheWay:
+            null == onTheWay
+                ? _value.onTheWay
+                : onTheWay // ignore: cast_nullable_to_non_nullable
+                    as int,
+        delivered:
+            null == delivered
+                ? _value.delivered
+                : delivered // ignore: cast_nullable_to_non_nullable
+                    as int,
+        cancelled:
+            null == cancelled
+                ? _value.cancelled
+                : cancelled // ignore: cast_nullable_to_non_nullable
+                    as int,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(
-      {required this.orders,
-      required this.underReview,
-      required this.approved,
-      required this.prepareing,
-      required this.onTheWay,
-      required this.delivered,
-      required this.cancelled});
+  const _$SuccessImpl({
+    required this.orders,
+    required this.underReview,
+    required this.approved,
+    required this.prepareing,
+    required this.onTheWay,
+    required this.delivered,
+    required this.cancelled,
+  });
 
   @override
   final int orders;
@@ -587,8 +686,16 @@ class _$SuccessImpl implements _Success {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, orders, underReview, approved,
-      prepareing, onTheWay, delivered, cancelled);
+  int get hashCode => Object.hash(
+    runtimeType,
+    orders,
+    underReview,
+    approved,
+    prepareing,
+    onTheWay,
+    delivered,
+    cancelled,
+  );
 
   /// Create a copy of StatisticsState
   /// with the given fields replaced by the non-null parameter values.
@@ -604,12 +711,26 @@ class _$SuccessImpl implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() failure,
-    required TResult Function(int orders, int underReview, int approved,
-            int prepareing, int onTheWay, int delivered, int cancelled)
-        success,
+    required TResult Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )
+    success,
   }) {
-    return success(orders, underReview, approved, prepareing, onTheWay,
-        delivered, cancelled);
+    return success(
+      orders,
+      underReview,
+      approved,
+      prepareing,
+      onTheWay,
+      delivered,
+      cancelled,
+    );
   }
 
   @override
@@ -618,12 +739,26 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? failure,
-    TResult? Function(int orders, int underReview, int approved, int prepareing,
-            int onTheWay, int delivered, int cancelled)?
-        success,
+    TResult? Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )?
+    success,
   }) {
-    return success?.call(orders, underReview, approved, prepareing, onTheWay,
-        delivered, cancelled);
+    return success?.call(
+      orders,
+      underReview,
+      approved,
+      prepareing,
+      onTheWay,
+      delivered,
+      cancelled,
+    );
   }
 
   @override
@@ -632,14 +767,28 @@ class _$SuccessImpl implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? failure,
-    TResult Function(int orders, int underReview, int approved, int prepareing,
-            int onTheWay, int delivered, int cancelled)?
-        success,
+    TResult Function(
+      int orders,
+      int underReview,
+      int approved,
+      int prepareing,
+      int onTheWay,
+      int delivered,
+      int cancelled,
+    )?
+    success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(orders, underReview, approved, prepareing, onTheWay,
-          delivered, cancelled);
+      return success(
+        orders,
+        underReview,
+        approved,
+        prepareing,
+        onTheWay,
+        delivered,
+        cancelled,
+      );
     }
     return orElse();
   }
@@ -683,14 +832,15 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements StatisticsState {
-  const factory _Success(
-      {required final int orders,
-      required final int underReview,
-      required final int approved,
-      required final int prepareing,
-      required final int onTheWay,
-      required final int delivered,
-      required final int cancelled}) = _$SuccessImpl;
+  const factory _Success({
+    required final int orders,
+    required final int underReview,
+    required final int approved,
+    required final int prepareing,
+    required final int onTheWay,
+    required final int delivered,
+    required final int cancelled,
+  }) = _$SuccessImpl;
 
   int get orders;
   int get underReview;

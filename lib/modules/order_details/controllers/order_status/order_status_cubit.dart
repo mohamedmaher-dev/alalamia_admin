@@ -25,7 +25,7 @@ class OrderStatusCubit extends Cubit<OrderStatusState> {
         success: (data) {
           emit(OrderStatusState.success());
         },
-        error: (error) {
+        failure: (error) {
           emit(OrderStatusState.failure());
         },
       );

@@ -1,5 +1,5 @@
 import 'package:alalamia_admin/core/config/app_config_cubit.dart';
-import 'package:alalamia_admin/core/errors/error_interface.dart';
+import 'package:alalamia_admin/core/errors/app_error.dart';
 import 'package:alalamia_admin/core/notifications/notifications_repo.dart';
 import 'package:alalamia_admin/core/notifications/notifications_service.dart';
 import 'package:alalamia_admin/core/router/app_router.dart';
@@ -29,7 +29,7 @@ class SettingsCubit extends Cubit<SettingsState> {
     result.when(
       success:
           (_) => emit(SettingsState.initial(appConfigModel: appConfig.state)),
-      error: (error) => emit(SettingsState.failure(error)),
+      failure: (error) => emit(SettingsState.failure(error)),
     );
   }
 
@@ -46,7 +46,7 @@ class SettingsCubit extends Cubit<SettingsState> {
         PopLoading.dismiss();
         AppRouter.pushReplacement(AppPages.splash);
       },
-      error: (error) => emit(SettingsState.failure(error)),
+      failure: (error) => emit(SettingsState.failure(error)),
     );
   }
 

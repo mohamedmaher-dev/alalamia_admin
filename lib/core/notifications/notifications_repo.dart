@@ -1,5 +1,5 @@
 import 'package:alalamia_admin/core/data/data_result.dart';
-import 'package:alalamia_admin/core/errors/error_interface.dart';
+import 'package:alalamia_admin/core/errors/app_error.dart';
 import 'package:alalamia_admin/core/notifications/notifications_service.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -11,9 +11,9 @@ class NotificationsRepo {
   Future<DataResult<void>> changeEnableNotifications(bool isTurnOn) async {
     try {
       await _notificationsService.changeEnableNotifications(isTurnOn);
-      return DataResult.success(null);
+      return DataResult.success(data: null);
     } catch (e) {
-      return DataResult.error(UnknownError());
+      return DataResult.failure(error: UnknownError());
     }
   }
 

@@ -7,7 +7,5 @@ part of 'change_order_status_request_model.dart';
 // **************************************************************************
 
 Map<String, dynamic> _$ChangeOrderStatusRequestModelToJson(
-        ChangeOrderStatusRequestModel instance) =>
-    <String, dynamic>{
-      'status': instance.status,
-    };
+  ChangeOrderStatusRequestModel instance,
+) => <String, dynamic>{'status': instance.status};

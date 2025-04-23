@@ -1,7 +1,7 @@
 import 'package:alalamia_admin/core/local_storage/hive_adapter_type.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_model.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_response_model.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_ce/hive.dart';
 part 'user_credential_model.g.dart';
 
 @HiveType(typeId: HiveAdapterType.userCredential)

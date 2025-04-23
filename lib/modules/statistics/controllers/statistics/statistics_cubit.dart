@@ -44,7 +44,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           isLastPage = (perPage * currentPage) >= total;
           if (!isLastPage) currentPage++;
         },
-        error: (error) {
+        failure: (error) {
           isLastPage = true;
           emit(StatisticsState.failure());
         },

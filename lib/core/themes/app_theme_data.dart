@@ -22,6 +22,11 @@ class AppThemeData {
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyles.ts12N.copyWith(color: Colors.grey),
     ),
+    buttonTheme: ButtonThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(kNormalRadius),
+      ),
+    ),
   );
 
   static get _pageTransitionsTheme => PageTransitionsTheme(

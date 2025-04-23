@@ -14,6 +14,7 @@ part 'app_pages.dart';
 
 class AppRouter {
   AppRouter._();
+  static AppPages currentPage = AppPages.splash;
   static final routerConfig = GoRouter(
     routes: [
       GoRoute(
@@ -52,11 +53,20 @@ class AppRouter {
     ],
   );
 
-  static pushReplacement(AppPages page, {Object? extra}) =>
-      routerConfig.go(page.path, extra: extra);
-  static Future<void> push(AppPages page, {Object? extra}) =>
-      routerConfig.push(page.path, extra: extra);
-  static pushAndRemoveUntil(AppPages page, {Object? extra}) =>
-      routerConfig.go(page.path, extra: extra);
+  static pushReplacement(AppPages page, {Object? extra}) {
+    currentPage = page;
+    routerConfig.go(page.path, extra: extra);
+  }
+
+  static Future<void> push(AppPages page, {Object? extra}) {
+    currentPage = page;
+    return routerConfig.push(page.path, extra: extra);
+  }
+
+  static pushAndRemoveUntil(AppPages page, {Object? extra}) {
+    currentPage = page;
+    routerConfig.go(page.path, extra: extra);
+  }
+
   static pop() => routerConfig.pop();
 }

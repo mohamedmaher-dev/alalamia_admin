@@ -12,7 +12,8 @@ part of 'app_config_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 AppConfigModel _$AppConfigModelFromJson(Map<String, dynamic> json) {
   return _AppConfigModel.fromJson(json);
@@ -37,8 +38,9 @@ mixin _$AppConfigModel {
 /// @nodoc
 abstract class $AppConfigModelCopyWith<$Res> {
   factory $AppConfigModelCopyWith(
-          AppConfigModel value, $Res Function(AppConfigModel) then) =
-      _$AppConfigModelCopyWithImpl<$Res, AppConfigModel>;
+    AppConfigModel value,
+    $Res Function(AppConfigModel) then,
+  ) = _$AppConfigModelCopyWithImpl<$Res, AppConfigModel>;
   @useResult
   $Res call({bool isDarkMode, bool turnOnNotification, String language});
 }
@@ -62,29 +64,36 @@ class _$AppConfigModelCopyWithImpl<$Res, $Val extends AppConfigModel>
     Object? turnOnNotification = null,
     Object? language = null,
   }) {
-    return _then(_value.copyWith(
-      isDarkMode: null == isDarkMode
-          ? _value.isDarkMode
-          : isDarkMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-      turnOnNotification: null == turnOnNotification
-          ? _value.turnOnNotification
-          : turnOnNotification // ignore: cast_nullable_to_non_nullable
-              as bool,
-      language: null == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isDarkMode:
+                null == isDarkMode
+                    ? _value.isDarkMode
+                    : isDarkMode // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            turnOnNotification:
+                null == turnOnNotification
+                    ? _value.turnOnNotification
+                    : turnOnNotification // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            language:
+                null == language
+                    ? _value.language
+                    : language // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$AppConfigModelImplCopyWith<$Res>
     implements $AppConfigModelCopyWith<$Res> {
-  factory _$$AppConfigModelImplCopyWith(_$AppConfigModelImpl value,
-          $Res Function(_$AppConfigModelImpl) then) =
-      __$$AppConfigModelImplCopyWithImpl<$Res>;
+  factory _$$AppConfigModelImplCopyWith(
+    _$AppConfigModelImpl value,
+    $Res Function(_$AppConfigModelImpl) then,
+  ) = __$$AppConfigModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isDarkMode, bool turnOnNotification, String language});
@@ -95,8 +104,9 @@ class __$$AppConfigModelImplCopyWithImpl<$Res>
     extends _$AppConfigModelCopyWithImpl<$Res, _$AppConfigModelImpl>
     implements _$$AppConfigModelImplCopyWith<$Res> {
   __$$AppConfigModelImplCopyWithImpl(
-      _$AppConfigModelImpl _value, $Res Function(_$AppConfigModelImpl) _then)
-      : super(_value, _then);
+    _$AppConfigModelImpl _value,
+    $Res Function(_$AppConfigModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of AppConfigModel
   /// with the given fields replaced by the non-null parameter values.
@@ -107,30 +117,36 @@ class __$$AppConfigModelImplCopyWithImpl<$Res>
     Object? turnOnNotification = null,
     Object? language = null,
   }) {
-    return _then(_$AppConfigModelImpl(
-      isDarkMode: null == isDarkMode
-          ? _value.isDarkMode
-          : isDarkMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-      turnOnNotification: null == turnOnNotification
-          ? _value.turnOnNotification
-          : turnOnNotification // ignore: cast_nullable_to_non_nullable
-              as bool,
-      language: null == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$AppConfigModelImpl(
+        isDarkMode:
+            null == isDarkMode
+                ? _value.isDarkMode
+                : isDarkMode // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        turnOnNotification:
+            null == turnOnNotification
+                ? _value.turnOnNotification
+                : turnOnNotification // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        language:
+            null == language
+                ? _value.language
+                : language // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$AppConfigModelImpl implements _AppConfigModel {
-  const _$AppConfigModelImpl(
-      {this.isDarkMode = true,
-      this.turnOnNotification = true,
-      this.language = 'ar'});
+  const _$AppConfigModelImpl({
+    this.isDarkMode = true,
+    this.turnOnNotification = true,
+    this.language = 'ar',
+  });
 
   factory _$AppConfigModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppConfigModelImplFromJson(json);
@@ -175,21 +191,22 @@ class _$AppConfigModelImpl implements _AppConfigModel {
   @pragma('vm:prefer-inline')
   _$$AppConfigModelImplCopyWith<_$AppConfigModelImpl> get copyWith =>
       __$$AppConfigModelImplCopyWithImpl<_$AppConfigModelImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppConfigModelImplToJson(
-      this,
-    );
+    return _$$AppConfigModelImplToJson(this);
   }
 }
 
 abstract class _AppConfigModel implements AppConfigModel {
-  const factory _AppConfigModel(
-      {final bool isDarkMode,
-      final bool turnOnNotification,
-      final String language}) = _$AppConfigModelImpl;
+  const factory _AppConfigModel({
+    final bool isDarkMode,
+    final bool turnOnNotification,
+    final String language,
+  }) = _$AppConfigModelImpl;
 
   factory _AppConfigModel.fromJson(Map<String, dynamic> json) =
       _$AppConfigModelImpl.fromJson;

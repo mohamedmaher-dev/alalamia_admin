@@ -45,7 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cash": MessageLookupByLibrary.simpleMessage("نقدًا"),
         "change_status": MessageLookupByLibrary.simpleMessage("تغيير الحالة"),
         "click_to_change_status":
-            MessageLookupByLibrary.simpleMessage("- اضغط لتغيير الحالة -"),
+            MessageLookupByLibrary.simpleMessage("اضغط علي الحالة لتغييرها"),
         "client_info": MessageLookupByLibrary.simpleMessage("معلومات العميل"),
         "client_name": MessageLookupByLibrary.simpleMessage("اسم العميل"),
         "client_number": MessageLookupByLibrary.simpleMessage("رقم العميل"),

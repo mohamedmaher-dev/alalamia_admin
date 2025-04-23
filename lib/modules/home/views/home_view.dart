@@ -35,8 +35,7 @@ class _HomeViewBody extends StatelessWidget {
     return BlocBuilder<HomeNavCubit, HomeNavState>(
       builder: (context, state) {
         return PopScope(
-          onPopInvokedWithResult:
-              (didPop, result) => cubit.changePage(HomePages.defaultPage),
+          onPopInvokedWithResult: (didPop, result) {},
           canPop: false,
           child: Scaffold(
             appBar: _HomeAppBar(currentPage: state.page),

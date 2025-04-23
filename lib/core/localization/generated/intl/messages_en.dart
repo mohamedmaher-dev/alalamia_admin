@@ -44,8 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "cash": MessageLookupByLibrary.simpleMessage("Cash"),
         "change_status": MessageLookupByLibrary.simpleMessage("Change status"),
-        "click_to_change_status":
-            MessageLookupByLibrary.simpleMessage("- Click to change status -"),
+        "click_to_change_status": MessageLookupByLibrary.simpleMessage(
+            "Click on status to change it"),
         "client_info": MessageLookupByLibrary.simpleMessage("Client info"),
         "client_name": MessageLookupByLibrary.simpleMessage("Client name"),
         "client_number": MessageLookupByLibrary.simpleMessage("Client number"),

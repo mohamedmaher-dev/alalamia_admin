@@ -87,7 +87,7 @@
     "are_you_sure_you_want_to_change_this_order_status" : "هل أنت متأكد أنك تريد تغيير حالة هذا الطلب؟",
     "warning" : "تحذير",
     "this_is_current_status_of_the_order" : "هذه هي حالة الطلب الحالية",
-    "click_to_change_status" : "- اضغط لتغيير الحالة -",
+    "click_to_change_status" : "اضغط علي الحالة لتغييرها",
     "aramex_number" : "رقم شحنة آرامكس",
     "product_code" : "رقم الصنف",
     "something_went_wrong" : "حدث خطأ ما",

@@ -25,6 +25,13 @@ class _BottomBody extends StatelessWidget {
             ),
             subtitle: Text(language.total_price),
             trailing: IconButton.outlined(
+              style: IconButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(kNormalRadius),
+                  ),
+                ),
+              ),
               onPressed: () => cubit.show(orderDetails, args),
               icon: const Icon(CupertinoIcons.doc),
             ),

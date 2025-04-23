@@ -87,7 +87,7 @@
     "are_you_sure_you_want_to_change_this_order_status" : "Are you sure you want to change this order status?",
     "warning" : "Warning",
     "this_is_current_status_of_the_order" : "This is current status of the order",
-    "click_to_change_status" : "- Click to change status -",
+    "click_to_change_status" : "Click on status to change it",
     "aramex_number" : "Aramex number",
     "product_code" : "Code",
     "something_went_wrong" : "Something went wrong",

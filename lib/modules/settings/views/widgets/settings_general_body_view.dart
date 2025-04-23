@@ -8,6 +8,8 @@ class _SettingsGeneralBodyView extends StatelessWidget {
     final settingsCubit = context.read<SettingsCubit>();
     final AppConfig appConfig = context.read<AppConfig>();
     final language = Language.of(context);
+    final theme = Theme.of(context);
+
     return Column(
       children: [
         ListTile(title: Text(language.general, style: TextStyles.ts15B)),
@@ -39,9 +41,16 @@ class _SettingsGeneralBodyView extends StatelessWidget {
                   ListTile(
                     title: Text(language.current_language),
                     leading: const Icon(Icons.language),
-                    trailing: ElevatedButton(
-                      style: const ButtonStyle(
-                        elevation: WidgetStatePropertyAll(0),
+                    trailing: TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(
+                          theme.scaffoldBackgroundColor,
+                        ),
+                        shape: WidgetStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(kNormalRadius),
+                          ),
+                        ),
                       ),
                       onPressed: () => settingsCubit.changeLanguage(),
                       child: Text(language.language_name),

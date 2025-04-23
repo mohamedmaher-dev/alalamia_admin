@@ -6,27 +6,24 @@ class _UserCredentialStorage {
 
   Future<void> call() async {
     Hive.registerAdapter(UserCredentialAdapter());
+    late List<int> key;
     await _secureStorage.read(key: LocalStorageConsts.hiveSecureKey).then((
       value,
     ) async {
       if (value == null) {
-        final List<int> key = Hive.generateSecureKey();
+        key = Hive.generateSecureKey();
         _secureStorage.write(
           key: LocalStorageConsts.hiveSecureKey,
           value: key.toString(),
         );
-        _userCredentialBox = await Hive.openBox<UserCredential>(
-          LocalStorageConsts.userCredentialBox,
-          encryptionCipher: HiveAesCipher(key),
-        );
       } else {
         final List<dynamic> keyIncoded = jsonDecode(value);
-        final List<int> key = List<int>.from(keyIncoded);
-        _userCredentialBox = await Hive.openBox<UserCredential>(
-          LocalStorageConsts.userCredentialBox,
-          encryptionCipher: HiveAesCipher(key),
-        );
+        key = List<int>.from(keyIncoded);
       }
+      _userCredentialBox = await Hive.openBox<UserCredential>(
+        LocalStorageConsts.userCredentialBox,
+        encryptionCipher: HiveAesCipher(key),
+      );
     });
   }
 }

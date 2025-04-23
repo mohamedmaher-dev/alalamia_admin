@@ -930,10 +930,10 @@ class Language {
     );
   }
 
-  /// `- اضغط لتغيير الحالة -`
+  /// `اضغط علي الحالة لتغييرها`
   String get click_to_change_status {
     return Intl.message(
-      '- اضغط لتغيير الحالة -',
+      'اضغط علي الحالة لتغييرها',
       name: 'click_to_change_status',
       desc: '',
       args: [],

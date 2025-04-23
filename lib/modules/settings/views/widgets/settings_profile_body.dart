@@ -1,12 +1,13 @@
 part of '../settings_view.dart';
 
 class _SettingsProfileBody extends StatelessWidget {
-  const _SettingsProfileBody({super.key});
+  const _SettingsProfileBody();
 
   @override
   Widget build(BuildContext context) {
     final settingsCubit = context.read<SettingsCubit>();
     final language = Language.of(context);
+    final theme = Theme.of(context);
     return Column(
       children: [
         ListTile(title: Text(language.my_profile, style: TextStyles.ts15B)),
@@ -16,9 +17,16 @@ class _SettingsProfileBody extends StatelessWidget {
               ListTile(
                 title: Text(language.my_profile),
                 leading: const Icon(CupertinoIcons.person),
-                trailing: ElevatedButton(
-                  style: const ButtonStyle(
-                    elevation: WidgetStatePropertyAll(0),
+                trailing: TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(
+                      theme.scaffoldBackgroundColor,
+                    ),
+                    shape: WidgetStatePropertyAll(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(kNormalRadius),
+                      ),
+                    ),
                   ),
                   onPressed: () async {
                     showChangerPopUpConfirm(

@@ -1,6 +1,6 @@
-part of 'error_interface.dart';
+part of 'app_error.dart';
 
-class ApiError extends ErrorInterface {
+class ApiError extends AppError {
   ApiError._({required super.msg, super.code = 0});
 
   factory ApiError.fromUnknown() {

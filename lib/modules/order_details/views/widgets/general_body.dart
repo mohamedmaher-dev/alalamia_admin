@@ -52,11 +52,15 @@ class _GeneralBody extends StatelessWidget {
                   orderId: args.id.toString(),
                 ),
                 if (args.status != OrderStatus.canceled)
-                  Padding(
-                    padding: EdgeInsets.only(bottom: kNormalPadding),
+                  Container(
+                    padding: EdgeInsets.all(kNormalPadding),
+                    decoration: BoxDecoration(
+                      color: ColorManger.scaffoldColor,
+                      borderRadius: BorderRadius.circular(kNormalRadius),
+                    ),
                     child: Text(
                       language.click_to_change_status,
-                      style: TextStyles.ts10B.copyWith(color: Colors.grey),
+                      style: TextStyles.ts10N.copyWith(color: Colors.grey),
                     ),
                   ),
                 Divider(),

@@ -12,7 +12,8 @@ part of 'order_status_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OrderStatusState {
@@ -23,8 +24,7 @@ mixin _$OrderStatusState {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function() failure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -32,8 +32,7 @@ mixin _$OrderStatusState {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function()? failure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -42,8 +41,7 @@ mixin _$OrderStatusState {
     TResult Function()? success,
     TResult Function()? failure,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -51,8 +49,7 @@ mixin _$OrderStatusState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -60,8 +57,7 @@ mixin _$OrderStatusState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -70,15 +66,15 @@ mixin _$OrderStatusState {
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $OrderStatusStateCopyWith<$Res> {
   factory $OrderStatusStateCopyWith(
-          OrderStatusState value, $Res Function(OrderStatusState) then) =
-      _$OrderStatusStateCopyWithImpl<$Res, OrderStatusState>;
+    OrderStatusState value,
+    $Res Function(OrderStatusState) then,
+  ) = _$OrderStatusStateCopyWithImpl<$Res, OrderStatusState>;
 }
 
 /// @nodoc
@@ -98,8 +94,9 @@ class _$OrderStatusStateCopyWithImpl<$Res, $Val extends OrderStatusState>
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -107,8 +104,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$OrderStatusStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrderStatusState
   /// with the given fields replaced by the non-null parameter values.
@@ -221,8 +219,9 @@ abstract class _Initial implements OrderStatusState {
 /// @nodoc
 abstract class _$$CantChangeImplCopyWith<$Res> {
   factory _$$CantChangeImplCopyWith(
-          _$CantChangeImpl value, $Res Function(_$CantChangeImpl) then) =
-      __$$CantChangeImplCopyWithImpl<$Res>;
+    _$CantChangeImpl value,
+    $Res Function(_$CantChangeImpl) then,
+  ) = __$$CantChangeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -230,8 +229,9 @@ class __$$CantChangeImplCopyWithImpl<$Res>
     extends _$OrderStatusStateCopyWithImpl<$Res, _$CantChangeImpl>
     implements _$$CantChangeImplCopyWith<$Res> {
   __$$CantChangeImplCopyWithImpl(
-      _$CantChangeImpl _value, $Res Function(_$CantChangeImpl) _then)
-      : super(_value, _then);
+    _$CantChangeImpl _value,
+    $Res Function(_$CantChangeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrderStatusState
   /// with the given fields replaced by the non-null parameter values.
@@ -344,8 +344,9 @@ abstract class _CantChange implements OrderStatusState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -353,8 +354,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$OrderStatusStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrderStatusState
   /// with the given fields replaced by the non-null parameter values.
@@ -467,8 +469,9 @@ abstract class _Loading implements OrderStatusState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -476,8 +479,9 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$OrderStatusStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrderStatusState
   /// with the given fields replaced by the non-null parameter values.
@@ -590,8 +594,9 @@ abstract class _Success implements OrderStatusState {
 /// @nodoc
 abstract class _$$FailureImplCopyWith<$Res> {
   factory _$$FailureImplCopyWith(
-          _$FailureImpl value, $Res Function(_$FailureImpl) then) =
-      __$$FailureImplCopyWithImpl<$Res>;
+    _$FailureImpl value,
+    $Res Function(_$FailureImpl) then,
+  ) = __$$FailureImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -599,8 +604,9 @@ class __$$FailureImplCopyWithImpl<$Res>
     extends _$OrderStatusStateCopyWithImpl<$Res, _$FailureImpl>
     implements _$$FailureImplCopyWith<$Res> {
   __$$FailureImplCopyWithImpl(
-      _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
-      : super(_value, _then);
+    _$FailureImpl _value,
+    $Res Function(_$FailureImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrderStatusState
   /// with the given fields replaced by the non-null parameter values.

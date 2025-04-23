@@ -12,7 +12,8 @@ part of 'order_details_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OrderDetailsState {
@@ -20,53 +21,48 @@ mixin _$OrderDetailsState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ErrorInterface error) failure,
-  }) =>
-      throw _privateConstructorUsedError;
+    required TResult Function(AppError error) failure,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ErrorInterface error)? failure,
-  }) =>
-      throw _privateConstructorUsedError;
+    TResult? Function(AppError error)? failure,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ErrorInterface error)? failure,
+    TResult Function(AppError error)? failure,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $OrderDetailsStateCopyWith<$Res> {
   factory $OrderDetailsStateCopyWith(
-          OrderDetailsState value, $Res Function(OrderDetailsState) then) =
-      _$OrderDetailsStateCopyWithImpl<$Res, OrderDetailsState>;
+    OrderDetailsState value,
+    $Res Function(OrderDetailsState) then,
+  ) = _$OrderDetailsStateCopyWithImpl<$Res, OrderDetailsState>;
 }
 
 /// @nodoc
@@ -86,8 +82,9 @@ class _$OrderDetailsStateCopyWithImpl<$Res, $Val extends OrderDetailsState>
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -95,8 +92,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$OrderDetailsStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrderDetailsState
   /// with the given fields replaced by the non-null parameter values.
@@ -126,7 +124,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ErrorInterface error) failure,
+    required TResult Function(AppError error) failure,
   }) {
     return loading();
   }
@@ -136,7 +134,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ErrorInterface error)? failure,
+    TResult? Function(AppError error)? failure,
   }) {
     return loading?.call();
   }
@@ -146,7 +144,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ErrorInterface error)? failure,
+    TResult Function(AppError error)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -197,8 +195,9 @@ abstract class _Loading implements OrderDetailsState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({OrdersDetailsResponseModel orderDetails});
 }
@@ -208,22 +207,24 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$OrderDetailsStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrderDetailsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? orderDetails = null,
-  }) {
-    return _then(_$SuccessImpl(
-      orderDetails: null == orderDetails
-          ? _value.orderDetails
-          : orderDetails // ignore: cast_nullable_to_non_nullable
-              as OrdersDetailsResponseModel,
-    ));
+  $Res call({Object? orderDetails = null}) {
+    return _then(
+      _$SuccessImpl(
+        orderDetails:
+            null == orderDetails
+                ? _value.orderDetails
+                : orderDetails // ignore: cast_nullable_to_non_nullable
+                    as OrdersDetailsResponseModel,
+      ),
+    );
   }
 }
 
@@ -265,7 +266,7 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ErrorInterface error) failure,
+    required TResult Function(AppError error) failure,
   }) {
     return success(orderDetails);
   }
@@ -275,7 +276,7 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ErrorInterface error)? failure,
+    TResult? Function(AppError error)? failure,
   }) {
     return success?.call(orderDetails);
   }
@@ -285,7 +286,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ErrorInterface error)? failure,
+    TResult Function(AppError error)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -330,8 +331,9 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements OrderDetailsState {
-  const factory _Success(
-      {required final OrdersDetailsResponseModel orderDetails}) = _$SuccessImpl;
+  const factory _Success({
+    required final OrdersDetailsResponseModel orderDetails,
+  }) = _$SuccessImpl;
 
   OrdersDetailsResponseModel get orderDetails;
 
@@ -345,10 +347,11 @@ abstract class _Success implements OrderDetailsState {
 /// @nodoc
 abstract class _$$FailureImplCopyWith<$Res> {
   factory _$$FailureImplCopyWith(
-          _$FailureImpl value, $Res Function(_$FailureImpl) then) =
-      __$$FailureImplCopyWithImpl<$Res>;
+    _$FailureImpl value,
+    $Res Function(_$FailureImpl) then,
+  ) = __$$FailureImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ErrorInterface error});
+  $Res call({AppError error});
 }
 
 /// @nodoc
@@ -356,22 +359,24 @@ class __$$FailureImplCopyWithImpl<$Res>
     extends _$OrderDetailsStateCopyWithImpl<$Res, _$FailureImpl>
     implements _$$FailureImplCopyWith<$Res> {
   __$$FailureImplCopyWithImpl(
-      _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
-      : super(_value, _then);
+    _$FailureImpl _value,
+    $Res Function(_$FailureImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrderDetailsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$FailureImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as ErrorInterface,
-    ));
+  $Res call({Object? error = null}) {
+    return _then(
+      _$FailureImpl(
+        error:
+            null == error
+                ? _value.error
+                : error // ignore: cast_nullable_to_non_nullable
+                    as AppError,
+      ),
+    );
   }
 }
 
@@ -381,7 +386,7 @@ class _$FailureImpl implements _Failure {
   const _$FailureImpl({required this.error});
 
   @override
-  final ErrorInterface error;
+  final AppError error;
 
   @override
   String toString() {
@@ -412,7 +417,7 @@ class _$FailureImpl implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(OrdersDetailsResponseModel orderDetails) success,
-    required TResult Function(ErrorInterface error) failure,
+    required TResult Function(AppError error) failure,
   }) {
     return failure(error);
   }
@@ -422,7 +427,7 @@ class _$FailureImpl implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult? Function(ErrorInterface error)? failure,
+    TResult? Function(AppError error)? failure,
   }) {
     return failure?.call(error);
   }
@@ -432,7 +437,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(OrdersDetailsResponseModel orderDetails)? success,
-    TResult Function(ErrorInterface error)? failure,
+    TResult Function(AppError error)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -477,9 +482,9 @@ class _$FailureImpl implements _Failure {
 }
 
 abstract class _Failure implements OrderDetailsState {
-  const factory _Failure({required final ErrorInterface error}) = _$FailureImpl;
+  const factory _Failure({required final AppError error}) = _$FailureImpl;
 
-  ErrorInterface get error;
+  AppError get error;
 
   /// Create a copy of OrderDetailsState
   /// with the given fields replaced by the non-null parameter values.

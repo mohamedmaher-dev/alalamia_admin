@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:alalamia_admin/core/local_storage/local_storage_consts.dart';
 import 'package:alalamia_admin/core/local_storage/models/user_credential_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive_ce_flutter/adapters.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 part 'user_credential_storage.dart';

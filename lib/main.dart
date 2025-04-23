@@ -4,6 +4,7 @@ import 'package:alalamia_admin/core/config/bloc_observer.dart';
 import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
 import 'package:alalamia_admin/core/notifications/notifications_service.dart';
+import 'package:alalamia_admin/core/utils/app_info_service.dart';
 import 'package:alalamia_admin/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() async {
   // Ensure that plugin services are initialized before running the app.
   WidgetsFlutterBinding.ensureInitialized();
+  // Initialize the app info service to fetch application metadata.
+  await AppInfoService.init();
   // Set the preferred orientation of the app to portrait mode only.
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   // Initialize Firebase with the default options for the current platform.

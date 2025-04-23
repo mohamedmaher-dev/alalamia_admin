@@ -25,7 +25,14 @@ class _OrderItemBody extends StatelessWidget {
           child: Column(
             children: [
               ExpansionTile(
-                trailing: Icon(CupertinoIcons.chevron_down),
+                trailing: Container(
+                  padding: EdgeInsets.all(kNormalPadding),
+                  decoration: BoxDecoration(
+                    color: ColorManger.scaffoldColor,
+                    borderRadius: BorderRadius.circular(kNormalRadius),
+                  ),
+                  child: Icon(CupertinoIcons.chevron_down),
+                ),
                 tilePadding: EdgeInsetsDirectional.only(end: kLargePadding),
                 controlAffinity: ListTileControlAffinity.trailing,
                 title: _ClientTitleBody(model: model),
@@ -50,7 +57,6 @@ class _OrderItemBody extends StatelessWidget {
 
 class _DataItemOrderItem extends StatelessWidget {
   const _DataItemOrderItem({
-    super.key,
     required this.title,
     required this.subTitle,
     required this.icon,
@@ -63,7 +69,14 @@ class _DataItemOrderItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       dense: true,
-      leading: icon,
+      leading: Container(
+        padding: EdgeInsets.all(kNormalPadding),
+        decoration: BoxDecoration(
+          color: ColorManger.scaffoldColor,
+          borderRadius: BorderRadius.circular(kNormalRadius),
+        ),
+        child: icon,
+      ),
       title: Text(title, style: TextStyles.tsP12B),
       subtitle: Text(subTitle),
     );
@@ -72,7 +85,6 @@ class _DataItemOrderItem extends StatelessWidget {
 
 class _RowDataItemOrderItem extends StatelessWidget {
   const _RowDataItemOrderItem({
-    super.key,
     required this.title1,
     required this.subTitle1,
     required this.icon1,
@@ -142,7 +154,7 @@ class _ExpandedBody extends StatelessWidget {
 }
 
 class _StatusBody extends StatelessWidget {
-  const _StatusBody({super.key, required this.model});
+  const _StatusBody({required this.model});
   final OrdersDatum model;
 
   @override
@@ -173,18 +185,21 @@ class _StatusBody extends StatelessWidget {
 }
 
 class _ClientTitleBody extends StatelessWidget {
-  const _ClientTitleBody({super.key, required this.model});
+  const _ClientTitleBody({required this.model});
   final OrdersDatum model;
 
   @override
   Widget build(BuildContext context) {
     final language = Language.of(context);
-    return _DataItemOrderItem(
-      title: model.userName,
-      subTitle: language.client_name,
-      icon: Initicon(
+    return ListTile(
+      title: Text(model.userName, style: TextStyles.tsP12B),
+      subtitle: Text(
+        language.client_name,
+        style: TextStyle(color: Colors.grey),
+      ),
+      leading: Initicon(
         size: 35.r,
-        text: model.userName,
+        text: model.userName.substring(0, 1).toUpperCase(),
         backgroundColor: ColorManger.myGold,
         borderRadius: BorderRadius.circular(kNormalRadius),
         style: TextStyle(

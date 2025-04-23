@@ -6,5 +6,5 @@ class SettingsState with _$SettingsState {
     required AppConfigModel appConfigModel,
   }) = _Initial;
   const factory SettingsState.loading() = _Loading;
-  const factory SettingsState.failure(ErrorInterface e) = _Failure;
+  const factory SettingsState.failure(AppError e) = _Failure;
 }

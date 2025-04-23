@@ -12,7 +12,8 @@ part of 'invoice_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$InvoiceState {
@@ -21,41 +22,47 @@ mixin _$InvoiceState {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)
-        showSuccess,
+    required TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )
+    showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
     required TResult Function() saveFailure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult? Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
     TResult? Function()? saveFailure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
     TResult Function()? saveFailure,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -65,8 +72,7 @@ mixin _$InvoiceState {
     required TResult Function(_SaveLoading value) saveLoading,
     required TResult Function(_SaveSuccess value) saveSuccess,
     required TResult Function(_SaveFailure value) saveFailure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -76,8 +82,7 @@ mixin _$InvoiceState {
     TResult? Function(_SaveLoading value)? saveLoading,
     TResult? Function(_SaveSuccess value)? saveSuccess,
     TResult? Function(_SaveFailure value)? saveFailure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -88,15 +93,15 @@ mixin _$InvoiceState {
     TResult Function(_SaveSuccess value)? saveSuccess,
     TResult Function(_SaveFailure value)? saveFailure,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $InvoiceStateCopyWith<$Res> {
   factory $InvoiceStateCopyWith(
-          InvoiceState value, $Res Function(InvoiceState) then) =
-      _$InvoiceStateCopyWithImpl<$Res, InvoiceState>;
+    InvoiceState value,
+    $Res Function(InvoiceState) then,
+  ) = _$InvoiceStateCopyWithImpl<$Res, InvoiceState>;
 }
 
 /// @nodoc
@@ -116,8 +121,9 @@ class _$InvoiceStateCopyWithImpl<$Res, $Val extends InvoiceState>
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -125,8 +131,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$InvoiceStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
@@ -157,9 +164,12 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)
-        showSuccess,
+    required TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )
+    showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
     required TResult Function() saveFailure,
@@ -173,9 +183,12 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult? Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
     TResult? Function()? saveFailure,
@@ -189,9 +202,12 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
     TResult Function()? saveFailure,
@@ -257,8 +273,9 @@ abstract class _Initial implements InvoiceState {
 /// @nodoc
 abstract class _$$ShowLoadingImplCopyWith<$Res> {
   factory _$$ShowLoadingImplCopyWith(
-          _$ShowLoadingImpl value, $Res Function(_$ShowLoadingImpl) then) =
-      __$$ShowLoadingImplCopyWithImpl<$Res>;
+    _$ShowLoadingImpl value,
+    $Res Function(_$ShowLoadingImpl) then,
+  ) = __$$ShowLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -266,8 +283,9 @@ class __$$ShowLoadingImplCopyWithImpl<$Res>
     extends _$InvoiceStateCopyWithImpl<$Res, _$ShowLoadingImpl>
     implements _$$ShowLoadingImplCopyWith<$Res> {
   __$$ShowLoadingImplCopyWithImpl(
-      _$ShowLoadingImpl _value, $Res Function(_$ShowLoadingImpl) _then)
-      : super(_value, _then);
+    _$ShowLoadingImpl _value,
+    $Res Function(_$ShowLoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
@@ -298,9 +316,12 @@ class _$ShowLoadingImpl implements _ShowLoading {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)
-        showSuccess,
+    required TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )
+    showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
     required TResult Function() saveFailure,
@@ -314,9 +335,12 @@ class _$ShowLoadingImpl implements _ShowLoading {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult? Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
     TResult? Function()? saveFailure,
@@ -330,9 +354,12 @@ class _$ShowLoadingImpl implements _ShowLoading {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
     TResult Function()? saveFailure,
@@ -398,8 +425,9 @@ abstract class _ShowLoading implements InvoiceState {
 /// @nodoc
 abstract class _$$ShowFailureImplCopyWith<$Res> {
   factory _$$ShowFailureImplCopyWith(
-          _$ShowFailureImpl value, $Res Function(_$ShowFailureImpl) then) =
-      __$$ShowFailureImplCopyWithImpl<$Res>;
+    _$ShowFailureImpl value,
+    $Res Function(_$ShowFailureImpl) then,
+  ) = __$$ShowFailureImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -407,8 +435,9 @@ class __$$ShowFailureImplCopyWithImpl<$Res>
     extends _$InvoiceStateCopyWithImpl<$Res, _$ShowFailureImpl>
     implements _$$ShowFailureImplCopyWith<$Res> {
   __$$ShowFailureImplCopyWithImpl(
-      _$ShowFailureImpl _value, $Res Function(_$ShowFailureImpl) _then)
-      : super(_value, _then);
+    _$ShowFailureImpl _value,
+    $Res Function(_$ShowFailureImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
@@ -439,9 +468,12 @@ class _$ShowFailureImpl implements _ShowFailure {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)
-        showSuccess,
+    required TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )
+    showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
     required TResult Function() saveFailure,
@@ -455,9 +487,12 @@ class _$ShowFailureImpl implements _ShowFailure {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult? Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
     TResult? Function()? saveFailure,
@@ -471,9 +506,12 @@ class _$ShowFailureImpl implements _ShowFailure {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
     TResult Function()? saveFailure,
@@ -539,13 +577,15 @@ abstract class _ShowFailure implements InvoiceState {
 /// @nodoc
 abstract class _$$ShowSuccessImplCopyWith<$Res> {
   factory _$$ShowSuccessImplCopyWith(
-          _$ShowSuccessImpl value, $Res Function(_$ShowSuccessImpl) then) =
-      __$$ShowSuccessImplCopyWithImpl<$Res>;
+    _$ShowSuccessImpl value,
+    $Res Function(_$ShowSuccessImpl) then,
+  ) = __$$ShowSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {Uint8List pdfData,
-      InvoiceCubit cubit,
-      OrdersDetailsResponseModel order});
+  $Res call({
+    Uint8List pdfData,
+    InvoiceCubit cubit,
+    OrdersDetailsResponseModel order,
+  });
 }
 
 /// @nodoc
@@ -553,8 +593,9 @@ class __$$ShowSuccessImplCopyWithImpl<$Res>
     extends _$InvoiceStateCopyWithImpl<$Res, _$ShowSuccessImpl>
     implements _$$ShowSuccessImplCopyWith<$Res> {
   __$$ShowSuccessImplCopyWithImpl(
-      _$ShowSuccessImpl _value, $Res Function(_$ShowSuccessImpl) _then)
-      : super(_value, _then);
+    _$ShowSuccessImpl _value,
+    $Res Function(_$ShowSuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
@@ -565,28 +606,36 @@ class __$$ShowSuccessImplCopyWithImpl<$Res>
     Object? cubit = null,
     Object? order = null,
   }) {
-    return _then(_$ShowSuccessImpl(
-      pdfData: null == pdfData
-          ? _value.pdfData
-          : pdfData // ignore: cast_nullable_to_non_nullable
-              as Uint8List,
-      cubit: null == cubit
-          ? _value.cubit
-          : cubit // ignore: cast_nullable_to_non_nullable
-              as InvoiceCubit,
-      order: null == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as OrdersDetailsResponseModel,
-    ));
+    return _then(
+      _$ShowSuccessImpl(
+        pdfData:
+            null == pdfData
+                ? _value.pdfData
+                : pdfData // ignore: cast_nullable_to_non_nullable
+                    as Uint8List,
+        cubit:
+            null == cubit
+                ? _value.cubit
+                : cubit // ignore: cast_nullable_to_non_nullable
+                    as InvoiceCubit,
+        order:
+            null == order
+                ? _value.order
+                : order // ignore: cast_nullable_to_non_nullable
+                    as OrdersDetailsResponseModel,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ShowSuccessImpl implements _ShowSuccess {
-  const _$ShowSuccessImpl(
-      {required this.pdfData, required this.cubit, required this.order});
+  const _$ShowSuccessImpl({
+    required this.pdfData,
+    required this.cubit,
+    required this.order,
+  });
 
   @override
   final Uint8List pdfData;
@@ -612,7 +661,11 @@ class _$ShowSuccessImpl implements _ShowSuccess {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(pdfData), cubit, order);
+    runtimeType,
+    const DeepCollectionEquality().hash(pdfData),
+    cubit,
+    order,
+  );
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
@@ -628,9 +681,12 @@ class _$ShowSuccessImpl implements _ShowSuccess {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)
-        showSuccess,
+    required TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )
+    showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
     required TResult Function() saveFailure,
@@ -644,9 +700,12 @@ class _$ShowSuccessImpl implements _ShowSuccess {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult? Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
     TResult? Function()? saveFailure,
@@ -660,9 +719,12 @@ class _$ShowSuccessImpl implements _ShowSuccess {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
     TResult Function()? saveFailure,
@@ -722,10 +784,11 @@ class _$ShowSuccessImpl implements _ShowSuccess {
 }
 
 abstract class _ShowSuccess implements InvoiceState {
-  const factory _ShowSuccess(
-      {required final Uint8List pdfData,
-      required final InvoiceCubit cubit,
-      required final OrdersDetailsResponseModel order}) = _$ShowSuccessImpl;
+  const factory _ShowSuccess({
+    required final Uint8List pdfData,
+    required final InvoiceCubit cubit,
+    required final OrdersDetailsResponseModel order,
+  }) = _$ShowSuccessImpl;
 
   Uint8List get pdfData;
   InvoiceCubit get cubit;
@@ -741,8 +804,9 @@ abstract class _ShowSuccess implements InvoiceState {
 /// @nodoc
 abstract class _$$SaveLoadingImplCopyWith<$Res> {
   factory _$$SaveLoadingImplCopyWith(
-          _$SaveLoadingImpl value, $Res Function(_$SaveLoadingImpl) then) =
-      __$$SaveLoadingImplCopyWithImpl<$Res>;
+    _$SaveLoadingImpl value,
+    $Res Function(_$SaveLoadingImpl) then,
+  ) = __$$SaveLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -750,8 +814,9 @@ class __$$SaveLoadingImplCopyWithImpl<$Res>
     extends _$InvoiceStateCopyWithImpl<$Res, _$SaveLoadingImpl>
     implements _$$SaveLoadingImplCopyWith<$Res> {
   __$$SaveLoadingImplCopyWithImpl(
-      _$SaveLoadingImpl _value, $Res Function(_$SaveLoadingImpl) _then)
-      : super(_value, _then);
+    _$SaveLoadingImpl _value,
+    $Res Function(_$SaveLoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
@@ -782,9 +847,12 @@ class _$SaveLoadingImpl implements _SaveLoading {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)
-        showSuccess,
+    required TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )
+    showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
     required TResult Function() saveFailure,
@@ -798,9 +866,12 @@ class _$SaveLoadingImpl implements _SaveLoading {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult? Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
     TResult? Function()? saveFailure,
@@ -814,9 +885,12 @@ class _$SaveLoadingImpl implements _SaveLoading {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
     TResult Function()? saveFailure,
@@ -882,8 +956,9 @@ abstract class _SaveLoading implements InvoiceState {
 /// @nodoc
 abstract class _$$SaveSuccessImplCopyWith<$Res> {
   factory _$$SaveSuccessImplCopyWith(
-          _$SaveSuccessImpl value, $Res Function(_$SaveSuccessImpl) then) =
-      __$$SaveSuccessImplCopyWithImpl<$Res>;
+    _$SaveSuccessImpl value,
+    $Res Function(_$SaveSuccessImpl) then,
+  ) = __$$SaveSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -891,8 +966,9 @@ class __$$SaveSuccessImplCopyWithImpl<$Res>
     extends _$InvoiceStateCopyWithImpl<$Res, _$SaveSuccessImpl>
     implements _$$SaveSuccessImplCopyWith<$Res> {
   __$$SaveSuccessImplCopyWithImpl(
-      _$SaveSuccessImpl _value, $Res Function(_$SaveSuccessImpl) _then)
-      : super(_value, _then);
+    _$SaveSuccessImpl _value,
+    $Res Function(_$SaveSuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
@@ -923,9 +999,12 @@ class _$SaveSuccessImpl implements _SaveSuccess {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)
-        showSuccess,
+    required TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )
+    showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
     required TResult Function() saveFailure,
@@ -939,9 +1018,12 @@ class _$SaveSuccessImpl implements _SaveSuccess {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult? Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
     TResult? Function()? saveFailure,
@@ -955,9 +1037,12 @@ class _$SaveSuccessImpl implements _SaveSuccess {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
     TResult Function()? saveFailure,
@@ -1023,8 +1108,9 @@ abstract class _SaveSuccess implements InvoiceState {
 /// @nodoc
 abstract class _$$SaveFailureImplCopyWith<$Res> {
   factory _$$SaveFailureImplCopyWith(
-          _$SaveFailureImpl value, $Res Function(_$SaveFailureImpl) then) =
-      __$$SaveFailureImplCopyWithImpl<$Res>;
+    _$SaveFailureImpl value,
+    $Res Function(_$SaveFailureImpl) then,
+  ) = __$$SaveFailureImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1032,8 +1118,9 @@ class __$$SaveFailureImplCopyWithImpl<$Res>
     extends _$InvoiceStateCopyWithImpl<$Res, _$SaveFailureImpl>
     implements _$$SaveFailureImplCopyWith<$Res> {
   __$$SaveFailureImplCopyWithImpl(
-      _$SaveFailureImpl _value, $Res Function(_$SaveFailureImpl) _then)
-      : super(_value, _then);
+    _$SaveFailureImpl _value,
+    $Res Function(_$SaveFailureImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
@@ -1064,9 +1151,12 @@ class _$SaveFailureImpl implements _SaveFailure {
     required TResult Function() initial,
     required TResult Function() showLoading,
     required TResult Function() showFailure,
-    required TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)
-        showSuccess,
+    required TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )
+    showSuccess,
     required TResult Function() saveLoading,
     required TResult Function() saveSuccess,
     required TResult Function() saveFailure,
@@ -1080,9 +1170,12 @@ class _$SaveFailureImpl implements _SaveFailure {
     TResult? Function()? initial,
     TResult? Function()? showLoading,
     TResult? Function()? showFailure,
-    TResult? Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult? Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult? Function()? saveLoading,
     TResult? Function()? saveSuccess,
     TResult? Function()? saveFailure,
@@ -1096,9 +1189,12 @@ class _$SaveFailureImpl implements _SaveFailure {
     TResult Function()? initial,
     TResult Function()? showLoading,
     TResult Function()? showFailure,
-    TResult Function(Uint8List pdfData, InvoiceCubit cubit,
-            OrdersDetailsResponseModel order)?
-        showSuccess,
+    TResult Function(
+      Uint8List pdfData,
+      InvoiceCubit cubit,
+      OrdersDetailsResponseModel order,
+    )?
+    showSuccess,
     TResult Function()? saveLoading,
     TResult Function()? saveSuccess,
     TResult Function()? saveFailure,

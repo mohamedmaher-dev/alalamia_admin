@@ -1,6 +1,5 @@
 import 'package:alalamia_admin/core/networking/dio_factory.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
-import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -13,18 +12,13 @@ class SplashCubit extends Cubit<SplashState> {
   void start() async {
     await authRebo.getUserCredential().then((userCredential) async {
       if (userCredential != null) {
-        final signInResult = await authRebo.refreshToken(
-          SignInRequestModel(
-            email: userCredential.email,
-            password: userCredential.password,
-          ),
-        );
+        final signInResult = await authRebo.refreshToken();
         signInResult.when(
           success: (success) {
             DioFactory.setToken(success.token);
             emit(SplashState.successToLogin());
           },
-          error: (failure) {
+          failure: (failure) {
             emit(SplashState.failedToLogin());
           },
         );

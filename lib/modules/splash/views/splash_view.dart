@@ -1,4 +1,5 @@
 import 'package:alalamia_admin/core/router/app_router.dart';
+import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/utils/assets_manger.dart';
 import 'package:alalamia_admin/modules/splash/controllers/splash/splash_cubit.dart';
 import 'package:flutter/material.dart';
@@ -44,12 +45,23 @@ class _SplashViewState extends State<SplashView> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Spacer(),
             Hero(
               tag: 'logo',
               child: Image.asset(
                 AssetsManger.iconIcon,
                 height: 150.h,
                 width: 150.w,
+              ),
+            ),
+            Spacer(),
+            Container(
+              margin: EdgeInsets.all(kLargeMargin),
+              child: Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 1,
+                  strokeCap: StrokeCap.round,
+                ),
               ),
             ),
           ],

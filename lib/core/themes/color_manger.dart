@@ -19,6 +19,7 @@ class ColorManger {
   // Daynamic Colors
   static Color get primary => _colorScheme.primary;
   static Color get red => _colorScheme.error;
+  static Color get scaffoldColor => _colorScheme.surface;
   // Light ColorScheme
   static const ColorScheme lightColorScheme = ColorScheme(
     brightness: Brightness.light,

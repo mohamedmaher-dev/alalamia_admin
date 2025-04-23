@@ -12,7 +12,8 @@ part of 'home_nav_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$HomeNavState {
@@ -20,35 +21,29 @@ mixin _$HomeNavState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(HomePages page) currentPage,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HomePages page)? currentPage,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HomePages page)? currentPage,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_CurrentPage value) currentPage,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CurrentPage value)? currentPage,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CurrentPage value)? currentPage,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   /// Create a copy of HomeNavState
   /// with the given fields replaced by the non-null parameter values.
@@ -60,8 +55,9 @@ mixin _$HomeNavState {
 /// @nodoc
 abstract class $HomeNavStateCopyWith<$Res> {
   factory $HomeNavStateCopyWith(
-          HomeNavState value, $Res Function(HomeNavState) then) =
-      _$HomeNavStateCopyWithImpl<$Res, HomeNavState>;
+    HomeNavState value,
+    $Res Function(HomeNavState) then,
+  ) = _$HomeNavStateCopyWithImpl<$Res, HomeNavState>;
   @useResult
   $Res call({HomePages page});
 }
@@ -80,15 +76,17 @@ class _$HomeNavStateCopyWithImpl<$Res, $Val extends HomeNavState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? page = null,
-  }) {
-    return _then(_value.copyWith(
-      page: null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as HomePages,
-    ) as $Val);
+  $Res call({Object? page = null}) {
+    return _then(
+      _value.copyWith(
+            page:
+                null == page
+                    ? _value.page
+                    : page // ignore: cast_nullable_to_non_nullable
+                        as HomePages,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -96,8 +94,9 @@ class _$HomeNavStateCopyWithImpl<$Res, $Val extends HomeNavState>
 abstract class _$$CurrentPageImplCopyWith<$Res>
     implements $HomeNavStateCopyWith<$Res> {
   factory _$$CurrentPageImplCopyWith(
-          _$CurrentPageImpl value, $Res Function(_$CurrentPageImpl) then) =
-      __$$CurrentPageImplCopyWithImpl<$Res>;
+    _$CurrentPageImpl value,
+    $Res Function(_$CurrentPageImpl) then,
+  ) = __$$CurrentPageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({HomePages page});
@@ -108,22 +107,24 @@ class __$$CurrentPageImplCopyWithImpl<$Res>
     extends _$HomeNavStateCopyWithImpl<$Res, _$CurrentPageImpl>
     implements _$$CurrentPageImplCopyWith<$Res> {
   __$$CurrentPageImplCopyWithImpl(
-      _$CurrentPageImpl _value, $Res Function(_$CurrentPageImpl) _then)
-      : super(_value, _then);
+    _$CurrentPageImpl _value,
+    $Res Function(_$CurrentPageImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of HomeNavState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? page = null,
-  }) {
-    return _then(_$CurrentPageImpl(
-      page: null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as HomePages,
-    ));
+  $Res call({Object? page = null}) {
+    return _then(
+      _$CurrentPageImpl(
+        page:
+            null == page
+                ? _value.page
+                : page // ignore: cast_nullable_to_non_nullable
+                    as HomePages,
+      ),
+    );
   }
 }
 

@@ -31,6 +31,14 @@ class _OtherBody extends StatelessWidget {
                       : args.aramexId.toString(),
                 ),
                 subtitle: Text(language.aramex_number),
+                trailing: IconButton(
+                  icon: Icon(Icons.copy),
+                  onPressed: () {
+                    Clipboard.setData(
+                      ClipboardData(text: args.aramexId.toString()),
+                    );
+                  },
+                ),
               ),
             ],
           ),

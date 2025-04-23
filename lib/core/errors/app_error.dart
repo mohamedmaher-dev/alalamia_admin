@@ -5,8 +5,8 @@ part '../errors/api_error.dart';
 part '../errors/cache_error.dart';
 part '../errors/unknown_error.dart';
 
-sealed class ErrorInterface {
+sealed class AppError {
   final String msg;
   final int code;
-  ErrorInterface({required this.msg, required this.code});
+  AppError({required this.msg, required this.code});
 }
