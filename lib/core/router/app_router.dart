@@ -20,10 +20,10 @@ class AppRouter {
       GoRoute(
         path: AppPages.splash.path,
         builder:
-            (context, state) => MultiBlocProvider(
+            (final context, final state) => MultiBlocProvider(
               providers: [
-                BlocProvider(create: (context) => di<SignInCubit>()),
-                BlocProvider(create: (context) => di<SplashCubit>()),
+                BlocProvider(create: (final context) => di<SignInCubit>()),
+                BlocProvider(create: (final context) => di<SplashCubit>()),
               ],
               child: const SplashView(),
             ),
@@ -31,42 +31,42 @@ class AppRouter {
       GoRoute(
         path: AppPages.signIn.path,
         builder:
-            (context, state) => BlocProvider(
-              create: (context) => di<SignInCubit>(),
+            (final context, final state) => BlocProvider(
+              create: (final context) => di<SignInCubit>(),
               child: const SignInView(),
             ),
       ),
       GoRoute(
         path: AppPages.home.path,
-        builder: (context, state) => HomeView(),
+        builder: (final context, final state) => const HomeView(),
       ),
       GoRoute(
         path: AppPages.orderDetails.path,
         builder:
-            (context, state) =>
+            (final context, final state) =>
                 OrderDetailsView(args: state.extra as OrdersDatum),
       ),
       GoRoute(
         path: AppPages.settings.path,
-        builder: (context, state) => SettingsView(),
+        builder: (final context, final state) => const SettingsView(),
       ),
     ],
   );
 
-  static pushReplacement(AppPages page, {Object? extra}) {
+  static void pushReplacement(final AppPages page, {final Object? extra}) {
     currentPage = page;
     routerConfig.go(page.path, extra: extra);
   }
 
-  static Future<void> push(AppPages page, {Object? extra}) {
+  static Future<void> push(final AppPages page, {final Object? extra}) {
     currentPage = page;
     return routerConfig.push(page.path, extra: extra);
   }
 
-  static pushAndRemoveUntil(AppPages page, {Object? extra}) {
+  static void pushAndRemoveUntil(final AppPages page, {final Object? extra}) {
     currentPage = page;
     routerConfig.go(page.path, extra: extra);
   }
 
-  static pop() => routerConfig.pop();
+  static void pop() => routerConfig.pop();
 }

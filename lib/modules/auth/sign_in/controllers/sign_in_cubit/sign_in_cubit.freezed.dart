@@ -111,10 +111,11 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({Object? isShowPassword = null}) {
     return _then(
       _$InitialImpl(
-        null == isShowPassword
-            ? _value.isShowPassword
-            : isShowPassword // ignore: cast_nullable_to_non_nullable
-                as bool,
+        isShowPassword:
+            null == isShowPassword
+                ? _value.isShowPassword
+                : isShowPassword // ignore: cast_nullable_to_non_nullable
+                    as bool,
       ),
     );
   }
@@ -123,7 +124,7 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl implements _Initial {
-  const _$InitialImpl(this.isShowPassword);
+  const _$InitialImpl({required this.isShowPassword});
 
   @override
   final bool isShowPassword;
@@ -229,7 +230,7 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements SignInState {
-  const factory _Initial(final bool isShowPassword) = _$InitialImpl;
+  const factory _Initial({required final bool isShowPassword}) = _$InitialImpl;
 
   bool get isShowPassword;
 

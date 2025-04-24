@@ -12,42 +12,46 @@ class _OrderItemBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final cubit = context.read<OrdersCubit>();
     final language = Language.of(context);
-    return GestureDetector(
-      onTap: () async {
-        await AppRouter.push(AppPages.orderDetails, extra: model);
-        cubit.pagingController.refresh();
-      },
-      child: Skeletonizer(
-        enabled: isLoading,
-        child: Card(
-          child: Column(
-            children: [
-              ExpansionTile(
-                trailing: Container(
-                  padding: EdgeInsets.all(kNormalPadding),
-                  decoration: BoxDecoration(
-                    color: ColorManger.scaffoldColor,
-                    borderRadius: BorderRadius.circular(kNormalRadius),
+    return Provider(
+      create: (context) => model,
+      child: GestureDetector(
+        onTap: () async {
+          await AppRouter.push(AppPages.orderDetails, extra: model);
+          cubit.pagingController.refresh();
+        },
+        child: Skeletonizer(
+          enabled: isLoading,
+          child: Card(
+            child: Column(
+              children: [
+                ExpansionTile(
+                  trailing: Container(
+                    padding: EdgeInsets.all(kNormalPadding),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(kNormalRadius),
+                    ),
+                    child: const Icon(CupertinoIcons.chevron_down),
                   ),
-                  child: Icon(CupertinoIcons.chevron_down),
+                  tilePadding: EdgeInsetsDirectional.only(end: kLargePadding),
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  title: const _ClientTitleBody(),
+                  children: const <Widget>[_ExpandedBody()],
                 ),
-                tilePadding: EdgeInsetsDirectional.only(end: kLargePadding),
-                controlAffinity: ListTileControlAffinity.trailing,
-                title: _ClientTitleBody(model: model),
-                children: <Widget>[_ExpandedBody(model: model)],
-              ),
-              _RowDataItemOrderItem(
-                icon1: Icon(CupertinoIcons.phone),
-                title1: model.phone,
-                subTitle1: language.client_number,
-                icon2: Icon(CupertinoIcons.number),
-                title2: model.requestNumber,
-                subTitle2: language.order_number,
-              ),
-              _StatusBody(model: model),
-            ],
+                _RowDataItemOrderItem(
+                  icon1: const Icon(CupertinoIcons.phone),
+                  title1: model.phone,
+                  subTitle1: language.client_number,
+                  icon2: const Icon(CupertinoIcons.number),
+                  title2: model.requestNumber,
+                  subTitle2: language.order_number,
+                ),
+                const _StatusBody(),
+              ],
+            ),
           ),
         ),
       ),
@@ -66,21 +70,19 @@ class _DataItemOrderItem extends StatelessWidget {
   final Widget icon;
 
   @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      dense: true,
-      leading: Container(
-        padding: EdgeInsets.all(kNormalPadding),
-        decoration: BoxDecoration(
-          color: ColorManger.scaffoldColor,
-          borderRadius: BorderRadius.circular(kNormalRadius),
-        ),
-        child: icon,
+  Widget build(BuildContext context) => ListTile(
+    dense: true,
+    leading: Container(
+      padding: EdgeInsets.all(kNormalPadding),
+      decoration: BoxDecoration(
+        color: ColorManger.scaffoldColor,
+        borderRadius: BorderRadius.circular(kNormalRadius),
       ),
-      title: Text(title, style: TextStyles.tsP12B),
-      subtitle: Text(subTitle),
-    );
-  }
+      child: icon,
+    ),
+    title: Text(title, style: TextStyles.tsP12B),
+    subtitle: Text(subTitle),
+  );
 }
 
 class _RowDataItemOrderItem extends StatelessWidget {
@@ -100,53 +102,51 @@ class _RowDataItemOrderItem extends StatelessWidget {
   final Widget icon2;
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: _DataItemOrderItem(
-            title: title1,
-            subTitle: subTitle1,
-            icon: icon1,
-          ),
+  Widget build(BuildContext context) => Row(
+    children: [
+      Expanded(
+        child: _DataItemOrderItem(
+          title: title1,
+          subTitle: subTitle1,
+          icon: icon1,
         ),
-        Expanded(
-          child: _DataItemOrderItem(
-            title: title2,
-            subTitle: subTitle2,
-            icon: icon2,
-          ),
+      ),
+      Expanded(
+        child: _DataItemOrderItem(
+          title: title2,
+          subTitle: subTitle2,
+          icon: icon2,
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
 }
 
 class _ExpandedBody extends StatelessWidget {
-  const _ExpandedBody({required this.model});
-  final OrdersDatum model;
+  const _ExpandedBody();
 
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     return Column(
       children: [
         _RowDataItemOrderItem(
           title1: model.paymentType.paymentTypeText,
           subTitle1: language.payment_type,
-          icon1: Icon(CupertinoIcons.money_dollar_circle),
+          icon1: const Icon(CupertinoIcons.money_dollar_circle),
 
           title2: Jiffy.parseFromDateTime(
             DateTime.parse(model.bookingDate).toUtc(),
           ).from(Jiffy.parseFromDateTime(DateTime.now().toUtc())),
           subTitle2: language.time_ago,
-          icon2: Icon(CupertinoIcons.clock),
+          icon2: const Icon(CupertinoIcons.clock),
         ),
 
         _DataItemOrderItem(
           title: Jiffy.parse(model.bookingDate).yMMMMEEEEdjm,
           subTitle: language.order_date,
-          icon: Icon(CupertinoIcons.calendar),
+          icon: const Icon(CupertinoIcons.calendar),
         ), // Add more widgets here as needed
       ],
     );
@@ -154,48 +154,42 @@ class _ExpandedBody extends StatelessWidget {
 }
 
 class _StatusBody extends StatelessWidget {
-  const _StatusBody({required this.model});
-  final OrdersDatum model;
+  const _StatusBody();
 
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<OrdersDatum>(context);
     return Container(
       width: double.infinity,
       alignment: Alignment.center,
       padding: EdgeInsets.all(kNormalPadding),
-      margin: EdgeInsets.all(kNormalMargin),
       decoration: BoxDecoration(
         color: model.status.orderStatusColor,
-        borderRadius: BorderRadius.circular(kNormalRadius),
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(kNormalRadius),
+        ),
       ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Text(
-              textAlign: TextAlign.center,
-              model.status.orderStatusText,
-              style: TextStyles.ts12B.copyWith(color: Colors.black),
-            ),
-          ),
-          Icon(CupertinoIcons.chevron_left_circle, color: Colors.black),
-        ],
+      child: Text(
+        textAlign: TextAlign.center,
+        model.status.orderStatusText,
+        style: TextStyles.ts12B.copyWith(color: Colors.black),
       ),
     );
   }
 }
 
 class _ClientTitleBody extends StatelessWidget {
-  const _ClientTitleBody({required this.model});
-  final OrdersDatum model;
+  const _ClientTitleBody();
 
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     return ListTile(
       title: Text(model.userName, style: TextStyles.tsP12B),
       subtitle: Text(
         language.client_name,
-        style: TextStyle(color: Colors.grey),
+        style: const TextStyle(color: Colors.grey),
       ),
       leading: Initicon(
         size: 35.r,

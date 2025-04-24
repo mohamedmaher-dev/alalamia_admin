@@ -8,7 +8,8 @@ part 'order_status_cubit.freezed.dart';
 
 class OrderStatusCubit extends Cubit<OrderStatusState> {
   final OrderDetailsRebo orderDetailsRebo;
-  OrderStatusCubit(this.orderDetailsRebo) : super(OrderStatusState.initial());
+  OrderStatusCubit(this.orderDetailsRebo)
+    : super(const OrderStatusState.initial());
 
   Future<void> changeStatus(
     int newIndex,
@@ -16,21 +17,21 @@ class OrderStatusCubit extends Cubit<OrderStatusState> {
     String orderId,
   ) async {
     if (newIndex != currentIndex) {
-      emit(OrderStatusState.loading());
+      emit(const OrderStatusState.loading());
       final result = await orderDetailsRebo.changeOrderStatus(
         orderId,
         newIndex.indexToEnum,
       );
       result.when(
         success: (data) {
-          emit(OrderStatusState.success());
+          emit(const OrderStatusState.success());
         },
         failure: (error) {
-          emit(OrderStatusState.failure());
+          emit(const OrderStatusState.failure());
         },
       );
     } else {
-      emit(OrderStatusState.cantChange());
+      emit(const OrderStatusState.cantChange());
     }
   }
 }

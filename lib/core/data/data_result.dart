@@ -5,6 +5,7 @@ part 'data_result.freezed.dart';
 
 @freezed
 abstract class DataResult<T> with _$DataResult<T> {
-  const factory DataResult.success({required T data}) = Success<T>;
-  const factory DataResult.failure({required AppError error}) = Failure<T>;
+  const factory DataResult.success({required final T data}) = Success<T>;
+  const factory DataResult.failure({required final AppError error}) =
+      Failure<T>;
 }

@@ -1,13 +1,16 @@
+// ignore_for_file: avoid_catches_without_on_clauses, avoid_dynamic_calls
+
 part of 'app_error.dart';
 
 class ApiError extends AppError {
   ApiError._({required super.msg, super.code = 0});
 
-  factory ApiError.fromUnknown() {
-    return ApiError._(msg: Language.current.unknown_error);
-  }
+  factory ApiError.fromUnknown() =>
+      ApiError._(msg: Language.current.unknown_error);
 
-  factory ApiError.fromDioException({required DioException dioException}) {
+  factory ApiError.fromDioException({
+    required final DioException dioException,
+  }) {
     final language = Language.current;
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
@@ -28,7 +31,7 @@ class ApiError extends AppError {
         return ApiError.fromUnknown();
     }
   }
-  static ApiError _fromBadResponse({required DioException dioException}) {
+  static ApiError _fromBadResponse({required final DioException dioException}) {
     final int code = dioException.response!.statusCode ?? 0;
     final Response? response = dioException.response;
     switch (code) {

@@ -18,6 +18,7 @@ import 'package:flutter_initicon/flutter_initicon.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 part 'widgets/orders_search_form.dart';
 part 'widgets/orders_filter_body.dart';
@@ -29,15 +30,13 @@ part 'widgets/orders_pagination_body.dart';
 class OrdersView extends StatelessWidget {
   const OrdersView({super.key});
   @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => di<OrdersCubit>()),
-        BlocProvider(create: (context) => di<OrdersSearchCubit>()),
-      ],
-      child: _OrderViewBody(),
-    );
-  }
+  Widget build(BuildContext context) => MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (context) => di<OrdersCubit>()),
+      BlocProvider(create: (context) => di<OrdersSearchCubit>()),
+    ],
+    child: const _OrderViewBody(),
+  );
 }
 
 class _OrderViewBody extends StatefulWidget {
@@ -62,10 +61,10 @@ class _OrderViewBodyState extends State<_OrderViewBody> {
         builder:
             (context, cubitState) => Column(
               children: [
-                _OrderSearchForm(),
-                if (cubitState is DisabledMode) _OrdersPaginationBody(),
+                const _OrderSearchForm(),
+                if (cubitState is DisabledMode) const _OrdersPaginationBody(),
                 if (cubitState is EnabledMode || cubitState is EmptyMode)
-                  _OrdersSearchBody(),
+                  const _OrdersSearchBody(),
               ],
             ),
       ),

@@ -4,7 +4,7 @@ class _SignInBtn extends StatelessWidget {
   const _SignInBtn();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final language = Language.of(context);
     final cubit = context.read<SignInCubit>();
     return BlocListener<SignInCubit, SignInState>(

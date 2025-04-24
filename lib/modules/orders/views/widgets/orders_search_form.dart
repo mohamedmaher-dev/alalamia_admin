@@ -19,7 +19,7 @@ class _OrderSearchForm extends StatelessWidget {
                 enabled: cubit.pagingController.items != null,
                 controller: cubitSearch.searchController,
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(0),
+                  contentPadding: const EdgeInsets.all(0),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(kNormalRadius),
                     borderSide: BorderSide.none,
@@ -27,7 +27,7 @@ class _OrderSearchForm extends StatelessWidget {
                   isDense: true,
                   hintText: language.search_here,
                   filled: true,
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: const Icon(Icons.search),
                   suffixIcon:
                       cubitSearch.searchController.text.isNotEmpty
                           ? IconButton(

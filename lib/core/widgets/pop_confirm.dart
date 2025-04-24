@@ -18,7 +18,7 @@ class _PopUpConfirm extends StatelessWidget {
   final void Function() onPressed;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final language = Language.of(context);
     return Container(
       padding: EdgeInsets.all(10.w),
@@ -30,7 +30,7 @@ class _PopUpConfirm extends StatelessWidget {
               title: Text(title, style: TextStyles.tsP15B),
               subtitle: Text(subtitle),
             ),
-            Divider(),
+            const Divider(),
             Padding(
               padding: EdgeInsets.all(kNormalPadding),
               child: Row(
@@ -63,22 +63,21 @@ class _PopUpConfirm extends StatelessWidget {
 }
 
 Future<void> showChangerPopUpConfirm({
-  required BuildContext context,
-  required String title,
-  required String subtitle,
-  required void Function() onPressed,
+  required final BuildContext context,
+  required final String title,
+  required final String subtitle,
+  required final void Function() onPressed,
 }) async {
   await showCupertinoModalPopup(
     context: context,
     builder:
-        (context) => StatefulBuilder(
-          builder: (context, setState) {
-            return _PopUpConfirm(
-              title: title,
-              subtitle: subtitle,
-              onPressed: onPressed,
-            );
-          },
+        (final context) => StatefulBuilder(
+          builder:
+              (final context, final setState) => _PopUpConfirm(
+                title: title,
+                subtitle: subtitle,
+                onPressed: onPressed,
+              ),
         ),
   );
 }

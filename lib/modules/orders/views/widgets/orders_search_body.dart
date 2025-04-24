@@ -8,24 +8,25 @@ class _OrdersSearchBody extends StatelessWidget {
     final language = Language.of(context);
     return Expanded(
       child: BlocBuilder<OrdersSearchCubit, OrdersSearchState>(
-        builder: (context, state) {
-          return state.when(
-            disabled: () => SizedBox.shrink(),
-            enabled:
-                (orders) => ListView.builder(
-                  itemCount: orders.length,
-                  itemBuilder:
-                      (context, index) => _OrderItemBody(
-                        index: index,
-                        model: orders[index],
-                        isLoading: false,
-                      ),
-                ),
-            empty:
-                () =>
-                    EmptyView(icon: Icons.list, text: language.no_orders_found),
-          );
-        },
+        builder:
+            (context, state) => state.when(
+              disabled: () => const SizedBox.shrink(),
+              enabled:
+                  (orders) => ListView.builder(
+                    itemCount: orders.length,
+                    itemBuilder:
+                        (context, index) => _OrderItemBody(
+                          index: index,
+                          model: orders[index],
+                          isLoading: false,
+                        ),
+                  ),
+              empty:
+                  () => EmptyView(
+                    icon: Icons.list,
+                    text: language.no_orders_found,
+                  ),
+            ),
       ),
     );
   }

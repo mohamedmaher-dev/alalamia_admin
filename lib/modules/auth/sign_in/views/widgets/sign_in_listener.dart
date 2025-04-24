@@ -1,12 +1,16 @@
 part of '../sign_in_view.dart';
 
-void Function(BuildContext, SignInState) _listener = (context, state) {
+void Function(BuildContext, SignInState) _listener = (
+  final context,
+  final state,
+) {
   final language = Language.of(context);
   PopLoading.dismiss();
   state.whenOrNull(
-    loading: () => PopLoading.show(),
+    loading: PopLoading.show,
     failure:
-        (e) => AppSnackBar.show(context, msg: e.msg, type: ContentType.failure),
+        (final e) =>
+            AppSnackBar.show(context, msg: e.msg, type: ContentType.failure),
     success: () {
       AppSnackBar.show(
         context,

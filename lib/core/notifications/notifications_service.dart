@@ -14,7 +14,7 @@ class NotificationsService {
     await _fcmService();
   }
 
-  Future<void> changeEnableNotifications(bool isTurnOn) async {
+  Future<void> changeEnableNotifications({required final bool isTurnOn}) async {
     if (kDebugMode) {
       await _fcmService._fcm.subscribeToTopic(
         NotificationsConsts.adminTopicDebug,
@@ -31,7 +31,7 @@ class NotificationsService {
       await _fcmService._fcm.deleteToken();
     }
     await _fcmService._fcm.setAutoInitEnabled(isTurnOn);
-    _appConfig.changeTurnOnNotification(isTurnOn);
+    _appConfig.changeTurnOnNotification(value: isTurnOn);
   }
 
   Future<NotificationSettings> get notificationPermissionGranted async =>

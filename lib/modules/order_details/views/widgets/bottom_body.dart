@@ -46,67 +46,65 @@ class _BottomBody extends StatelessWidget {
     Language language,
     OrderStatusCubit orderStatusCubit,
     BuildContext context,
-  ) {
-    return Column(
-      children: [
-        const Divider(),
-        Padding(
-          padding: EdgeInsets.all(kNormalPadding),
-          child: BlocListener<OrderStatusCubit, OrderStatusState>(
-            listener: (context, state) => orderStatusListener(context, state),
-            child: Row(
-              children: [
-                if (args.status == OrderStatus.requested ||
-                    args.status == OrderStatus.canceled)
-                  Expanded(
-                    child: GeneralBtn(
-                      title: language.approve,
-                      icon: CupertinoIcons.checkmark_alt,
-                      onPressed:
-                          () => _showConfirmationDialog(
-                            context,
-                            language.approve_this_order,
-                            language.do_you_want_to_approve_this_order,
-                            () {
-                              orderStatusCubit.changeStatus(
-                                OrderStatus.received.enumToindex,
-                                args.status.enumToindex,
-                                args.id.toString(),
-                              );
-                            },
-                          ),
-                    ),
+  ) => Column(
+    children: [
+      const Divider(),
+      Padding(
+        padding: EdgeInsets.all(kNormalPadding),
+        child: BlocListener<OrderStatusCubit, OrderStatusState>(
+          listener: (context, state) => orderStatusListener(context, state),
+          child: Row(
+            children: [
+              if (args.status == OrderStatus.requested ||
+                  args.status == OrderStatus.canceled)
+                Expanded(
+                  child: GeneralBtn(
+                    title: language.approve,
+                    icon: CupertinoIcons.checkmark_alt,
+                    onPressed:
+                        () => _showConfirmationDialog(
+                          context,
+                          language.approve_this_order,
+                          language.do_you_want_to_approve_this_order,
+                          () {
+                            orderStatusCubit.changeStatus(
+                              OrderStatus.received.enumToindex,
+                              args.status.enumToindex,
+                              args.id.toString(),
+                            );
+                          },
+                        ),
                   ),
-                SizedBox(width: kNormalPadding),
-                if (args.status != OrderStatus.canceled)
-                  Expanded(
-                    child: OutlineBtn(
-                      color: ColorManger.red,
-                      title: language.cancel,
-                      icon: CupertinoIcons.clear,
-                      onPressed:
-                          () => _showConfirmationDialog(
-                            context,
-                            language.reject_this_order,
-                            language.do_you_want_to_reject_this_order,
-                            () {
-                              orderStatusCubit.changeStatus(
-                                OrderStatus.canceled.enumToindex,
-                                args.status.enumToindex,
+                ),
+              SizedBox(width: kNormalPadding),
+              if (args.status != OrderStatus.canceled)
+                Expanded(
+                  child: OutlineBtn(
+                    color: ColorManger.red,
+                    title: language.cancel,
+                    icon: CupertinoIcons.clear,
+                    onPressed:
+                        () => _showConfirmationDialog(
+                          context,
+                          language.reject_this_order,
+                          language.do_you_want_to_reject_this_order,
+                          () {
+                            orderStatusCubit.changeStatus(
+                              OrderStatus.canceled.enumToindex,
+                              args.status.enumToindex,
 
-                                args.id.toString(),
-                              );
-                            },
-                          ),
-                    ),
+                              args.id.toString(),
+                            );
+                          },
+                        ),
                   ),
-              ],
-            ),
+                ),
+            ],
           ),
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
 
   void _showConfirmationDialog(
     BuildContext context,

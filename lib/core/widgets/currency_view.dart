@@ -15,7 +15,7 @@ class CurrencyView extends StatelessWidget {
   final TextStyle textStyle;
 
   @override
-  Widget build(BuildContext context) => switch (countryModel) {
+  Widget build(final BuildContext context) => switch (countryModel) {
     CountryModel.ksa => SvgPicture.asset(
       colorFilter: const ColorFilter.mode(ColorManger.myGold, BlendMode.srcIn),
       AssetsManger.imagesKsaCurrency,

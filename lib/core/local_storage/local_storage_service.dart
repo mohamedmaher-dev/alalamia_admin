@@ -24,7 +24,7 @@ class LocalStorageService {
       _userCredentialStorage._userCredentialBox.get(0);
 
   Future<void> saveUserCredential({
-    required UserCredential userCredential,
+    required final UserCredential userCredential,
   }) async {
     _userCredentialStorage._userCredentialBox.put(0, userCredential);
   }

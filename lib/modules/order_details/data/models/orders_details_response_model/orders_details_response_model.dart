@@ -56,9 +56,8 @@ class OrdersDetailsResponseModel {
     this.createdAtDiffForHumans,
   });
 
-  factory OrdersDetailsResponseModel.fromJson(Map<String, dynamic> json) {
-    return _$OrdersDetailsResponseModelFromJson(json);
-  }
+  factory OrdersDetailsResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$OrdersDetailsResponseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OrdersDetailsResponseModelToJson(this);
 }

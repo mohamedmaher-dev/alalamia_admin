@@ -1,11 +1,12 @@
 part of '../one_order_view.dart';
 
 class _CartBody extends StatelessWidget {
-  const _CartBody({required this.cart});
-  final List<CartDetail> cart;
+  const _CartBody();
 
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<OrdersDetailsResponseModel>(context).cartDetail!;
+
     return Padding(
       padding: EdgeInsets.all(kNormalPadding),
       child: Column(
@@ -13,11 +14,11 @@ class _CartBody extends StatelessWidget {
         children: [
           Table(
             columnWidths: const {
-              0: FlexColumnWidth(1),
-              1: FlexColumnWidth(1),
-              2: FlexColumnWidth(1),
+              0: FlexColumnWidth(),
+              1: FlexColumnWidth(),
+              2: FlexColumnWidth(),
               3: FlexColumnWidth(3),
-              4: FlexColumnWidth(1),
+              4: FlexColumnWidth(),
             },
             children: [_buildTableHeader()],
           ),
@@ -26,11 +27,11 @@ class _CartBody extends StatelessWidget {
             child: SingleChildScrollView(
               child: Table(
                 columnWidths: const {
-                  0: FlexColumnWidth(1),
-                  1: FlexColumnWidth(1),
-                  2: FlexColumnWidth(1),
+                  0: FlexColumnWidth(),
+                  1: FlexColumnWidth(),
+                  2: FlexColumnWidth(),
                   3: FlexColumnWidth(3),
-                  4: FlexColumnWidth(1),
+                  4: FlexColumnWidth(),
                 },
                 children: _buildTableRow(cart),
                 border: TableBorder.all(
@@ -103,50 +104,49 @@ TableRow _buildTableHeader() {
   );
 }
 
-List<TableRow> _buildTableRow(List<CartDetail> cart) {
-  return List.generate(cart.length, (index) {
-    return TableRow(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Text(
-            _converQuantity(cart[index].quantity.nullToString),
-            textAlign: TextAlign.center,
-          ),
+List<TableRow> _buildTableRow(List<CartDetail> cart) => List.generate(
+  cart.length,
+  (index) => TableRow(
+    children: [
+      Padding(
+        padding: const EdgeInsets.all(10),
+        child: Text(
+          _converQuantity(cart[index].quantity.nullToString),
+          textAlign: TextAlign.center,
         ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Text(
-            cart[index].unit!.name.nullToString,
-            textAlign: TextAlign.center,
-          ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(10),
+        child: Text(
+          cart[index].unit!.name.nullToString,
+          textAlign: TextAlign.center,
         ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Text(cart[index].sku, textAlign: TextAlign.center),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(10),
+        child: Text(cart[index].sku, textAlign: TextAlign.center),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(10),
+        child: Text(cart[index].productAr.nullToString),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(10),
+        child: Text(
+          _converQuantity(cart[index].price.nullToString),
+          textAlign: TextAlign.center,
         ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Text(cart[index].productAr.nullToString),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Text(
-            _converQuantity(cart[index].price.nullToString),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ],
-    );
-  });
-}
+      ),
+    ],
+  ),
+);
 
 String _converQuantity(String quantity) {
-  int? asInt = int.tryParse(quantity);
+  final int? asInt = int.tryParse(quantity);
   if (asInt != null) {
     return asInt.toString();
   } else {
-    double asDouble = double.parse(quantity);
+    final double asDouble = double.parse(quantity);
     if (asDouble % 1 == 0) {
       return asDouble.toInt().toString();
     } else {

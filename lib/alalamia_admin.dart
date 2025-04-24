@@ -13,26 +13,24 @@ class AlalamiaAdmin extends StatelessWidget {
   const AlalamiaAdmin({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<AppConfig, AppConfigModel>(
-      builder: (context, config) {
-        return MaterialApp.router(
-          theme: AppThemeData.theme,
-          darkTheme: AppThemeData.theme,
-          themeMode: config.isDarkMode.toThemeMode,
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRouter.routerConfig,
-          localizationsDelegates: [
-            Language.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: Language.delegate.supportedLocales,
-          locale: config.language.stringToLocale,
-          builder: EasyLoading.init(),
-        );
-      },
-    );
-  }
+  Widget build(final BuildContext context) =>
+      BlocBuilder<AppConfig, AppConfigModel>(
+        builder:
+            (final context, final config) => MaterialApp.router(
+              theme: AppThemeData.theme,
+              darkTheme: AppThemeData.theme,
+              themeMode: config.isDarkMode.toThemeMode,
+              debugShowCheckedModeBanner: false,
+              routerConfig: AppRouter.routerConfig,
+              localizationsDelegates: const [
+                Language.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: Language.delegate.supportedLocales,
+              locale: config.language.stringToLocale,
+              builder: EasyLoading.init(),
+            ),
+      );
 }

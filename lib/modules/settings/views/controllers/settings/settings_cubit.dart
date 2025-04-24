@@ -23,13 +23,15 @@ class SettingsCubit extends Cubit<SettingsState> {
     emit(SettingsState.initial(appConfigModel: appConfig.state));
   }
 
-  void changeEnableNotifications(bool newValue) async {
-    emit(SettingsState.loading());
-    final result = await notificationsRepo.changeEnableNotifications(newValue);
+  void changeEnableNotifications({required final bool newValue}) async {
+    emit(const SettingsState.loading());
+    final result = await notificationsRepo.changeEnableNotifications(
+      isTurnOn: newValue,
+    );
     result.when(
       success:
           (_) => emit(SettingsState.initial(appConfigModel: appConfig.state)),
-      failure: (error) => emit(SettingsState.failure(error)),
+      failure: (final error) => emit(SettingsState.failure(error)),
     );
   }
 
@@ -39,14 +41,14 @@ class SettingsCubit extends Cubit<SettingsState> {
   }
 
   void signOut() async {
-    emit(SettingsState.loading());
+    emit(const SettingsState.loading());
     final result = await authRebo.signOut();
     result.when(
-      success: (data) {
+      success: (final data) {
         PopLoading.dismiss();
         AppRouter.pushReplacement(AppPages.splash);
       },
-      failure: (error) => emit(SettingsState.failure(error)),
+      failure: (final error) => emit(SettingsState.failure(error)),
     );
   }
 

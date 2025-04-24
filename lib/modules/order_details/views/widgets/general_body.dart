@@ -1,18 +1,17 @@
 part of '../one_order_view.dart';
 
 class _GeneralBody extends StatelessWidget {
-  const _GeneralBody({required this.order, required this.args});
-  final OrdersDetailsResponseModel order;
-  final OrdersDatum args;
+  const _GeneralBody();
 
   @override
   Widget build(BuildContext context) {
+    final args = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     return SingleChildScrollView(
       child: Column(
         children: [
           ListTile(
-            leading: Icon(CupertinoIcons.person_circle_fill),
+            leading: const Icon(CupertinoIcons.person_circle_fill),
             title: Text(language.client_info, style: TextStyles.ts15B),
           ),
           Card(
@@ -20,27 +19,27 @@ class _GeneralBody extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  leading: Icon(CupertinoIcons.person),
+                  leading: const Icon(CupertinoIcons.person),
                   title: Text(args.userName),
                   subtitle: Text(language.client_name),
                 ),
-                Divider(),
+                const Divider(),
                 ListTile(
-                  leading: Icon(CupertinoIcons.phone),
+                  leading: const Icon(CupertinoIcons.phone),
                   title: Text(args.phone),
                   subtitle: Text(language.client_number),
                   trailing: IconButton(
                     onPressed: () async {
                       await Clipboard.setData(ClipboardData(text: args.phone));
                     },
-                    icon: Icon(Icons.copy),
+                    icon: const Icon(Icons.copy),
                   ),
                 ),
               ],
             ),
           ),
           ListTile(
-            leading: Icon(CupertinoIcons.cube_box_fill),
+            leading: const Icon(CupertinoIcons.cube_box_fill),
             title: Text(language.order_summary, style: TextStyles.ts15B),
           ),
           Card(
@@ -63,9 +62,9 @@ class _GeneralBody extends StatelessWidget {
                       style: TextStyles.ts10N.copyWith(color: Colors.grey),
                     ),
                   ),
-                Divider(),
+                const Divider(),
                 ListTile(
-                  leading: Icon(CupertinoIcons.number),
+                  leading: const Icon(CupertinoIcons.number),
                   title: Text(args.requestNumber),
                   subtitle: Text(language.order_number),
                   trailing: IconButton(
@@ -74,7 +73,7 @@ class _GeneralBody extends StatelessWidget {
                         ClipboardData(text: args.requestNumber),
                       );
                     },
-                    icon: Icon(Icons.copy),
+                    icon: const Icon(Icons.copy),
                   ),
                 ),
               ],

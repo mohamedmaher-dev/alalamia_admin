@@ -18,12 +18,10 @@ class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeNavCubit(),
-      child: const _HomeViewBody(),
-    );
-  }
+  Widget build(BuildContext context) => BlocProvider(
+    create: (context) => HomeNavCubit(),
+    child: const _HomeViewBody(),
+  );
 }
 
 class _HomeViewBody extends StatelessWidget {
@@ -33,23 +31,22 @@ class _HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<HomeNavCubit>();
     return BlocBuilder<HomeNavCubit, HomeNavState>(
-      builder: (context, state) {
-        return PopScope(
-          onPopInvokedWithResult: (didPop, result) {},
-          canPop: false,
-          child: Scaffold(
-            appBar: _HomeAppBar(currentPage: state.page),
-            body: PageView(
-              controller: cubit.controller,
-              physics: NeverScrollableScrollPhysics(),
-              children: HomePages.values.map((e) => e.view).toList(),
-            ),
-            bottomNavigationBar: _HomeBottomNavBar(
-              currentIndex: state.page.currentIndex,
+      builder:
+          (context, state) => PopScope(
+            onPopInvokedWithResult: (didPop, result) {},
+            canPop: false,
+            child: Scaffold(
+              appBar: _HomeAppBar(currentPage: state.page),
+              body: PageView(
+                controller: cubit.controller,
+                physics: const NeverScrollableScrollPhysics(),
+                children: HomePages.values.map((e) => e.view).toList(),
+              ),
+              bottomNavigationBar: _HomeBottomNavBar(
+                currentIndex: state.page.currentIndex,
+              ),
             ),
           ),
-        );
-      },
     );
   }
 }

@@ -7,17 +7,13 @@ class ChangeLanguageBtn extends StatelessWidget {
   const ChangeLanguageBtn({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final appConfig = context.read<AppConfig>();
     final language = Language.of(context);
     return TextButton(
-      onPressed: () {
-        appConfig.changeLanguage();
-      },
+      onPressed: appConfig.changeLanguage,
       child: BlocBuilder<AppConfig, AppConfigModel>(
-        builder: (context, config) {
-          return Text(language.language_name);
-        },
+        builder: (final context, final config) => Text(language.language_name),
       ),
     );
   }

@@ -13,14 +13,14 @@ class _OrdersPaginationBody extends StatelessWidget {
             child: PagedListView<int, OrdersDatum>(
               physics:
                   state.isLoading && state.keys == null
-                      ? NeverScrollableScrollPhysics()
+                      ? const NeverScrollableScrollPhysics()
                       : null,
               state: state,
               fetchNextPage: fetchNextPage,
               builderDelegate: PagedChildBuilderDelegate(
                 firstPageProgressIndicatorBuilder:
-                    (context) => _OrdersLoadingBody(),
-                firstPageErrorIndicatorBuilder: (context) => ErrorView(),
+                    (context) => const _OrdersLoadingBody(),
+                firstPageErrorIndicatorBuilder: (context) => const ErrorView(),
                 newPageProgressIndicatorBuilder:
                     (context) => Center(
                       child: CircularProgressIndicator(

@@ -5,14 +5,16 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 
 class NotificationsRepo {
   final NotificationsService _notificationsService;
-  NotificationsRepo({required NotificationsService notificationsService})
+  NotificationsRepo({required final NotificationsService notificationsService})
     : _notificationsService = notificationsService;
 
-  Future<DataResult<void>> changeEnableNotifications(bool isTurnOn) async {
+  Future<DataResult<void>> changeEnableNotifications({
+    required final bool isTurnOn,
+  }) async {
     try {
-      await _notificationsService.changeEnableNotifications(isTurnOn);
-      return DataResult.success(data: null);
-    } catch (e) {
+      await _notificationsService.changeEnableNotifications(isTurnOn: isTurnOn);
+      return const DataResult.success(data: null);
+    } on Exception {
       return DataResult.failure(error: UnknownError());
     }
   }

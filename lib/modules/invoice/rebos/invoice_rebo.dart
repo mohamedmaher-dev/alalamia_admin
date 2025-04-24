@@ -17,7 +17,7 @@ class InvoiceRebo {
     try {
       final pdfData = await createStyledInvoice(order, orderDetailsArgs);
       return SaveInvoiceResult.success(pdfData);
-    } catch (e) {
+    } on Exception catch (e) {
       return SaveInvoiceResult.failure(e.toString());
     }
   }
@@ -40,9 +40,9 @@ class InvoiceRebo {
         final file = File('$folder/${order.requestNo}.pdf');
         await file.create(recursive: true);
         await file.writeAsBytes(pdfData);
-        return SaveInvoiceResult.success(null);
+        return const SaveInvoiceResult.success(null);
       }
-    } catch (e) {
+    } on Exception catch (e) {
       return SaveInvoiceResult.failure(e.toString());
     }
   }

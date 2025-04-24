@@ -14,21 +14,22 @@ class SignInCubit extends Cubit<SignInState> {
   final password = TextEditingController();
   bool isShowPassword = false;
   final AuthRebo _authRebo;
-  SignInCubit(this._authRebo) : super(SignInState.initial(false));
+  SignInCubit(this._authRebo)
+    : super(const SignInState.initial(isShowPassword: false));
 
   void changeShowPassword() {
     isShowPassword = !isShowPassword;
-    emit(SignInState.initial(isShowPassword));
+    emit(SignInState.initial(isShowPassword: isShowPassword));
   }
 
-  Future<void> signIn(SignInRequestModel signInRequestModel) async {
-    emit(SignInState.loading());
+  Future<void> signIn(final SignInRequestModel signInRequestModel) async {
+    emit(const SignInState.loading());
     final signInResult = await _authRebo.signIn(signInRequestModel);
     signInResult.when(
-      success: (data) {
-        emit(SignInState.success());
+      success: (final data) {
+        emit(const SignInState.success());
       },
-      failure: (e) {
+      failure: (final e) {
         emit(SignInState.failure(e: e));
       },
     );

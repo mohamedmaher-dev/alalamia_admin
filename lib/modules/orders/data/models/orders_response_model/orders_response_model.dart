@@ -11,7 +11,6 @@ class OrdersResponseModel {
 
   const OrdersResponseModel({required this.trackingRequests});
 
-  factory OrdersResponseModel.fromJson(Map<String, dynamic> json) {
-    return _$OrdersResponseModelFromJson(json);
-  }
+  factory OrdersResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$OrdersResponseModelFromJson(json);
 }

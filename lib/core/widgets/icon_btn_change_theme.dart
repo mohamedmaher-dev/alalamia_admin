@@ -7,15 +7,14 @@ class IconBtnChangeTheme extends StatelessWidget {
   const IconBtnChangeTheme({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final appConfig = context.read<AppConfig>();
     return BlocBuilder<AppConfig, AppConfigModel>(
-      builder: (context, config) {
-        return IconButton(
-          onPressed: () => appConfig.changeTheme(),
-          icon: Icon(config.isDarkMode.boolToIcon),
-        );
-      },
+      builder:
+          (final context, final config) => IconButton(
+            onPressed: appConfig.changeTheme,
+            icon: Icon(config.isDarkMode.boolToIcon),
+          ),
     );
   }
 }

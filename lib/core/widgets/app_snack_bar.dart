@@ -7,10 +7,10 @@ export 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 class AppSnackBar {
   AppSnackBar._();
 
-  static show(
-    BuildContext context, {
-    required String msg,
-    required ContentType type,
+  static void show(
+    final BuildContext context, {
+    required final String msg,
+    required final ContentType type,
   }) {
     final language = Language();
     final snackBar = SnackBar(

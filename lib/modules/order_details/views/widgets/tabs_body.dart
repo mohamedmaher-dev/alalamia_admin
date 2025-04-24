@@ -13,33 +13,35 @@ class _TabsBody extends StatelessWidget {
     }
 
     return BlocBuilder<OrderDetailsTabCubit, OrderDetailsTabState>(
-      builder: (context, state) {
-        return CupertinoSlidingSegmentedControl<OrderDetailsTabsModel>(
-          thumbColor: ColorManger.myGold,
-          children: {
-            OrderDetailsTabsModel.general: Text(
-              language.general,
-              style: getTextStyle(state.tab, OrderDetailsTabsModel.general),
-            ),
-            OrderDetailsTabsModel.cart: Text(
-              language.cart,
-              style: getTextStyle(state.tab, OrderDetailsTabsModel.cart),
-            ),
-            OrderDetailsTabsModel.address: Text(
-              language.address,
-              style: getTextStyle(state.tab, OrderDetailsTabsModel.address),
-            ),
-            OrderDetailsTabsModel.other: Text(
-              language.other,
-              style: getTextStyle(state.tab, OrderDetailsTabsModel.other),
-            ),
-          },
-          groupValue: state.tab,
-          onValueChanged: (tab) {
-            context.read<OrderDetailsTabCubit>().changeTab(tab!);
-          },
-        );
-      },
+      builder:
+          (
+            context,
+            state,
+          ) => CupertinoSlidingSegmentedControl<OrderDetailsTabsModel>(
+            thumbColor: ColorManger.myGold,
+            children: {
+              OrderDetailsTabsModel.general: Text(
+                language.general,
+                style: getTextStyle(state.tab, OrderDetailsTabsModel.general),
+              ),
+              OrderDetailsTabsModel.cart: Text(
+                language.cart,
+                style: getTextStyle(state.tab, OrderDetailsTabsModel.cart),
+              ),
+              OrderDetailsTabsModel.address: Text(
+                language.address,
+                style: getTextStyle(state.tab, OrderDetailsTabsModel.address),
+              ),
+              OrderDetailsTabsModel.other: Text(
+                language.other,
+                style: getTextStyle(state.tab, OrderDetailsTabsModel.other),
+              ),
+            },
+            groupValue: state.tab,
+            onValueChanged: (tab) {
+              context.read<OrderDetailsTabCubit>().changeTab(tab!);
+            },
+          ),
     );
   }
 }

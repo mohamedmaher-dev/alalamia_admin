@@ -26,7 +26,6 @@ class StatisticsResponseModel {
     this.data,
   });
 
-  factory StatisticsResponseModel.fromJson(Map<String, dynamic> json) {
-    return _$StatisticsResponseModelFromJson(json);
-  }
+  factory StatisticsResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$StatisticsResponseModelFromJson(json);
 }

@@ -28,15 +28,13 @@ class UserCredential {
   });
 
   factory UserCredential.fromAuth(
-    SignInResponseModel data,
-    SignInRequestModel requestData,
-  ) {
-    return UserCredential(
-      email: requestData.email,
-      password: requestData.password,
-      token: data.token,
-      countryName: data.countryModel.name,
-      countryId: data.countryModel.id,
-    );
-  }
+    final SignInResponseModel data,
+    final SignInRequestModel requestData,
+  ) => UserCredential(
+    email: requestData.email,
+    password: requestData.password,
+    token: data.token,
+    countryName: data.countryModel.name,
+    countryId: data.countryModel.id,
+  );
 }

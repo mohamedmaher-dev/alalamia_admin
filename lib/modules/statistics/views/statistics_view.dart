@@ -16,12 +16,10 @@ class StatisticsView extends StatelessWidget {
   const StatisticsView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => di<StatisticsCubit>()..getStatistics(),
-      child: const _StatisticsBodyView(),
-    );
-  }
+  Widget build(BuildContext context) => BlocProvider(
+    create: (context) => di<StatisticsCubit>()..getStatistics(),
+    child: const _StatisticsBodyView(),
+  );
 }
 
 class _StatisticsBodyView extends StatelessWidget {
@@ -32,92 +30,91 @@ class _StatisticsBodyView extends StatelessWidget {
     final language = Language.of(context);
     return Scaffold(
       body: BlocBuilder<StatisticsCubit, StatisticsState>(
-        builder: (context, state) {
-          return state.maybeMap(
-            orElse: () => LoadingView(),
-            failure: (e) => ErrorView(),
-            success:
-                (data) => Column(
-                  children: [
-                    Expanded(
-                      child: _StatSliderItem(
-                        showIndicator: false,
-                        max: data.orders,
-                        title: language.orders,
-                        value: data.orders,
-                        color: ColorManger.myGold,
+        builder:
+            (context, state) => state.maybeMap(
+              orElse: () => const LoadingView(),
+              failure: (e) => const ErrorView(),
+              success:
+                  (data) => Column(
+                    children: [
+                      Expanded(
+                        child: _StatSliderItem(
+                          showIndicator: false,
+                          max: data.orders,
+                          title: language.orders,
+                          value: data.orders,
+                          color: ColorManger.myGold,
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: _StatSliderItem(
-                              max: data.orders,
-                              title: language.status_review,
-                              value: data.underReview,
-                              color: OrderStatus.requested.orderStatusColor,
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: _StatSliderItem(
+                                max: data.orders,
+                                title: language.status_review,
+                                value: data.underReview,
+                                color: OrderStatus.requested.orderStatusColor,
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            child: _StatSliderItem(
-                              max: data.orders,
-                              title: language.status_approved,
-                              value: data.approved,
-                              color: OrderStatus.received.orderStatusColor,
+                            Expanded(
+                              child: _StatSliderItem(
+                                max: data.orders,
+                                title: language.status_approved,
+                                value: data.approved,
+                                color: OrderStatus.received.orderStatusColor,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: _StatSliderItem(
-                              max: data.orders,
-                              title: language.status_preparing,
-                              value: data.prepareing,
-                              color: OrderStatus.repair.orderStatusColor,
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: _StatSliderItem(
+                                max: data.orders,
+                                title: language.status_preparing,
+                                value: data.prepareing,
+                                color: OrderStatus.repair.orderStatusColor,
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            child: _StatSliderItem(
-                              max: data.orders,
-                              title: language.status_on_the_way,
-                              value: data.onTheWay,
-                              color: OrderStatus.deliver.orderStatusColor,
+                            Expanded(
+                              child: _StatSliderItem(
+                                max: data.orders,
+                                title: language.status_on_the_way,
+                                value: data.onTheWay,
+                                color: OrderStatus.deliver.orderStatusColor,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: _StatSliderItem(
-                              max: data.orders,
-                              title: language.status_delivered,
-                              value: data.delivered,
-                              color: OrderStatus.delivered.orderStatusColor,
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: _StatSliderItem(
+                                max: data.orders,
+                                title: language.status_delivered,
+                                value: data.delivered,
+                                color: OrderStatus.delivered.orderStatusColor,
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            child: _StatSliderItem(
-                              max: data.orders,
-                              title: language.status_canceled,
-                              value: data.cancelled,
-                              color: OrderStatus.canceled.orderStatusColor,
+                            Expanded(
+                              child: _StatSliderItem(
+                                max: data.orders,
+                                title: language.status_canceled,
+                                value: data.cancelled,
+                                color: OrderStatus.canceled.orderStatusColor,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-          );
-        },
+                    ],
+                  ),
+            ),
       ),
     );
   }

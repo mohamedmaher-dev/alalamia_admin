@@ -28,6 +28,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:map_launcher/map_launcher.dart';
+import 'package:provider/provider.dart';
 part 'widgets/bottom_body.dart';
 part 'widgets/order_state_steps.dart';
 part 'widgets/cart_body.dart';
@@ -41,71 +42,73 @@ class OrderDetailsView extends StatelessWidget {
   final OrdersDatum args;
 
   @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => di<InvoiceCubit>()),
-        BlocProvider(
-          create:
-              (context) => di<OrderDetailsCubit>()..start(args.id.toString()),
-        ),
-        BlocProvider(create: (context) => di<OrderStatusCubit>()),
-        BlocProvider(create: (context) => OrderDetailsTabCubit()),
-      ],
-      child: _OrderDetailsViewBody(args),
-    );
-  }
+  Widget build(BuildContext context) => MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (context) => di<InvoiceCubit>()),
+      BlocProvider(
+        create: (context) => di<OrderDetailsCubit>()..start(args.id.toString()),
+      ),
+      BlocProvider(create: (context) => di<OrderStatusCubit>()),
+      BlocProvider(create: (context) => OrderDetailsTabCubit()),
+    ],
+    child: Provider(
+      child: const _OrderDetailsViewBody(),
+      create: (context) => args,
+    ),
+  );
 }
 
 class _OrderDetailsViewBody extends StatelessWidget {
-  const _OrderDetailsViewBody(this.args);
-  final OrdersDatum args;
+  const _OrderDetailsViewBody();
 
   @override
   Widget build(BuildContext context) {
+    final args = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     final tabCubit = context.read<OrderDetailsTabCubit>();
     return BlocBuilder<OrderDetailsCubit, OrderDetailsState>(
-      builder: (context, state) {
-        return state.when(
-          loading: () => LoadingView(),
-          success:
-              (order) => Scaffold(
-                appBar: AppBar(
-                  centerTitle: true,
-                  forceMaterialTransparency: true,
-                  title: Text(language.order_details, style: TextStyles.ts15B),
-                ),
-                body: Padding(
-                  padding: EdgeInsets.all(kNormalPadding),
-                  child: Column(
-                    children: [
-                      _TabsBody(),
-                      const Divider(),
-                      Expanded(
-                        child: PageView(
-                          controller: tabCubit.pageController,
-                          onPageChanged:
-                              (value) => tabCubit.changeTab(
-                                OrderDetailsTabsModel.values[value],
-                              ),
-                          children: [
-                            _GeneralBody(order: order, args: args),
-                            _CartBody(cart: order.cartDetail!),
-                            _AddressBody(order: order, args: args),
-                            _OtherBody(order: order, args: args),
-                          ],
-                        ),
+      builder:
+          (context, state) => state.when(
+            loading: () => const LoadingView(),
+            success:
+                (order) => Provider(
+                  create: (context) => order,
+                  child: Scaffold(
+                    appBar: AppBar(
+                      centerTitle: true,
+                      forceMaterialTransparency: true,
+                      title: Text(
+                        language.order_details,
+                        style: TextStyles.ts15B,
                       ),
-                      const Divider(),
-                      _BottomBody(order, args),
-                    ],
+                    ),
+                    body: Column(
+                      children: [
+                        const _TabsBody(),
+                        const Divider(),
+                        Expanded(
+                          child: PageView(
+                            controller: tabCubit.pageController,
+                            onPageChanged:
+                                (value) => tabCubit.changeTab(
+                                  OrderDetailsTabsModel.values[value],
+                                ),
+                            children: const [
+                              _GeneralBody(),
+                              _CartBody(),
+                              _AddressBody(),
+                              _OtherBody(),
+                            ],
+                          ),
+                        ),
+                        const Divider(),
+                        _BottomBody(order, args),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-          failure: (error) => ErrorView(),
-        );
-      },
+            failure: (error) => const ErrorView(),
+          ),
     );
   }
 }

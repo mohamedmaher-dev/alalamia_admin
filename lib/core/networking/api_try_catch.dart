@@ -2,7 +2,9 @@ import 'package:alalamia_admin/core/data/data_result.dart';
 import 'package:alalamia_admin/core/errors/app_error.dart';
 import 'package:dio/dio.dart';
 
-Future<DataResult<RS>> apiTryCatch<RS>({required Future<RS> apiCall}) async {
+Future<DataResult<RS>> apiTryCatch<RS>({
+  required final Future<RS> apiCall,
+}) async {
   try {
     final response = await apiCall;
     return DataResult.success(data: response);
@@ -10,7 +12,7 @@ Future<DataResult<RS>> apiTryCatch<RS>({required Future<RS> apiCall}) async {
     return DataResult.failure(
       error: ApiError.fromDioException(dioException: e),
     );
-  } catch (e) {
+  } on Exception {
     return DataResult.failure(error: ApiError.fromUnknown());
   }
 }

@@ -9,7 +9,6 @@ import 'package:alalamia_admin/modules/settings/views/controllers/settings/setti
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/localization/generated/l10n.dart';
 part 'widgets/settings_general_body_view.dart';
 part 'widgets/settings_profile_body.dart';
@@ -19,12 +18,10 @@ class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => di<SettingsCubit>(),
-      child: const _SettingsBody(),
-    );
-  }
+  Widget build(BuildContext context) => BlocProvider(
+    create: (context) => di<SettingsCubit>(),
+    child: const _SettingsBody(),
+  );
 }
 
 class _SettingsBody extends StatefulWidget {
@@ -36,15 +33,15 @@ class _SettingsBody extends StatefulWidget {
 
 class _SettingsBodyState extends State<_SettingsBody> {
   @override
-  Widget build(BuildContext context) {
-    return BlocListener<SettingsCubit, SettingsState>(
-      listener: _listener,
-      child: Scaffold(
-        body: ListView(
-          padding: EdgeInsets.all(10.w),
-          children: [_SettingsGeneralBodyView(), _SettingsProfileBody()],
+  Widget build(BuildContext context) =>
+      BlocListener<SettingsCubit, SettingsState>(
+        listener: _listener,
+        child: const Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              children: [_SettingsGeneralBodyView(), _SettingsProfileBody()],
+            ),
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

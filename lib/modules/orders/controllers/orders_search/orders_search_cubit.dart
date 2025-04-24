@@ -10,11 +10,11 @@ part 'orders_search_cubit.freezed.dart';
 class OrdersSearchCubit extends Cubit<OrdersSearchState> {
   final TextEditingController searchController = TextEditingController();
 
-  OrdersSearchCubit() : super(OrdersSearchState.disabled());
-  setSearch(String search, List<OrdersDatum> orders) {
+  OrdersSearchCubit() : super(const OrdersSearchState.disabled());
+  void setSearch(String search, List<OrdersDatum> orders) {
     search = search.trim().toLowerCase();
     if (search.isEmpty) {
-      emit(OrdersSearchState.disabled());
+      emit(const OrdersSearchState.disabled());
     } else {
       final result =
           orders.where((element) {
@@ -32,7 +32,7 @@ class OrdersSearchCubit extends Cubit<OrdersSearchState> {
           }).toList();
 
       if (result.isEmpty) {
-        emit(OrdersSearchState.empty());
+        emit(const OrdersSearchState.empty());
       } else {
         emit(OrdersSearchState.enabled(orders: result));
       }
@@ -41,6 +41,6 @@ class OrdersSearchCubit extends Cubit<OrdersSearchState> {
 
   void clearSearch() {
     searchController.clear();
-    emit(OrdersSearchState.disabled());
+    emit(const OrdersSearchState.disabled());
   }
 }

@@ -7,18 +7,16 @@ class EmptyView extends StatelessWidget {
   final String text;
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Icon(icon, size: 50.w, color: Colors.grey),
-        Text(
-          text,
-          style: TextStyle(fontSize: 10.sp, color: Colors.grey),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
+  Widget build(final BuildContext context) => Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Icon(icon, size: 50.w, color: Colors.grey),
+      Text(
+        text,
+        style: TextStyle(fontSize: 10.sp, color: Colors.grey),
+        textAlign: TextAlign.center,
+      ),
+    ],
+  );
 }

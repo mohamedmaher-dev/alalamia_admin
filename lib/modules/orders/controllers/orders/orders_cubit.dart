@@ -12,7 +12,7 @@ class OrdersCubit extends Cubit<OrdersState> {
     fetchPage: (pageKey) => _getOrders(pageKey),
   );
   final OrdersRebo ordersRebo;
-  OrdersCubit(this.ordersRebo) : super(OrdersState.initial());
+  OrdersCubit(this.ordersRebo) : super(const OrdersState.initial());
 
   int? _getNextPageKey(PagingState<int, OrdersDatum> state) {
     if (state.pages == null) {

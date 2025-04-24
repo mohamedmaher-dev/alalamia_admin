@@ -8,7 +8,7 @@ part 'splash_cubit.freezed.dart';
 
 class SplashCubit extends Cubit<SplashState> {
   final AuthRebo authRebo;
-  SplashCubit(this.authRebo) : super(SplashState.initial());
+  SplashCubit(this.authRebo) : super(const SplashState.initial());
   void start() async {
     await authRebo.getUserCredential().then((userCredential) async {
       if (userCredential != null) {
@@ -16,14 +16,14 @@ class SplashCubit extends Cubit<SplashState> {
         signInResult.when(
           success: (success) {
             DioFactory.setToken(success.token);
-            emit(SplashState.successToLogin());
+            emit(const SplashState.successToLogin());
           },
           failure: (failure) {
-            emit(SplashState.failedToLogin());
+            emit(const SplashState.failedToLogin());
           },
         );
       } else {
-        emit(SplashState.noCredential());
+        emit(const SplashState.noCredential());
       }
     });
   }

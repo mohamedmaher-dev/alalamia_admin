@@ -24,26 +24,26 @@ class AuthRebo {
   });
 
   Future<DataResult<SignInResponseModel>> signIn(
-    SignInRequestModel signInRequestModel,
+    final SignInRequestModel signInRequestModel,
   ) async {
     try {
       // Call the API to sign in
       final data = await _signInMethod(signInRequestModel);
       // Change enable notifications
-      await notificationsService.changeEnableNotifications(true);
+      await notificationsService.changeEnableNotifications(isTurnOn: true);
       // Return the result
       return DataResult.success(data: data);
     } on DioException catch (e) {
       return DataResult.failure(
         error: ApiError.fromDioException(dioException: e),
       );
-    } catch (e) {
+    } on Exception catch (_) {
       return DataResult.failure(error: UnknownError());
     }
   }
 
   Future<SignInResponseModel> _signInMethod(
-    SignInRequestModel signInRequestModel,
+    final SignInRequestModel signInRequestModel,
   ) async {
     final data = await apiAuthService.signIn(signInRequestModel);
     // Set the token in DioFactory
@@ -66,7 +66,7 @@ class AuthRebo {
       return DataResult.failure(
         error: ApiError.fromDioException(dioException: e),
       );
-    } catch (e) {
+    } on Exception catch (_) {
       return DataResult.failure(error: UnknownError());
     }
   }
@@ -75,16 +75,16 @@ class AuthRebo {
     final language = Language.current;
     try {
       await localStorageService.deleteUserCredential();
-      await notificationsService.changeEnableNotifications(false);
-      return DataResult.success(data: null);
-    } catch (e) {
+      await notificationsService.changeEnableNotifications(isTurnOn: false);
+      return const DataResult.success(data: null);
+    } on Exception catch (_) {
       return DataResult.failure(
         error: CacheError(msg: language.failed_to_sign_out),
       );
     }
   }
 
-  Future<void> saveUserCredential(UserCredential userCredential) async {
+  Future<void> saveUserCredential(final UserCredential userCredential) async {
     await localStorageService.saveUserCredential(
       userCredential: userCredential,
     );

@@ -16,17 +16,17 @@ class OutlineBtn extends StatelessWidget {
   final void Function()? onPressed;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     if (icon != null) {
       return FilledButton.icon(
         style: ButtonStyle(
           foregroundColor: WidgetStatePropertyAll(color),
-          backgroundColor: WidgetStatePropertyAll(Colors.transparent),
-          elevation: WidgetStatePropertyAll(0),
+          backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
+          elevation: const WidgetStatePropertyAll(0),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(kNormalRadius),
-              side: BorderSide(color: color, width: 1),
+              side: BorderSide(color: color),
             ),
           ),
         ),
@@ -38,12 +38,12 @@ class OutlineBtn extends StatelessWidget {
       return FilledButton(
         style: ButtonStyle(
           foregroundColor: WidgetStatePropertyAll(color),
-          backgroundColor: WidgetStatePropertyAll(Colors.transparent),
-          elevation: WidgetStatePropertyAll(0),
+          backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
+          elevation: const WidgetStatePropertyAll(0),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(kNormalRadius),
-              side: BorderSide(color: color, width: 1),
+              side: BorderSide(color: color),
             ),
           ),
         ),

@@ -32,12 +32,11 @@ void main() async {
   // Initialize the app configuration and run the app.
   runApp(
     BlocProvider(
-      create: (context) => di<AppConfig>(),
-      child: ScreenUtilInit(
-        designSize: const Size(360, 690),
+      create: (final context) => di<AppConfig>(),
+      child: const ScreenUtilInit(
         minTextAdapt: true,
         splitScreenMode: true,
-        child: const AlalamiaAdmin(),
+        child: AlalamiaAdmin(),
       ),
     ),
   );

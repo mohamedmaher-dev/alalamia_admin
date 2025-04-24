@@ -10,6 +10,6 @@ class SignInResponseModel {
   final CountryModel countryModel;
 
   SignInResponseModel({required this.token, required this.countryModel});
-  factory SignInResponseModel.fromJson(Map<String, dynamic> json) =>
+  factory SignInResponseModel.fromJson(final Map<String, dynamic> json) =>
       _$SignInResponseModelFromJson(json);
 }

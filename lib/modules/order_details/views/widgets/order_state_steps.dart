@@ -8,7 +8,7 @@ class _OrderStateSteps extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<OrderStatusCubit>();
-    var activeStep = orderStatus.enumToindex;
+    final activeStep = orderStatus.enumToindex;
     final language = Language.of(context);
     return EasyStepper(
       activeStep: activeStep,
@@ -19,7 +19,6 @@ class _OrderStateSteps extends StatelessWidget {
       lineStyle: const LineStyle(lineType: LineType.normal),
       showLoadingAnimation: false,
       stepRadius: 10,
-      showStepBorder: true,
       onStepReached: (index) {
         if (orderStatus != OrderStatus.canceled) {
           showChangerPopUpConfirm(
@@ -43,7 +42,10 @@ class _OrderStateSteps extends StatelessWidget {
         ),
         if (orderStatus == OrderStatus.canceled)
           EasyStep(
-            customStep: CircleAvatar(radius: 7, backgroundColor: Colors.red),
+            customStep: const CircleAvatar(
+              radius: 7,
+              backgroundColor: Colors.red,
+            ),
             title: language.status_canceled,
             topTitle: true,
           ),

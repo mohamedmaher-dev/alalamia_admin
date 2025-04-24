@@ -20,7 +20,6 @@ class TrackingRequests {
     required this.data,
   });
 
-  factory TrackingRequests.fromJson(Map<String, dynamic> json) {
-    return _$TrackingRequestsFromJson(json);
-  }
+  factory TrackingRequests.fromJson(Map<String, dynamic> json) =>
+      _$TrackingRequestsFromJson(json);
 }

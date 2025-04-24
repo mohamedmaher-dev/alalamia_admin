@@ -12,7 +12,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
   final StatisticsRebos statisticsRebos;
   final OrdersRebo ordersRebo;
   StatisticsCubit(this.statisticsRebos, this.ordersRebo)
-    : super(StatisticsState.initial());
+    : super(const StatisticsState.initial());
 
   // // Get Normal Orders
   // Future<void> getStatistics() async {
@@ -29,8 +29,9 @@ class StatisticsCubit extends Cubit<StatisticsState> {
   // }
 
   Future<void> getStatistics() async {
+    // ignore: prefer_final_locals
     List<OrdersDatum> orders = [];
-    emit(StatisticsState.loading());
+    emit(const StatisticsState.loading());
     int currentPage = 1;
     bool isLastPage = false;
     while (!isLastPage) {
@@ -39,14 +40,14 @@ class StatisticsCubit extends Cubit<StatisticsState> {
         success: (data) {
           orders.addAll(data.trackingRequests.data);
           currentPage = data.trackingRequests.currentPage;
-          int total = data.trackingRequests.total;
-          int perPage = data.trackingRequests.perPage;
+          final int total = data.trackingRequests.total;
+          final int perPage = data.trackingRequests.perPage;
           isLastPage = (perPage * currentPage) >= total;
           if (!isLastPage) currentPage++;
         },
         failure: (error) {
           isLastPage = true;
-          emit(StatisticsState.failure());
+          emit(const StatisticsState.failure());
         },
       );
     }
@@ -81,7 +82,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
         ),
       );
     } else {
-      emit(StatisticsState.failure());
+      emit(const StatisticsState.failure());
     }
   }
 }

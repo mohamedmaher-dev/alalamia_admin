@@ -29,10 +29,9 @@ enum CountryModel {
 
   static CountryModel get defaultCountry => CountryModel.global;
 
-  static CountryModel fromId(dynamic id) {
-    return CountryModel.values.firstWhere(
-      (element) => element.id == id,
-      orElse: () => CountryModel.global,
-    );
-  }
+  static CountryModel fromId(final dynamic id) =>
+      CountryModel.values.firstWhere(
+        (final element) => element.id == id,
+        orElse: () => CountryModel.global,
+      );
 }

@@ -9,10 +9,10 @@ class SignInRequestModel {
   final String password;
   SignInRequestModel({required this.email, required this.password});
   Map<String, dynamic> toJson() => _$SignInRequestModelToJson(this);
-  factory SignInRequestModel.fromUserCredential(UserCredential userCredential) {
-    return SignInRequestModel(
-      email: userCredential.email,
-      password: userCredential.password,
-    );
-  }
+  factory SignInRequestModel.fromUserCredential(
+    final UserCredential userCredential,
+  ) => SignInRequestModel(
+    email: userCredential.email,
+    password: userCredential.password,
+  );
 }

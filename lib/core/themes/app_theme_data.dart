@@ -15,7 +15,7 @@ class AppThemeData {
     fontFamily: fontFamily,
     expansionTileTheme: _expansionTileThemeData,
     iconButtonTheme: _iconButtonTheme,
-    bottomSheetTheme: BottomSheetThemeData(showDragHandle: true),
+    bottomSheetTheme: const BottomSheetThemeData(showDragHandle: true),
     listTileTheme: ListTileThemeData(
       subtitleTextStyle: TextStyles.ts10N.copyWith(color: Colors.grey),
     ),
@@ -29,26 +29,28 @@ class AppThemeData {
     ),
   );
 
-  static get _pageTransitionsTheme => PageTransitionsTheme(
-    builders: {
-      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-    },
-  );
+  static PageTransitionsTheme get _pageTransitionsTheme =>
+      const PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        },
+      );
 
-  static get fontFamily => 'Almarai';
+  static String get fontFamily => 'Almarai';
 
-  static get _expansionTileThemeData => ExpansionTileThemeData(
-    collapsedShape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(kNormalRadius),
-    ),
+  static ExpansionTileThemeData get _expansionTileThemeData =>
+      ExpansionTileThemeData(
+        collapsedShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kNormalRadius),
+        ),
 
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(kNormalRadius),
-    ),
-  );
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kNormalRadius),
+        ),
+      );
 
-  static get _iconButtonTheme => IconButtonThemeData(
+  static IconButtonThemeData get _iconButtonTheme => IconButtonThemeData(
     style: ButtonStyle(
       shape: WidgetStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(

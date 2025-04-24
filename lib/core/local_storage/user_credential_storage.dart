@@ -8,7 +8,7 @@ class _UserCredentialStorage {
     Hive.registerAdapter(UserCredentialAdapter());
     late List<int> key;
     await _secureStorage.read(key: LocalStorageConsts.hiveSecureKey).then((
-      value,
+      final value,
     ) async {
       if (value == null) {
         key = Hive.generateSecureKey();

@@ -21,17 +21,17 @@ class SignInView extends StatelessWidget {
   const SignInView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    Language language = Language.of(context);
+  Widget build(final BuildContext context) {
+    final Language language = Language.of(context);
     return Scaffold(
       appBar: AppBar(
-        actions: [ChangeLanguageBtn(), Spacer(), IconBtnChangeTheme()],
+        actions: const [ChangeLanguageBtn(), Spacer(), IconBtnChangeTheme()],
       ),
       body: Center(
         child: ListView(
           shrinkWrap: true,
           children: [
-            _WelcomeBody(),
+            const _WelcomeBody(),
             SizedBox(height: kSpacingBetweenWidgetsHight),
             Card(
               child: Padding(
@@ -41,14 +41,14 @@ class SignInView extends StatelessWidget {
                     spacing: kSpacingBetweenWidgetsHight,
                     children: [
                       ListTile(
-                        leading: Icon(Icons.person),
+                        leading: const Icon(Icons.person),
                         title: Text(language.sign_in, style: TextStyles.tsP15B),
                         subtitle: Text(
                           language.please_input_your_email_and_password,
                         ),
                       ),
-                      _FormBody(),
-                      _SignInBtn(),
+                      const _FormBody(),
+                      const _SignInBtn(),
                     ],
                   ),
                 ),

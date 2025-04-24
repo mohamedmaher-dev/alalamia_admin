@@ -4,8 +4,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class PopLoading {
   PopLoading._();
-  static init() => EasyLoading.init();
-  static show() {
+  static TransitionBuilder init() => EasyLoading.init();
+  static void show() {
     EasyLoading.show(
       maskType: EasyLoadingMaskType.black,
       dismissOnTap: false,
@@ -16,5 +16,5 @@ class PopLoading {
     );
   }
 
-  static dismiss() => EasyLoading.dismiss();
+  static Future<void> dismiss() => EasyLoading.dismiss();
 }

@@ -9,7 +9,8 @@ part 'order_details_cubit.freezed.dart';
 
 class OrderDetailsCubit extends Cubit<OrderDetailsState> {
   final OrderDetailsRebo orderDetailsRebo;
-  OrderDetailsCubit(this.orderDetailsRebo) : super(OrderDetailsState.loading());
+  OrderDetailsCubit(this.orderDetailsRebo)
+    : super(const OrderDetailsState.loading());
 
   Future<void> start(String orderId) async {
     final result = await orderDetailsRebo.getOrderDetails(orderId);

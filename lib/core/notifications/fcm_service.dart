@@ -7,20 +7,13 @@ class _FCMService {
     await _backgroundFCM();
   }
 
-  Future<NotificationSettings> requestPermission() => _fcm.requestPermission(
-    alert: true,
-    badge: true,
-    sound: true,
-    provisional: false,
-    carPlay: false,
-    criticalAlert: false,
-    announcement: false,
-  );
+  Future<NotificationSettings> requestPermission() => _fcm.requestPermission();
   Future<void> _backgroundFCM() async => FirebaseMessaging.onBackgroundMessage(
     _firebaseMessagingBackgroundHandler,
   );
 }
 
 @pragma('vm:entry-point')
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async =>
-    debugPrint('Handling a background message: ${message.messageId}');
+Future<void> _firebaseMessagingBackgroundHandler(
+  final RemoteMessage message,
+) async => debugPrint('Handling a background message: ${message.messageId}');

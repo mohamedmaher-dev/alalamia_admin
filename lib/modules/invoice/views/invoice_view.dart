@@ -26,30 +26,29 @@ Future<Uint8List> createStyledInvoice(
       textDirection: pw.TextDirection.rtl,
       pageFormat: PdfPageFormat.a4,
       margin: const pw.EdgeInsets.all(32),
-      build: (pw.Context context) {
-        return [
-          // Title
-          _invoiceTitle(font: font),
-          pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-          pw.Divider(thickness: 1),
-          // Invoice Info
-          pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-          _invoiceInfo(font: font, order: order, userPhone: orderArgs.phone),
-          // Table Header
-          pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-          _invoiceTableHeader(font: font),
-          // Table Content
-          _invoiceTableContent(font: font, order: order),
-          // Summary
-          pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-          _invoiceSummary(
-            font: font,
-            order: order,
-            currency: orderArgs.countryModel.currency,
-          ),
-          pw.Divider(thickness: 1),
-        ];
-      },
+      build:
+          (context) => [
+            // Title
+            _invoiceTitle(font: font),
+            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+            pw.Divider(thickness: 1),
+            // Invoice Info
+            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+            _invoiceInfo(font: font, order: order, userPhone: orderArgs.phone),
+            // Table Header
+            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+            _invoiceTableHeader(font: font),
+            // Table Content
+            _invoiceTableContent(font: font, order: order),
+            // Summary
+            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+            _invoiceSummary(
+              font: font,
+              order: order,
+              currency: orderArgs.countryModel.currency,
+            ),
+            pw.Divider(thickness: 1),
+          ],
     ),
   );
 

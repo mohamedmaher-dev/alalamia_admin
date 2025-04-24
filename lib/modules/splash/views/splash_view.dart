@@ -36,37 +36,35 @@ class _SplashViewState extends State<SplashView> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return BlocListener<SplashCubit, SplashState>(
-      listener: _listener,
-      child: Scaffold(
-        backgroundColor: Color(0xFF00102B),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Spacer(),
-            Hero(
-              tag: 'logo',
-              child: Image.asset(
-                AssetsManger.iconIcon,
-                height: 150.h,
-                width: 150.w,
+  Widget build(BuildContext context) => BlocListener<SplashCubit, SplashState>(
+    listener: _listener,
+    child: Scaffold(
+      backgroundColor: const Color(0xFF00102B),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Spacer(),
+          Hero(
+            tag: 'logo',
+            child: Image.asset(
+              AssetsManger.iconIcon,
+              height: 150.h,
+              width: 150.w,
+            ),
+          ),
+          const Spacer(),
+          Container(
+            margin: EdgeInsets.all(kLargeMargin),
+            child: const Center(
+              child: CircularProgressIndicator(
+                strokeWidth: 1,
+                strokeCap: StrokeCap.round,
               ),
             ),
-            Spacer(),
-            Container(
-              margin: EdgeInsets.all(kLargeMargin),
-              child: Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 1,
-                  strokeCap: StrokeCap.round,
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
 }
