@@ -42,18 +42,20 @@ class OrderDetailsView extends StatelessWidget {
   final OrdersDatum args;
 
   @override
-  Widget build(BuildContext context) => MultiBlocProvider(
+  Widget build(final BuildContext context) => MultiBlocProvider(
     providers: [
-      BlocProvider(create: (context) => di<InvoiceCubit>()),
+      BlocProvider(create: (final context) => di<InvoiceCubit>()),
       BlocProvider(
-        create: (context) => di<OrderDetailsCubit>()..start(args.id.toString()),
+        create:
+            (final context) =>
+                di<OrderDetailsCubit>()..start(args.id.toString()),
       ),
-      BlocProvider(create: (context) => di<OrderStatusCubit>()),
-      BlocProvider(create: (context) => OrderDetailsTabCubit()),
+      BlocProvider(create: (final context) => di<OrderStatusCubit>()),
+      BlocProvider(create: (final context) => OrderDetailsTabCubit()),
     ],
     child: Provider(
       child: const _OrderDetailsViewBody(),
-      create: (context) => args,
+      create: (final context) => args,
     ),
   );
 }
@@ -62,17 +64,16 @@ class _OrderDetailsViewBody extends StatelessWidget {
   const _OrderDetailsViewBody();
 
   @override
-  Widget build(BuildContext context) {
-    final args = Provider.of<OrdersDatum>(context);
+  Widget build(final BuildContext context) {
     final language = Language.of(context);
     final tabCubit = context.read<OrderDetailsTabCubit>();
     return BlocBuilder<OrderDetailsCubit, OrderDetailsState>(
       builder:
-          (context, state) => state.when(
+          (final context, final state) => state.when(
             loading: () => const LoadingView(),
             success:
-                (order) => Provider(
-                  create: (context) => order,
+                (final order) => Provider(
+                  create: (final context) => order,
                   child: Scaffold(
                     appBar: AppBar(
                       centerTitle: true,
@@ -90,7 +91,7 @@ class _OrderDetailsViewBody extends StatelessWidget {
                           child: PageView(
                             controller: tabCubit.pageController,
                             onPageChanged:
-                                (value) => tabCubit.changeTab(
+                                (final value) => tabCubit.changeTab(
                                   OrderDetailsTabsModel.values[value],
                                 ),
                             children: const [
@@ -102,12 +103,12 @@ class _OrderDetailsViewBody extends StatelessWidget {
                           ),
                         ),
                         const Divider(),
-                        _BottomBody(order, args),
+                        const _BottomBody(),
                       ],
                     ),
                   ),
                 ),
-            failure: (error) => const ErrorView(),
+            failure: (final error) => const ErrorView(),
           ),
     );
   }

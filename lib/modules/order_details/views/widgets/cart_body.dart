@@ -4,7 +4,7 @@ class _CartBody extends StatelessWidget {
   const _CartBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final cart = Provider.of<OrdersDetailsResponseModel>(context).cartDetail!;
 
     return Padding(
@@ -104,9 +104,9 @@ TableRow _buildTableHeader() {
   );
 }
 
-List<TableRow> _buildTableRow(List<CartDetail> cart) => List.generate(
+List<TableRow> _buildTableRow(final List<CartDetail> cart) => List.generate(
   cart.length,
-  (index) => TableRow(
+  (final index) => TableRow(
     children: [
       Padding(
         padding: const EdgeInsets.all(10),
@@ -141,7 +141,7 @@ List<TableRow> _buildTableRow(List<CartDetail> cart) => List.generate(
   ),
 );
 
-String _converQuantity(String quantity) {
+String _converQuantity(final String quantity) {
   final int? asInt = int.tryParse(quantity);
   if (asInt != null) {
     return asInt.toString();

@@ -1,6 +1,6 @@
 part of '../invoice_view.dart';
 
-Widget _invoiceTableHeader({required Font font}) => pw.Container(
+Widget _invoiceTableHeader({required final Font font}) => pw.Container(
   margin: const pw.EdgeInsets.only(bottom: 10),
   alignment: pw.Alignment.center,
   child: pw.Table(

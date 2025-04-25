@@ -11,12 +11,12 @@ class _OrderItemBody extends StatelessWidget {
   final bool isLoading;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final theme = Theme.of(context);
     final cubit = context.read<OrdersCubit>();
     final language = Language.of(context);
     return Provider(
-      create: (context) => model,
+      create: (final context) => model,
       child: GestureDetector(
         onTap: () async {
           await AppRouter.push(AppPages.orderDetails, extra: model);
@@ -28,6 +28,7 @@ class _OrderItemBody extends StatelessWidget {
             child: Column(
               children: [
                 ExpansionTile(
+                  initiallyExpanded: index == 0,
                   trailing: Container(
                     padding: EdgeInsets.all(kNormalPadding),
                     decoration: BoxDecoration(
@@ -70,7 +71,7 @@ class _DataItemOrderItem extends StatelessWidget {
   final Widget icon;
 
   @override
-  Widget build(BuildContext context) => ListTile(
+  Widget build(final BuildContext context) => ListTile(
     dense: true,
     leading: Container(
       padding: EdgeInsets.all(kNormalPadding),
@@ -102,7 +103,7 @@ class _RowDataItemOrderItem extends StatelessWidget {
   final Widget icon2;
 
   @override
-  Widget build(BuildContext context) => Row(
+  Widget build(final BuildContext context) => Row(
     children: [
       Expanded(
         child: _DataItemOrderItem(
@@ -126,7 +127,7 @@ class _ExpandedBody extends StatelessWidget {
   const _ExpandedBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final model = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     return Column(
@@ -157,7 +158,7 @@ class _StatusBody extends StatelessWidget {
   const _StatusBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final model = Provider.of<OrdersDatum>(context);
     return Container(
       width: double.infinity,
@@ -182,7 +183,7 @@ class _ClientTitleBody extends StatelessWidget {
   const _ClientTitleBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final model = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     return ListTile(
@@ -193,10 +194,10 @@ class _ClientTitleBody extends StatelessWidget {
       ),
       leading: Initicon(
         size: 35.r,
-        text: model.userName.substring(0, 1).toUpperCase(),
+        text: model.userName.trim().substring(0, 1).toUpperCase(),
         backgroundColor: ColorManger.myGold,
         borderRadius: BorderRadius.circular(kNormalRadius),
-        style: TextStyle(
+        style: const TextStyle(
           fontFamily: AppThemeData.fontFamily,
           color: Colors.black,
           fontWeight: FontWeight.bold,

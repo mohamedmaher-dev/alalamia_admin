@@ -6,18 +6,21 @@ import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-void Function(BuildContext, InvoiceState) inVoiceListener = (context, state) {
+void Function(BuildContext, InvoiceState) inVoiceListener = (
+  final context,
+  final state,
+) {
   final language = Language.of(context);
   PopLoading.dismiss();
   state.whenOrNull(
     showLoading: () => PopLoading.show(),
     showSuccess:
-        (pdfData, cubit, order) => showModalBottomSheet(
+        (final pdfData, final cubit, final order) => showModalBottomSheet(
           showDragHandle: false,
           backgroundColor: Colors.transparent,
           context: context,
           builder:
-              (context) => Scaffold(
+              (final context) => Scaffold(
                 body: SfPdfViewer.memory(pdfData),
                 floatingActionButton: FloatingActionButton(
                   onPressed: () async {

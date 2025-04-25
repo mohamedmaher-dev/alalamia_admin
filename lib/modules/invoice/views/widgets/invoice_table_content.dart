@@ -1,8 +1,8 @@
 part of '../invoice_view.dart';
 
 Widget _invoiceTableContent({
-  required Font font,
-  required OrdersDetailsResponseModel order,
+  required final Font font,
+  required final OrdersDetailsResponseModel order,
 }) => pw.Table(
   columnWidths: {
     0: const pw.FlexColumnWidth(),
@@ -13,7 +13,7 @@ Widget _invoiceTableContent({
   },
   children: List.generate(
     order.cartDetail!.length,
-    (index) => pw.TableRow(
+    (final index) => pw.TableRow(
       decoration:
           index % 2 == 0
               ? const pw.BoxDecoration(color: PdfColors.grey100)

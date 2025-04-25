@@ -4,18 +4,18 @@ class _OrdersSearchBody extends StatelessWidget {
   const _OrdersSearchBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final language = Language.of(context);
     return Expanded(
       child: BlocBuilder<OrdersSearchCubit, OrdersSearchState>(
         builder:
-            (context, state) => state.when(
+            (final context, final state) => state.when(
               disabled: () => const SizedBox.shrink(),
               enabled:
-                  (orders) => ListView.builder(
+                  (final orders) => ListView.builder(
                     itemCount: orders.length,
                     itemBuilder:
-                        (context, index) => _OrderItemBody(
+                        (final context, final index) => _OrderItemBody(
                           index: index,
                           model: orders[index],
                           isLoading: false,

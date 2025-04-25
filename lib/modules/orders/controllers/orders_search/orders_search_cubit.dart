@@ -11,13 +11,13 @@ class OrdersSearchCubit extends Cubit<OrdersSearchState> {
   final TextEditingController searchController = TextEditingController();
 
   OrdersSearchCubit() : super(const OrdersSearchState.disabled());
-  void setSearch(String search, List<OrdersDatum> orders) {
+  void setSearch(String search, final List<OrdersDatum> orders) {
     search = search.trim().toLowerCase();
     if (search.isEmpty) {
       emit(const OrdersSearchState.disabled());
     } else {
       final result =
-          orders.where((element) {
+          orders.where((final element) {
             if (element.userName.trim().toLowerCase().contains(search) ||
                 element.phone.trim().toLowerCase().contains(search) ||
                 element.requestNumber.trim().toLowerCase().contains(search) ||

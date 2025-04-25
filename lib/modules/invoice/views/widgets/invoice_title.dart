@@ -1,6 +1,6 @@
 part of '../invoice_view.dart';
 
-Widget _invoiceTitle({required Font font}) => pw.Column(
+Widget _invoiceTitle({required final Font font}) => pw.Column(
   crossAxisAlignment: pw.CrossAxisAlignment.stretch,
   mainAxisAlignment: pw.MainAxisAlignment.center,
   children: [

@@ -12,9 +12,9 @@ class OrderStatusCubit extends Cubit<OrderStatusState> {
     : super(const OrderStatusState.initial());
 
   Future<void> changeStatus(
-    int newIndex,
-    int currentIndex,
-    String orderId,
+    final int newIndex,
+    final int currentIndex,
+    final String orderId,
   ) async {
     if (newIndex != currentIndex) {
       emit(const OrderStatusState.loading());
@@ -23,10 +23,10 @@ class OrderStatusCubit extends Cubit<OrderStatusState> {
         newIndex.indexToEnum,
       );
       result.when(
-        success: (data) {
+        success: (final data) {
           emit(const OrderStatusState.success());
         },
-        failure: (error) {
+        failure: (final error) {
           emit(const OrderStatusState.failure());
         },
       );

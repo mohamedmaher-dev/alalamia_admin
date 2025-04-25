@@ -1,5 +1,6 @@
 import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/di/di.dart';
+import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
@@ -18,8 +19,8 @@ class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
 
   @override
-  Widget build(BuildContext context) => BlocProvider(
-    create: (context) => di<SettingsCubit>(),
+  Widget build(final BuildContext context) => BlocProvider(
+    create: (final context) => di<SettingsCubit>(),
     child: const _SettingsBody(),
   );
 }
@@ -33,7 +34,7 @@ class _SettingsBody extends StatefulWidget {
 
 class _SettingsBodyState extends State<_SettingsBody> {
   @override
-  Widget build(BuildContext context) =>
+  Widget build(final BuildContext context) =>
       BlocListener<SettingsCubit, SettingsState>(
         listener: _listener,
         child: const Scaffold(

@@ -37,7 +37,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
     while (!isLastPage) {
       final result = await ordersRebo.getOrdersWithApiResult(currentPage);
       result.when(
-        success: (data) {
+        success: (final data) {
           orders.addAll(data.trackingRequests.data);
           currentPage = data.trackingRequests.currentPage;
           final int total = data.trackingRequests.total;
@@ -45,7 +45,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           isLastPage = (perPage * currentPage) >= total;
           if (!isLastPage) currentPage++;
         },
-        failure: (error) {
+        failure: (final error) {
           isLastPage = true;
           emit(const StatisticsState.failure());
         },
@@ -57,27 +57,39 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           orders: orders.length,
           underReview:
               orders
-                  .where((element) => element.status == OrderStatus.requested)
+                  .where(
+                    (final element) => element.status == OrderStatus.requested,
+                  )
                   .length,
           approved:
               orders
-                  .where((element) => element.status == OrderStatus.received)
+                  .where(
+                    (final element) => element.status == OrderStatus.received,
+                  )
                   .length,
           prepareing:
               orders
-                  .where((element) => element.status == OrderStatus.repair)
+                  .where(
+                    (final element) => element.status == OrderStatus.repair,
+                  )
                   .length,
           onTheWay:
               orders
-                  .where((element) => element.status == OrderStatus.deliver)
+                  .where(
+                    (final element) => element.status == OrderStatus.deliver,
+                  )
                   .length,
           delivered:
               orders
-                  .where((element) => element.status == OrderStatus.delivered)
+                  .where(
+                    (final element) => element.status == OrderStatus.delivered,
+                  )
                   .length,
           cancelled:
               orders
-                  .where((element) => element.status == OrderStatus.canceled)
+                  .where(
+                    (final element) => element.status == OrderStatus.canceled,
+                  )
                   .length,
         ),
       );

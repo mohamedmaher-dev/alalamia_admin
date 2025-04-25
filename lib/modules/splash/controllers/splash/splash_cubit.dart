@@ -10,15 +10,15 @@ class SplashCubit extends Cubit<SplashState> {
   final AuthRebo authRebo;
   SplashCubit(this.authRebo) : super(const SplashState.initial());
   void start() async {
-    await authRebo.getUserCredential().then((userCredential) async {
+    await authRebo.getUserCredential().then((final userCredential) async {
       if (userCredential != null) {
         final signInResult = await authRebo.refreshToken();
         signInResult.when(
-          success: (success) {
+          success: (final success) {
             DioFactory.setToken(success.token);
             emit(const SplashState.successToLogin());
           },
-          failure: (failure) {
+          failure: (final failure) {
             emit(const SplashState.failedToLogin());
           },
         );

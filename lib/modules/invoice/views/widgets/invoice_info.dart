@@ -1,9 +1,9 @@
 part of '../invoice_view.dart';
 
 Widget _invoiceInfo({
-  required Font font,
-  required OrdersDetailsResponseModel order,
-  required String userPhone,
+  required final Font font,
+  required final OrdersDetailsResponseModel order,
+  required final String userPhone,
 }) => pw.Column(
   crossAxisAlignment: pw.CrossAxisAlignment.start,
   children: [
@@ -40,9 +40,9 @@ Widget _invoiceInfo({
 );
 
 Widget _invoiceInfoRow({
-  required Font font,
-  required String value1,
-  required String value2,
+  required final Font font,
+  required final String value1,
+  required final String value2,
 }) => pw.Row(
   children: [
     pw.Expanded(

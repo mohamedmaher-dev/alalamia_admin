@@ -37,7 +37,7 @@ class AppThemeData {
         },
       );
 
-  static String get fontFamily => 'Almarai';
+  static const String fontFamily = 'Almarai';
 
   static ExpansionTileThemeData get _expansionTileThemeData =>
       ExpansionTileThemeData(

@@ -8,11 +8,11 @@
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
 analyzer:
-  errors:
-    avoid_redundant_argument_values: ignore
-    depend_on_referenced_packages: ignore
-    prefer_final_parameters: ignore
-    require_trailing_commas: ignore
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - lib/core/localization/**
+
 include: package:flutter_lints/flutter.yaml
 
 linter:
@@ -49,7 +49,7 @@ linter:
     - avoid_returning_null_for_future
 
     # (Style & Structure)
-    - require_trailing_commas
+    # - require_trailing_commas
     - prefer_final_parameters
     - camel_case_extensions
     - avoid_positional_boolean_parameters

@@ -4,7 +4,7 @@ class _GeneralBody extends StatelessWidget {
   const _GeneralBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final args = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     return SingleChildScrollView(

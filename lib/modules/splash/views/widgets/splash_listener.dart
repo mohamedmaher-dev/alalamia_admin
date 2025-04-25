@@ -1,6 +1,9 @@
 part of '../splash_view.dart';
 
-void Function(BuildContext, SplashState) _listener = (context, state) {
+void Function(BuildContext, SplashState) _listener = (
+  final context,
+  final state,
+) {
   state.whenOrNull(
     failedToLogin: () => AppRouter.pushReplacement(AppPages.signIn),
     noCredential: () => AppRouter.pushReplacement(AppPages.signIn),

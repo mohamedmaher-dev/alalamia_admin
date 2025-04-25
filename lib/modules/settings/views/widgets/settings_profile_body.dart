@@ -4,7 +4,8 @@ class _SettingsProfileBody extends StatelessWidget {
   const _SettingsProfileBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
+    final userCredential = di<LocalStorageService>().userCredential!;
     final settingsCubit = context.read<SettingsCubit>();
     final language = Language.of(context);
     final theme = Theme.of(context);
@@ -16,7 +17,8 @@ class _SettingsProfileBody extends StatelessWidget {
             children: [
               ListTile(
                 title: Text(language.my_profile),
-                leading: const Icon(CupertinoIcons.person),
+                subtitle: Text(userCredential.email),
+                leading: const Icon(CupertinoIcons.person_fill),
                 trailing: TextButton(
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(

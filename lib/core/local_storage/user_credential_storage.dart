@@ -5,7 +5,6 @@ class _UserCredentialStorage {
   late Box<UserCredential?> _userCredentialBox;
 
   Future<void> call() async {
-    Hive.registerAdapter(UserCredentialAdapter());
     late List<int> key;
     await _secureStorage.read(key: LocalStorageConsts.hiveSecureKey).then((
       final value,

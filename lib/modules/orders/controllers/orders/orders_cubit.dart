@@ -8,13 +8,13 @@ part 'orders_cubit.freezed.dart';
 
 class OrdersCubit extends Cubit<OrdersState> {
   late final pagingController = PagingController<int, OrdersDatum>(
-    getNextPageKey: (state) => _getNextPageKey(state),
-    fetchPage: (pageKey) => _getOrders(pageKey),
+    getNextPageKey: (final state) => _getNextPageKey(state),
+    fetchPage: (final pageKey) => _getOrders(pageKey),
   );
   final OrdersRebo ordersRebo;
   OrdersCubit(this.ordersRebo) : super(const OrdersState.initial());
 
-  int? _getNextPageKey(PagingState<int, OrdersDatum> state) {
+  int? _getNextPageKey(final PagingState<int, OrdersDatum> state) {
     if (state.pages == null) {
       return 1;
     } else {
@@ -26,7 +26,7 @@ class OrdersCubit extends Cubit<OrdersState> {
     }
   }
 
-  Future<List<OrdersDatum>> _getOrders(int page) async {
+  Future<List<OrdersDatum>> _getOrders(final int page) async {
     final result = await ordersRebo.getOrders(page);
     return result.trackingRequests.data;
   }

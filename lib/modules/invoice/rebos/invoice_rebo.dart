@@ -11,8 +11,8 @@ import 'package:permission_handler/permission_handler.dart';
 
 class InvoiceRebo {
   Future<SaveInvoiceResult<Uint8List>> createPdfData(
-    OrdersDetailsResponseModel order,
-    OrdersDatum orderDetailsArgs,
+    final OrdersDetailsResponseModel order,
+    final OrdersDatum orderDetailsArgs,
   ) async {
     try {
       final pdfData = await createStyledInvoice(order, orderDetailsArgs);
@@ -23,8 +23,8 @@ class InvoiceRebo {
   }
 
   Future<SaveInvoiceResult<void>> saveInvoice(
-    OrdersDetailsResponseModel order,
-    Uint8List pdfData,
+    final OrdersDetailsResponseModel order,
+    final Uint8List pdfData,
   ) async {
     try {
       bool isGranted = await _isPermissionGranted();

@@ -16,8 +16,8 @@ class StatisticsView extends StatelessWidget {
   const StatisticsView({super.key});
 
   @override
-  Widget build(BuildContext context) => BlocProvider(
-    create: (context) => di<StatisticsCubit>()..getStatistics(),
+  Widget build(final BuildContext context) => BlocProvider(
+    create: (final context) => di<StatisticsCubit>()..getStatistics(),
     child: const _StatisticsBodyView(),
   );
 }
@@ -26,16 +26,16 @@ class _StatisticsBodyView extends StatelessWidget {
   const _StatisticsBodyView();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final language = Language.of(context);
     return Scaffold(
       body: BlocBuilder<StatisticsCubit, StatisticsState>(
         builder:
-            (context, state) => state.maybeMap(
+            (final context, final state) => state.maybeMap(
               orElse: () => const LoadingView(),
-              failure: (e) => const ErrorView(),
+              failure: (final e) => const ErrorView(),
               success:
-                  (data) => Column(
+                  (final data) => Column(
                     children: [
                       Expanded(
                         child: _StatSliderItem(

@@ -30,7 +30,7 @@ class Address {
     this.backgroundColorRow,
   });
 
-  factory Address.fromJson(Map<String, dynamic> json) =>
+  factory Address.fromJson(final Map<String, dynamic> json) =>
       _$AddressFromJson(json);
 
   Map<String, dynamic> toJson() => _$AddressToJson(this);

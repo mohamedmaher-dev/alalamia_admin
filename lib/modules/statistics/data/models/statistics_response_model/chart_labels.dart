@@ -29,7 +29,7 @@ class ChartLabels {
     this.sat,
   });
 
-  factory ChartLabels.fromJson(Map<String, dynamic> json) =>
+  factory ChartLabels.fromJson(final Map<String, dynamic> json) =>
       _$ChartLabelsFromJson(json);
 
   List<String> get days => [sun!, mon!, tue!, wed!, thu!, fri!, sat!];

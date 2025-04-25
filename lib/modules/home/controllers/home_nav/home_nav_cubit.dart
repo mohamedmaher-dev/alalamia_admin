@@ -12,7 +12,7 @@ class HomeNavCubit extends Cubit<HomeNavState> {
   );
   HomeNavCubit() : super(HomeNavState.currentPage(page: HomePages.defaultPage));
 
-  void changePage(HomePages page) {
+  void changePage(final HomePages page) {
     controller.jumpToPage(page.currentIndex);
     emit(HomeNavState.currentPage(page: page));
   }

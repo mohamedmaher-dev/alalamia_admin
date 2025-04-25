@@ -3,10 +3,10 @@ part of '../one_order_view.dart';
 class _OrderStateSteps extends StatelessWidget {
   const _OrderStateSteps({required this.orderStatus, required this.orderId});
   final String orderId;
-
   final OrderStatus orderStatus;
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final cubit = context.read<OrderStatusCubit>();
     final activeStep = orderStatus.enumToindex;
     final language = Language.of(context);
@@ -19,7 +19,7 @@ class _OrderStateSteps extends StatelessWidget {
       lineStyle: const LineStyle(lineType: LineType.normal),
       showLoadingAnimation: false,
       stepRadius: 10,
-      onStepReached: (index) {
+      onStepReached: (final index) {
         if (orderStatus != OrderStatus.canceled) {
           showChangerPopUpConfirm(
             context: context,

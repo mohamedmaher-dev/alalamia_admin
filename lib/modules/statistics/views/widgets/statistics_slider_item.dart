@@ -15,7 +15,7 @@ class _StatSliderItem extends StatelessWidget {
   final bool showIndicator;
 
   @override
-  Widget build(BuildContext context) => SfRadialGauge(
+  Widget build(final BuildContext context) => SfRadialGauge(
     axes: <RadialAxis>[
       RadialAxis(
         maximum: max.toDouble(),

@@ -3,7 +3,7 @@ part of '../one_order_view.dart';
 class _OtherBody extends StatelessWidget {
   const _OtherBody();
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final args = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     return Column(

@@ -6,8 +6,8 @@ import 'package:alalamia_admin/modules/order_details/controllers/order_status/or
 import 'package:flutter/material.dart';
 
 void Function(BuildContext, OrderStatusState) orderStatusListener = (
-  context,
-  state,
+  final context,
+  final state,
 ) {
   final language = Language.of(context);
   PopLoading.dismiss();

@@ -12,13 +12,13 @@ class OrderDetailsCubit extends Cubit<OrderDetailsState> {
   OrderDetailsCubit(this.orderDetailsRebo)
     : super(const OrderDetailsState.loading());
 
-  Future<void> start(String orderId) async {
+  Future<void> start(final String orderId) async {
     final result = await orderDetailsRebo.getOrderDetails(orderId);
     result.when(
-      success: (data) {
+      success: (final data) {
         emit(OrderDetailsState.success(orderDetails: data));
       },
-      failure: (error) {
+      failure: (final error) {
         emit(OrderDetailsState.failure(error: error));
       },
     );

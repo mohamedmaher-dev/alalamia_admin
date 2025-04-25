@@ -1,9 +1,9 @@
 part of '../invoice_view.dart';
 
 Widget _invoiceSummary({
-  required Font font,
-  required OrdersDetailsResponseModel order,
-  required String currency,
+  required final Font font,
+  required final OrdersDetailsResponseModel order,
+  required final String currency,
 }) => pw.Container(
   margin: const pw.EdgeInsets.only(bottom: 10),
   alignment: pw.Alignment.center,

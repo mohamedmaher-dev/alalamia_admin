@@ -20,43 +20,40 @@ class _PopUpConfirm extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     final language = Language.of(context);
-    return Container(
-      padding: EdgeInsets.all(10.w),
-      child: Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min, // Prevent excessive space usage
-          children: [
-            ListTile(
-              title: Text(title, style: TextStyles.tsP15B),
-              subtitle: Text(subtitle),
-            ),
-            const Divider(),
-            Padding(
-              padding: EdgeInsets.all(kNormalPadding),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: GeneralBtn(
-                      title: language.yes,
-                      onPressed: () {
-                        Navigator.pop(context);
-                        onPressed();
-                      },
-                    ),
+    return Card(
+      child: Column(
+        mainAxisSize: MainAxisSize.min, // Prevent excessive space usage
+        children: [
+          ListTile(
+            title: Text(title, style: TextStyles.tsP15B),
+            subtitle: Text(subtitle),
+          ),
+          const Divider(),
+          Padding(
+            padding: EdgeInsets.all(kNormalPadding),
+            child: Row(
+              children: [
+                Expanded(
+                  child: GeneralBtn(
+                    title: language.yes,
+                    onPressed: () {
+                      Navigator.pop(context);
+                      onPressed();
+                    },
                   ),
-                  SizedBox(width: 10.w),
-                  Expanded(
-                    child: OutlineBtn(
-                      color: Colors.red,
-                      title: language.cancel,
-                      onPressed: () => Navigator.pop(context),
-                    ),
+                ),
+                SizedBox(width: 10.w),
+                Expanded(
+                  child: OutlineBtn(
+                    color: ColorManger.red,
+                    title: language.cancel,
+                    onPressed: () => Navigator.pop(context),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

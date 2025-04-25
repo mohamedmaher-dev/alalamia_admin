@@ -4,7 +4,7 @@ class _AddressBody extends StatelessWidget {
   const _AddressBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final order = Provider.of<OrdersDetailsResponseModel>(context);
     final language = Language.of(context);
     if (order.address != null) {
@@ -25,7 +25,7 @@ class _AddressBody extends StatelessWidget {
                   trailing: const Icon(CupertinoIcons.chevron_left),
                   onTap: () async {
                     await MapLauncher.installedMaps.then(
-                      (value) => value.first.showMarker(
+                      (final value) => value.first.showMarker(
                         coords: Coords(
                           order.address!.latLong.lat,
                           order.address!.latLong.long,

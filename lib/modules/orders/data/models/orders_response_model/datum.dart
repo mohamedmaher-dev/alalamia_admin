@@ -38,6 +38,6 @@ class OrdersDatum {
     required this.createdAt,
   });
 
-  factory OrdersDatum.fromJson(Map<String, dynamic> json) =>
+  factory OrdersDatum.fromJson(final Map<String, dynamic> json) =>
       _$OrdersDatumFromJson(json);
 }

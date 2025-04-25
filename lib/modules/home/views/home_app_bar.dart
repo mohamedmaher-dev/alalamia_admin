@@ -5,7 +5,7 @@ class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final HomePages currentPage;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final userCredential = di<LocalStorageService>().userCredential!;
     final countryModel = CountryModel.fromId(userCredential.countryId);
     final language = Language.of(context);

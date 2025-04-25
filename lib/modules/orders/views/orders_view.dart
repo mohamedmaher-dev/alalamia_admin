@@ -30,10 +30,10 @@ part 'widgets/orders_pagination_body.dart';
 class OrdersView extends StatelessWidget {
   const OrdersView({super.key});
   @override
-  Widget build(BuildContext context) => MultiBlocProvider(
+  Widget build(final BuildContext context) => MultiBlocProvider(
     providers: [
-      BlocProvider(create: (context) => di<OrdersCubit>()),
-      BlocProvider(create: (context) => di<OrdersSearchCubit>()),
+      BlocProvider(create: (final context) => di<OrdersCubit>()),
+      BlocProvider(create: (final context) => di<OrdersSearchCubit>()),
     ],
     child: const _OrderViewBody(),
   );
@@ -48,7 +48,7 @@ class _OrderViewBody extends StatefulWidget {
 
 class _OrderViewBodyState extends State<_OrderViewBody> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final cubit = context.read<OrdersCubit>();
     final cubitSearch = context.read<OrdersSearchCubit>();
     return RefreshIndicator(
@@ -59,7 +59,7 @@ class _OrderViewBodyState extends State<_OrderViewBody> {
       },
       child: BlocBuilder<OrdersSearchCubit, OrdersSearchState>(
         builder:
-            (context, cubitState) => Column(
+            (final context, final cubitState) => Column(
               children: [
                 const _OrderSearchForm(),
                 if (cubitState is DisabledMode) const _OrdersPaginationBody(),

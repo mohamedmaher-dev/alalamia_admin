@@ -5,7 +5,7 @@ class _HomeBottomNavBar extends StatelessWidget {
   final int currentIndex;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final cubit = context.read<HomeNavCubit>();
     final language = Language.of(context);
     return SalomonBottomBar(
@@ -28,7 +28,7 @@ class _HomeBottomNavBar extends StatelessWidget {
           selectedColor: ColorManger.myGold,
         ),
       ],
-      onTap: (index) => cubit.changePage(HomePages.values[index]),
+      onTap: (final index) => cubit.changePage(HomePages.values[index]),
     );
   }
 }

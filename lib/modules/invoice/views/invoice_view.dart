@@ -15,8 +15,8 @@ part 'widgets/invoice_table_content.dart';
 part 'widgets/invoice_summary.dart';
 
 Future<Uint8List> createStyledInvoice(
-  OrdersDetailsResponseModel order,
-  OrdersDatum orderArgs,
+  final OrdersDetailsResponseModel order,
+  final OrdersDatum orderArgs,
 ) async {
   final fontData = await rootBundle.load(AssetsManger.fontsAlmaraiRegular);
   final font = pw.Font.ttf(fontData);
@@ -27,7 +27,7 @@ Future<Uint8List> createStyledInvoice(
       pageFormat: PdfPageFormat.a4,
       margin: const pw.EdgeInsets.all(32),
       build:
-          (context) => [
+          (final context) => [
             // Title
             _invoiceTitle(font: font),
             pw.SizedBox(height: kSpacingBetweenWidgetsHight),
