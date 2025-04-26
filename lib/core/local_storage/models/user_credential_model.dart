@@ -37,4 +37,11 @@ class UserCredential {
     countryName: data.countryModel.name,
     countryId: data.countryModel.id,
   );
+  factory UserCredential.empty() => UserCredential(
+    email: '',
+    password: '',
+    token: '',
+    countryName: '',
+    countryId: 0,
+  );
 }

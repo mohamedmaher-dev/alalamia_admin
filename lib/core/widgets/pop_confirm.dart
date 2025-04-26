@@ -3,6 +3,7 @@ import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/widgets/general_btn.dart';
 import 'package:alalamia_admin/core/widgets/outline_btn.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,7 +38,7 @@ class _PopUpConfirm extends StatelessWidget {
                   child: GeneralBtn(
                     title: language.yes,
                     onPressed: () {
-                      Navigator.pop(context);
+                      context.router.pop();
                       onPressed();
                     },
                   ),
@@ -47,7 +48,7 @@ class _PopUpConfirm extends StatelessWidget {
                   child: OutlineBtn(
                     color: ColorManger.red,
                     title: language.cancel,
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () => context.router.pop(),
                   ),
                 ),
               ],

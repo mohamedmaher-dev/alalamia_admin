@@ -2,7 +2,7 @@ import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/extension/order_payment_type.dart';
 import 'package:alalamia_admin/core/extension/order_status_ext.dart';
 import 'package:alalamia_admin/core/localization/generated/l10n.dart';
-import 'package:alalamia_admin/core/router/app_router.dart';
+import 'package:alalamia_admin/core/router/app_router.gr.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/widgets/empty_view.dart';
@@ -12,6 +12,7 @@ import 'package:alalamia_admin/modules/orders/controllers/orders/orders_cubit.da
 import 'package:alalamia_admin/modules/orders/controllers/orders_search/orders_search_cubit.dart';
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/datum.dart';
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/fake_order_response_mode.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,6 +28,7 @@ part 'widgets/orders_loading_body.dart';
 part 'widgets/orders_search_body.dart';
 part 'widgets/orders_pagination_body.dart';
 
+@RoutePage()
 class OrdersView extends StatelessWidget {
   const OrdersView({super.key});
   @override

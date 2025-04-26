@@ -35,7 +35,7 @@ class _SettingsProfileBody extends StatelessWidget {
                       context: context,
                       title: language.log_out,
                       subtitle: language.are_you_sure_you_want_to_log_out,
-                      onPressed: () => settingsCubit.signOut(),
+                      onPressed: () => settingsCubit.signOut(context),
                     );
                   },
                   child: Text(language.log_out),

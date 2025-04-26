@@ -7,6 +7,7 @@ import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:alalamia_admin/core/widgets/pop_confirm.dart';
 import 'package:alalamia_admin/core/widgets/pop_loading.dart';
 import 'package:alalamia_admin/modules/settings/views/controllers/settings/settings_cubit.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,7 @@ part 'widgets/settings_general_body_view.dart';
 part 'widgets/settings_profile_body.dart';
 part 'widgets/settings_listener.dart';
 
+@RoutePage()
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
 

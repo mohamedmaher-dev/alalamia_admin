@@ -2,10 +2,12 @@ import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/errors/app_error.dart';
 import 'package:alalamia_admin/core/notifications/notifications_repo.dart';
 import 'package:alalamia_admin/core/notifications/notifications_service.dart';
-import 'package:alalamia_admin/core/router/app_router.dart';
+import 'package:alalamia_admin/core/router/app_router.gr.dart';
 import 'package:alalamia_admin/core/widgets/pop_loading.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'settings_state.dart';
@@ -40,13 +42,14 @@ class SettingsCubit extends Cubit<SettingsState> {
     emit(SettingsState.initial(appConfigModel: appConfig.state));
   }
 
-  void signOut() async {
+  // ignore: prefer_final_parameters
+  void signOut(BuildContext context) async {
     emit(const SettingsState.loading());
     final result = await authRebo.signOut();
     result.when(
       success: (final data) {
         PopLoading.dismiss();
-        AppRouter.pushReplacement(AppPages.splash);
+        context.router.replace(const SplashRoute());
       },
       failure: (final error) => emit(SettingsState.failure(error)),
     );

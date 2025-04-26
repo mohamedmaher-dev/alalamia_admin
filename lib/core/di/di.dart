@@ -5,6 +5,7 @@ import 'package:alalamia_admin/core/networking/api_service.dart';
 import 'package:alalamia_admin/core/networking/dio_factory.dart';
 import 'package:alalamia_admin/core/notifications/notifications_repo.dart';
 import 'package:alalamia_admin/core/notifications/notifications_service.dart';
+import 'package:alalamia_admin/core/router/app_router.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/controllers/sign_in_cubit/sign_in_cubit.dart';
 import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit.dart';

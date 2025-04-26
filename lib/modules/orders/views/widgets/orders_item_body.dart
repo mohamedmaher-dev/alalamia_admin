@@ -19,7 +19,7 @@ class _OrderItemBody extends StatelessWidget {
       create: (final context) => model,
       child: GestureDetector(
         onTap: () async {
-          await AppRouter.push(AppPages.orderDetails, extra: model);
+          await context.router.push(OrderDetailsRoute(args: model));
           cubit.pagingController.refresh();
         },
         child: Skeletonizer(

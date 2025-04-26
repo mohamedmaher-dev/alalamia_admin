@@ -1,16 +1,15 @@
-part of 'home_view.dart';
+part of '../main_view.dart';
 
 class _HomeBottomNavBar extends StatelessWidget {
-  const _HomeBottomNavBar({required this.currentIndex});
-  final int currentIndex;
+  const _HomeBottomNavBar({required this.tabsRouter});
+  final TabsRouter tabsRouter;
 
   @override
   Widget build(final BuildContext context) {
-    final cubit = context.read<HomeNavCubit>();
     final language = Language.of(context);
     return SalomonBottomBar(
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-      currentIndex: currentIndex,
+      currentIndex: tabsRouter.activeIndex,
       items: [
         SalomonBottomBarItem(
           icon: const Icon(CupertinoIcons.chart_pie),
@@ -28,7 +27,7 @@ class _HomeBottomNavBar extends StatelessWidget {
           selectedColor: ColorManger.myGold,
         ),
       ],
-      onTap: (final index) => cubit.changePage(HomePages.values[index]),
+      onTap: (final index) => tabsRouter.setActiveIndex(index),
     );
   }
 }

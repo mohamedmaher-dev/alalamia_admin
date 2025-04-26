@@ -6,12 +6,14 @@ import 'package:alalamia_admin/core/widgets/error_view.dart';
 import 'package:alalamia_admin/core/widgets/loading_view.dart';
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/order_status.dart';
 import 'package:alalamia_admin/modules/statistics/controllers/statistics/statistics_cubit.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 part 'widgets/statistics_slider_item.dart';
 
+@RoutePage()
 class StatisticsView extends StatelessWidget {
   const StatisticsView({super.key});
 

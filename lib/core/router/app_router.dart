@@ -1,57 +1,20 @@
-import 'package:alalamia_admin/modules/auth/sign_in/views/sign_in_view.dart';
-import 'package:alalamia_admin/modules/home/views/home_view.dart';
-import 'package:alalamia_admin/modules/order_details/views/one_order_view.dart';
-import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/datum.dart';
-import 'package:alalamia_admin/modules/settings/views/settings_view.dart';
-import 'package:alalamia_admin/modules/splash/views/splash_view.dart';
-import 'package:go_router/go_router.dart';
+import 'package:alalamia_admin/core/router/app_router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
-part 'app_pages.dart';
-
-class AppRouter {
-  AppRouter._();
-  static AppPages currentPage = AppPages.splash;
-  static final routerConfig = GoRouter(
-    routes: [
-      GoRoute(
-        path: AppPages.splash.path,
-        builder: (final context, final state) => const SplashView(),
-      ),
-      GoRoute(
-        path: AppPages.signIn.path,
-        builder: (final context, final state) => const SignInView(),
-      ),
-      GoRoute(
-        path: AppPages.home.path,
-        builder: (final context, final state) => const HomeView(),
-      ),
-      GoRoute(
-        path: AppPages.orderDetails.path,
-        builder:
-            (final context, final state) =>
-                OrderDetailsView(args: state.extra as OrdersDatum),
-      ),
-      GoRoute(
-        path: AppPages.settings.path,
-        builder: (final context, final state) => const SettingsView(),
-      ),
-    ],
-  );
-
-  static void pushReplacement(final AppPages page, {final Object? extra}) {
-    currentPage = page;
-    routerConfig.go(page.path, extra: extra);
-  }
-
-  static Future<void> push(final AppPages page, {final Object? extra}) {
-    currentPage = page;
-    return routerConfig.push(page.path, extra: extra);
-  }
-
-  static void pushAndRemoveUntil(final AppPages page, {final Object? extra}) {
-    currentPage = page;
-    routerConfig.go(page.path, extra: extra);
-  }
-
-  static void pop() => routerConfig.pop();
+@AutoRouterConfig(replaceInRouteName: 'View,Route')
+class AppRouter extends RootStackRouter {
+  @override
+  List<AutoRoute> get routes => [
+    AutoRoute(page: SplashRoute.page, initial: true),
+    AutoRoute(page: SignInRoute.page),
+    AutoRoute(
+      page: MainRoute.page,
+      children: [
+        AutoRoute(page: StatisticsRoute.page, maintainState: false),
+        AutoRoute(page: OrdersRoute.page, maintainState: false, initial: true),
+        AutoRoute(page: SettingsRoute.page),
+      ],
+    ),
+    AutoRoute(page: OrderDetailsRoute.page),
+  ];
 }

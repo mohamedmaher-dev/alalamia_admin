@@ -1,8 +1,8 @@
 import 'package:alalamia_admin/core/localization/generated/l10n.dart';
-import 'package:alalamia_admin/core/router/app_router.dart';
 import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:alalamia_admin/core/widgets/pop_loading.dart';
 import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
@@ -37,7 +37,7 @@ void Function(BuildContext, InvoiceState) inVoiceListener = (
         ),
     saveLoading: () => PopLoading.show(),
     saveSuccess: () {
-      AppRouter.pop();
+      context.router.pop();
       AppSnackBar.show(
         msg: language.invoice_saved_successfully,
         type: ContentType.success,

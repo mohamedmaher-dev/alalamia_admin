@@ -1,15 +1,17 @@
 import 'package:alalamia_admin/core/di/di.dart';
-import 'package:alalamia_admin/core/router/app_router.dart';
+import 'package:alalamia_admin/core/router/app_router.gr.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/utils/assets_manger.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/controllers/sign_in_cubit/sign_in_cubit.dart';
 import 'package:alalamia_admin/modules/splash/controllers/splash/splash_cubit.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 part 'widgets/splash_listener.dart';
 
+@RoutePage()
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 

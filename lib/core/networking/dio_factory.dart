@@ -1,5 +1,4 @@
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
-import 'package:alalamia_admin/core/router/app_router.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -18,17 +17,17 @@ class DioFactory {
         ..options.receiveTimeout = timout
         ..options.headers['Authorization'] =
             userCredential == null ? '' : 'Bearer ${userCredential.token}'
-        ..interceptors.add(
-          InterceptorsWrapper(
-            onError: (final error, final handler) async {
-              if (error.response?.statusCode == 401 &&
-                  AppRouter.currentPage != AppPages.signIn) {
-                AppRouter.pushReplacement(AppPages.splash);
-              }
-              return handler.next(error);
-            },
-          ),
-        )
+        // ..interceptors.add(
+        //   InterceptorsWrapper(
+        //     onError: (final error, final handler) async {
+        //       if (error.response?.statusCode == 401 &&
+        //           AppRouter.currentPage != AppPages.signIn) {
+        //         AppRouter.pushReplacement(AppPages.splash);
+        //       }
+        //       return handler.next(error);
+        //     },
+        //   ),
+        // )
         ..interceptors.add(
           PrettyDioLogger(requestBody: true, requestHeader: true),
         );

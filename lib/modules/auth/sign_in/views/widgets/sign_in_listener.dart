@@ -15,7 +15,7 @@ void Function(BuildContext, SignInState) _listener = (
         msg: language.you_have_logged_in_successfully,
         type: ContentType.success,
       );
-      AppRouter.pushReplacement(AppPages.home);
+      context.router.replace(const MainRoute());
     },
   );
 };
