@@ -29,7 +29,7 @@ Widget _invoiceTableHeader({required final Font font}) => pw.Container(
               pw.Padding(
                 padding: pw.EdgeInsets.all(kNormalPadding),
                 child: pw.Text(
-                  'رقم المنتج',
+                  'رقم الصنف',
                   style: pw.TextStyle(
                     font: font,
                     fontSize: 15,

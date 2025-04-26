@@ -192,17 +192,7 @@ class _ClientTitleBody extends StatelessWidget {
         language.client_name,
         style: const TextStyle(color: Colors.grey),
       ),
-      leading: Initicon(
-        size: 35.r,
-        text: model.userName.trim().substring(0, 1).toUpperCase(),
-        backgroundColor: ColorManger.myGold,
-        borderRadius: BorderRadius.circular(kNormalRadius),
-        style: const TextStyle(
-          fontFamily: AppThemeData.fontFamily,
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+      leading: UserAvatarBody(userName: model.userName),
     );
   }
 }

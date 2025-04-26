@@ -3,6 +3,7 @@ import 'package:alalamia_admin/core/extension/bool_ext.dart';
 import 'package:alalamia_admin/core/extension/string_ext.dart';
 import 'package:alalamia_admin/core/router/app_router.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
+import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -30,7 +31,10 @@ class AlalamiaAdmin extends StatelessWidget {
               ],
               supportedLocales: Language.delegate.supportedLocales,
               locale: config.language.stringToLocale,
-              builder: EasyLoading.init(),
+              builder: (final context, final child) {
+                AppSnackBar.init(context);
+                return EasyLoading.init()(context, child);
+              },
             ),
       );
 }

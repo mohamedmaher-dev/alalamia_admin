@@ -7,6 +7,8 @@
     "sign_in" : "تسجيل الدخول",
     "success" : "نجاح",
     "failure" : "فشل",
+    "warning" : "تحذير",
+    "notification" : "تنبيه",
     "you_cannot_leave_the_email_empty" : "لا يمكن ترك البريد الالكتروني فارغ",
     "enter_a_valid_email" : "ادخل بريد الكتروني صحيح",
     "you_cannot_leave_the_password_empty" : "لا يمكن ترك كلمة المرور فارغة",
@@ -85,7 +87,6 @@
     "unit" : "وحدة",
     "change_status" : "تغيير الحالة",
     "are_you_sure_you_want_to_change_this_order_status" : "هل أنت متأكد أنك تريد تغيير حالة هذا الطلب؟",
-    "warning" : "تحذير",
     "this_is_current_status_of_the_order" : "هذه هي حالة الطلب الحالية",
     "click_to_change_status" : "اضغط علي الحالة لتغييرها",
     "aramex_number" : "رقم شحنة آرامكس",
@@ -109,5 +110,7 @@
     "failed_to_sign_out" : "فشل تسجيل الخروج",
     "perrmission_not_granted" : "الاذن غير ممنوح",
     "perrmission_granted" : "الاذن ممنوح",
-    "time_ago" : "منذ"
+    "time_ago" : "منذ",
+    "number_of_products" : "عدد المنتجات",
+    "successfully_copied" : "تم النسخ بنجاح"
 }

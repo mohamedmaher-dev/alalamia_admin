@@ -32,7 +32,6 @@ void Function(BuildContext, InvoiceState) inVoiceListener = (
         ),
     showFailure:
         () => AppSnackBar.show(
-          context,
           msg: language.failure_to_make_invoice,
           type: ContentType.failure,
         ),
@@ -40,14 +39,12 @@ void Function(BuildContext, InvoiceState) inVoiceListener = (
     saveSuccess: () {
       AppRouter.pop();
       AppSnackBar.show(
-        context,
         msg: language.invoice_saved_successfully,
         type: ContentType.success,
       );
     },
     saveFailure:
         () => AppSnackBar.show(
-          context,
           msg: language.failure_to_save_invoice,
           type: ContentType.failure,
         ),

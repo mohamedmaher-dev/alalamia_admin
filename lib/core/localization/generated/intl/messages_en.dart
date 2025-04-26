@@ -103,9 +103,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No more orders"),
         "no_orders_found":
             MessageLookupByLibrary.simpleMessage("No orders found"),
+        "notification": MessageLookupByLibrary.simpleMessage("Notification"),
         "notification_sent_successfully": MessageLookupByLibrary.simpleMessage(
             "Notification sent successfully"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "number_of_products":
+            MessageLookupByLibrary.simpleMessage("Number of products"),
         "order": MessageLookupByLibrary.simpleMessage("Order"),
         "order_date": MessageLookupByLibrary.simpleMessage("Order date"),
         "order_details": MessageLookupByLibrary.simpleMessage("Order details"),
@@ -165,6 +168,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "status_preparing": MessageLookupByLibrary.simpleMessage("Preparing"),
         "status_review": MessageLookupByLibrary.simpleMessage("Under Review"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
+        "successfully_copied":
+            MessageLookupByLibrary.simpleMessage("Successfully copied"),
         "the_cart": MessageLookupByLibrary.simpleMessage("The cart"),
         "this_is_current_status_of_the_order":
             MessageLookupByLibrary.simpleMessage(

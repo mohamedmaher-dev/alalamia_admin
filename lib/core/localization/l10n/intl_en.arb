@@ -7,6 +7,8 @@
     "sign_in" : "Sign in",
     "success" : "Success",
     "failure" : "Failure",
+    "warning" : "Warning",
+    "notification" : "Notification",
     "you_cannot_leave_the_email_empty" : "You cannot leave the email empty",
     "enter_a_valid_email" : "Enter a valid email",
     "you_cannot_leave_the_password_empty" : "You cannot leave the password empty",
@@ -85,7 +87,6 @@
     "unit" : "Unit",
     "change_status" : "Change status",
     "are_you_sure_you_want_to_change_this_order_status" : "Are you sure you want to change this order status?",
-    "warning" : "Warning",
     "this_is_current_status_of_the_order" : "This is current status of the order",
     "click_to_change_status" : "Click on status to change it",
     "aramex_number" : "Aramex number",
@@ -109,5 +110,7 @@
     "failed_to_sign_out" : "Failed to sign out",
     "perrmission_not_granted" : "Permission not granted",
     "perrmission_granted" : "Permission granted",
-    "time_ago" : "Time ago"
+    "time_ago" : "Time ago",
+    "number_of_products" : "Number of products",
+    "successfully_copied" : "Successfully copied"
 }

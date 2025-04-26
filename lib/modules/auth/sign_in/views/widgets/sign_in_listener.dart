@@ -9,11 +9,9 @@ void Function(BuildContext, SignInState) _listener = (
   state.whenOrNull(
     loading: PopLoading.show,
     failure:
-        (final e) =>
-            AppSnackBar.show(context, msg: e.msg, type: ContentType.failure),
+        (final e) => AppSnackBar.show(msg: e.msg, type: ContentType.failure),
     success: () {
       AppSnackBar.show(
-        context,
         msg: language.you_have_logged_in_successfully,
         type: ContentType.success,
       );

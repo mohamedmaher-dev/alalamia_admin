@@ -1,3 +1,4 @@
+import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/localization/generated/l10n.dart';
 import 'package:alalamia_admin/core/router/app_router.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
@@ -20,6 +21,17 @@ part 'widgets/sign_in_listener.dart';
 class SignInView extends StatelessWidget {
   const SignInView({super.key});
 
+  @override
+  Widget build(final BuildContext context) => BlocProvider(
+    create: (final context) => di<SignInCubit>(),
+    child: const _SignIn(),
+  );
+}
+
+class _SignIn extends StatelessWidget {
+  const _SignIn();
+
+  @override
   @override
   Widget build(final BuildContext context) {
     final Language language = Language.of(context);

@@ -7,6 +7,7 @@ import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/widgets/empty_view.dart';
 import 'package:alalamia_admin/core/widgets/error_view.dart';
+import 'package:alalamia_admin/core/widgets/user_avatar_body.dart';
 import 'package:alalamia_admin/modules/orders/controllers/orders/orders_cubit.dart';
 import 'package:alalamia_admin/modules/orders/controllers/orders_search/orders_search_cubit.dart';
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/datum.dart';
@@ -14,7 +15,6 @@ import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_initicon/flutter_initicon.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:jiffy/jiffy.dart';

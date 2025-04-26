@@ -16,7 +16,6 @@ void Function(BuildContext, OrderStatusState) orderStatusListener = (
     success: () {
       AppRouter.pop();
       AppSnackBar.show(
-        context,
         msg: language.order_status_change_successfully,
         type: ContentType.success,
       );
@@ -32,14 +31,12 @@ void Function(BuildContext, OrderStatusState) orderStatusListener = (
     failure: () {
       AppRouter.pop();
       AppSnackBar.show(
-        context,
         msg: language.order_status_change_successfully,
         type: ContentType.success,
       );
     },
     cantChange: () {
       AppSnackBar.show(
-        context,
         msg: language.this_is_current_status_of_the_order,
         type: ContentType.warning,
       );

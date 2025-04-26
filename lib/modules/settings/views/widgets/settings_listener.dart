@@ -8,7 +8,6 @@ void Function(BuildContext, SettingsState) _listener = (
   state.whenOrNull(
     loading: () => PopLoading.show(),
     failure:
-        (final e) =>
-            AppSnackBar.show(context, msg: e.msg, type: ContentType.failure),
+        (final e) => AppSnackBar.show(msg: e.msg, type: ContentType.failure),
   );
 };

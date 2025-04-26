@@ -1,6 +1,8 @@
+import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/router/app_router.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/utils/assets_manger.dart';
+import 'package:alalamia_admin/modules/auth/sign_in/controllers/sign_in_cubit/sign_in_cubit.dart';
 import 'package:alalamia_admin/modules/splash/controllers/splash/splash_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,7 +20,6 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    BlocProvider.of<SplashCubit>(context).start();
     SystemChrome.setEnabledSystemUIMode(
       SystemUiMode.manual,
       overlays: [SystemUiOverlay.bottom],
@@ -35,6 +36,18 @@ class _SplashViewState extends State<SplashView> {
     super.dispose();
   }
 
+  @override
+  Widget build(final BuildContext context) => MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (final context) => di<SignInCubit>()),
+      BlocProvider(create: (final context) => di<SplashCubit>()..start()),
+    ],
+    child: const _SplashView(),
+  );
+}
+
+class _SplashView extends StatelessWidget {
+  const _SplashView();
   @override
   Widget build(final BuildContext context) =>
       BlocListener<SplashCubit, SplashState>(

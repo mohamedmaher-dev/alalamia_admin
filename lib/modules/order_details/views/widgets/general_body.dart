@@ -6,6 +6,7 @@ class _GeneralBody extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     final args = Provider.of<OrdersDatum>(context);
+    final orderDetails = Provider.of<OrdersDetailsResponseModel>(context);
     final language = Language.of(context);
     return SingleChildScrollView(
       child: Column(
@@ -19,7 +20,7 @@ class _GeneralBody extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  leading: const Icon(CupertinoIcons.person),
+                  leading: UserAvatarBody(userName: args.userName),
                   title: Text(args.userName),
                   subtitle: Text(language.client_name),
                 ),
@@ -50,31 +51,35 @@ class _GeneralBody extends StatelessWidget {
                   orderStatus: args.status,
                   orderId: args.id.toString(),
                 ),
-                if (args.status != OrderStatus.canceled)
-                  Container(
-                    padding: EdgeInsets.all(kNormalPadding),
-                    decoration: BoxDecoration(
-                      color: ColorManger.scaffoldColor,
-                      borderRadius: BorderRadius.circular(kNormalRadius),
-                    ),
-                    child: Text(
-                      language.click_to_change_status,
-                      style: TextStyles.ts10N.copyWith(color: Colors.grey),
-                    ),
-                  ),
                 const Divider(),
-                ListTile(
-                  leading: const Icon(CupertinoIcons.number),
-                  title: Text(args.requestNumber),
-                  subtitle: Text(language.order_number),
-                  trailing: IconButton(
-                    onPressed: () async {
-                      await Clipboard.setData(
-                        ClipboardData(text: args.requestNumber),
-                      );
-                    },
-                    icon: const Icon(Icons.copy),
-                  ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ListTile(
+                        leading: const Icon(CupertinoIcons.number),
+                        title: Text(args.requestNumber),
+                        subtitle: Text(language.order_number),
+                        onLongPress: () async {
+                          await Clipboard.setData(
+                            ClipboardData(text: args.requestNumber),
+                          );
+                          AppSnackBar.show(
+                            msg: language.successfully_copied,
+                            type: ContentType.success,
+                          );
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      child: ListTile(
+                        leading: const Icon(CupertinoIcons.cube_box_fill),
+                        title: Text(
+                          '${orderDetails.cartDetail!.length} ${language.product}',
+                        ),
+                        subtitle: Text(language.number_of_products),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

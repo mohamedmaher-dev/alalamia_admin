@@ -130,6 +130,26 @@ class Language {
     );
   }
 
+  /// `تحذير`
+  String get warning {
+    return Intl.message(
+      'تحذير',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تنبيه`
+  String get notification {
+    return Intl.message(
+      'تنبيه',
+      name: 'notification',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `لا يمكن ترك البريد الالكتروني فارغ`
   String get you_cannot_leave_the_email_empty {
     return Intl.message(
@@ -910,16 +930,6 @@ class Language {
     );
   }
 
-  /// `تحذير`
-  String get warning {
-    return Intl.message(
-      'تحذير',
-      name: 'warning',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `هذه هي حالة الطلب الحالية`
   String get this_is_current_status_of_the_order {
     return Intl.message(
@@ -1155,6 +1165,26 @@ class Language {
     return Intl.message(
       'منذ',
       name: 'time_ago',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عدد المنتجات`
+  String get number_of_products {
+    return Intl.message(
+      'عدد المنتجات',
+      name: 'number_of_products',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم النسخ بنجاح`
+  String get successfully_copied {
+    return Intl.message(
+      'تم النسخ بنجاح',
+      name: 'successfully_copied',
       desc: '',
       args: [],
     );
