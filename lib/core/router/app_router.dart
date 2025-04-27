@@ -10,8 +10,8 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: MainRoute.page,
       children: [
-        AutoRoute(page: StatisticsRoute.page, maintainState: false),
-        AutoRoute(page: OrdersRoute.page, maintainState: false, initial: true),
+        AutoRoute(page: StatisticsRoute.page),
+        AutoRoute(page: OrdersRoute.page, initial: true),
         AutoRoute(page: SettingsRoute.page),
       ],
     ),

@@ -47,11 +47,11 @@ class StatisticsCubit extends Cubit<StatisticsState> {
         },
         failure: (final error) {
           isLastPage = true;
-          emit(const StatisticsState.failure());
+          if (!isClosed) emit(const StatisticsState.failure());
         },
       );
     }
-    if (orders.isNotEmpty) {
+    if (orders.isNotEmpty && !isClosed) {
       emit(
         StatisticsState.success(
           orders: orders.length,
@@ -94,7 +94,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
         ),
       );
     } else {
-      emit(const StatisticsState.failure());
+      if (!isClosed) emit(const StatisticsState.failure());
     }
   }
 }

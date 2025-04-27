@@ -71,19 +71,22 @@ class _DataItemOrderItem extends StatelessWidget {
   final Widget icon;
 
   @override
-  Widget build(final BuildContext context) => ListTile(
-    dense: true,
-    leading: Container(
-      padding: EdgeInsets.all(kNormalPadding),
-      decoration: BoxDecoration(
-        color: ColorManger.scaffoldColor,
-        borderRadius: BorderRadius.circular(kNormalRadius),
+  Widget build(final BuildContext context) {
+    final theme = Theme.of(context);
+    return ListTile(
+      dense: true,
+      leading: Container(
+        padding: EdgeInsets.all(kNormalPadding),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface,
+          borderRadius: BorderRadius.circular(kNormalRadius),
+        ),
+        child: icon,
       ),
-      child: icon,
-    ),
-    title: Text(title, style: TextStyles.tsP12B),
-    subtitle: Text(subTitle),
-  );
+      title: Text(title, style: TextStyles.tsP12B),
+      subtitle: Text(subTitle),
+    );
+  }
 }
 
 class _RowDataItemOrderItem extends StatelessWidget {

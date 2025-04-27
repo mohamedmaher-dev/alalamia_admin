@@ -14,7 +14,7 @@ class OrdersSearchCubit extends Cubit<OrdersSearchState> {
   void setSearch(String search, final List<OrdersDatum> orders) {
     search = search.trim().toLowerCase();
     if (search.isEmpty) {
-      emit(const OrdersSearchState.disabled());
+      if (!isClosed) emit(const OrdersSearchState.disabled());
     } else {
       final result =
           orders.where((final element) {
@@ -32,15 +32,15 @@ class OrdersSearchCubit extends Cubit<OrdersSearchState> {
           }).toList();
 
       if (result.isEmpty) {
-        emit(const OrdersSearchState.empty());
+        if (!isClosed) emit(const OrdersSearchState.empty());
       } else {
-        emit(OrdersSearchState.enabled(orders: result));
+        if (!isClosed) emit(OrdersSearchState.enabled(orders: result));
       }
     }
   }
 
   void clearSearch() {
     searchController.clear();
-    emit(const OrdersSearchState.disabled());
+    if (!isClosed) emit(const OrdersSearchState.disabled());
   }
 }
