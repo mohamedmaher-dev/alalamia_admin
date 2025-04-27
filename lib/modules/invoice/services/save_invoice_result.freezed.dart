@@ -12,7 +12,8 @@ part of 'save_invoice_result.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$SaveInvoiceResult<T> {
@@ -20,52 +21,50 @@ mixin _$SaveInvoiceResult<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
     required TResult Function(String e) failure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
     TResult? Function(String e)? failure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
     TResult Function(String e)? failure,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Sucess<T> value) success,
     required TResult Function(Failure<T> value) failure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Sucess<T> value)? success,
     TResult? Function(Failure<T> value)? failure,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Sucess<T> value)? success,
     TResult Function(Failure<T> value)? failure,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SaveInvoiceResultCopyWith<T, $Res> {
-  factory $SaveInvoiceResultCopyWith(SaveInvoiceResult<T> value,
-          $Res Function(SaveInvoiceResult<T>) then) =
-      _$SaveInvoiceResultCopyWithImpl<T, $Res, SaveInvoiceResult<T>>;
+  factory $SaveInvoiceResultCopyWith(
+    SaveInvoiceResult<T> value,
+    $Res Function(SaveInvoiceResult<T>) then,
+  ) = _$SaveInvoiceResultCopyWithImpl<T, $Res, SaveInvoiceResult<T>>;
 }
 
 /// @nodoc
-class _$SaveInvoiceResultCopyWithImpl<T, $Res,
-        $Val extends SaveInvoiceResult<T>>
+class _$SaveInvoiceResultCopyWithImpl<
+  T,
+  $Res,
+  $Val extends SaveInvoiceResult<T>
+>
     implements $SaveInvoiceResultCopyWith<T, $Res> {
   _$SaveInvoiceResultCopyWithImpl(this._value, this._then);
 
@@ -81,8 +80,9 @@ class _$SaveInvoiceResultCopyWithImpl<T, $Res,
 /// @nodoc
 abstract class _$$SucessImplCopyWith<T, $Res> {
   factory _$$SucessImplCopyWith(
-          _$SucessImpl<T> value, $Res Function(_$SucessImpl<T>) then) =
-      __$$SucessImplCopyWithImpl<T, $Res>;
+    _$SucessImpl<T> value,
+    $Res Function(_$SucessImpl<T>) then,
+  ) = __$$SucessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data});
 }
@@ -92,22 +92,23 @@ class __$$SucessImplCopyWithImpl<T, $Res>
     extends _$SaveInvoiceResultCopyWithImpl<T, $Res, _$SucessImpl<T>>
     implements _$$SucessImplCopyWith<T, $Res> {
   __$$SucessImplCopyWithImpl(
-      _$SucessImpl<T> _value, $Res Function(_$SucessImpl<T>) _then)
-      : super(_value, _then);
+    _$SucessImpl<T> _value,
+    $Res Function(_$SucessImpl<T>) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SaveInvoiceResult
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$SucessImpl<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
+  $Res call({Object? data = freezed}) {
+    return _then(
+      _$SucessImpl<T>(
+        freezed == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as T,
+      ),
+    );
   }
 }
 
@@ -222,8 +223,9 @@ abstract class Sucess<T> implements SaveInvoiceResult<T> {
 /// @nodoc
 abstract class _$$FailureImplCopyWith<T, $Res> {
   factory _$$FailureImplCopyWith(
-          _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
-      __$$FailureImplCopyWithImpl<T, $Res>;
+    _$FailureImpl<T> value,
+    $Res Function(_$FailureImpl<T>) then,
+  ) = __$$FailureImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String e});
 }
@@ -233,22 +235,23 @@ class __$$FailureImplCopyWithImpl<T, $Res>
     extends _$SaveInvoiceResultCopyWithImpl<T, $Res, _$FailureImpl<T>>
     implements _$$FailureImplCopyWith<T, $Res> {
   __$$FailureImplCopyWithImpl(
-      _$FailureImpl<T> _value, $Res Function(_$FailureImpl<T>) _then)
-      : super(_value, _then);
+    _$FailureImpl<T> _value,
+    $Res Function(_$FailureImpl<T>) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SaveInvoiceResult
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? e = null,
-  }) {
-    return _then(_$FailureImpl<T>(
-      null == e
-          ? _value.e
-          : e // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? e = null}) {
+    return _then(
+      _$FailureImpl<T>(
+        null == e
+            ? _value.e
+            : e // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 

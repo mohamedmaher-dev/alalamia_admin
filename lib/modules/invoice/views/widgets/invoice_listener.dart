@@ -1,23 +1,26 @@
 import 'package:alalamia_admin/core/localization/generated/l10n.dart';
-import 'package:alalamia_admin/core/router/app_router.dart';
 import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:alalamia_admin/core/widgets/pop_loading.dart';
 import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-void Function(BuildContext, InvoiceState) inVoiceListener = (context, state) {
+void Function(BuildContext, InvoiceState) inVoiceListener = (
+  final context,
+  final state,
+) {
   final language = Language.of(context);
   PopLoading.dismiss();
   state.whenOrNull(
     showLoading: () => PopLoading.show(),
     showSuccess:
-        (pdfData, cubit, order) => showModalBottomSheet(
+        (final pdfData, final cubit, final order) => showModalBottomSheet(
           showDragHandle: false,
           backgroundColor: Colors.transparent,
           context: context,
           builder:
-              (context) => Scaffold(
+              (final context) => Scaffold(
                 body: SfPdfViewer.memory(pdfData),
                 floatingActionButton: FloatingActionButton(
                   onPressed: () async {
@@ -29,22 +32,19 @@ void Function(BuildContext, InvoiceState) inVoiceListener = (context, state) {
         ),
     showFailure:
         () => AppSnackBar.show(
-          context,
           msg: language.failure_to_make_invoice,
           type: ContentType.failure,
         ),
     saveLoading: () => PopLoading.show(),
     saveSuccess: () {
-      AppRouter.pop();
+      context.router.pop();
       AppSnackBar.show(
-        context,
         msg: language.invoice_saved_successfully,
         type: ContentType.success,
       );
     },
     saveFailure:
         () => AppSnackBar.show(
-          context,
           msg: language.failure_to_save_invoice,
           type: ContentType.failure,
         ),

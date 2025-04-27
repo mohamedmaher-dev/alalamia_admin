@@ -12,7 +12,8 @@ part of 'splash_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$SplashState {
@@ -22,16 +23,14 @@ mixin _$SplashState {
     required TResult Function() noCredential,
     required TResult Function() successToLogin,
     required TResult Function() failedToLogin,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? noCredential,
     TResult? Function()? successToLogin,
     TResult? Function()? failedToLogin,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -39,24 +38,21 @@ mixin _$SplashState {
     TResult Function()? successToLogin,
     TResult Function()? failedToLogin,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_NoCredential value) noCredential,
     required TResult Function(_SuccessToLogin value) successToLogin,
     required TResult Function(_FailedToLogin value) failedToLogin,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_NoCredential value)? noCredential,
     TResult? Function(_SuccessToLogin value)? successToLogin,
     TResult? Function(_FailedToLogin value)? failedToLogin,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -64,15 +60,15 @@ mixin _$SplashState {
     TResult Function(_SuccessToLogin value)? successToLogin,
     TResult Function(_FailedToLogin value)? failedToLogin,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SplashStateCopyWith<$Res> {
   factory $SplashStateCopyWith(
-          SplashState value, $Res Function(SplashState) then) =
-      _$SplashStateCopyWithImpl<$Res, SplashState>;
+    SplashState value,
+    $Res Function(SplashState) then,
+  ) = _$SplashStateCopyWithImpl<$Res, SplashState>;
 }
 
 /// @nodoc
@@ -92,8 +88,9 @@ class _$SplashStateCopyWithImpl<$Res, $Val extends SplashState>
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -101,8 +98,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$SplashStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SplashState
   /// with the given fields replaced by the non-null parameter values.
@@ -209,8 +207,9 @@ abstract class _Initial implements SplashState {
 /// @nodoc
 abstract class _$$NoCredentialImplCopyWith<$Res> {
   factory _$$NoCredentialImplCopyWith(
-          _$NoCredentialImpl value, $Res Function(_$NoCredentialImpl) then) =
-      __$$NoCredentialImplCopyWithImpl<$Res>;
+    _$NoCredentialImpl value,
+    $Res Function(_$NoCredentialImpl) then,
+  ) = __$$NoCredentialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -218,8 +217,9 @@ class __$$NoCredentialImplCopyWithImpl<$Res>
     extends _$SplashStateCopyWithImpl<$Res, _$NoCredentialImpl>
     implements _$$NoCredentialImplCopyWith<$Res> {
   __$$NoCredentialImplCopyWithImpl(
-      _$NoCredentialImpl _value, $Res Function(_$NoCredentialImpl) _then)
-      : super(_value, _then);
+    _$NoCredentialImpl _value,
+    $Res Function(_$NoCredentialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SplashState
   /// with the given fields replaced by the non-null parameter values.
@@ -325,9 +325,10 @@ abstract class _NoCredential implements SplashState {
 
 /// @nodoc
 abstract class _$$SuccessToLoginImplCopyWith<$Res> {
-  factory _$$SuccessToLoginImplCopyWith(_$SuccessToLoginImpl value,
-          $Res Function(_$SuccessToLoginImpl) then) =
-      __$$SuccessToLoginImplCopyWithImpl<$Res>;
+  factory _$$SuccessToLoginImplCopyWith(
+    _$SuccessToLoginImpl value,
+    $Res Function(_$SuccessToLoginImpl) then,
+  ) = __$$SuccessToLoginImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -335,8 +336,9 @@ class __$$SuccessToLoginImplCopyWithImpl<$Res>
     extends _$SplashStateCopyWithImpl<$Res, _$SuccessToLoginImpl>
     implements _$$SuccessToLoginImplCopyWith<$Res> {
   __$$SuccessToLoginImplCopyWithImpl(
-      _$SuccessToLoginImpl _value, $Res Function(_$SuccessToLoginImpl) _then)
-      : super(_value, _then);
+    _$SuccessToLoginImpl _value,
+    $Res Function(_$SuccessToLoginImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SplashState
   /// with the given fields replaced by the non-null parameter values.
@@ -443,8 +445,9 @@ abstract class _SuccessToLogin implements SplashState {
 /// @nodoc
 abstract class _$$FailedToLoginImplCopyWith<$Res> {
   factory _$$FailedToLoginImplCopyWith(
-          _$FailedToLoginImpl value, $Res Function(_$FailedToLoginImpl) then) =
-      __$$FailedToLoginImplCopyWithImpl<$Res>;
+    _$FailedToLoginImpl value,
+    $Res Function(_$FailedToLoginImpl) then,
+  ) = __$$FailedToLoginImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -452,8 +455,9 @@ class __$$FailedToLoginImplCopyWithImpl<$Res>
     extends _$SplashStateCopyWithImpl<$Res, _$FailedToLoginImpl>
     implements _$$FailedToLoginImplCopyWith<$Res> {
   __$$FailedToLoginImplCopyWithImpl(
-      _$FailedToLoginImpl _value, $Res Function(_$FailedToLoginImpl) _then)
-      : super(_value, _then);
+    _$FailedToLoginImpl _value,
+    $Res Function(_$FailedToLoginImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SplashState
   /// with the given fields replaced by the non-null parameter values.

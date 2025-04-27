@@ -1,29 +1,30 @@
 import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/di/di.dart';
+import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
+import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:alalamia_admin/core/widgets/pop_confirm.dart';
 import 'package:alalamia_admin/core/widgets/pop_loading.dart';
 import 'package:alalamia_admin/modules/settings/views/controllers/settings/settings_cubit.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/localization/generated/l10n.dart';
 part 'widgets/settings_general_body_view.dart';
 part 'widgets/settings_profile_body.dart';
 part 'widgets/settings_listener.dart';
 
+@RoutePage()
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => di<SettingsCubit>(),
-      child: const _SettingsBody(),
-    );
-  }
+  Widget build(final BuildContext context) => BlocProvider(
+    create: (final context) => di<SettingsCubit>(),
+    child: const _SettingsBody(),
+  );
 }
 
 class _SettingsBody extends StatefulWidget {
@@ -35,15 +36,15 @@ class _SettingsBody extends StatefulWidget {
 
 class _SettingsBodyState extends State<_SettingsBody> {
   @override
-  Widget build(BuildContext context) {
-    return BlocListener<SettingsCubit, SettingsState>(
-      listener: _listener,
-      child: Scaffold(
-        body: ListView(
-          padding: EdgeInsets.all(10.w),
-          children: [_SettingsGeneralBodyView(), _SettingsProfileBody()],
+  Widget build(final BuildContext context) =>
+      BlocListener<SettingsCubit, SettingsState>(
+        listener: _listener,
+        child: const Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              children: [_SettingsGeneralBodyView(), _SettingsProfileBody()],
+            ),
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

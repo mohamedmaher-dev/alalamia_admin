@@ -11,12 +11,12 @@ class OrderDetailsRebo {
 
   OrderDetailsRebo(this.apiService);
   Future<DataResult<OrdersDetailsResponseModel>> getOrderDetails(
-    String orderId,
+    final String orderId,
   ) async => apiTryCatch(apiCall: apiService.orderDetails(orderId));
 
   Future<DataResult<void>> changeOrderStatus(
-    String orderId,
-    OrderStatus orderStatus,
+    final String orderId,
+    final OrderStatus orderStatus,
   ) async => apiTryCatch(
     apiCall: apiService.changeOrderStatus(
       orderId,

@@ -11,36 +11,48 @@ class _OrderItemBody extends StatelessWidget {
   final bool isLoading;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
+    final theme = Theme.of(context);
     final cubit = context.read<OrdersCubit>();
     final language = Language.of(context);
-    return GestureDetector(
-      onTap: () async {
-        await AppRouter.push(AppPages.orderDetails, extra: model);
-        cubit.pagingController.refresh();
-      },
-      child: Skeletonizer(
-        enabled: isLoading,
-        child: Card(
-          child: Column(
-            children: [
-              ExpansionTile(
-                trailing: Icon(CupertinoIcons.chevron_down),
-                tilePadding: EdgeInsetsDirectional.only(end: kLargePadding),
-                controlAffinity: ListTileControlAffinity.trailing,
-                title: _ClientTitleBody(model: model),
-                children: <Widget>[_ExpandedBody(model: model)],
-              ),
-              _RowDataItemOrderItem(
-                icon1: Icon(CupertinoIcons.phone),
-                title1: model.phone,
-                subTitle1: language.client_number,
-                icon2: Icon(CupertinoIcons.number),
-                title2: model.requestNumber,
-                subTitle2: language.order_number,
-              ),
-              _StatusBody(model: model),
-            ],
+    return Provider(
+      create: (final context) => model,
+      child: GestureDetector(
+        onTap: () async {
+          await context.router.push(OrderDetailsRoute(args: model));
+          cubit.pagingController.refresh();
+        },
+        child: Skeletonizer(
+          enabled: isLoading,
+          child: Card(
+            child: Column(
+              children: [
+                ExpansionTile(
+                  initiallyExpanded: index == 0,
+                  trailing: Container(
+                    padding: EdgeInsets.all(kNormalPadding),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(kNormalRadius),
+                    ),
+                    child: const Icon(CupertinoIcons.chevron_down),
+                  ),
+                  tilePadding: EdgeInsetsDirectional.only(end: kLargePadding),
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  title: const _ClientTitleBody(),
+                  children: const <Widget>[_ExpandedBody()],
+                ),
+                _RowDataItemOrderItem(
+                  icon1: const Icon(CupertinoIcons.phone),
+                  title1: model.phone,
+                  subTitle1: language.client_number,
+                  icon2: const Icon(CupertinoIcons.number),
+                  title2: model.requestNumber,
+                  subTitle2: language.order_number,
+                ),
+                const _StatusBody(),
+              ],
+            ),
           ),
         ),
       ),
@@ -50,7 +62,6 @@ class _OrderItemBody extends StatelessWidget {
 
 class _DataItemOrderItem extends StatelessWidget {
   const _DataItemOrderItem({
-    super.key,
     required this.title,
     required this.subTitle,
     required this.icon,
@@ -60,10 +71,18 @@ class _DataItemOrderItem extends StatelessWidget {
   final Widget icon;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
+    final theme = Theme.of(context);
     return ListTile(
       dense: true,
-      leading: icon,
+      leading: Container(
+        padding: EdgeInsets.all(kNormalPadding),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface,
+          borderRadius: BorderRadius.circular(kNormalRadius),
+        ),
+        child: icon,
+      ),
       title: Text(title, style: TextStyles.tsP12B),
       subtitle: Text(subTitle),
     );
@@ -72,7 +91,6 @@ class _DataItemOrderItem extends StatelessWidget {
 
 class _RowDataItemOrderItem extends StatelessWidget {
   const _RowDataItemOrderItem({
-    super.key,
     required this.title1,
     required this.subTitle1,
     required this.icon1,
@@ -88,53 +106,51 @@ class _RowDataItemOrderItem extends StatelessWidget {
   final Widget icon2;
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: _DataItemOrderItem(
-            title: title1,
-            subTitle: subTitle1,
-            icon: icon1,
-          ),
+  Widget build(final BuildContext context) => Row(
+    children: [
+      Expanded(
+        child: _DataItemOrderItem(
+          title: title1,
+          subTitle: subTitle1,
+          icon: icon1,
         ),
-        Expanded(
-          child: _DataItemOrderItem(
-            title: title2,
-            subTitle: subTitle2,
-            icon: icon2,
-          ),
+      ),
+      Expanded(
+        child: _DataItemOrderItem(
+          title: title2,
+          subTitle: subTitle2,
+          icon: icon2,
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
 }
 
 class _ExpandedBody extends StatelessWidget {
-  const _ExpandedBody({required this.model});
-  final OrdersDatum model;
+  const _ExpandedBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
+    final model = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     return Column(
       children: [
         _RowDataItemOrderItem(
           title1: model.paymentType.paymentTypeText,
           subTitle1: language.payment_type,
-          icon1: Icon(CupertinoIcons.money_dollar_circle),
+          icon1: const Icon(CupertinoIcons.money_dollar_circle),
 
           title2: Jiffy.parseFromDateTime(
             DateTime.parse(model.bookingDate).toUtc(),
           ).from(Jiffy.parseFromDateTime(DateTime.now().toUtc())),
           subTitle2: language.time_ago,
-          icon2: Icon(CupertinoIcons.clock),
+          icon2: const Icon(CupertinoIcons.clock),
         ),
 
         _DataItemOrderItem(
           title: Jiffy.parse(model.bookingDate).yMMMMEEEEdjm,
           subTitle: language.order_date,
-          icon: Icon(CupertinoIcons.calendar),
+          icon: const Icon(CupertinoIcons.calendar),
         ), // Add more widgets here as needed
       ],
     );
@@ -142,57 +158,44 @@ class _ExpandedBody extends StatelessWidget {
 }
 
 class _StatusBody extends StatelessWidget {
-  const _StatusBody({super.key, required this.model});
-  final OrdersDatum model;
+  const _StatusBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
+    final model = Provider.of<OrdersDatum>(context);
     return Container(
       width: double.infinity,
       alignment: Alignment.center,
       padding: EdgeInsets.all(kNormalPadding),
-      margin: EdgeInsets.all(kNormalMargin),
       decoration: BoxDecoration(
         color: model.status.orderStatusColor,
-        borderRadius: BorderRadius.circular(kNormalRadius),
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(kNormalRadius),
+        ),
       ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Text(
-              textAlign: TextAlign.center,
-              model.status.orderStatusText,
-              style: TextStyles.ts12B.copyWith(color: Colors.black),
-            ),
-          ),
-          Icon(CupertinoIcons.chevron_left_circle, color: Colors.black),
-        ],
+      child: Text(
+        textAlign: TextAlign.center,
+        model.status.orderStatusText,
+        style: TextStyles.ts12B.copyWith(color: Colors.black),
       ),
     );
   }
 }
 
 class _ClientTitleBody extends StatelessWidget {
-  const _ClientTitleBody({super.key, required this.model});
-  final OrdersDatum model;
+  const _ClientTitleBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
+    final model = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
-    return _DataItemOrderItem(
-      title: model.userName,
-      subTitle: language.client_name,
-      icon: Initicon(
-        size: 35.r,
-        text: model.userName,
-        backgroundColor: ColorManger.myGold,
-        borderRadius: BorderRadius.circular(kNormalRadius),
-        style: TextStyle(
-          fontFamily: AppThemeData.fontFamily,
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-        ),
+    return ListTile(
+      title: Text(model.userName, style: TextStyles.tsP12B),
+      subtitle: Text(
+        language.client_name,
+        style: const TextStyle(color: Colors.grey),
       ),
+      leading: UserAvatarBody(userName: model.userName),
     );
   }
 }

@@ -1,15 +1,14 @@
 part of '../one_order_view.dart';
 
 class _BottomBody extends StatelessWidget {
-  const _BottomBody(this.orderDetails, this.args);
-  final OrdersDetailsResponseModel orderDetails;
-  final OrdersDatum args;
+  const _BottomBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
+    final args = Provider.of<OrdersDatum>(context);
+    final orderDetails = Provider.of<OrdersDetailsResponseModel>(context);
     final language = Language.of(context);
     final cubit = context.read<InvoiceCubit>();
-    final orderStatusCubit = context.read<OrderStatusCubit>();
     return BlocListener<InvoiceCubit, InvoiceState>(
       listener: inVoiceListener,
       child: Column(
@@ -25,28 +24,42 @@ class _BottomBody extends StatelessWidget {
             ),
             subtitle: Text(language.total_price),
             trailing: IconButton.outlined(
+              style: IconButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(kNormalRadius),
+                  ),
+                ),
+              ),
               onPressed: () => cubit.show(orderDetails, args),
               icon: const Icon(CupertinoIcons.doc),
             ),
           ),
-          _buildApprovedAndRejectButtons(language, orderStatusCubit, context),
+          const _ApprovedAndRejectButtons(),
         ],
       ),
     );
   }
+}
 
-  Widget _buildApprovedAndRejectButtons(
-    Language language,
-    OrderStatusCubit orderStatusCubit,
-    BuildContext context,
-  ) {
+class _ApprovedAndRejectButtons extends StatelessWidget {
+  const _ApprovedAndRejectButtons();
+
+  @override
+  Widget build(final BuildContext context) {
+    final args = Provider.of<OrdersDatum>(context);
+    final language = Language.of(context);
+    final orderStatusCubit = context.read<OrderStatusCubit>();
+
     return Column(
       children: [
         const Divider(),
         Padding(
           padding: EdgeInsets.all(kNormalPadding),
           child: BlocListener<OrderStatusCubit, OrderStatusState>(
-            listener: (context, state) => orderStatusListener(context, state),
+            listener:
+                (final context, final state) =>
+                    orderStatusListener(context, state),
             child: Row(
               children: [
                 if (args.status == OrderStatus.requested ||
@@ -100,18 +113,18 @@ class _BottomBody extends StatelessWidget {
       ],
     );
   }
+}
 
-  void _showConfirmationDialog(
-    BuildContext context,
-    String title,
-    String subtitle,
-    VoidCallback onConfirmed,
-  ) {
-    showChangerPopUpConfirm(
-      context: context,
-      title: title,
-      subtitle: subtitle,
-      onPressed: onConfirmed,
-    );
-  }
+void _showConfirmationDialog(
+  final BuildContext context,
+  final String title,
+  final String subtitle,
+  final VoidCallback onConfirmed,
+) {
+  showChangerPopUpConfirm(
+    context: context,
+    title: title,
+    subtitle: subtitle,
+    onPressed: onConfirmed,
+  );
 }

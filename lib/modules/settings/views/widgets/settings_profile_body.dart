@@ -1,12 +1,14 @@
 part of '../settings_view.dart';
 
 class _SettingsProfileBody extends StatelessWidget {
-  const _SettingsProfileBody({super.key});
+  const _SettingsProfileBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
+    final userCredential = di<LocalStorageService>().userCredential!;
     final settingsCubit = context.read<SettingsCubit>();
     final language = Language.of(context);
+    final theme = Theme.of(context);
     return Column(
       children: [
         ListTile(title: Text(language.my_profile, style: TextStyles.ts15B)),
@@ -15,17 +17,25 @@ class _SettingsProfileBody extends StatelessWidget {
             children: [
               ListTile(
                 title: Text(language.my_profile),
-                leading: const Icon(CupertinoIcons.person),
-                trailing: ElevatedButton(
-                  style: const ButtonStyle(
-                    elevation: WidgetStatePropertyAll(0),
+                subtitle: Text(userCredential.email),
+                leading: const Icon(CupertinoIcons.person_fill),
+                trailing: TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(
+                      theme.scaffoldBackgroundColor,
+                    ),
+                    shape: WidgetStatePropertyAll(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(kNormalRadius),
+                      ),
+                    ),
                   ),
                   onPressed: () async {
                     showChangerPopUpConfirm(
                       context: context,
                       title: language.log_out,
                       subtitle: language.are_you_sure_you_want_to_log_out,
-                      onPressed: () => settingsCubit.signOut(),
+                      onPressed: () => settingsCubit.signOut(context),
                     );
                   },
                   child: Text(language.log_out),

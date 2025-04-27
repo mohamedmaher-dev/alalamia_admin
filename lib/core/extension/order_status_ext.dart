@@ -43,7 +43,7 @@ extension OrderStatusExt on OrderStatus {
         return Colors.grey;
       // Approved
       case OrderStatus.received:
-        return Colors.purple;
+        return Colors.purple[300]!;
       // Preparing
       case OrderStatus.repair:
         return Colors.orange;

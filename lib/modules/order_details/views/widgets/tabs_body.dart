@@ -4,42 +4,44 @@ class _TabsBody extends StatelessWidget {
   const _TabsBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final language = Language.of(context);
-    TextStyle getTextStyle(OrderDetailsTabsModel currentTab, tab) {
+    TextStyle getTextStyle(final OrderDetailsTabsModel currentTab, final tab) {
       final activeTextStyle = TextStyles.ts10B.copyWith(color: Colors.black);
       final inactiveTextStyle = TextStyles.ts10B;
       return tab == currentTab ? activeTextStyle : inactiveTextStyle;
     }
 
     return BlocBuilder<OrderDetailsTabCubit, OrderDetailsTabState>(
-      builder: (context, state) {
-        return CupertinoSlidingSegmentedControl<OrderDetailsTabsModel>(
-          thumbColor: ColorManger.myGold,
-          children: {
-            OrderDetailsTabsModel.general: Text(
-              language.general,
-              style: getTextStyle(state.tab, OrderDetailsTabsModel.general),
-            ),
-            OrderDetailsTabsModel.cart: Text(
-              language.cart,
-              style: getTextStyle(state.tab, OrderDetailsTabsModel.cart),
-            ),
-            OrderDetailsTabsModel.address: Text(
-              language.address,
-              style: getTextStyle(state.tab, OrderDetailsTabsModel.address),
-            ),
-            OrderDetailsTabsModel.other: Text(
-              language.other,
-              style: getTextStyle(state.tab, OrderDetailsTabsModel.other),
-            ),
-          },
-          groupValue: state.tab,
-          onValueChanged: (tab) {
-            context.read<OrderDetailsTabCubit>().changeTab(tab!);
-          },
-        );
-      },
+      builder:
+          (
+            final context,
+            final state,
+          ) => CupertinoSlidingSegmentedControl<OrderDetailsTabsModel>(
+            thumbColor: ColorManger.myGold,
+            children: {
+              OrderDetailsTabsModel.general: Text(
+                language.general,
+                style: getTextStyle(state.tab, OrderDetailsTabsModel.general),
+              ),
+              OrderDetailsTabsModel.cart: Text(
+                language.cart,
+                style: getTextStyle(state.tab, OrderDetailsTabsModel.cart),
+              ),
+              OrderDetailsTabsModel.address: Text(
+                language.address,
+                style: getTextStyle(state.tab, OrderDetailsTabsModel.address),
+              ),
+              OrderDetailsTabsModel.other: Text(
+                language.other,
+                style: getTextStyle(state.tab, OrderDetailsTabsModel.other),
+              ),
+            },
+            groupValue: state.tab,
+            onValueChanged: (final tab) {
+              context.read<OrderDetailsTabCubit>().changeTab(tab!);
+            },
+          ),
     );
   }
 }

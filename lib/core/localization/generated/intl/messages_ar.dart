@@ -45,7 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cash": MessageLookupByLibrary.simpleMessage("نقدًا"),
         "change_status": MessageLookupByLibrary.simpleMessage("تغيير الحالة"),
         "click_to_change_status":
-            MessageLookupByLibrary.simpleMessage("- اضغط لتغيير الحالة -"),
+            MessageLookupByLibrary.simpleMessage("اضغط علي الحالة لتغييرها"),
         "client_info": MessageLookupByLibrary.simpleMessage("معلومات العميل"),
         "client_name": MessageLookupByLibrary.simpleMessage("اسم العميل"),
         "client_number": MessageLookupByLibrary.simpleMessage("رقم العميل"),
@@ -100,9 +100,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد طلبات أخرى"),
         "no_orders_found":
             MessageLookupByLibrary.simpleMessage("لا يوجد طلبات"),
+        "notification": MessageLookupByLibrary.simpleMessage("تنبيه"),
         "notification_sent_successfully":
             MessageLookupByLibrary.simpleMessage("تم إرسال الإشعار بنجاح"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "number_of_products":
+            MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
         "order": MessageLookupByLibrary.simpleMessage("طلب"),
         "order_date": MessageLookupByLibrary.simpleMessage("تاريخ الطلب"),
         "order_details": MessageLookupByLibrary.simpleMessage("تفاصيل الطلب"),
@@ -162,6 +165,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "status_preparing": MessageLookupByLibrary.simpleMessage("قيد التجهيز"),
         "status_review": MessageLookupByLibrary.simpleMessage("قيد المراجعة"),
         "success": MessageLookupByLibrary.simpleMessage("نجاح"),
+        "successfully_copied":
+            MessageLookupByLibrary.simpleMessage("تم النسخ بنجاح"),
         "the_cart": MessageLookupByLibrary.simpleMessage("السلة"),
         "this_is_current_status_of_the_order":
             MessageLookupByLibrary.simpleMessage("هذه هي حالة الطلب الحالية"),

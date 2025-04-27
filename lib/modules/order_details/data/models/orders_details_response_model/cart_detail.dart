@@ -28,9 +28,8 @@ class CartDetail {
     this.requestType,
   });
 
-  factory CartDetail.fromJson(Map<String, dynamic> json) {
-    return _$CartDetailFromJson(json);
-  }
+  factory CartDetail.fromJson(final Map<String, dynamic> json) =>
+      _$CartDetailFromJson(json);
 
   Map<String, dynamic> toJson() => _$CartDetailToJson(this);
 }

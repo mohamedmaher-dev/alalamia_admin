@@ -1,6 +1,6 @@
 import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/data/data_result.dart';
-import 'package:alalamia_admin/core/errors/error_interface.dart';
+import 'package:alalamia_admin/core/errors/app_error.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
 import 'package:alalamia_admin/core/local_storage/models/user_credential_model.dart';
 import 'package:alalamia_admin/core/localization/generated/l10n.dart';
@@ -24,24 +24,26 @@ class AuthRebo {
   });
 
   Future<DataResult<SignInResponseModel>> signIn(
-    SignInRequestModel signInRequestModel,
+    final SignInRequestModel signInRequestModel,
   ) async {
     try {
       // Call the API to sign in
       final data = await _signInMethod(signInRequestModel);
       // Change enable notifications
-      await notificationsService.changeEnableNotifications(true);
+      await notificationsService.changeEnableNotifications(isTurnOn: true);
       // Return the result
-      return DataResult.success(data);
+      return DataResult.success(data: data);
     } on DioException catch (e) {
-      return DataResult.error(ApiError.fromDioException(dioException: e));
-    } catch (e) {
-      return DataResult.error(UnknownError());
+      return DataResult.failure(
+        error: ApiError.fromDioException(dioException: e),
+      );
+    } on Exception catch (_) {
+      return DataResult.failure(error: UnknownError());
     }
   }
 
   Future<SignInResponseModel> _signInMethod(
-    SignInRequestModel signInRequestModel,
+    final SignInRequestModel signInRequestModel,
   ) async {
     final data = await apiAuthService.signIn(signInRequestModel);
     // Set the token in DioFactory
@@ -51,21 +53,21 @@ class AuthRebo {
     return data;
   }
 
-  Future<DataResult<SignInResponseModel>> refreshToken(
-    SignInRequestModel signInRequestModel,
-  ) async {
+  Future<DataResult<SignInResponseModel>> refreshToken() async {
     try {
+      final userCredential = localStorageService.userCredential;
+      final signInRequestModel = SignInRequestModel.fromUserCredential(
+        userCredential!,
+      );
       // Call the API to sign in
       final data = await _signInMethod(signInRequestModel);
-      // Change enable notifications
-      await notificationsService.changeEnableNotifications(
-        appConfig.state.turnOnNotification,
-      );
-      return DataResult.success(data);
+      return DataResult.success(data: data);
     } on DioException catch (e) {
-      return DataResult.error(ApiError.fromDioException(dioException: e));
-    } catch (e) {
-      return DataResult.error(UnknownError());
+      return DataResult.failure(
+        error: ApiError.fromDioException(dioException: e),
+      );
+    } on Exception catch (_) {
+      return DataResult.failure(error: UnknownError());
     }
   }
 
@@ -73,14 +75,16 @@ class AuthRebo {
     final language = Language.current;
     try {
       await localStorageService.deleteUserCredential();
-      await notificationsService.changeEnableNotifications(false);
-      return DataResult.success(null);
-    } catch (e) {
-      return DataResult.error(CacheError(msg: language.failed_to_sign_out));
+      await notificationsService.changeEnableNotifications(isTurnOn: false);
+      return const DataResult.success(data: null);
+    } on Exception catch (_) {
+      return DataResult.failure(
+        error: CacheError(msg: language.failed_to_sign_out),
+      );
     }
   }
 
-  Future<void> saveUserCredential(UserCredential userCredential) async {
+  Future<void> saveUserCredential(final UserCredential userCredential) async {
     await localStorageService.saveUserCredential(
       userCredential: userCredential,
     );

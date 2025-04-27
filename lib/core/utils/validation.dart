@@ -2,7 +2,7 @@ import 'package:alalamia_admin/core/localization/generated/l10n.dart';
 
 class FormValidation {
   FormValidation._();
-  static String? validateEmail(String? value) {
+  static String? validateEmail(final String? value) {
     final language = Language();
     if (value!.isEmpty) {
       return language.you_cannot_leave_the_email_empty;
@@ -18,7 +18,7 @@ class FormValidation {
     }
   }
 
-  static String? validatePassword(String? value) {
+  static String? validatePassword(final String? value) {
     final language = Language();
 
     if (value!.trim().isEmpty) {
@@ -32,7 +32,7 @@ class FormValidation {
     }
   }
 
-  static String? validateFcmFields(String? value) {
+  static String? validateFcmFields(final String? value) {
     final language = Language();
     if (value!.trim().isEmpty) {
       return language.you_cannot_leave_this_field_empty;

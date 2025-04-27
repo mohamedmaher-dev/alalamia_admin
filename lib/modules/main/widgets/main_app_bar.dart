@@ -1,12 +1,13 @@
-part of 'home_view.dart';
+part of '../main_view.dart';
 
-class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const _HomeAppBar({required this.currentPage});
-  final HomePages currentPage;
+class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const _MainAppBar({required this.tabsRouter});
+  final TabsRouter tabsRouter;
 
   @override
-  Widget build(BuildContext context) {
-    final userCredential = di<LocalStorageService>().userCredential!;
+  Widget build(final BuildContext context) {
+    final userCredential =
+        di<LocalStorageService>().userCredential ?? UserCredential.empty();
     final countryModel = CountryModel.fromId(userCredential.countryId);
     final language = Language.of(context);
     return AppBar(
@@ -22,10 +23,11 @@ class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                   fit: BoxFit.fill,
                 )
                 : Image.asset(countryModel.imagePath!),
-        title: Text(switch (currentPage) {
-          HomePages.statistics => language.statistics,
-          HomePages.orders => language.orders,
-          HomePages.settings => language.settings,
+        title: Text(switch (tabsRouter.activeIndex) {
+          0 => language.statistics,
+          1 => language.orders,
+          2 => language.settings,
+          int() => throw UnimplementedError(),
         }, style: TextStyles.ts15B),
         subtitle: Text(userCredential.countryName),
       ),

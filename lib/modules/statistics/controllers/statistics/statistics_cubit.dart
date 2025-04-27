@@ -12,7 +12,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
   final StatisticsRebos statisticsRebos;
   final OrdersRebo ordersRebo;
   StatisticsCubit(this.statisticsRebos, this.ordersRebo)
-    : super(StatisticsState.initial());
+    : super(const StatisticsState.initial());
 
   // // Get Normal Orders
   // Future<void> getStatistics() async {
@@ -29,59 +29,72 @@ class StatisticsCubit extends Cubit<StatisticsState> {
   // }
 
   Future<void> getStatistics() async {
+    // ignore: prefer_final_locals
     List<OrdersDatum> orders = [];
-    emit(StatisticsState.loading());
+    emit(const StatisticsState.loading());
     int currentPage = 1;
     bool isLastPage = false;
     while (!isLastPage) {
       final result = await ordersRebo.getOrdersWithApiResult(currentPage);
       result.when(
-        success: (data) {
+        success: (final data) {
           orders.addAll(data.trackingRequests.data);
           currentPage = data.trackingRequests.currentPage;
-          int total = data.trackingRequests.total;
-          int perPage = data.trackingRequests.perPage;
+          final int total = data.trackingRequests.total;
+          final int perPage = data.trackingRequests.perPage;
           isLastPage = (perPage * currentPage) >= total;
           if (!isLastPage) currentPage++;
         },
-        error: (error) {
+        failure: (final error) {
           isLastPage = true;
-          emit(StatisticsState.failure());
+          if (!isClosed) emit(const StatisticsState.failure());
         },
       );
     }
-    if (orders.isNotEmpty) {
+    if (orders.isNotEmpty && !isClosed) {
       emit(
         StatisticsState.success(
           orders: orders.length,
           underReview:
               orders
-                  .where((element) => element.status == OrderStatus.requested)
+                  .where(
+                    (final element) => element.status == OrderStatus.requested,
+                  )
                   .length,
           approved:
               orders
-                  .where((element) => element.status == OrderStatus.received)
+                  .where(
+                    (final element) => element.status == OrderStatus.received,
+                  )
                   .length,
           prepareing:
               orders
-                  .where((element) => element.status == OrderStatus.repair)
+                  .where(
+                    (final element) => element.status == OrderStatus.repair,
+                  )
                   .length,
           onTheWay:
               orders
-                  .where((element) => element.status == OrderStatus.deliver)
+                  .where(
+                    (final element) => element.status == OrderStatus.deliver,
+                  )
                   .length,
           delivered:
               orders
-                  .where((element) => element.status == OrderStatus.delivered)
+                  .where(
+                    (final element) => element.status == OrderStatus.delivered,
+                  )
                   .length,
           cancelled:
               orders
-                  .where((element) => element.status == OrderStatus.canceled)
+                  .where(
+                    (final element) => element.status == OrderStatus.canceled,
+                  )
                   .length,
         ),
       );
     } else {
-      emit(StatisticsState.failure());
+      if (!isClosed) emit(const StatisticsState.failure());
     }
   }
 }

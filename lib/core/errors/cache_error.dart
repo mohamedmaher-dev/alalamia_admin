@@ -1,5 +1,5 @@
-part of 'error_interface.dart';
+part of 'app_error.dart';
 
-class CacheError extends ErrorInterface {
+class CacheError extends AppError {
   CacheError({required super.msg}) : super(code: 0);
 }

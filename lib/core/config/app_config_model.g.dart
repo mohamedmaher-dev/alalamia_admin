@@ -14,9 +14,9 @@ _$AppConfigModelImpl _$$AppConfigModelImplFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$AppConfigModelImplToJson(
-        _$AppConfigModelImpl instance) =>
-    <String, dynamic>{
-      'isDarkMode': instance.isDarkMode,
-      'turnOnNotification': instance.turnOnNotification,
-      'language': instance.language,
-    };
+  _$AppConfigModelImpl instance,
+) => <String, dynamic>{
+  'isDarkMode': instance.isDarkMode,
+  'turnOnNotification': instance.turnOnNotification,
+  'language': instance.language,
+};

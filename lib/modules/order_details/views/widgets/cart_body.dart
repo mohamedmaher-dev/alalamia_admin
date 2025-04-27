@@ -1,36 +1,27 @@
 part of '../one_order_view.dart';
 
 class _CartBody extends StatelessWidget {
-  const _CartBody({required this.cart});
-  final List<CartDetail> cart;
+  const _CartBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
+    final cart = Provider.of<OrdersDetailsResponseModel>(context).cartDetail!;
+
     return Padding(
       padding: EdgeInsets.all(kNormalPadding),
       child: Column(
         spacing: kSpacingBetweenWidgetsHight,
         children: [
-          Table(
-            columnWidths: const {
-              0: FlexColumnWidth(1),
-              1: FlexColumnWidth(1),
-              2: FlexColumnWidth(1),
-              3: FlexColumnWidth(3),
-              4: FlexColumnWidth(1),
-            },
-            children: [_buildTableHeader()],
-          ),
-
+          const _TableHeaderBody(),
           Expanded(
             child: SingleChildScrollView(
               child: Table(
                 columnWidths: const {
-                  0: FlexColumnWidth(1),
-                  1: FlexColumnWidth(1),
-                  2: FlexColumnWidth(1),
-                  3: FlexColumnWidth(3),
-                  4: FlexColumnWidth(1),
+                  0: FlexColumnWidth(3),
+                  1: FlexColumnWidth(),
+                  2: FlexColumnWidth(),
+                  3: FlexColumnWidth(),
+                  4: FlexColumnWidth(),
                 },
                 children: _buildTableRow(cart),
                 border: TableBorder.all(
@@ -46,107 +37,114 @@ class _CartBody extends StatelessWidget {
   }
 }
 
-TableRow _buildTableHeader() {
-  final language = Language.current;
-  return TableRow(
+class _TableHeaderBody extends StatelessWidget {
+  const _TableHeaderBody();
+
+  @override
+  Widget build(final BuildContext context) {
+    final textStyle = TextStyles.ts10B.copyWith(color: Colors.black);
+    final language = Language.current;
+    return Container(
+      padding: EdgeInsets.all(kNormalPadding),
+      decoration: BoxDecoration(
+        color: ColorManger.myGold,
+        borderRadius: BorderRadius.circular(kNormalRadius),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 3,
+            child: Text(
+              language.product_name,
+              style: textStyle,
+              textAlign: TextAlign.center,
+              maxLines: 1,
+            ),
+          ),
+          Expanded(
+            child: Text(
+              language.product_code,
+              style: textStyle,
+              textAlign: TextAlign.center,
+              maxLines: 1,
+            ),
+          ),
+          Expanded(
+            child: Text(
+              language.quantity,
+              style: textStyle,
+              textAlign: TextAlign.center,
+              maxLines: 1,
+            ),
+          ),
+          Expanded(
+            child: Text(
+              language.unit,
+              style: textStyle,
+              textAlign: TextAlign.center,
+              maxLines: 1,
+            ),
+          ),
+          Expanded(
+            child: Text(
+              language.price,
+              style: textStyle,
+              textAlign: TextAlign.center,
+              maxLines: 1,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+List<TableRow> _buildTableRow(final List<CartDetail> cart) => List.generate(
+  cart.length,
+  (final index) => TableRow(
     children: [
       Padding(
-        padding: EdgeInsets.all(kNormalPadding),
+        padding: const EdgeInsets.all(10),
         child: Text(
-          language.quantity,
-          style: TextStyles.ts10B.copyWith(color: Colors.black),
+          cart[index].productAr.nullToString,
           textAlign: TextAlign.center,
-          maxLines: 1,
         ),
       ),
       Padding(
-        padding: EdgeInsets.all(kNormalPadding),
+        padding: const EdgeInsets.all(10),
+        child: Text(cart[index].sku, textAlign: TextAlign.center),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(10),
         child: Text(
-          language.unit,
-          style: TextStyles.ts10B.copyWith(color: Colors.black),
+          _converQuantity(cart[index].quantity.nullToString),
           textAlign: TextAlign.center,
-          maxLines: 1,
         ),
       ),
       Padding(
-        padding: EdgeInsets.all(kNormalPadding),
+        padding: const EdgeInsets.all(10),
         child: Text(
-          language.product_code,
-          style: TextStyles.ts10B.copyWith(color: Colors.black),
+          cart[index].unit!.name.nullToString,
           textAlign: TextAlign.center,
-          maxLines: 1,
         ),
       ),
       Padding(
-        padding: EdgeInsets.all(kNormalPadding),
+        padding: const EdgeInsets.all(10),
         child: Text(
-          language.product_name,
-          style: TextStyles.ts10B.copyWith(color: Colors.black),
-          textAlign: TextAlign.start,
-          maxLines: 1,
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.all(kNormalPadding),
-        child: Text(
-          language.price,
-          style: TextStyles.ts10B.copyWith(color: Colors.black),
+          _converQuantity(cart[index].price.nullToString),
           textAlign: TextAlign.center,
-          maxLines: 1,
         ),
       ),
     ],
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(kNormalRadius),
-      color: ColorManger.myGold,
-    ),
-  );
-}
+  ),
+);
 
-List<TableRow> _buildTableRow(List<CartDetail> cart) {
-  return List.generate(cart.length, (index) {
-    return TableRow(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Text(
-            _converQuantity(cart[index].quantity.nullToString),
-            textAlign: TextAlign.center,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Text(
-            cart[index].unit!.name.nullToString,
-            textAlign: TextAlign.center,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Text(cart[index].sku, textAlign: TextAlign.center),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Text(cart[index].productAr.nullToString),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Text(
-            _converQuantity(cart[index].price.nullToString),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ],
-    );
-  });
-}
-
-String _converQuantity(String quantity) {
-  int? asInt = int.tryParse(quantity);
+String _converQuantity(final String quantity) {
+  final int? asInt = int.tryParse(quantity);
   if (asInt != null) {
     return asInt.toString();
   } else {
-    double asDouble = double.parse(quantity);
+    final double asDouble = double.parse(quantity);
     if (asDouble % 1 == 0) {
       return asDouble.toInt().toString();
     } else {

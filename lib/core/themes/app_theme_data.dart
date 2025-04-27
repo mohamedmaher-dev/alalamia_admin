@@ -15,35 +15,42 @@ class AppThemeData {
     fontFamily: fontFamily,
     expansionTileTheme: _expansionTileThemeData,
     iconButtonTheme: _iconButtonTheme,
-    bottomSheetTheme: BottomSheetThemeData(showDragHandle: true),
+    bottomSheetTheme: const BottomSheetThemeData(showDragHandle: true),
     listTileTheme: ListTileThemeData(
       subtitleTextStyle: TextStyles.ts10N.copyWith(color: Colors.grey),
     ),
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyles.ts12N.copyWith(color: Colors.grey),
     ),
-  );
-
-  static get _pageTransitionsTheme => PageTransitionsTheme(
-    builders: {
-      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-    },
-  );
-
-  static get fontFamily => 'Almarai';
-
-  static get _expansionTileThemeData => ExpansionTileThemeData(
-    collapsedShape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(kNormalRadius),
-    ),
-
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(kNormalRadius),
+    buttonTheme: ButtonThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(kNormalRadius),
+      ),
     ),
   );
 
-  static get _iconButtonTheme => IconButtonThemeData(
+  static PageTransitionsTheme get _pageTransitionsTheme =>
+      const PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        },
+      );
+
+  static const String fontFamily = 'Almarai';
+
+  static ExpansionTileThemeData get _expansionTileThemeData =>
+      ExpansionTileThemeData(
+        collapsedShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kNormalRadius),
+        ),
+
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kNormalRadius),
+        ),
+      );
+
+  static IconButtonThemeData get _iconButtonTheme => IconButtonThemeData(
     style: ButtonStyle(
       shape: WidgetStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(

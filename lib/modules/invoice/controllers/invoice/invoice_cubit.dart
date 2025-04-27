@@ -11,25 +11,31 @@ part 'invoice_cubit.freezed.dart';
 
 class InvoiceCubit extends Cubit<InvoiceState> {
   final InvoiceRebo invoiceRebo = InvoiceRebo();
-  InvoiceCubit() : super(InvoiceState.initial());
-  Future<void> show(OrdersDetailsResponseModel order, OrdersDatum args) async {
-    emit(InvoiceState.showLoading());
+  InvoiceCubit() : super(const InvoiceState.initial());
+  Future<void> show(
+    final OrdersDetailsResponseModel order,
+    final OrdersDatum args,
+  ) async {
+    emit(const InvoiceState.showLoading());
     final result = await invoiceRebo.createPdfData(order, args);
     result.when(
       success:
-          (data) => emit(
+          (final data) => emit(
             InvoiceState.showSuccess(pdfData: data, cubit: this, order: order),
           ),
-      failure: (e) => emit(InvoiceState.showFailure()),
+      failure: (final e) => emit(const InvoiceState.showFailure()),
     );
   }
 
-  Future<void> save(OrdersDetailsResponseModel order, Uint8List pdf) async {
-    emit(InvoiceState.saveLoading());
+  Future<void> save(
+    final OrdersDetailsResponseModel order,
+    final Uint8List pdf,
+  ) async {
+    emit(const InvoiceState.saveLoading());
     final result = await invoiceRebo.saveInvoice(order, pdf);
     result.when(
-      success: (_) => emit(InvoiceState.saveSuccess()),
-      failure: (e) => emit(InvoiceState.saveFailure()),
+      success: (_) => emit(const InvoiceState.saveSuccess()),
+      failure: (final e) => emit(const InvoiceState.saveFailure()),
     );
   }
 }

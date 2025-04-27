@@ -10,14 +10,14 @@ part 'orders_search_cubit.freezed.dart';
 class OrdersSearchCubit extends Cubit<OrdersSearchState> {
   final TextEditingController searchController = TextEditingController();
 
-  OrdersSearchCubit() : super(OrdersSearchState.disabled());
-  setSearch(String search, List<OrdersDatum> orders) {
+  OrdersSearchCubit() : super(const OrdersSearchState.disabled());
+  void setSearch(String search, final List<OrdersDatum> orders) {
     search = search.trim().toLowerCase();
     if (search.isEmpty) {
-      emit(OrdersSearchState.disabled());
+      if (!isClosed) emit(const OrdersSearchState.disabled());
     } else {
       final result =
-          orders.where((element) {
+          orders.where((final element) {
             if (element.userName.trim().toLowerCase().contains(search) ||
                 element.phone.trim().toLowerCase().contains(search) ||
                 element.requestNumber.trim().toLowerCase().contains(search) ||
@@ -32,15 +32,15 @@ class OrdersSearchCubit extends Cubit<OrdersSearchState> {
           }).toList();
 
       if (result.isEmpty) {
-        emit(OrdersSearchState.empty());
+        if (!isClosed) emit(const OrdersSearchState.empty());
       } else {
-        emit(OrdersSearchState.enabled(orders: result));
+        if (!isClosed) emit(OrdersSearchState.enabled(orders: result));
       }
     }
   }
 
   void clearSearch() {
     searchController.clear();
-    emit(OrdersSearchState.disabled());
+    if (!isClosed) emit(const OrdersSearchState.disabled());
   }
 }

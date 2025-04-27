@@ -12,12 +12,14 @@ class OrdersRebo {
     required this.localStorageService,
   });
 
-  Future<OrdersResponseModel> getOrders(int page) {
+  Future<OrdersResponseModel> getOrders(final int page) {
     final userCredential = localStorageService.userCredential!;
     return apiOrdersService.getOrders(page, userCredential.countryId);
   }
 
-  Future<DataResult<OrdersResponseModel>> getOrdersWithApiResult(int page) {
+  Future<DataResult<OrdersResponseModel>> getOrdersWithApiResult(
+    final int page,
+  ) {
     final userCredential = localStorageService.userCredential!;
     return apiTryCatch(
       apiCall: apiOrdersService.getOrders(page, userCredential.countryId),

@@ -23,5 +23,6 @@ class Data {
     this.special,
   });
 
-  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+  factory Data.fromJson(final Map<String, dynamic> json) =>
+      _$DataFromJson(json);
 }

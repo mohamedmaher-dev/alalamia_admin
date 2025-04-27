@@ -12,7 +12,8 @@ part of 'order_details_tab_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OrderDetailsTabState {
@@ -20,35 +21,29 @@ mixin _$OrderDetailsTabState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(OrderDetailsTabsModel tab) change,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(OrderDetailsTabsModel tab)? change,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OrderDetailsTabsModel tab)? change,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Change value) change,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Change value)? change,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Change value)? change,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   /// Create a copy of OrderDetailsTabState
   /// with the given fields replaced by the non-null parameter values.
@@ -59,16 +54,19 @@ mixin _$OrderDetailsTabState {
 
 /// @nodoc
 abstract class $OrderDetailsTabStateCopyWith<$Res> {
-  factory $OrderDetailsTabStateCopyWith(OrderDetailsTabState value,
-          $Res Function(OrderDetailsTabState) then) =
-      _$OrderDetailsTabStateCopyWithImpl<$Res, OrderDetailsTabState>;
+  factory $OrderDetailsTabStateCopyWith(
+    OrderDetailsTabState value,
+    $Res Function(OrderDetailsTabState) then,
+  ) = _$OrderDetailsTabStateCopyWithImpl<$Res, OrderDetailsTabState>;
   @useResult
   $Res call({OrderDetailsTabsModel tab});
 }
 
 /// @nodoc
-class _$OrderDetailsTabStateCopyWithImpl<$Res,
-        $Val extends OrderDetailsTabState>
+class _$OrderDetailsTabStateCopyWithImpl<
+  $Res,
+  $Val extends OrderDetailsTabState
+>
     implements $OrderDetailsTabStateCopyWith<$Res> {
   _$OrderDetailsTabStateCopyWithImpl(this._value, this._then);
 
@@ -81,15 +79,17 @@ class _$OrderDetailsTabStateCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? tab = null,
-  }) {
-    return _then(_value.copyWith(
-      tab: null == tab
-          ? _value.tab
-          : tab // ignore: cast_nullable_to_non_nullable
-              as OrderDetailsTabsModel,
-    ) as $Val);
+  $Res call({Object? tab = null}) {
+    return _then(
+      _value.copyWith(
+            tab:
+                null == tab
+                    ? _value.tab
+                    : tab // ignore: cast_nullable_to_non_nullable
+                        as OrderDetailsTabsModel,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -97,8 +97,9 @@ class _$OrderDetailsTabStateCopyWithImpl<$Res,
 abstract class _$$ChangeImplCopyWith<$Res>
     implements $OrderDetailsTabStateCopyWith<$Res> {
   factory _$$ChangeImplCopyWith(
-          _$ChangeImpl value, $Res Function(_$ChangeImpl) then) =
-      __$$ChangeImplCopyWithImpl<$Res>;
+    _$ChangeImpl value,
+    $Res Function(_$ChangeImpl) then,
+  ) = __$$ChangeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({OrderDetailsTabsModel tab});
@@ -109,22 +110,24 @@ class __$$ChangeImplCopyWithImpl<$Res>
     extends _$OrderDetailsTabStateCopyWithImpl<$Res, _$ChangeImpl>
     implements _$$ChangeImplCopyWith<$Res> {
   __$$ChangeImplCopyWithImpl(
-      _$ChangeImpl _value, $Res Function(_$ChangeImpl) _then)
-      : super(_value, _then);
+    _$ChangeImpl _value,
+    $Res Function(_$ChangeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrderDetailsTabState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? tab = null,
-  }) {
-    return _then(_$ChangeImpl(
-      tab: null == tab
-          ? _value.tab
-          : tab // ignore: cast_nullable_to_non_nullable
-              as OrderDetailsTabsModel,
-    ));
+  $Res call({Object? tab = null}) {
+    return _then(
+      _$ChangeImpl(
+        tab:
+            null == tab
+                ? _value.tab
+                : tab // ignore: cast_nullable_to_non_nullable
+                    as OrderDetailsTabsModel,
+      ),
+    );
   }
 }
 

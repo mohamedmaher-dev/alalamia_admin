@@ -1,4 +1,4 @@
-import 'package:alalamia_admin/core/errors/error_interface.dart';
+import 'package:alalamia_admin/core/errors/app_error.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_model.dart';
 import 'package:bloc/bloc.dart';
@@ -14,21 +14,22 @@ class SignInCubit extends Cubit<SignInState> {
   final password = TextEditingController();
   bool isShowPassword = false;
   final AuthRebo _authRebo;
-  SignInCubit(this._authRebo) : super(SignInState.initial(false));
+  SignInCubit(this._authRebo)
+    : super(const SignInState.initial(isShowPassword: false));
 
   void changeShowPassword() {
     isShowPassword = !isShowPassword;
-    emit(SignInState.initial(isShowPassword));
+    emit(SignInState.initial(isShowPassword: isShowPassword));
   }
 
-  Future<void> signIn(SignInRequestModel signInRequestModel) async {
-    emit(SignInState.loading());
+  Future<void> signIn(final SignInRequestModel signInRequestModel) async {
+    emit(const SignInState.loading());
     final signInResult = await _authRebo.signIn(signInRequestModel);
     signInResult.when(
-      success: (data) {
-        emit(SignInState.success());
+      success: (final data) {
+        emit(const SignInState.success());
       },
-      error: (e) {
+      failure: (final e) {
         emit(SignInState.failure(e: e));
       },
     );

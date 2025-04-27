@@ -11,7 +11,8 @@ TrackingRequests _$TrackingRequestsFromJson(Map<String, dynamic> json) =>
       currentPage: (json['current_page'] as num).toInt(),
       perPage: (json['per_page'] as num).toInt(),
       total: (json['total'] as num).toInt(),
-      data: (json['data'] as List<dynamic>)
-          .map((e) => OrdersDatum.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      data:
+          (json['data'] as List<dynamic>)
+              .map((e) => OrdersDatum.fromJson(e as Map<String, dynamic>))
+              .toList(),
     );

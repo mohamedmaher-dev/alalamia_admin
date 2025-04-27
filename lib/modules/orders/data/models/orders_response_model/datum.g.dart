@@ -7,17 +7,17 @@ part of 'datum.dart';
 // **************************************************************************
 
 OrdersDatum _$OrdersDatumFromJson(Map<String, dynamic> json) => OrdersDatum(
-      id: (json['id'] as num).toInt(),
-      userName: json['user_name'] as String,
-      phone: json['phone'] as String,
-      requestNumber: json['request_number'] as String,
-      aramexId: (json['aramex_id'] as num?)?.toInt(),
-      countryModel: $enumDecode(_$CountryModelEnumMap, json['country_id']),
-      paymentType: $enumDecode(_$OrderPaymentTypeEnumMap, json['payment_type']),
-      status: $enumDecode(_$OrderStatusEnumMap, json['status']),
-      bookingDate: json['booking_date'] as String,
-      createdAt: json['created_at'] as String,
-    );
+  id: (json['id'] as num).toInt(),
+  userName: json['user_name'] as String,
+  phone: json['phone'] as String,
+  requestNumber: json['request_number'] as String,
+  aramexId: (json['aramex_id'] as num?)?.toInt(),
+  countryModel: $enumDecode(_$CountryModelEnumMap, json['country_id']),
+  paymentType: $enumDecode(_$OrderPaymentTypeEnumMap, json['payment_type']),
+  status: $enumDecode(_$OrderStatusEnumMap, json['status']),
+  bookingDate: json['booking_date'] as String,
+  createdAt: json['created_at'] as String,
+);
 
 const _$CountryModelEnumMap = {
   CountryModel.global: '0',

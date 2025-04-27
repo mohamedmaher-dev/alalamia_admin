@@ -8,11 +8,11 @@ class GeneralBtn extends StatelessWidget {
   final void Function()? onPressed;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     if (icon != null) {
       return FilledButton.icon(
         style: ButtonStyle(
-          foregroundColor: WidgetStatePropertyAll(Colors.black),
+          foregroundColor: const WidgetStatePropertyAll(Colors.black),
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(kNormalRadius),

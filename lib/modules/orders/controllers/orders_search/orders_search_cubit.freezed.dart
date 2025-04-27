@@ -12,7 +12,8 @@ part of 'orders_search_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OrdersSearchState {
@@ -21,52 +22,47 @@ mixin _$OrdersSearchState {
     required TResult Function() disabled,
     required TResult Function(List<OrdersDatum> orders) enabled,
     required TResult Function() empty,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? disabled,
     TResult? Function(List<OrdersDatum> orders)? enabled,
     TResult? Function()? empty,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? disabled,
     TResult Function(List<OrdersDatum> orders)? enabled,
     TResult Function()? empty,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DisabledMode value) disabled,
     required TResult Function(EnabledMode value) enabled,
     required TResult Function(EmptyMode value) empty,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DisabledMode value)? disabled,
     TResult? Function(EnabledMode value)? enabled,
     TResult? Function(EmptyMode value)? empty,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisabledMode value)? disabled,
     TResult Function(EnabledMode value)? enabled,
     TResult Function(EmptyMode value)? empty,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $OrdersSearchStateCopyWith<$Res> {
   factory $OrdersSearchStateCopyWith(
-          OrdersSearchState value, $Res Function(OrdersSearchState) then) =
-      _$OrdersSearchStateCopyWithImpl<$Res, OrdersSearchState>;
+    OrdersSearchState value,
+    $Res Function(OrdersSearchState) then,
+  ) = _$OrdersSearchStateCopyWithImpl<$Res, OrdersSearchState>;
 }
 
 /// @nodoc
@@ -86,8 +82,9 @@ class _$OrdersSearchStateCopyWithImpl<$Res, $Val extends OrdersSearchState>
 /// @nodoc
 abstract class _$$DisabledModeImplCopyWith<$Res> {
   factory _$$DisabledModeImplCopyWith(
-          _$DisabledModeImpl value, $Res Function(_$DisabledModeImpl) then) =
-      __$$DisabledModeImplCopyWithImpl<$Res>;
+    _$DisabledModeImpl value,
+    $Res Function(_$DisabledModeImpl) then,
+  ) = __$$DisabledModeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -95,8 +92,9 @@ class __$$DisabledModeImplCopyWithImpl<$Res>
     extends _$OrdersSearchStateCopyWithImpl<$Res, _$DisabledModeImpl>
     implements _$$DisabledModeImplCopyWith<$Res> {
   __$$DisabledModeImplCopyWithImpl(
-      _$DisabledModeImpl _value, $Res Function(_$DisabledModeImpl) _then)
-      : super(_value, _then);
+    _$DisabledModeImpl _value,
+    $Res Function(_$DisabledModeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrdersSearchState
   /// with the given fields replaced by the non-null parameter values.
@@ -197,8 +195,9 @@ abstract class DisabledMode implements OrdersSearchState {
 /// @nodoc
 abstract class _$$EnabledModeImplCopyWith<$Res> {
   factory _$$EnabledModeImplCopyWith(
-          _$EnabledModeImpl value, $Res Function(_$EnabledModeImpl) then) =
-      __$$EnabledModeImplCopyWithImpl<$Res>;
+    _$EnabledModeImpl value,
+    $Res Function(_$EnabledModeImpl) then,
+  ) = __$$EnabledModeImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<OrdersDatum> orders});
 }
@@ -208,22 +207,24 @@ class __$$EnabledModeImplCopyWithImpl<$Res>
     extends _$OrdersSearchStateCopyWithImpl<$Res, _$EnabledModeImpl>
     implements _$$EnabledModeImplCopyWith<$Res> {
   __$$EnabledModeImplCopyWithImpl(
-      _$EnabledModeImpl _value, $Res Function(_$EnabledModeImpl) _then)
-      : super(_value, _then);
+    _$EnabledModeImpl _value,
+    $Res Function(_$EnabledModeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrdersSearchState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? orders = null,
-  }) {
-    return _then(_$EnabledModeImpl(
-      orders: null == orders
-          ? _value._orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<OrdersDatum>,
-    ));
+  $Res call({Object? orders = null}) {
+    return _then(
+      _$EnabledModeImpl(
+        orders:
+            null == orders
+                ? _value._orders
+                : orders // ignore: cast_nullable_to_non_nullable
+                    as List<OrdersDatum>,
+      ),
+    );
   }
 }
 
@@ -231,7 +232,7 @@ class __$$EnabledModeImplCopyWithImpl<$Res>
 
 class _$EnabledModeImpl implements EnabledMode {
   const _$EnabledModeImpl({required final List<OrdersDatum> orders})
-      : _orders = orders;
+    : _orders = orders;
 
   final List<OrdersDatum> _orders;
   @override
@@ -351,8 +352,9 @@ abstract class EnabledMode implements OrdersSearchState {
 /// @nodoc
 abstract class _$$EmptyModeImplCopyWith<$Res> {
   factory _$$EmptyModeImplCopyWith(
-          _$EmptyModeImpl value, $Res Function(_$EmptyModeImpl) then) =
-      __$$EmptyModeImplCopyWithImpl<$Res>;
+    _$EmptyModeImpl value,
+    $Res Function(_$EmptyModeImpl) then,
+  ) = __$$EmptyModeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -360,8 +362,9 @@ class __$$EmptyModeImplCopyWithImpl<$Res>
     extends _$OrdersSearchStateCopyWithImpl<$Res, _$EmptyModeImpl>
     implements _$$EmptyModeImplCopyWith<$Res> {
   __$$EmptyModeImplCopyWithImpl(
-      _$EmptyModeImpl _value, $Res Function(_$EmptyModeImpl) _then)
-      : super(_value, _then);
+    _$EmptyModeImpl _value,
+    $Res Function(_$EmptyModeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of OrdersSearchState
   /// with the given fields replaced by the non-null parameter values.
