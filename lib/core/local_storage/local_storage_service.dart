@@ -1,67 +1,35 @@
 import 'dart:convert';
 import 'package:alalamia_admin/core/local_storage/local_storage_consts.dart';
-import 'package:alalamia_admin/core/local_storage/models/app_settings_model.dart';
 import 'package:alalamia_admin/core/local_storage/models/user_credential_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive_ce_flutter/adapters.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
+part 'user_credential_storage.dart';
 
 class LocalStorageService {
-  final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
-  late Box<AppSettingsModel?> _appSettingsBox;
-  static late Box<UserCredential?> _userCredentialBox;
+  final _userCredentialStorage = _UserCredentialStorage();
 
-  Future<void> init() async {
-    await Hive.initFlutter();
-    Hive.registerAdapter(AppSettingsModelAdapter());
+  Future<void> call() async {
+    Hive.initFlutter();
     Hive.registerAdapter(UserCredentialAdapter());
-    _appSettingsBox = await Hive.openBox<AppSettingsModel>(
-      LocalStorageConsts.appSettingsBox,
+    await _userCredentialStorage();
+    HydratedBloc.storage = await HydratedStorage.build(
+      storageDirectory: HydratedStorageDirectory(
+        (await getTemporaryDirectory()).path,
+      ),
     );
-    await _openUserCredentialBox();
   }
 
-  Future<void> _openUserCredentialBox() async {
-    await _secureStorage.read(key: LocalStorageConsts.hiveSecureKey).then((
-      value,
-    ) async {
-      if (value == null) {
-        final List<int> key = Hive.generateSecureKey();
-        _secureStorage.write(
-          key: LocalStorageConsts.hiveSecureKey,
-          value: key.toString(),
-        );
-        _userCredentialBox = await Hive.openBox<UserCredential>(
-          LocalStorageConsts.userCredentialBox,
-          encryptionCipher: HiveAesCipher(key),
-        );
-      } else {
-        final List<dynamic> keyIncoded = jsonDecode(value);
-        final List<int> key = List<int>.from(keyIncoded);
-        _userCredentialBox = await Hive.openBox<UserCredential>(
-          LocalStorageConsts.userCredentialBox,
-          encryptionCipher: HiveAesCipher(key),
-        );
-      }
-    });
-  }
-
-  static UserCredential? get userCredential => _userCredentialBox.get(0);
-  AppSettingsModel get getAppSettings =>
-      _appSettingsBox.get(0) ?? AppSettingsModel.defaultModel;
+  UserCredential? get userCredential =>
+      _userCredentialStorage._userCredentialBox.get(0);
 
   Future<void> saveUserCredential({
-    required UserCredential userCredential,
+    required final UserCredential userCredential,
   }) async {
-    _userCredentialBox.put(0, userCredential);
+    _userCredentialStorage._userCredentialBox.put(0, userCredential);
   }
 
-  static Future<void> deleteUserCredential() async {
-    _userCredentialBox.delete(0);
-  }
-
-  Future<void> saveAppSettings({
-    required AppSettingsModel appSettingsModel,
-  }) async {
-    _appSettingsBox.put(0, appSettingsModel);
-  }
+  Future<void> deleteUserCredential() async =>
+      _userCredentialStorage._userCredentialBox.delete(0);
 }

@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "are_you_sure_you_want_to_log_out":
             MessageLookupByLibrary.simpleMessage(
                 "هل انت متاكد انك تريد تسجيل الخروج؟"),
+        "bad_certificate": MessageLookupByLibrary.simpleMessage("شهادة سيئة"),
         "body_of_notification":
             MessageLookupByLibrary.simpleMessage("محتوى الإشعار"),
         "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
@@ -44,11 +45,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "cash": MessageLookupByLibrary.simpleMessage("نقدًا"),
         "change_status": MessageLookupByLibrary.simpleMessage("تغيير الحالة"),
         "click_to_change_status":
-            MessageLookupByLibrary.simpleMessage("- اضغط لتغيير الحالة -"),
+            MessageLookupByLibrary.simpleMessage("اضغط علي الحالة لتغييرها"),
         "client_info": MessageLookupByLibrary.simpleMessage("معلومات العميل"),
         "client_name": MessageLookupByLibrary.simpleMessage("اسم العميل"),
         "client_number": MessageLookupByLibrary.simpleMessage("رقم العميل"),
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "connection_canceled":
+            MessageLookupByLibrary.simpleMessage("تم الغاء الاتصال"),
+        "connection_error":
+            MessageLookupByLibrary.simpleMessage("خطأ في الاتصال"),
+        "connection_timeout":
+            MessageLookupByLibrary.simpleMessage("انتهاء مهلة الاتصال"),
         "count_of_products":
             MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
         "current_language":
@@ -63,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_a_valid_email":
             MessageLookupByLibrary.simpleMessage("ادخل بريد الكتروني صحيح"),
         "extirnal_orders": MessageLookupByLibrary.simpleMessage("طلبات خارجية"),
+        "failed_to_sign_out":
+            MessageLookupByLibrary.simpleMessage("فشل تسجيل الخروج"),
         "failure": MessageLookupByLibrary.simpleMessage("فشل"),
         "failure_to_change_order_status":
             MessageLookupByLibrary.simpleMessage("فشل تغيير حالة الطلب"),
@@ -91,9 +100,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد طلبات أخرى"),
         "no_orders_found":
             MessageLookupByLibrary.simpleMessage("لا يوجد طلبات"),
+        "notification": MessageLookupByLibrary.simpleMessage("تنبيه"),
         "notification_sent_successfully":
             MessageLookupByLibrary.simpleMessage("تم إرسال الإشعار بنجاح"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "number_of_products":
+            MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
         "order": MessageLookupByLibrary.simpleMessage("طلب"),
         "order_date": MessageLookupByLibrary.simpleMessage("تاريخ الطلب"),
         "order_details": MessageLookupByLibrary.simpleMessage("تفاصيل الطلب"),
@@ -113,22 +125,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "paypal": MessageLookupByLibrary.simpleMessage("باي بال"),
         "permission_not_granted":
             MessageLookupByLibrary.simpleMessage("لا يوجد صلاحية"),
+        "perrmission_granted":
+            MessageLookupByLibrary.simpleMessage("الاذن ممنوح"),
+        "perrmission_not_granted":
+            MessageLookupByLibrary.simpleMessage("الاذن غير ممنوح"),
         "please_input_the_title_and_body":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال العنوان والنص"),
         "please_input_your_data_to_sign_in":
             MessageLookupByLibrary.simpleMessage(
                 "برجاء ادخال بياناتك لتسجيل الدخول"),
+        "please_input_your_email_and_password":
+            MessageLookupByLibrary.simpleMessage(
+                "الرجاء إدخال بريدك الإلكتروني وكلمة المرور"),
         "price": MessageLookupByLibrary.simpleMessage("السعر"),
         "product": MessageLookupByLibrary.simpleMessage("منتج"),
         "product_code": MessageLookupByLibrary.simpleMessage("رقم الصنف"),
         "product_name": MessageLookupByLibrary.simpleMessage("اسم المنتج"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
+        "receive_timeout":
+            MessageLookupByLibrary.simpleMessage("انتهاء مهلة الاستلام"),
         "reject": MessageLookupByLibrary.simpleMessage("رفض"),
         "reject_this_order":
             MessageLookupByLibrary.simpleMessage("إلغاء هذا الطلب"),
         "search_here": MessageLookupByLibrary.simpleMessage("ابحث هنا"),
         "send_notification":
             MessageLookupByLibrary.simpleMessage("إرسال الإشعار"),
+        "send_timeout":
+            MessageLookupByLibrary.simpleMessage("انتهاء مهلة الإرسال"),
         "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "something_went_wrong":
@@ -142,13 +165,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "status_preparing": MessageLookupByLibrary.simpleMessage("قيد التجهيز"),
         "status_review": MessageLookupByLibrary.simpleMessage("قيد المراجعة"),
         "success": MessageLookupByLibrary.simpleMessage("نجاح"),
+        "successfully_copied":
+            MessageLookupByLibrary.simpleMessage("تم النسخ بنجاح"),
         "the_cart": MessageLookupByLibrary.simpleMessage("السلة"),
         "this_is_current_status_of_the_order":
             MessageLookupByLibrary.simpleMessage("هذه هي حالة الطلب الحالية"),
+        "time_ago": MessageLookupByLibrary.simpleMessage("منذ"),
         "title_of_notification":
             MessageLookupByLibrary.simpleMessage("عنوان الإشعار"),
         "total_price": MessageLookupByLibrary.simpleMessage("السعر الكلي"),
         "unit": MessageLookupByLibrary.simpleMessage("وحدة"),
+        "unknown_error": MessageLookupByLibrary.simpleMessage("خطأ غير معروف"),
         "warning": MessageLookupByLibrary.simpleMessage("تحذير"),
         "welcome_back": MessageLookupByLibrary.simpleMessage("مرحبا بعودتك"),
         "yes": MessageLookupByLibrary.simpleMessage("نعم"),

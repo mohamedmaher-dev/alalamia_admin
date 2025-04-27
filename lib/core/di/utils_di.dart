@@ -1,16 +1,16 @@
 part of 'di.dart';
 
 Future<void> _utilsDiInit() async {
-  di.registerLazySingleton<LocalStorageService>(() => LocalStorageService());
-  di.registerLazySingleton<AppThemeController>(
-    () => AppThemeController(di<LocalStorageService>()),
-  );
-
-  di.registerLazySingleton<AppLocalizationController>(
-    () => AppLocalizationController(di<LocalStorageService>()),
+  di.registerLazySingleton<AppConfig>(AppConfig.new);
+  di.registerLazySingleton<AppRouter>(AppRouter.new);
+  di.registerLazySingleton<LocalStorageService>(LocalStorageService.new);
+  di.registerLazySingleton<NotificationsService>(
+    () => NotificationsService(di<AppConfig>()),
   );
   di.registerLazySingleton<ApiService>(
     () => ApiService(di<Dio>(), baseUrl: Env.apiBaseUrl),
   );
-  di.registerLazySingleton<Dio>(() => DioFactory.getDio());
+  di.registerLazySingleton<Dio>(
+    () => DioFactory.getDio(di<LocalStorageService>()),
+  );
 }

@@ -9,12 +9,12 @@ class StatisticsState with _$StatisticsState {
   // }) = _Success;
   const factory StatisticsState.failure() = _Failure;
   const factory StatisticsState.success({
-    required int orders,
-    required int underReview,
-    required int approved,
-    required int prepareing,
-    required int onTheWay,
-    required int delivered,
-    required int cancelled,
+    required final int orders,
+    required final int underReview,
+    required final int approved,
+    required final int prepareing,
+    required final int onTheWay,
+    required final int delivered,
+    required final int cancelled,
   }) = _Success;
 }

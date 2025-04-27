@@ -1,4 +1,3 @@
-import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:flutter/material.dart';
 
@@ -9,11 +8,11 @@ class GeneralBtn extends StatelessWidget {
   final void Function()? onPressed;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     if (icon != null) {
       return FilledButton.icon(
         style: ButtonStyle(
-          foregroundColor: WidgetStatePropertyAll(ColorManger.black),
+          foregroundColor: const WidgetStatePropertyAll(Colors.black),
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(kNormalRadius),
@@ -21,7 +20,7 @@ class GeneralBtn extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        icon: Icon(icon, color: ColorManger.black),
+        icon: Icon(icon, color: Colors.black),
         label: Text(title),
       );
     } else {

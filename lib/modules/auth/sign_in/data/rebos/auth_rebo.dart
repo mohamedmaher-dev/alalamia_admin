@@ -1,26 +1,95 @@
+import 'package:alalamia_admin/core/config/app_config_cubit.dart';
+import 'package:alalamia_admin/core/data/data_result.dart';
+import 'package:alalamia_admin/core/errors/app_error.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
 import 'package:alalamia_admin/core/local_storage/models/user_credential_model.dart';
-import 'package:alalamia_admin/core/networking/api_result.dart';
+import 'package:alalamia_admin/core/localization/generated/l10n.dart';
 import 'package:alalamia_admin/core/networking/api_service.dart';
-import 'package:alalamia_admin/core/networking/api_try_catch.dart';
+import 'package:alalamia_admin/core/networking/dio_factory.dart';
+import 'package:alalamia_admin/core/notifications/notifications_service.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_model.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_response_model.dart';
+import 'package:dio/dio.dart';
 
 class AuthRebo {
+  final NotificationsService notificationsService;
   final ApiService apiAuthService;
   final LocalStorageService localStorageService;
-  AuthRebo({required this.apiAuthService, required this.localStorageService});
+  final AppConfig appConfig;
+  AuthRebo({
+    required this.apiAuthService,
+    required this.localStorageService,
+    required this.notificationsService,
+    required this.appConfig,
+  });
 
-  Future<ApiResult<SignInResponseModel>> signIn(
-    SignInRequestModel signInRequestModel,
-  ) => apiTryCatch(apiCall: apiAuthService.signIn(signInRequestModel));
+  Future<DataResult<SignInResponseModel>> signIn(
+    final SignInRequestModel signInRequestModel,
+  ) async {
+    try {
+      // Call the API to sign in
+      final data = await _signInMethod(signInRequestModel);
+      // Change enable notifications
+      await notificationsService.changeEnableNotifications(isTurnOn: true);
+      // Return the result
+      return DataResult.success(data: data);
+    } on DioException catch (e) {
+      return DataResult.failure(
+        error: ApiError.fromDioException(dioException: e),
+      );
+    } on Exception catch (_) {
+      return DataResult.failure(error: UnknownError());
+    }
+  }
 
-  Future<void> saveUserCredential(UserCredential userCredential) async {
+  Future<SignInResponseModel> _signInMethod(
+    final SignInRequestModel signInRequestModel,
+  ) async {
+    final data = await apiAuthService.signIn(signInRequestModel);
+    // Set the token in DioFactory
+    DioFactory.setToken(data.token);
+    // Save user credentials in local storage
+    saveUserCredential(UserCredential.fromAuth(data, signInRequestModel));
+    return data;
+  }
+
+  Future<DataResult<SignInResponseModel>> refreshToken() async {
+    try {
+      final userCredential = localStorageService.userCredential;
+      final signInRequestModel = SignInRequestModel.fromUserCredential(
+        userCredential!,
+      );
+      // Call the API to sign in
+      final data = await _signInMethod(signInRequestModel);
+      return DataResult.success(data: data);
+    } on DioException catch (e) {
+      return DataResult.failure(
+        error: ApiError.fromDioException(dioException: e),
+      );
+    } on Exception catch (_) {
+      return DataResult.failure(error: UnknownError());
+    }
+  }
+
+  Future<DataResult<void>> signOut() async {
+    final language = Language.current;
+    try {
+      await localStorageService.deleteUserCredential();
+      await notificationsService.changeEnableNotifications(isTurnOn: false);
+      return const DataResult.success(data: null);
+    } on Exception catch (_) {
+      return DataResult.failure(
+        error: CacheError(msg: language.failed_to_sign_out),
+      );
+    }
+  }
+
+  Future<void> saveUserCredential(final UserCredential userCredential) async {
     await localStorageService.saveUserCredential(
       userCredential: userCredential,
     );
   }
 
   Future<UserCredential?> getUserCredential() async =>
-      LocalStorageService.userCredential;
+      localStorageService.userCredential;
 }

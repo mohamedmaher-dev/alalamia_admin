@@ -1,18 +1,18 @@
 part of '../one_order_view.dart';
 
 class _GeneralBody extends StatelessWidget {
-  const _GeneralBody({required this.order, required this.args});
-  final OrdersDetailsResponseModel order;
-  final OrdersDatum args;
+  const _GeneralBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
+    final args = Provider.of<OrdersDatum>(context);
+    final orderDetails = Provider.of<OrdersDetailsResponseModel>(context);
     final language = Language.of(context);
     return SingleChildScrollView(
       child: Column(
         children: [
           ListTile(
-            leading: Icon(CupertinoIcons.person_circle_fill),
+            leading: const Icon(CupertinoIcons.person_circle_fill),
             title: Text(language.client_info, style: TextStyles.ts15B),
           ),
           Card(
@@ -20,27 +20,27 @@ class _GeneralBody extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  leading: Icon(CupertinoIcons.person),
+                  leading: UserAvatarBody(userName: args.userName),
                   title: Text(args.userName),
                   subtitle: Text(language.client_name),
                 ),
-                Divider(),
+                const Divider(),
                 ListTile(
-                  leading: Icon(CupertinoIcons.phone),
+                  leading: const Icon(CupertinoIcons.phone),
                   title: Text(args.phone),
                   subtitle: Text(language.client_number),
                   trailing: IconButton(
                     onPressed: () async {
                       await Clipboard.setData(ClipboardData(text: args.phone));
                     },
-                    icon: Icon(Icons.copy),
+                    icon: const Icon(Icons.copy),
                   ),
                 ),
               ],
             ),
           ),
           ListTile(
-            leading: Icon(CupertinoIcons.cube_box_fill),
+            leading: const Icon(CupertinoIcons.cube_box_fill),
             title: Text(language.order_summary, style: TextStyles.ts15B),
           ),
           Card(
@@ -51,27 +51,35 @@ class _GeneralBody extends StatelessWidget {
                   orderStatus: args.status,
                   orderId: args.id.toString(),
                 ),
-                if (args.status != OrderStatus.canceled)
-                  Padding(
-                    padding: EdgeInsets.only(bottom: kNormalPadding),
-                    child: Text(
-                      language.click_to_change_status,
-                      style: TextStyles.ts10B.copyWith(color: Colors.grey),
+                const Divider(),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ListTile(
+                        leading: const Icon(CupertinoIcons.number),
+                        title: Text(args.requestNumber),
+                        subtitle: Text(language.order_number),
+                        onLongPress: () async {
+                          await Clipboard.setData(
+                            ClipboardData(text: args.requestNumber),
+                          );
+                          AppSnackBar.show(
+                            msg: language.successfully_copied,
+                            type: ContentType.success,
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                Divider(),
-                ListTile(
-                  leading: Icon(CupertinoIcons.number),
-                  title: Text(args.requestNumber),
-                  subtitle: Text(language.order_number),
-                  trailing: IconButton(
-                    onPressed: () async {
-                      await Clipboard.setData(
-                        ClipboardData(text: args.requestNumber),
-                      );
-                    },
-                    icon: Icon(Icons.copy),
-                  ),
+                    Expanded(
+                      child: ListTile(
+                        leading: const Icon(CupertinoIcons.cube_box_fill),
+                        title: Text(
+                          '${orderDetails.cartDetail!.length} ${language.product}',
+                        ),
+                        subtitle: Text(language.number_of_products),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

@@ -1,6 +1,5 @@
 import 'package:alalamia_admin/core/networking/dio_factory.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
-import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -9,27 +8,22 @@ part 'splash_cubit.freezed.dart';
 
 class SplashCubit extends Cubit<SplashState> {
   final AuthRebo authRebo;
-  SplashCubit(this.authRebo) : super(SplashState.initial());
+  SplashCubit(this.authRebo) : super(const SplashState.initial());
   void start() async {
-    await authRebo.getUserCredential().then((userCredential) async {
+    await authRebo.getUserCredential().then((final userCredential) async {
       if (userCredential != null) {
-        final signInResult = await authRebo.signIn(
-          SignInRequestModel(
-            email: userCredential.email,
-            password: userCredential.password,
-          ),
-        );
+        final signInResult = await authRebo.refreshToken();
         signInResult.when(
-          success: (success) {
+          success: (final success) {
             DioFactory.setToken(success.token);
-            emit(SplashState.successToLogin());
+            emit(const SplashState.successToLogin());
           },
-          failure: (failure) {
-            emit(SplashState.failedToLogin());
+          failure: (final failure) {
+            emit(const SplashState.failedToLogin());
           },
         );
       } else {
-        emit(SplashState.noCredential());
+        emit(const SplashState.noCredential());
       }
     });
   }

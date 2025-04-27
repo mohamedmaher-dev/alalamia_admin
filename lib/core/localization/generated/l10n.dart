@@ -130,6 +130,26 @@ class Language {
     );
   }
 
+  /// `تحذير`
+  String get warning {
+    return Intl.message(
+      'تحذير',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تنبيه`
+  String get notification {
+    return Intl.message(
+      'تنبيه',
+      name: 'notification',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `لا يمكن ترك البريد الالكتروني فارغ`
   String get you_cannot_leave_the_email_empty {
     return Intl.message(
@@ -910,16 +930,6 @@ class Language {
     );
   }
 
-  /// `تحذير`
-  String get warning {
-    return Intl.message(
-      'تحذير',
-      name: 'warning',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `هذه هي حالة الطلب الحالية`
   String get this_is_current_status_of_the_order {
     return Intl.message(
@@ -930,10 +940,10 @@ class Language {
     );
   }
 
-  /// `- اضغط لتغيير الحالة -`
+  /// `اضغط علي الحالة لتغييرها`
   String get click_to_change_status {
     return Intl.message(
-      '- اضغط لتغيير الحالة -',
+      'اضغط علي الحالة لتغييرها',
       name: 'click_to_change_status',
       desc: '',
       args: [],
@@ -1035,6 +1045,146 @@ class Language {
     return Intl.message(
       'تفاصيل الطلب',
       name: 'order_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الرجاء إدخال بريدك الإلكتروني وكلمة المرور`
+  String get please_input_your_email_and_password {
+    return Intl.message(
+      'الرجاء إدخال بريدك الإلكتروني وكلمة المرور',
+      name: 'please_input_your_email_and_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `خطأ غير معروف`
+  String get unknown_error {
+    return Intl.message(
+      'خطأ غير معروف',
+      name: 'unknown_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `انتهاء مهلة الاتصال`
+  String get connection_timeout {
+    return Intl.message(
+      'انتهاء مهلة الاتصال',
+      name: 'connection_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `انتهاء مهلة الإرسال`
+  String get send_timeout {
+    return Intl.message(
+      'انتهاء مهلة الإرسال',
+      name: 'send_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `انتهاء مهلة الاستلام`
+  String get receive_timeout {
+    return Intl.message(
+      'انتهاء مهلة الاستلام',
+      name: 'receive_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `شهادة سيئة`
+  String get bad_certificate {
+    return Intl.message(
+      'شهادة سيئة',
+      name: 'bad_certificate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم الغاء الاتصال`
+  String get connection_canceled {
+    return Intl.message(
+      'تم الغاء الاتصال',
+      name: 'connection_canceled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `خطأ في الاتصال`
+  String get connection_error {
+    return Intl.message(
+      'خطأ في الاتصال',
+      name: 'connection_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `فشل تسجيل الخروج`
+  String get failed_to_sign_out {
+    return Intl.message(
+      'فشل تسجيل الخروج',
+      name: 'failed_to_sign_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاذن غير ممنوح`
+  String get perrmission_not_granted {
+    return Intl.message(
+      'الاذن غير ممنوح',
+      name: 'perrmission_not_granted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاذن ممنوح`
+  String get perrmission_granted {
+    return Intl.message(
+      'الاذن ممنوح',
+      name: 'perrmission_granted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `منذ`
+  String get time_ago {
+    return Intl.message(
+      'منذ',
+      name: 'time_ago',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عدد المنتجات`
+  String get number_of_products {
+    return Intl.message(
+      'عدد المنتجات',
+      name: 'number_of_products',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم النسخ بنجاح`
+  String get successfully_copied {
+    return Intl.message(
+      'تم النسخ بنجاح',
+      name: 'successfully_copied',
       desc: '',
       args: [],
     );

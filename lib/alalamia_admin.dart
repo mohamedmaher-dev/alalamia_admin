@@ -1,8 +1,10 @@
-import 'package:alalamia_admin/core/cubit/main_cubit.dart';
-import 'package:alalamia_admin/core/localization/app_localization_controller.dart';
+import 'package:alalamia_admin/core/config/app_config_cubit.dart';
+import 'package:alalamia_admin/core/di/di.dart';
+import 'package:alalamia_admin/core/extension/bool_ext.dart';
+import 'package:alalamia_admin/core/extension/string_ext.dart';
 import 'package:alalamia_admin/core/router/app_router.dart';
-import 'package:alalamia_admin/core/themes/app_theme_controller.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
+import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -13,26 +15,27 @@ class AlalamiaAdmin extends StatelessWidget {
   const AlalamiaAdmin({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<MainCubit, MainState>(
-      builder: (context, state) {
-        return MaterialApp.router(
-          theme: AppThemeData.theme,
-          darkTheme: AppThemeData.theme,
-          themeMode: AppThemeController.themeMode,
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRouter.routerConfig,
-          localizationsDelegates: [
-            Language.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: Language.delegate.supportedLocales,
-          locale: AppLocalizationController.locale,
-          builder: EasyLoading.init(),
-        );
-      },
-    );
-  }
+  Widget build(final BuildContext context) =>
+      BlocBuilder<AppConfig, AppConfigModel>(
+        builder:
+            (final context, final config) => MaterialApp.router(
+              theme: AppThemeData.theme,
+              darkTheme: AppThemeData.theme,
+              themeMode: config.isDarkMode.toThemeMode,
+              debugShowCheckedModeBanner: false,
+              routerConfig: di<AppRouter>().config(),
+              localizationsDelegates: const [
+                Language.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: Language.delegate.supportedLocales,
+              locale: config.language.stringToLocale,
+              builder: (final context, final child) {
+                AppSnackBar.init(context);
+                return EasyLoading.init()(context, child);
+              },
+            ),
+      );
 }

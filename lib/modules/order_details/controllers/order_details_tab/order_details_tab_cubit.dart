@@ -13,7 +13,7 @@ class OrderDetailsTabCubit extends Cubit<OrderDetailsTabState> {
   OrderDetailsTabCubit()
     : super(OrderDetailsTabState.change(tab: OrderDetailsTabsModel.defaultTab));
 
-  void changeTab(OrderDetailsTabsModel tab) {
+  void changeTab(final OrderDetailsTabsModel tab) {
     pageController.jumpToPage(tab.index);
     emit(OrderDetailsTabState.change(tab: tab));
   }

@@ -30,7 +30,8 @@ class Unit {
     this.unitType,
   });
 
-  factory Unit.fromJson(Map<String, dynamic> json) => _$UnitFromJson(json);
+  factory Unit.fromJson(final Map<String, dynamic> json) =>
+      _$UnitFromJson(json);
 
   Map<String, dynamic> toJson() => _$UnitToJson(this);
 }

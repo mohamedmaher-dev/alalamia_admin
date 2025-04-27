@@ -4,7 +4,7 @@ class _WelcomeBody extends StatelessWidget {
   const _WelcomeBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final language = Language.of(context);
     return Column(
       children: [

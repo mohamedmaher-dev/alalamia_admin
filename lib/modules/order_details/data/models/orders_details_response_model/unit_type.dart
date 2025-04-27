@@ -19,9 +19,8 @@ class UnitType {
     this.name,
   });
 
-  factory UnitType.fromJson(Map<String, dynamic> json) {
-    return _$UnitTypeFromJson(json);
-  }
+  factory UnitType.fromJson(final Map<String, dynamic> json) =>
+      _$UnitTypeFromJson(json);
 
   Map<String, dynamic> toJson() => _$UnitTypeToJson(this);
 }

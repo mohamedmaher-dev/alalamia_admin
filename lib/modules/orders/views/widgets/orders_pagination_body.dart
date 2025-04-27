@@ -3,26 +3,27 @@ part of '../orders_view.dart';
 class _OrdersPaginationBody extends StatelessWidget {
   const _OrdersPaginationBody();
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final language = Language.of(context);
     final cubit = context.read<OrdersCubit>();
     return PagingListener(
       controller: cubit.pagingController,
       builder:
-          (context, state, fetchNextPage) => Expanded(
+          (final context, final state, final fetchNextPage) => Expanded(
             child: PagedListView<int, OrdersDatum>(
               physics:
                   state.isLoading && state.keys == null
-                      ? NeverScrollableScrollPhysics()
+                      ? const NeverScrollableScrollPhysics()
                       : null,
               state: state,
               fetchNextPage: fetchNextPage,
               builderDelegate: PagedChildBuilderDelegate(
                 firstPageProgressIndicatorBuilder:
-                    (context) => _OrdersLoadingBody(),
-                firstPageErrorIndicatorBuilder: (context) => ErrorView(),
+                    (final context) => const _OrdersLoadingBody(),
+                firstPageErrorIndicatorBuilder:
+                    (final context) => const ErrorView(),
                 newPageProgressIndicatorBuilder:
-                    (context) => Center(
+                    (final context) => Center(
                       child: CircularProgressIndicator(
                         padding: EdgeInsets.all(kNormalPadding),
                         strokeWidth: 1,
@@ -30,17 +31,18 @@ class _OrdersPaginationBody extends StatelessWidget {
                       ),
                     ),
                 newPageErrorIndicatorBuilder:
-                    (context) =>
+                    (final context) =>
                         Center(child: Text(language.something_went_wrong)),
                 noItemsFoundIndicatorBuilder:
-                    (context) => EmptyView(
+                    (final context) => EmptyView(
                       icon: Icons.list,
                       text: language.no_orders_found,
                     ),
                 noMoreItemsIndicatorBuilder:
-                    (context) => Center(child: Text(language.no_more_orders)),
+                    (final context) =>
+                        Center(child: Text(language.no_more_orders)),
                 itemBuilder:
-                    (context, item, index) => _OrderItemBody(
+                    (final context, final item, final index) => _OrderItemBody(
                       index: index,
                       model: item,
                       isLoading: false,

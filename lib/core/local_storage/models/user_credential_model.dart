@@ -1,8 +1,10 @@
-import 'package:alalamia_admin/core/local_storage/hive_adapter_type.dart';
-import 'package:hive/hive.dart';
+import 'package:alalamia_admin/core/local_storage/hive_adapter_type_id.dart';
+import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_model.dart';
+import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_response_model.dart';
+import 'package:hive_ce/hive.dart';
 part 'user_credential_model.g.dart';
 
-@HiveType(typeId: HiveAdapterType.userCredential)
+@HiveType(typeId: HiveAdapterTypeId.userCredentialId)
 class UserCredential {
   @HiveField(0)
   final String email;
@@ -13,12 +15,33 @@ class UserCredential {
   @HiveField(3)
   final String countryName;
   @HiveField(4)
-  final String countryFlagPath;
+  final int countryId;
+  @HiveField(5)
+  final String? countryCode;
   UserCredential({
     required this.email,
     required this.password,
     required this.token,
     required this.countryName,
-    required this.countryFlagPath,
+    required this.countryId,
+    this.countryCode,
   });
+
+  factory UserCredential.fromAuth(
+    final SignInResponseModel data,
+    final SignInRequestModel requestData,
+  ) => UserCredential(
+    email: requestData.email,
+    password: requestData.password,
+    token: data.token,
+    countryName: data.countryModel.name,
+    countryId: data.countryModel.id,
+  );
+  factory UserCredential.empty() => UserCredential(
+    email: '',
+    password: '',
+    token: '',
+    countryName: '',
+    countryId: 0,
+  );
 }

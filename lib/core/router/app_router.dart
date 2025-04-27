@@ -1,62 +1,20 @@
-import 'package:alalamia_admin/core/di/di.dart';
-import 'package:alalamia_admin/modules/auth/sign_in/controllers/sign_in_cubit/sign_in_cubit.dart';
-import 'package:alalamia_admin/modules/auth/sign_in/views/sign_in_view.dart';
-import 'package:alalamia_admin/modules/home/views/home_view.dart';
-import 'package:alalamia_admin/modules/order_details/views/one_order_view.dart';
-import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/datum.dart';
-import 'package:alalamia_admin/modules/settings/views/settings_view.dart';
-import 'package:alalamia_admin/modules/splash/controllers/splash/splash_cubit.dart';
-import 'package:alalamia_admin/modules/splash/views/splash_view.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+import 'package:alalamia_admin/core/router/app_router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
-part 'app_pages.dart';
-
-class AppRouter {
-  AppRouter._();
-  static final routerConfig = GoRouter(
-    routes: [
-      GoRoute(
-        path: AppPages.splash.path,
-        builder:
-            (context, state) => MultiBlocProvider(
-              providers: [
-                BlocProvider(create: (context) => di<SignInCubit>()),
-                BlocProvider(create: (context) => di<SplashCubit>()),
-              ],
-              child: const SplashView(),
-            ),
-      ),
-      GoRoute(
-        path: AppPages.signIn.path,
-        builder:
-            (context, state) => BlocProvider(
-              create: (context) => di<SignInCubit>(),
-              child: const SignInView(),
-            ),
-      ),
-      GoRoute(
-        path: AppPages.home.path,
-        builder: (context, state) => HomeView(),
-      ),
-      GoRoute(
-        path: AppPages.orderDetails.path,
-        builder:
-            (context, state) =>
-                OrderDetailsView(args: state.extra as OrdersDatum),
-      ),
-      GoRoute(
-        path: AppPages.settings.path,
-        builder: (context, state) => SettingsView(),
-      ),
-    ],
-  );
-
-  static pushReplacement(AppPages page, {Object? extra}) =>
-      routerConfig.go(page.path, extra: extra);
-  static Future<void> push(AppPages page, {Object? extra}) =>
-      routerConfig.push(page.path, extra: extra);
-  static pushAndRemoveUntil(AppPages page, {Object? extra}) =>
-      routerConfig.go(page.path, extra: extra);
-  static pop() => routerConfig.pop();
+@AutoRouterConfig(replaceInRouteName: 'View,Route')
+class AppRouter extends RootStackRouter {
+  @override
+  List<AutoRoute> get routes => [
+    AutoRoute(page: SplashRoute.page, initial: true),
+    AutoRoute(page: SignInRoute.page),
+    AutoRoute(
+      page: MainRoute.page,
+      children: [
+        AutoRoute(page: StatisticsRoute.page),
+        AutoRoute(page: OrdersRoute.page, initial: true),
+        AutoRoute(page: SettingsRoute.page),
+      ],
+    ),
+    AutoRoute(page: OrderDetailsRoute.page),
+  ];
 }

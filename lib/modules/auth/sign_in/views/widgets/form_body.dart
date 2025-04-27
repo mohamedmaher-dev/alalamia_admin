@@ -4,7 +4,7 @@ class _FormBody extends StatelessWidget {
   const _FormBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final language = Language.of(context);
     final signIn = context.read<SignInCubit>();
     return Form(
@@ -17,7 +17,7 @@ class _FormBody extends StatelessWidget {
             decoration: InputDecoration(
               isDense: true,
               filled: true,
-              prefixIcon: Icon(Icons.email),
+              prefixIcon: const Icon(Icons.email),
               hintText: language.email,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(kNormalRadius),
@@ -26,38 +26,35 @@ class _FormBody extends StatelessWidget {
             ),
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
-            validator: (value) => FormValidation.validateEmail(value),
+            validator: FormValidation.validateEmail,
           ),
           SizedBox(height: kSpacingBetweenWidgetsHight),
           BlocBuilder<SignInCubit, SignInState>(
-            builder: (context, state) {
-              return TextFormField(
-                controller: signIn.password,
-                decoration: InputDecoration(
-                  isDense: true,
-                  filled: true,
-                  prefixIcon: Icon(Icons.password),
-                  hintText: language.password,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(kNormalRadius),
-                    borderSide: BorderSide.none,
-                  ),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      signIn.changeShowPassword();
-                    },
-                    icon: Icon(
-                      signIn.isShowPassword
-                          ? Icons.visibility
-                          : Icons.visibility_off,
+            builder:
+                (final context, final state) => TextFormField(
+                  controller: signIn.password,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    filled: true,
+                    prefixIcon: const Icon(Icons.password),
+                    hintText: language.password,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(kNormalRadius),
+                      borderSide: BorderSide.none,
+                    ),
+                    suffixIcon: IconButton(
+                      onPressed: signIn.changeShowPassword,
+                      icon: Icon(
+                        signIn.isShowPassword
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
                     ),
                   ),
+                  obscureText: !signIn.isShowPassword,
+                  textInputAction: TextInputAction.done,
+                  validator: FormValidation.validatePassword,
                 ),
-                obscureText: !signIn.isShowPassword,
-                textInputAction: TextInputAction.done,
-                validator: (value) => FormValidation.validatePassword(value),
-              );
-            },
           ),
         ],
       ),

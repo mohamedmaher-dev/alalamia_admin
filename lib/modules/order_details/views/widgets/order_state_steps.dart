@@ -3,12 +3,12 @@ part of '../one_order_view.dart';
 class _OrderStateSteps extends StatelessWidget {
   const _OrderStateSteps({required this.orderStatus, required this.orderId});
   final String orderId;
-
   final OrderStatus orderStatus;
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final cubit = context.read<OrderStatusCubit>();
-    var activeStep = orderStatus.enumToindex;
+    final activeStep = orderStatus.enumToindex;
     final language = Language.of(context);
     return EasyStepper(
       activeStep: activeStep,
@@ -19,8 +19,7 @@ class _OrderStateSteps extends StatelessWidget {
       lineStyle: const LineStyle(lineType: LineType.normal),
       showLoadingAnimation: false,
       stepRadius: 10,
-      showStepBorder: true,
-      onStepReached: (index) {
+      onStepReached: (final index) {
         if (orderStatus != OrderStatus.canceled) {
           showChangerPopUpConfirm(
             context: context,
@@ -43,7 +42,10 @@ class _OrderStateSteps extends StatelessWidget {
         ),
         if (orderStatus == OrderStatus.canceled)
           EasyStep(
-            customStep: CircleAvatar(radius: 7, backgroundColor: Colors.red),
+            customStep: const CircleAvatar(
+              radius: 7,
+              backgroundColor: Colors.red,
+            ),
             title: language.status_canceled,
             topTitle: true,
           ),

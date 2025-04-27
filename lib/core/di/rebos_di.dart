@@ -5,11 +5,19 @@ Future<void> _rebosDIInit() async {
     () => AuthRebo(
       apiAuthService: di<ApiService>(),
       localStorageService: di<LocalStorageService>(),
+      notificationsService: di<NotificationsService>(),
+      appConfig: di<AppConfig>(),
     ),
   );
   di.registerLazySingleton(
-    () => OrdersRebo(apiOrdersService: di<ApiService>()),
+    () => OrdersRebo(
+      apiOrdersService: di<ApiService>(),
+      localStorageService: di<LocalStorageService>(),
+    ),
   );
   di.registerLazySingleton(() => OrderDetailsRebo(di<ApiService>()));
   di.registerLazySingleton(() => StatisticsRebos(di<ApiService>()));
+  di.registerLazySingleton(
+    () => NotificationsRepo(notificationsService: di<NotificationsService>()),
+  );
 }

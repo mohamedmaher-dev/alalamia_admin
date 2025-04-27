@@ -1,6 +1,7 @@
 part of 'app_theme_data.dart';
 
 class TextStyles {
+  static String get fontFamily => AppThemeData.fontFamily;
   const TextStyles._();
 
   // Bold

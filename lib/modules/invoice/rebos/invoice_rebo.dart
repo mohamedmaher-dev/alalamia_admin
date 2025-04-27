@@ -11,20 +11,20 @@ import 'package:permission_handler/permission_handler.dart';
 
 class InvoiceRebo {
   Future<SaveInvoiceResult<Uint8List>> createPdfData(
-    OrdersDetailsResponseModel order,
-    OrdersDatum orderDetailsArgs,
+    final OrdersDetailsResponseModel order,
+    final OrdersDatum orderDetailsArgs,
   ) async {
     try {
       final pdfData = await createStyledInvoice(order, orderDetailsArgs);
       return SaveInvoiceResult.success(pdfData);
-    } catch (e) {
+    } on Exception catch (e) {
       return SaveInvoiceResult.failure(e.toString());
     }
   }
 
   Future<SaveInvoiceResult<void>> saveInvoice(
-    OrdersDetailsResponseModel order,
-    Uint8List pdfData,
+    final OrdersDetailsResponseModel order,
+    final Uint8List pdfData,
   ) async {
     try {
       bool isGranted = await _isPermissionGranted();
@@ -40,9 +40,9 @@ class InvoiceRebo {
         final file = File('$folder/${order.requestNo}.pdf');
         await file.create(recursive: true);
         await file.writeAsBytes(pdfData);
-        return SaveInvoiceResult.success(null);
+        return const SaveInvoiceResult.success(null);
       }
-    } catch (e) {
+    } on Exception catch (e) {
       return SaveInvoiceResult.failure(e.toString());
     }
   }

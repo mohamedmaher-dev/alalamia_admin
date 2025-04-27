@@ -6,8 +6,8 @@ part 'cart_detail.g.dart';
 
 @JsonSerializable()
 class CartDetail {
-  @JsonKey(name: 'product_number')
-  final int? productNumber;
+  @JsonKey(name: 'sku')
+  final String sku;
   @JsonKey(name: 'product_ar')
   final String? productAr;
   @JsonKey(name: 'product_en')
@@ -19,7 +19,7 @@ class CartDetail {
   final String? requestType;
 
   const CartDetail({
-    this.productNumber,
+    required this.sku,
     this.productAr,
     this.productEn,
     this.quantity,
@@ -28,9 +28,8 @@ class CartDetail {
     this.requestType,
   });
 
-  factory CartDetail.fromJson(Map<String, dynamic> json) {
-    return _$CartDetailFromJson(json);
-  }
+  factory CartDetail.fromJson(final Map<String, dynamic> json) =>
+      _$CartDetailFromJson(json);
 
   Map<String, dynamic> toJson() => _$CartDetailToJson(this);
 }

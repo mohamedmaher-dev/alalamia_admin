@@ -6,7 +6,7 @@ class _FilterOrderBody extends StatelessWidget {
   final int ordersCount;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final language = Language.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -19,19 +19,19 @@ class _FilterOrderBody extends StatelessWidget {
           ),
           child: Text(
             '$ordersCount ${language.orders}',
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           ),
         ),
         TextButton.icon(
           label: Text(language.filter),
           onPressed: () {},
-          icon: Icon(Icons.filter_alt_outlined),
+          icon: const Icon(Icons.filter_alt_outlined),
         ),
 
         TextButton.icon(
           label: Text(language.sort),
           onPressed: () {},
-          icon: Icon(Icons.sort),
+          icon: const Icon(Icons.sort),
         ),
       ],
     );
