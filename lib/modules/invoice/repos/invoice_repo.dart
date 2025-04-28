@@ -23,7 +23,7 @@ class InvoiceRepo {
     }
   }
 
-  Future<SaveInvoiceResult<XFile?>> saveInvoice(
+  Future<SaveInvoiceResult<XFile>> saveInvoice(
     final OrdersDetailsResponseModel order,
     final Uint8List pdfData,
   ) async {

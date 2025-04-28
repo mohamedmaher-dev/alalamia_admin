@@ -27,7 +27,7 @@ void Function(BuildContext, InvoiceState) inVoiceListener = (
                   onPressed: () async {
                     cubit.save(order, pdfData);
                   },
-                  child: const Icon(Icons.share),
+                  child: const Icon(Icons.save_alt_rounded),
                 ),
               ),
         ),
@@ -41,6 +41,10 @@ void Function(BuildContext, InvoiceState) inVoiceListener = (
       PopLoading.show();
     },
     saveSuccess: (final file) async {
+      AppSnackBar.show(
+        msg: language.invoice_saved_successfully,
+        type: ContentType.success,
+      );
       final params = ShareParams(files: [file]);
       await SharePlus.instance.share(params);
     },
