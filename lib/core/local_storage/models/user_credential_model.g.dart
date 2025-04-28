@@ -8,7 +8,7 @@ part of 'user_credential_model.dart';
 
 class UserCredentialAdapter extends TypeAdapter<UserCredential> {
   @override
-  final int typeId = 1;
+  final typeId = 1;
 
   @override
   UserCredential read(BinaryReader reader) {

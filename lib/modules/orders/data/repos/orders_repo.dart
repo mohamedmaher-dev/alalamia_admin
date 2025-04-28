@@ -4,10 +4,10 @@ import 'package:alalamia_admin/core/networking/api_service.dart';
 import 'package:alalamia_admin/core/networking/api_try_catch.dart';
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/orders_response_model.dart';
 
-class OrdersRebo {
+class OrdersRepo {
   final ApiService apiOrdersService;
   final LocalStorageService localStorageService;
-  OrdersRebo({
+  OrdersRepo({
     required this.apiOrdersService,
     required this.localStorageService,
   });

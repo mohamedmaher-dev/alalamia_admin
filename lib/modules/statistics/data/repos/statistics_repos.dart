@@ -3,10 +3,10 @@ import 'package:alalamia_admin/core/networking/api_service.dart';
 import 'package:alalamia_admin/core/networking/api_try_catch.dart';
 import 'package:alalamia_admin/modules/statistics/data/models/statistics_response_model/statistics_response_model.dart';
 
-class StatisticsRebos {
+class StatisticsRepos {
   final ApiService apiService;
 
-  StatisticsRebos(this.apiService);
+  StatisticsRepos(this.apiService);
 
   Future<DataResult<StatisticsResponseModel>> getStatistics() async =>
       apiTryCatch(apiCall: apiService.getStatistics());

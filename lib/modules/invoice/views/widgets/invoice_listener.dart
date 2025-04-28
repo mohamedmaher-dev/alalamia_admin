@@ -4,6 +4,7 @@ import 'package:alalamia_admin/core/widgets/pop_loading.dart';
 import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 void Function(BuildContext, InvoiceState) inVoiceListener = (
@@ -26,7 +27,7 @@ void Function(BuildContext, InvoiceState) inVoiceListener = (
                   onPressed: () async {
                     cubit.save(order, pdfData);
                   },
-                  child: const Icon(Icons.save),
+                  child: const Icon(Icons.share),
                 ),
               ),
         ),
@@ -35,13 +36,13 @@ void Function(BuildContext, InvoiceState) inVoiceListener = (
           msg: language.failure_to_make_invoice,
           type: ContentType.failure,
         ),
-    saveLoading: () => PopLoading.show(),
-    saveSuccess: () {
+    saveLoading: () {
       context.router.pop();
-      AppSnackBar.show(
-        msg: language.invoice_saved_successfully,
-        type: ContentType.success,
-      );
+      PopLoading.show();
+    },
+    saveSuccess: (final file) async {
+      final params = ShareParams(files: [file]);
+      await SharePlus.instance.share(params);
     },
     saveFailure:
         () => AppSnackBar.show(

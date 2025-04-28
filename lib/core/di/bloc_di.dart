@@ -1,18 +1,18 @@
 part of 'di.dart';
 
 Future<void> _blocDiInit() async {
-  di.registerFactory(() => SignInCubit(di<AuthRebo>()));
-  di.registerFactory(() => SplashCubit(di<AuthRebo>()));
-  di.registerFactory(() => OrdersCubit(di<OrdersRebo>()));
+  di.registerFactory(() => SignInCubit(di<AuthRepo>()));
+  di.registerFactory(() => SplashCubit(di<AuthRepo>()));
+  di.registerFactory(() => OrdersCubit(di<OrdersRepo>()));
   di.registerFactory(InvoiceCubit.new);
   di.registerFactory(OrdersSearchCubit.new);
-  di.registerFactory(() => OrderDetailsCubit(di<OrderDetailsRebo>()));
-  di.registerFactory(() => OrderStatusCubit(di<OrderDetailsRebo>()));
+  di.registerFactory(() => OrderDetailsCubit(di<OrderDetailsRepo>()));
+  di.registerFactory(() => OrderStatusCubit(di<OrderDetailsRepo>()));
   di.registerFactory(
-    () => StatisticsCubit(di<StatisticsRebos>(), di<OrdersRebo>()),
+    () => StatisticsCubit(di<StatisticsRepos>(), di<OrdersRepo>()),
   );
   di.registerFactory(
     () =>
-        SettingsCubit(di<AppConfig>(), di<AuthRebo>(), di<NotificationsRepo>()),
+        SettingsCubit(di<AppConfig>(), di<AuthRepo>(), di<NotificationsRepo>()),
   );
 }

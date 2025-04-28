@@ -1,5 +1,5 @@
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/datum.dart';
-import 'package:alalamia_admin/modules/orders/data/rebos/orders_rebo.dart';
+import 'package:alalamia_admin/modules/orders/data/repos/orders_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -11,8 +11,8 @@ class OrdersCubit extends Cubit<OrdersState> {
     getNextPageKey: (final state) => _getNextPageKey(state),
     fetchPage: (final pageKey) => _getOrders(pageKey),
   );
-  final OrdersRebo ordersRebo;
-  OrdersCubit(this.ordersRebo) : super(const OrdersState.initial());
+  final OrdersRepo ordersRepo;
+  OrdersCubit(this.ordersRepo) : super(const OrdersState.initial());
 
   int? _getNextPageKey(final PagingState<int, OrdersDatum> state) {
     if (state.pages == null) {
@@ -27,7 +27,7 @@ class OrdersCubit extends Cubit<OrdersState> {
   }
 
   Future<List<OrdersDatum>> _getOrders(final int page) async {
-    final result = await ordersRebo.getOrders(page);
+    final result = await ordersRepo.getOrders(page);
     return result.trackingRequests.data;
   }
 

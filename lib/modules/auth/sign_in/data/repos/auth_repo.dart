@@ -11,12 +11,12 @@ import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_
 import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_response_model.dart';
 import 'package:dio/dio.dart';
 
-class AuthRebo {
+class AuthRepo {
   final NotificationsService notificationsService;
   final ApiService apiAuthService;
   final LocalStorageService localStorageService;
   final AppConfig appConfig;
-  AuthRebo({
+  AuthRepo({
     required this.apiAuthService,
     required this.localStorageService,
     required this.notificationsService,

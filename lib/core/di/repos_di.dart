@@ -1,8 +1,8 @@
 part of 'di.dart';
 
-Future<void> _rebosDIInit() async {
-  di.registerLazySingleton<AuthRebo>(
-    () => AuthRebo(
+Future<void> _reposDIInit() async {
+  di.registerLazySingleton<AuthRepo>(
+    () => AuthRepo(
       apiAuthService: di<ApiService>(),
       localStorageService: di<LocalStorageService>(),
       notificationsService: di<NotificationsService>(),
@@ -10,13 +10,13 @@ Future<void> _rebosDIInit() async {
     ),
   );
   di.registerLazySingleton(
-    () => OrdersRebo(
+    () => OrdersRepo(
       apiOrdersService: di<ApiService>(),
       localStorageService: di<LocalStorageService>(),
     ),
   );
-  di.registerLazySingleton(() => OrderDetailsRebo(di<ApiService>()));
-  di.registerLazySingleton(() => StatisticsRebos(di<ApiService>()));
+  di.registerLazySingleton(() => OrderDetailsRepo(di<ApiService>()));
+  di.registerLazySingleton(() => StatisticsRepos(di<ApiService>()));
   di.registerLazySingleton(
     () => NotificationsRepo(notificationsService: di<NotificationsService>()),
   );
