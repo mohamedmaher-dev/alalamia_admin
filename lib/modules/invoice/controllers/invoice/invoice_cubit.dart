@@ -35,7 +35,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
     emit(const InvoiceState.saveLoading());
     final result = await invoiceRepo.saveInvoice(order, pdf);
     result.when(
-      success: (final file) => emit(InvoiceState.saveSuccess(file: file!)),
+      success: (final file) => emit(InvoiceState.saveSuccess(file: file)),
       failure: (final e) => emit(const InvoiceState.saveFailure()),
     );
   }
