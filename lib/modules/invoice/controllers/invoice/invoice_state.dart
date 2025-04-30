@@ -11,6 +11,7 @@ class InvoiceState with _$InvoiceState {
     required final OrdersDetailsResponseModel order,
   }) = _ShowSuccess;
   const factory InvoiceState.saveLoading() = _SaveLoading;
-  const factory InvoiceState.saveSuccess() = _SaveSuccess;
+  const factory InvoiceState.saveSuccess({required final XFile file}) =
+      _SaveSuccess;
   const factory InvoiceState.saveFailure() = _SaveFailure;
 }

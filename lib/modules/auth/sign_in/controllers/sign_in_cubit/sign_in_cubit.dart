@@ -1,5 +1,5 @@
 import 'package:alalamia_admin/core/errors/app_error.dart';
-import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
+import 'package:alalamia_admin/modules/auth/sign_in/data/repos/auth_repo.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/models/sign_in_request_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +13,8 @@ class SignInCubit extends Cubit<SignInState> {
   final email = TextEditingController();
   final password = TextEditingController();
   bool isShowPassword = false;
-  final AuthRebo _authRebo;
-  SignInCubit(this._authRebo)
+  final AuthRepo _authRepo;
+  SignInCubit(this._authRepo)
     : super(const SignInState.initial(isShowPassword: false));
 
   void changeShowPassword() {
@@ -24,7 +24,7 @@ class SignInCubit extends Cubit<SignInState> {
 
   Future<void> signIn(final SignInRequestModel signInRequestModel) async {
     emit(const SignInState.loading());
-    final signInResult = await _authRebo.signIn(signInRequestModel);
+    final signInResult = await _authRepo.signIn(signInRequestModel);
     signInResult.when(
       success: (final data) {
         emit(const SignInState.success());

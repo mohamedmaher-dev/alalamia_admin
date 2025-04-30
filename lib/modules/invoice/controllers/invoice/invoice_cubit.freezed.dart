@@ -29,7 +29,7 @@ mixin _$InvoiceState {
     )
     showSuccess,
     required TResult Function() saveLoading,
-    required TResult Function() saveSuccess,
+    required TResult Function(XFile file) saveSuccess,
     required TResult Function() saveFailure,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,7 +44,7 @@ mixin _$InvoiceState {
     )?
     showSuccess,
     TResult? Function()? saveLoading,
-    TResult? Function()? saveSuccess,
+    TResult? Function(XFile file)? saveSuccess,
     TResult? Function()? saveFailure,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +59,7 @@ mixin _$InvoiceState {
     )?
     showSuccess,
     TResult Function()? saveLoading,
-    TResult Function()? saveSuccess,
+    TResult Function(XFile file)? saveSuccess,
     TResult Function()? saveFailure,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -171,7 +171,7 @@ class _$InitialImpl implements _Initial {
     )
     showSuccess,
     required TResult Function() saveLoading,
-    required TResult Function() saveSuccess,
+    required TResult Function(XFile file) saveSuccess,
     required TResult Function() saveFailure,
   }) {
     return initial();
@@ -190,7 +190,7 @@ class _$InitialImpl implements _Initial {
     )?
     showSuccess,
     TResult? Function()? saveLoading,
-    TResult? Function()? saveSuccess,
+    TResult? Function(XFile file)? saveSuccess,
     TResult? Function()? saveFailure,
   }) {
     return initial?.call();
@@ -209,7 +209,7 @@ class _$InitialImpl implements _Initial {
     )?
     showSuccess,
     TResult Function()? saveLoading,
-    TResult Function()? saveSuccess,
+    TResult Function(XFile file)? saveSuccess,
     TResult Function()? saveFailure,
     required TResult orElse(),
   }) {
@@ -323,7 +323,7 @@ class _$ShowLoadingImpl implements _ShowLoading {
     )
     showSuccess,
     required TResult Function() saveLoading,
-    required TResult Function() saveSuccess,
+    required TResult Function(XFile file) saveSuccess,
     required TResult Function() saveFailure,
   }) {
     return showLoading();
@@ -342,7 +342,7 @@ class _$ShowLoadingImpl implements _ShowLoading {
     )?
     showSuccess,
     TResult? Function()? saveLoading,
-    TResult? Function()? saveSuccess,
+    TResult? Function(XFile file)? saveSuccess,
     TResult? Function()? saveFailure,
   }) {
     return showLoading?.call();
@@ -361,7 +361,7 @@ class _$ShowLoadingImpl implements _ShowLoading {
     )?
     showSuccess,
     TResult Function()? saveLoading,
-    TResult Function()? saveSuccess,
+    TResult Function(XFile file)? saveSuccess,
     TResult Function()? saveFailure,
     required TResult orElse(),
   }) {
@@ -475,7 +475,7 @@ class _$ShowFailureImpl implements _ShowFailure {
     )
     showSuccess,
     required TResult Function() saveLoading,
-    required TResult Function() saveSuccess,
+    required TResult Function(XFile file) saveSuccess,
     required TResult Function() saveFailure,
   }) {
     return showFailure();
@@ -494,7 +494,7 @@ class _$ShowFailureImpl implements _ShowFailure {
     )?
     showSuccess,
     TResult? Function()? saveLoading,
-    TResult? Function()? saveSuccess,
+    TResult? Function(XFile file)? saveSuccess,
     TResult? Function()? saveFailure,
   }) {
     return showFailure?.call();
@@ -513,7 +513,7 @@ class _$ShowFailureImpl implements _ShowFailure {
     )?
     showSuccess,
     TResult Function()? saveLoading,
-    TResult Function()? saveSuccess,
+    TResult Function(XFile file)? saveSuccess,
     TResult Function()? saveFailure,
     required TResult orElse(),
   }) {
@@ -688,7 +688,7 @@ class _$ShowSuccessImpl implements _ShowSuccess {
     )
     showSuccess,
     required TResult Function() saveLoading,
-    required TResult Function() saveSuccess,
+    required TResult Function(XFile file) saveSuccess,
     required TResult Function() saveFailure,
   }) {
     return showSuccess(pdfData, cubit, order);
@@ -707,7 +707,7 @@ class _$ShowSuccessImpl implements _ShowSuccess {
     )?
     showSuccess,
     TResult? Function()? saveLoading,
-    TResult? Function()? saveSuccess,
+    TResult? Function(XFile file)? saveSuccess,
     TResult? Function()? saveFailure,
   }) {
     return showSuccess?.call(pdfData, cubit, order);
@@ -726,7 +726,7 @@ class _$ShowSuccessImpl implements _ShowSuccess {
     )?
     showSuccess,
     TResult Function()? saveLoading,
-    TResult Function()? saveSuccess,
+    TResult Function(XFile file)? saveSuccess,
     TResult Function()? saveFailure,
     required TResult orElse(),
   }) {
@@ -854,7 +854,7 @@ class _$SaveLoadingImpl implements _SaveLoading {
     )
     showSuccess,
     required TResult Function() saveLoading,
-    required TResult Function() saveSuccess,
+    required TResult Function(XFile file) saveSuccess,
     required TResult Function() saveFailure,
   }) {
     return saveLoading();
@@ -873,7 +873,7 @@ class _$SaveLoadingImpl implements _SaveLoading {
     )?
     showSuccess,
     TResult? Function()? saveLoading,
-    TResult? Function()? saveSuccess,
+    TResult? Function(XFile file)? saveSuccess,
     TResult? Function()? saveFailure,
   }) {
     return saveLoading?.call();
@@ -892,7 +892,7 @@ class _$SaveLoadingImpl implements _SaveLoading {
     )?
     showSuccess,
     TResult Function()? saveLoading,
-    TResult Function()? saveSuccess,
+    TResult Function(XFile file)? saveSuccess,
     TResult Function()? saveFailure,
     required TResult orElse(),
   }) {
@@ -959,6 +959,8 @@ abstract class _$$SaveSuccessImplCopyWith<$Res> {
     _$SaveSuccessImpl value,
     $Res Function(_$SaveSuccessImpl) then,
   ) = __$$SaveSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({XFile file});
 }
 
 /// @nodoc
@@ -972,26 +974,52 @@ class __$$SaveSuccessImplCopyWithImpl<$Res>
 
   /// Create a copy of InvoiceState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? file = null}) {
+    return _then(
+      _$SaveSuccessImpl(
+        file:
+            null == file
+                ? _value.file
+                : file // ignore: cast_nullable_to_non_nullable
+                    as XFile,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
 class _$SaveSuccessImpl implements _SaveSuccess {
-  const _$SaveSuccessImpl();
+  const _$SaveSuccessImpl({required this.file});
+
+  @override
+  final XFile file;
 
   @override
   String toString() {
-    return 'InvoiceState.saveSuccess()';
+    return 'InvoiceState.saveSuccess(file: $file)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SaveSuccessImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SaveSuccessImpl &&
+            (identical(other.file, file) || other.file == file));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, file);
+
+  /// Create a copy of InvoiceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveSuccessImplCopyWith<_$SaveSuccessImpl> get copyWith =>
+      __$$SaveSuccessImplCopyWithImpl<_$SaveSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1006,10 +1034,10 @@ class _$SaveSuccessImpl implements _SaveSuccess {
     )
     showSuccess,
     required TResult Function() saveLoading,
-    required TResult Function() saveSuccess,
+    required TResult Function(XFile file) saveSuccess,
     required TResult Function() saveFailure,
   }) {
-    return saveSuccess();
+    return saveSuccess(file);
   }
 
   @override
@@ -1025,10 +1053,10 @@ class _$SaveSuccessImpl implements _SaveSuccess {
     )?
     showSuccess,
     TResult? Function()? saveLoading,
-    TResult? Function()? saveSuccess,
+    TResult? Function(XFile file)? saveSuccess,
     TResult? Function()? saveFailure,
   }) {
-    return saveSuccess?.call();
+    return saveSuccess?.call(file);
   }
 
   @override
@@ -1044,12 +1072,12 @@ class _$SaveSuccessImpl implements _SaveSuccess {
     )?
     showSuccess,
     TResult Function()? saveLoading,
-    TResult Function()? saveSuccess,
+    TResult Function(XFile file)? saveSuccess,
     TResult Function()? saveFailure,
     required TResult orElse(),
   }) {
     if (saveSuccess != null) {
-      return saveSuccess();
+      return saveSuccess(file);
     }
     return orElse();
   }
@@ -1102,7 +1130,15 @@ class _$SaveSuccessImpl implements _SaveSuccess {
 }
 
 abstract class _SaveSuccess implements InvoiceState {
-  const factory _SaveSuccess() = _$SaveSuccessImpl;
+  const factory _SaveSuccess({required final XFile file}) = _$SaveSuccessImpl;
+
+  XFile get file;
+
+  /// Create a copy of InvoiceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveSuccessImplCopyWith<_$SaveSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1158,7 +1194,7 @@ class _$SaveFailureImpl implements _SaveFailure {
     )
     showSuccess,
     required TResult Function() saveLoading,
-    required TResult Function() saveSuccess,
+    required TResult Function(XFile file) saveSuccess,
     required TResult Function() saveFailure,
   }) {
     return saveFailure();
@@ -1177,7 +1213,7 @@ class _$SaveFailureImpl implements _SaveFailure {
     )?
     showSuccess,
     TResult? Function()? saveLoading,
-    TResult? Function()? saveSuccess,
+    TResult? Function(XFile file)? saveSuccess,
     TResult? Function()? saveFailure,
   }) {
     return saveFailure?.call();
@@ -1196,7 +1232,7 @@ class _$SaveFailureImpl implements _SaveFailure {
     )?
     showSuccess,
     TResult Function()? saveLoading,
-    TResult Function()? saveSuccess,
+    TResult Function(XFile file)? saveSuccess,
     TResult Function()? saveFailure,
     required TResult orElse(),
   }) {

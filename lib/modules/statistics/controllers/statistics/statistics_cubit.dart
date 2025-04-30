@@ -1,7 +1,7 @@
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/datum.dart';
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/order_status.dart';
-import 'package:alalamia_admin/modules/orders/data/rebos/orders_rebo.dart';
-import 'package:alalamia_admin/modules/statistics/data/rebos/statistics_rebos.dart';
+import 'package:alalamia_admin/modules/orders/data/repos/orders_repo.dart';
+import 'package:alalamia_admin/modules/statistics/data/repos/statistics_repos.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -9,15 +9,15 @@ part 'statistics_state.dart';
 part 'statistics_cubit.freezed.dart';
 
 class StatisticsCubit extends Cubit<StatisticsState> {
-  final StatisticsRebos statisticsRebos;
-  final OrdersRebo ordersRebo;
-  StatisticsCubit(this.statisticsRebos, this.ordersRebo)
+  final StatisticsRepos statisticsRepos;
+  final OrdersRepo ordersRepo;
+  StatisticsCubit(this.statisticsRepos, this.ordersRepo)
     : super(const StatisticsState.initial());
 
   // // Get Normal Orders
   // Future<void> getStatistics() async {
   //   emit(StatisticsState.loading());
-  //   final result = await statisticsRebos.getStatistics();
+  //   final result = await statisticsRepos.getStatistics();
   //   result.when(
   //     success: (data) {
   //       emit(StatisticsState.success(data: data));
@@ -35,7 +35,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
     int currentPage = 1;
     bool isLastPage = false;
     while (!isLastPage) {
-      final result = await ordersRebo.getOrdersWithApiResult(currentPage);
+      final result = await ordersRepo.getOrdersWithApiResult(currentPage);
       result.when(
         success: (final data) {
           orders.addAll(data.trackingRequests.data);

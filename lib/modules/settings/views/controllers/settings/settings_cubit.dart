@@ -4,7 +4,7 @@ import 'package:alalamia_admin/core/notifications/notifications_repo.dart';
 import 'package:alalamia_admin/core/notifications/notifications_service.dart';
 import 'package:alalamia_admin/core/router/app_router.gr.dart';
 import 'package:alalamia_admin/core/widgets/pop_loading.dart';
-import 'package:alalamia_admin/modules/auth/sign_in/data/rebos/auth_rebo.dart';
+import 'package:alalamia_admin/modules/auth/sign_in/data/repos/auth_repo.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
@@ -15,9 +15,9 @@ part 'settings_cubit.freezed.dart';
 
 class SettingsCubit extends Cubit<SettingsState> {
   final NotificationsRepo notificationsRepo;
-  final AuthRebo authRebo;
+  final AuthRepo authRepo;
   final AppConfig appConfig;
-  SettingsCubit(this.appConfig, this.authRebo, this.notificationsRepo)
+  SettingsCubit(this.appConfig, this.authRepo, this.notificationsRepo)
     : super(SettingsState.initial(appConfigModel: appConfig.state));
 
   void changeTheme() {
@@ -45,7 +45,7 @@ class SettingsCubit extends Cubit<SettingsState> {
   // ignore: prefer_final_parameters
   void signOut(BuildContext context) async {
     emit(const SettingsState.loading());
-    final result = await authRebo.signOut();
+    final result = await authRepo.signOut();
     result.when(
       success: (final data) {
         PopLoading.dismiss();
