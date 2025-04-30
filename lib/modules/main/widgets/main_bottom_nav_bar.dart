@@ -8,7 +8,10 @@ class _HomeBottomNavBar extends StatelessWidget {
   Widget build(final BuildContext context) {
     final language = Language.of(context);
     return SalomonBottomBar(
-      margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      itemShape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(kNormalRadius),
+      ),
+      margin: EdgeInsets.symmetric(horizontal: 50.h, vertical: 10.w),
       currentIndex: tabsRouter.activeIndex,
       items: [
         SalomonBottomBarItem(
