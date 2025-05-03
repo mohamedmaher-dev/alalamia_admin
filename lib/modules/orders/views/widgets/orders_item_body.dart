@@ -71,22 +71,24 @@ class _DataItemOrderItem extends StatelessWidget {
   final Widget icon;
 
   @override
-  Widget build(final BuildContext context) {
-    final theme = Theme.of(context);
-    return ListTile(
-      dense: true,
-      leading: Container(
-        padding: EdgeInsets.all(kNormalPadding),
-        decoration: BoxDecoration(
-          color: theme.colorScheme.surface,
-          borderRadius: BorderRadius.circular(kNormalRadius),
-        ),
-        child: icon,
+  Widget build(final BuildContext context) => ListTile(
+    dense: true,
+    leading: Container(
+      padding: EdgeInsets.all(kNormalPadding),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(kNormalRadius),
       ),
-      title: Text(title, style: TextStyles.tsP12B),
-      subtitle: Text(subTitle),
-    );
-  }
+      child: icon,
+    ),
+    title: Text(
+      title,
+      style: const TextStyle(
+        color: ColorManger.myGold,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    subtitle: Text(subTitle, style: const TextStyle(color: Colors.grey)),
+  );
 }
 
 class _RowDataItemOrderItem extends StatelessWidget {
@@ -151,7 +153,7 @@ class _ExpandedBody extends StatelessWidget {
           title: Jiffy.parse(model.bookingDate).yMMMMEEEEdjm,
           subTitle: language.order_date,
           icon: const Icon(CupertinoIcons.calendar),
-        ), // Add more widgets here as needed
+        ),
       ],
     );
   }
@@ -176,7 +178,10 @@ class _StatusBody extends StatelessWidget {
       child: Text(
         textAlign: TextAlign.center,
         model.status.orderStatusText,
-        style: TextStyles.ts12B.copyWith(color: Colors.black),
+        style: Theme.of(context).textTheme.labelLarge!.copyWith(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
@@ -190,7 +195,13 @@ class _ClientTitleBody extends StatelessWidget {
     final model = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     return ListTile(
-      title: Text(model.userName, style: TextStyles.tsP12B),
+      title: Text(
+        model.userName,
+        style: const TextStyle(
+          color: ColorManger.myGold,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       subtitle: Text(
         language.client_name,
         style: const TextStyle(color: Colors.grey),

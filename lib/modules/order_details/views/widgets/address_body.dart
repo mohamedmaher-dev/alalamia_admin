@@ -12,7 +12,7 @@ class _AddressBody extends StatelessWidget {
         children: [
           ListTile(
             leading: const Icon(CupertinoIcons.location_circle_fill),
-            title: Text(language.address, style: TextStyles.ts15B),
+            title: Text(language.address),
           ),
           Card(
             margin: EdgeInsets.symmetric(horizontal: kNormalMargin),

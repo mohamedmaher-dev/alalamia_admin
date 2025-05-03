@@ -84,7 +84,7 @@ class _OrderDetailsViewBody extends StatelessWidget {
                       forceMaterialTransparency: true,
                       title: Text(
                         language.order_details,
-                        style: TextStyles.ts15B,
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ),
                     body: Column(

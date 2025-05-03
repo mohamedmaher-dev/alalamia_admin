@@ -6,10 +6,9 @@ class _TabsBody extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     final language = Language.of(context);
-    TextStyle getTextStyle(final OrderDetailsTabsModel currentTab, final tab) {
-      final activeTextStyle = TextStyles.ts10B.copyWith(color: Colors.black);
-      final inactiveTextStyle = TextStyles.ts10B;
-      return tab == currentTab ? activeTextStyle : inactiveTextStyle;
+    TextStyle? getTextStyle(final OrderDetailsTabsModel currentTab, final tab) {
+      final activeTextStyle = const TextStyle(color: Colors.black);
+      return tab == currentTab ? activeTextStyle : null;
     }
 
     return BlocBuilder<OrderDetailsTabCubit, OrderDetailsTabState>(

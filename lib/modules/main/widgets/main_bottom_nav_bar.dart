@@ -16,17 +16,26 @@ class _HomeBottomNavBar extends StatelessWidget {
       items: [
         SalomonBottomBarItem(
           icon: const Icon(CupertinoIcons.chart_pie),
-          title: Text(language.statistics, style: TextStyles.tsP10B),
+          title: Text(
+            language.statistics,
+            style: const TextStyle(fontFamily: AppThemeData.fontFamily),
+          ),
           selectedColor: ColorManger.myGold,
         ),
         SalomonBottomBarItem(
           icon: const Icon(CupertinoIcons.cube_box_fill),
-          title: Text(language.orders, style: TextStyles.tsP10B),
+          title: Text(
+            language.orders,
+            style: const TextStyle(fontFamily: AppThemeData.fontFamily),
+          ),
           selectedColor: ColorManger.myGold,
         ),
         SalomonBottomBarItem(
           icon: const Icon(Icons.settings),
-          title: Text(language.settings, style: TextStyles.tsP10B),
+          title: Text(
+            language.settings,
+            style: const TextStyle(fontFamily: AppThemeData.fontFamily),
+          ),
           selectedColor: ColorManger.myGold,
         ),
       ],

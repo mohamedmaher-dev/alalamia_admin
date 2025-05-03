@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/notifications/notifications_consts.dart';
@@ -18,14 +19,13 @@ class NotificationsService {
 
   Future<void> changeEnableNotifications({required final bool isTurnOn}) async {
     if (isTurnOn) {
-      await _fcmService._fcm.subscribeToTopic(NotificationsConsts.adminTopic);
-      await _fcmService._fcm.getAPNSToken();
-      await _fcmService._fcm.getToken();
-    } else {
-      await _fcmService._fcm.unsubscribeFromTopic(
-        NotificationsConsts.adminTopic,
+      await _fcmService.subscribeToTopicGeneralMethod(
+        topic: NotificationsConsts.adminTopic,
       );
-      await _fcmService._fcm.deleteToken();
+    } else {
+      await _fcmService.unSubscribeToTopicGeneralMethod(
+        topic: NotificationsConsts.adminTopic,
+      );
     }
     await _fcmService._fcm.setAutoInitEnabled(isTurnOn);
     _appConfig.changeTurnOnNotification(value: isTurnOn);
