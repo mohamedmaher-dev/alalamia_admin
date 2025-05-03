@@ -13,6 +13,8 @@ class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       forceMaterialTransparency: true,
       title: ListTile(
+        minTileHeight: kToolbarHeight,
+        contentPadding: EdgeInsets.symmetric(horizontal: kNormalPadding),
         leading:
             countryModel.countryCode != null
                 ? Flag.fromString(
@@ -28,12 +30,12 @@ class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           1 => language.orders,
           2 => language.settings,
           int() => throw UnimplementedError(),
-        }, style: TextStyles.ts15B),
+        }),
         subtitle: Text(userCredential.countryName),
       ),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight.h);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

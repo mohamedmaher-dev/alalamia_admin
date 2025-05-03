@@ -47,7 +47,6 @@ dependencies:
   flutter_svg: ^2.0.17
   flutter_initicon: ^3.0.1
   flag: ^7.0.0
-  # device_preview: ^1.2.0
 
   # ===== State Mangement =====
   flutter_bloc: ^9.1.0
