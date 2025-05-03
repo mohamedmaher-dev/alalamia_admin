@@ -11,7 +11,9 @@ class _SettingsProfileBody extends StatelessWidget {
     final theme = Theme.of(context);
     return Column(
       children: [
-        ListTile(title: Text(language.my_profile, style: TextStyles.ts15B)),
+        ListTile(
+          title: Text(language.my_profile, style: theme.textTheme.titleLarge),
+        ),
         Card(
           child: Column(
             children: [

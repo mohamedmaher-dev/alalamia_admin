@@ -7,7 +7,9 @@ class _FCMService {
     _onForegroundHandler();
     _onBackgroundHandler();
     if (kDebugMode) {
-      await _fcm.subscribeToTopic(NotificationsConsts.adminTopicDebug);
+      await subscribeToTopicGeneralMethod(
+        topic: NotificationsConsts.adminTopic,
+      );
     }
   }
 
@@ -24,6 +26,52 @@ class _FCMService {
         type: ContentType.help,
       );
     });
+  }
+
+  Future<void> subscribeToTopicGeneralMethod({
+    required final String topic,
+  }) async {
+    if (Platform.isIOS) {
+      await _subscribeToTopicIOS(topic: topic);
+    } else {
+      await _fcm.subscribeToTopic(topic);
+    }
+  }
+
+  Future<void> unSubscribeToTopicGeneralMethod({
+    required final String topic,
+  }) async {
+    if (Platform.isIOS) {
+      await _unSubscribeToTopicIOS(topic: topic);
+    } else {
+      await _fcm.unsubscribeFromTopic(topic);
+    }
+  }
+
+  Future<void> _subscribeToTopicIOS({required final String topic}) async {
+    String? apnsToken = await _fcm.getAPNSToken();
+    if (apnsToken != null) {
+      await _fcm.subscribeToTopic(topic);
+    } else {
+      await Future<void>.delayed(const Duration(seconds: 3));
+      apnsToken = await _fcm.getAPNSToken();
+      if (apnsToken != null) {
+        await _fcm.subscribeToTopic(topic);
+      }
+    }
+  }
+
+  Future<void> _unSubscribeToTopicIOS({required final String topic}) async {
+    String? apnsToken = await _fcm.getAPNSToken();
+    if (apnsToken != null) {
+      await _fcm.unsubscribeFromTopic(topic);
+    } else {
+      await Future<void>.delayed(const Duration(seconds: 3));
+      apnsToken = await _fcm.getAPNSToken();
+      if (apnsToken != null) {
+        await _fcm.unsubscribeFromTopic(topic);
+      }
+    }
   }
 }
 

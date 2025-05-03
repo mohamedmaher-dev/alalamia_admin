@@ -16,11 +16,11 @@ class AppThemeData {
     expansionTileTheme: _expansionTileThemeData,
     iconButtonTheme: _iconButtonTheme,
     bottomSheetTheme: const BottomSheetThemeData(showDragHandle: true),
-    listTileTheme: ListTileThemeData(
-      subtitleTextStyle: TextStyles.ts10N.copyWith(color: Colors.grey),
+    listTileTheme: const ListTileThemeData(
+      subtitleTextStyle: TextStyle(color: Colors.grey, fontFamily: fontFamily),
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      hintStyle: TextStyles.ts12N.copyWith(color: Colors.grey),
+    inputDecorationTheme: const InputDecorationTheme(
+      hintStyle: TextStyle(color: Colors.grey),
     ),
     buttonTheme: ButtonThemeData(
       shape: RoundedRectangleBorder(

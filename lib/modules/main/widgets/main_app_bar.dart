@@ -14,7 +14,6 @@ class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       forceMaterialTransparency: true,
       title: ListTile(
         minTileHeight: kToolbarHeight,
-        contentPadding: EdgeInsets.symmetric(horizontal: kNormalPadding),
         leading:
             countryModel.countryCode != null
                 ? Flag.fromString(
@@ -25,12 +24,19 @@ class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                   fit: BoxFit.fill,
                 )
                 : Image.asset(countryModel.imagePath!),
-        title: Text(switch (tabsRouter.activeIndex) {
-          0 => language.statistics,
-          1 => language.orders,
-          2 => language.settings,
-          int() => throw UnimplementedError(),
-        }),
+        title: Text(
+          switch (tabsRouter.activeIndex) {
+            0 => language.statistics,
+            1 => language.orders,
+            2 => language.settings,
+            int() => throw UnimplementedError(),
+          },
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: ColorManger.myGold,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
+          ),
+        ),
         subtitle: Text(userCredential.countryName),
       ),
     );

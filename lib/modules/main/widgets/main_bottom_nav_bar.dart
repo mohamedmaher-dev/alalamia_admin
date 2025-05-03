@@ -11,25 +11,31 @@ class _HomeBottomNavBar extends StatelessWidget {
       itemShape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(kNormalRadius),
       ),
-      margin: EdgeInsets.symmetric(
-        horizontal: MediaQuery.of(context).size.width / 6,
-        vertical: kSpacingBetweenWidgetsHight,
-      ),
+      margin: EdgeInsets.symmetric(horizontal: 50.h, vertical: 10.w),
       currentIndex: tabsRouter.activeIndex,
       items: [
         SalomonBottomBarItem(
           icon: const Icon(CupertinoIcons.chart_pie),
-          title: Text(language.statistics, style: TextStyles.ts10N),
+          title: Text(
+            language.statistics,
+            style: const TextStyle(fontFamily: AppThemeData.fontFamily),
+          ),
           selectedColor: ColorManger.myGold,
         ),
         SalomonBottomBarItem(
           icon: const Icon(CupertinoIcons.cube_box_fill),
-          title: Text(language.orders, style: TextStyles.ts10N),
+          title: Text(
+            language.orders,
+            style: const TextStyle(fontFamily: AppThemeData.fontFamily),
+          ),
           selectedColor: ColorManger.myGold,
         ),
         SalomonBottomBarItem(
           icon: const Icon(Icons.settings),
-          title: Text(language.settings, style: TextStyles.ts10N),
+          title: Text(
+            language.settings,
+            style: const TextStyle(fontFamily: AppThemeData.fontFamily),
+          ),
           selectedColor: ColorManger.myGold,
         ),
       ],

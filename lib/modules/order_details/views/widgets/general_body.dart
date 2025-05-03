@@ -13,7 +13,7 @@ class _GeneralBody extends StatelessWidget {
         children: [
           ListTile(
             leading: const Icon(CupertinoIcons.person_circle_fill),
-            title: Text(language.client_info, style: TextStyles.ts15B),
+            title: Text(language.client_info),
           ),
           Card(
             margin: EdgeInsets.symmetric(horizontal: kNormalMargin),
@@ -41,7 +41,7 @@ class _GeneralBody extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(CupertinoIcons.cube_box_fill),
-            title: Text(language.order_summary, style: TextStyles.ts15B),
+            title: Text(language.order_summary),
           ),
           Card(
             margin: EdgeInsets.symmetric(horizontal: kNormalMargin),
