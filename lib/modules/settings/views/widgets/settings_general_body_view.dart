@@ -21,20 +21,25 @@ class _SettingsGeneralBodyView extends StatelessWidget {
               ListTile(
                 title: Text(language.night_mode),
                 leading: const Icon(Icons.dark_mode),
-                trailing: Switch(
-                  value: appConfig.state.isDarkMode,
-                  onChanged: (final value) => settingsCubit.changeTheme(),
+                trailing: BlocBuilder<SettingsCubit, SettingsState>(
+                  builder:
+                      (final context, final state) => Switch(
+                        value: appConfig.state.isDarkMode,
+                        onChanged: (final value) => settingsCubit.changeTheme(),
+                      ),
                 ),
               ),
               const Divider(),
               ListTile(
                 title: Text(language.notifications),
                 leading: const Icon(CupertinoIcons.bell_fill),
-                trailing: Switch(
-                  value: appConfig.state.turnOnNotification,
-                  onChanged:
-                      (final value) => settingsCubit.changeEnableNotifications(
-                        newValue: value,
+                trailing: BlocBuilder<SettingsCubit, SettingsState>(
+                  builder:
+                      (final context, final state) => Switch(
+                        value: appConfig.state.turnOnNotification,
+                        onChanged:
+                            (final value) => settingsCubit
+                                .changeEnableNotifications(newValue: value),
                       ),
                 ),
               ),
