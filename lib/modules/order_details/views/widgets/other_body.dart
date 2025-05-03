@@ -10,7 +10,7 @@ class _OtherBody extends StatelessWidget {
       children: [
         ListTile(
           leading: const Icon(Icons.more_rounded),
-          title: Text(language.other_info, style: TextStyles.ts15B),
+          title: Text(language.other_info),
         ),
         Card(
           margin: EdgeInsets.symmetric(horizontal: kNormalMargin),

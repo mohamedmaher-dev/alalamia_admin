@@ -42,7 +42,7 @@ class _TableHeaderBody extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final textStyle = TextStyles.ts10B.copyWith(color: Colors.black);
+    final textStyle = const TextStyle(color: Colors.black);
     final language = Language.current;
     return Container(
       padding: EdgeInsets.all(kNormalPadding),

@@ -1,7 +1,6 @@
 import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
-import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:alalamia_admin/core/widgets/pop_confirm.dart';
