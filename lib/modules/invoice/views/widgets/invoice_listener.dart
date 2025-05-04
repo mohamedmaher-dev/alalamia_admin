@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:alalamia_admin/core/localization/generated/l10n.dart';
 import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:alalamia_admin/core/widgets/pop_loading.dart';
 import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
@@ -27,7 +30,9 @@ void Function(BuildContext, InvoiceState) inVoiceListener = (
                   onPressed: () async {
                     cubit.save(order, pdfData);
                   },
-                  child: const Icon(Icons.share),
+                  child: Icon(
+                    Platform.isIOS ? CupertinoIcons.share_solid : Icons.share,
+                  ),
                 ),
               ),
         ),
