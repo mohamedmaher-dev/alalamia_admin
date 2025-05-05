@@ -19,9 +19,10 @@ class _SettingsGeneralBodyView extends StatelessWidget {
         Card(
           child: Column(
             children: [
-              ListTile(
-                title: Text(language.night_mode),
-                leading: const Icon(Icons.dark_mode),
+              CustomListTile(
+                icon: const Icon(Icons.dark_mode),
+                backgroundIconColor: theme.colorScheme.surface,
+                title: language.night_mode,
                 trailing: BlocBuilder<SettingsCubit, SettingsState>(
                   builder:
                       (final context, final state) => Switch(
@@ -29,11 +30,13 @@ class _SettingsGeneralBodyView extends StatelessWidget {
                         onChanged: (final value) => settingsCubit.changeTheme(),
                       ),
                 ),
+                backgroundColor: Colors.transparent,
               ),
               const Divider(),
-              ListTile(
-                title: Text(language.notifications),
-                leading: const Icon(CupertinoIcons.bell_fill),
+              CustomListTile(
+                icon: const Icon(CupertinoIcons.bell_fill),
+                backgroundIconColor: theme.colorScheme.surface,
+                title: language.notifications,
                 trailing: BlocBuilder<SettingsCubit, SettingsState>(
                   builder:
                       (final context, final state) => Switch(
@@ -43,11 +46,13 @@ class _SettingsGeneralBodyView extends StatelessWidget {
                                 .changeEnableNotifications(newValue: value),
                       ),
                 ),
+                backgroundColor: Colors.transparent,
               ),
               const Divider(),
-              ListTile(
-                title: Text(language.current_language),
-                leading: const Icon(Icons.language),
+              CustomListTile(
+                icon: const Icon(Icons.language),
+                backgroundIconColor: theme.colorScheme.surface,
+                title: language.current_language,
                 trailing: TextButton(
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
@@ -62,6 +67,7 @@ class _SettingsGeneralBodyView extends StatelessWidget {
                   onPressed: settingsCubit.changeLanguage,
                   child: Text(language.language_name),
                 ),
+                backgroundColor: Colors.transparent,
               ),
             ],
           ),

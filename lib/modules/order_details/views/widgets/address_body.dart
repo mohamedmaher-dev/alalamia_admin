@@ -19,10 +19,12 @@ class _AddressBody extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: kNormalMargin),
             child: Column(
               children: [
-                ListTile(
-                  leading: const Icon(Icons.location_on),
-                  title: Text(order.address!.name.nullToString, maxLines: 2),
-                  subtitle: Text(language.address),
+                CustomListTile(
+                  icon: const Icon(Icons.location_on),
+                  backgroundIconColor: theme.colorScheme.surfaceContainerLow,
+                  backgroundColor: theme.colorScheme.surface,
+                  title: order.address!.name.nullToString,
+                  subTitle: language.address,
                   trailing: const Icon(CupertinoIcons.chevron_left),
                   onTap: () async {
                     await MapLauncher.installedMaps.then(
@@ -36,11 +38,10 @@ class _AddressBody extends StatelessWidget {
                     );
                   },
                 ),
-                const Divider(),
-                ListTile(
-                  leading: const Icon(Icons.short_text_rounded),
-                  title: Text(order.address!.desc!.nullToString, maxLines: 2),
-                  subtitle: Text(language.location_desc),
+                CustomListTile(
+                  icon: const Icon(Icons.short_text_rounded),
+                  title: order.address!.desc!.nullToString,
+                  subTitle: language.location_desc,
                 ),
               ],
             ),

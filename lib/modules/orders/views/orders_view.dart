@@ -5,6 +5,7 @@ import 'package:alalamia_admin/core/localization/generated/l10n.dart';
 import 'package:alalamia_admin/core/router/app_router.gr.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
+import 'package:alalamia_admin/core/widgets/custom_list_tile.dart';
 import 'package:alalamia_admin/core/widgets/empty_view.dart';
 import 'package:alalamia_admin/core/widgets/error_view.dart';
 import 'package:alalamia_admin/core/widgets/user_avatar_body.dart';

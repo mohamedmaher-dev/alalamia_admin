@@ -23,16 +23,21 @@ class _GeneralBody extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: kNormalMargin),
             child: Column(
               children: [
-                ListTile(
-                  leading: UserAvatarBody(userName: args.userName),
-                  title: Text(args.userName),
-                  subtitle: Text(language.client_name),
+                CustomListTile(
+                  icon: UserAvatarBody(userName: args.userName),
+                  title: args.userName,
+                  titleIsBold: true,
+                  titleColor: ColorManger.myGold,
+                  subTitle: language.client_name,
+                  backgroundColor: Colors.transparent,
+                  backgroundIconColor: Colors.transparent,
                 ),
-                const Divider(),
-                ListTile(
-                  leading: const Icon(CupertinoIcons.phone),
-                  title: Text(args.phone),
-                  subtitle: Text(language.client_number),
+                CustomListTile(
+                  icon: const Icon(CupertinoIcons.phone),
+                  backgroundColor: theme.colorScheme.surface,
+                  backgroundIconColor: theme.colorScheme.surfaceContainerLow,
+                  title: args.phone,
+                  subTitle: language.client_number,
                   trailing: IconButton(
                     onPressed: () async {
                       await Clipboard.setData(ClipboardData(text: args.phone));
@@ -58,14 +63,16 @@ class _GeneralBody extends StatelessWidget {
                   orderStatus: args.status,
                   orderId: args.id.toString(),
                 ),
-                const Divider(),
                 Row(
                   children: [
                     Expanded(
-                      child: ListTile(
-                        leading: const Icon(CupertinoIcons.number),
-                        title: Text(args.requestNumber),
-                        subtitle: Text(language.order_number),
+                      child: CustomListTile(
+                        icon: const Icon(CupertinoIcons.number),
+                        backgroundIconColor:
+                            theme.colorScheme.surfaceContainerLow,
+                        title: args.requestNumber,
+                        subTitle: language.order_number,
+                        backgroundColor: theme.colorScheme.surface,
                         onLongPress: () async {
                           await Clipboard.setData(
                             ClipboardData(text: args.requestNumber),
@@ -78,12 +85,11 @@ class _GeneralBody extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      child: ListTile(
-                        leading: const Icon(CupertinoIcons.cube_box_fill),
-                        title: Text(
-                          '${orderDetails.cartDetail!.length} ${language.product}',
-                        ),
-                        subtitle: Text(language.number_of_products),
+                      child: CustomListTile(
+                        icon: const Icon(CupertinoIcons.cube_box_fill),
+                        title:
+                            '${orderDetails.cartDetail!.length} ${language.product}',
+                        subTitle: language.number_of_products,
                       ),
                     ),
                   ],

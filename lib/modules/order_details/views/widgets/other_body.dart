@@ -17,20 +17,19 @@ class _OtherBody extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: kNormalMargin),
           child: Column(
             children: [
-              ListTile(
-                leading: const Icon(CupertinoIcons.money_dollar),
-                title: Text(args.paymentType.paymentTypeText),
-                subtitle: Text(language.payment_type),
+              CustomListTile(
+                icon: const Icon(CupertinoIcons.money_dollar),
+                title: args.paymentType.paymentTypeText,
+                subTitle: language.payment_type,
               ),
-              const Divider(),
-              ListTile(
-                leading: const Icon(Icons.delivery_dining),
-                title: Text(
-                  args.aramexId == null
-                      ? language.no_data
-                      : args.aramexId.toString(),
-                ),
-                subtitle: Text(language.aramex_number),
+              CustomListTile(
+                icon: const Icon(Icons.delivery_dining),
+                title:
+                    args.aramexId == null
+                        ? language.no_data
+                        : args.aramexId.toString(),
+
+                subTitle: language.aramex_number,
                 trailing: IconButton(
                   icon: const Icon(Icons.copy),
                   onPressed: () {

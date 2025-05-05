@@ -7,6 +7,7 @@ import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:alalamia_admin/core/widgets/currency_view.dart';
+import 'package:alalamia_admin/core/widgets/custom_list_tile.dart';
 import 'package:alalamia_admin/core/widgets/error_view.dart';
 import 'package:alalamia_admin/core/widgets/general_btn.dart';
 import 'package:alalamia_admin/core/widgets/loading_view.dart';

@@ -40,8 +40,33 @@ class _OrderItemBody extends StatelessWidget {
                   ),
                   tilePadding: EdgeInsetsDirectional.only(end: kLargePadding),
                   controlAffinity: ListTileControlAffinity.trailing,
-                  title: const _TitleBodyOrderBody(),
-                  children: const <Widget>[_ExpandedBody()],
+                  title: CustomListTile(
+                    icon: UserAvatarBody(userName: model.userName),
+                    backgroundColor: Colors.transparent,
+                    backgroundIconColor: Colors.transparent,
+                    title: model.userName,
+                    titleIsBold: true,
+                    titleColor: ColorManger.primary,
+                    subTitle: language.client_name,
+                  ),
+                  children: <Widget>[
+                    _RowItemInfo(
+                      title1: model.paymentType.paymentTypeText,
+                      subTitle1: language.payment_type,
+                      icon1: const Icon(CupertinoIcons.money_dollar_circle),
+                      title2: Jiffy.parseFromDateTime(
+                        DateTime.parse(model.bookingDate).toUtc(),
+                      ).from(Jiffy.parseFromDateTime(DateTime.now().toUtc())),
+                      subTitle2: language.time_ago,
+                      icon2: const Icon(CupertinoIcons.clock),
+                    ),
+                    CustomListTile(
+                      title: Jiffy.parse(model.bookingDate).yMMMMEEEEdjm,
+                      subTitle: language.order_date,
+                      icon: const Icon(CupertinoIcons.calendar),
+                      isDense: true,
+                    ),
+                  ],
                 ),
                 _RowItemInfo(
                   icon1: const Icon(CupertinoIcons.phone),
@@ -59,39 +84,6 @@ class _OrderItemBody extends StatelessWidget {
       ),
     );
   }
-}
-
-class _ItemInfo extends StatelessWidget {
-  const _ItemInfo({
-    required this.title,
-    required this.subTitle,
-    required this.icon,
-  });
-  final String title;
-  final String subTitle;
-  final Widget icon;
-
-  @override
-  Widget build(final BuildContext context) => Container(
-    margin: EdgeInsets.all(kNormalMargin),
-    decoration: BoxDecoration(
-      color: Theme.of(context).colorScheme.surface,
-      borderRadius: BorderRadius.circular(kNormalRadius),
-    ),
-    child: ListTile(
-      dense: true,
-      leading: Container(
-        padding: EdgeInsets.all(kNormalPadding),
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surfaceContainerLow,
-          borderRadius: BorderRadius.circular(kNormalRadius),
-        ),
-        child: icon,
-      ),
-      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-      subtitle: Text(subTitle, style: const TextStyle(color: Colors.grey)),
-    ),
-  );
 }
 
 class _RowItemInfo extends StatelessWidget {
@@ -114,44 +106,25 @@ class _RowItemInfo extends StatelessWidget {
   Widget build(final BuildContext context) => Row(
     children: [
       Expanded(
-        child: _ItemInfo(title: title1, subTitle: subTitle1, icon: icon1),
+        child: CustomListTile(
+          title: title1,
+          subTitle: subTitle1,
+          icon: icon1,
+
+          isDense: true,
+        ),
       ),
       Expanded(
-        child: _ItemInfo(title: title2, subTitle: subTitle2, icon: icon2),
+        child: CustomListTile(
+          title: title2,
+          subTitle: subTitle2,
+          icon: icon2,
+
+          isDense: true,
+        ),
       ),
     ],
   );
-}
-
-class _ExpandedBody extends StatelessWidget {
-  const _ExpandedBody();
-
-  @override
-  Widget build(final BuildContext context) {
-    final model = Provider.of<OrdersDatum>(context);
-    final language = Language.of(context);
-    return Column(
-      children: [
-        _RowItemInfo(
-          title1: model.paymentType.paymentTypeText,
-          subTitle1: language.payment_type,
-          icon1: const Icon(CupertinoIcons.money_dollar_circle),
-
-          title2: Jiffy.parseFromDateTime(
-            DateTime.parse(model.bookingDate).toUtc(),
-          ).from(Jiffy.parseFromDateTime(DateTime.now().toUtc())),
-          subTitle2: language.time_ago,
-          icon2: const Icon(CupertinoIcons.clock),
-        ),
-
-        _ItemInfo(
-          title: Jiffy.parse(model.bookingDate).yMMMMEEEEdjm,
-          subTitle: language.order_date,
-          icon: const Icon(CupertinoIcons.calendar),
-        ),
-      ],
-    );
-  }
 }
 
 class _StatusBody extends StatelessWidget {
@@ -177,31 +150,6 @@ class _StatusBody extends StatelessWidget {
           color: model.status.orderStatusColor,
           fontWeight: FontWeight.bold,
         ),
-      ),
-    );
-  }
-}
-
-class _TitleBodyOrderBody extends StatelessWidget {
-  const _TitleBodyOrderBody();
-
-  @override
-  Widget build(final BuildContext context) {
-    final model = Provider.of<OrdersDatum>(context);
-    final language = Language.of(context);
-    return ListTile(
-      dense: true,
-      leading: UserAvatarBody(userName: model.userName),
-      title: Text(
-        model.userName,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: ColorManger.primary,
-        ),
-      ),
-      subtitle: Text(
-        language.client_name,
-        style: const TextStyle(color: Colors.grey),
       ),
     );
   }

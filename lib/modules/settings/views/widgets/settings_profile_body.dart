@@ -18,10 +18,11 @@ class _SettingsProfileBody extends StatelessWidget {
         Card(
           child: Column(
             children: [
-              ListTile(
-                title: Text(language.my_profile),
-                subtitle: Text(userCredential.email),
-                leading: const Icon(CupertinoIcons.person_fill),
+              CustomListTile(
+                icon: const Icon(CupertinoIcons.person_fill),
+                backgroundIconColor: theme.colorScheme.surface,
+                title: language.my_profile,
+                subTitle: userCredential.email,
                 trailing: TextButton(
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
@@ -43,6 +44,7 @@ class _SettingsProfileBody extends StatelessWidget {
                   },
                   child: Text(language.log_out),
                 ),
+                backgroundColor: Colors.transparent,
               ),
             ],
           ),
