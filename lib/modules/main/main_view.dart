@@ -20,11 +20,15 @@ class MainView extends StatelessWidget {
   const MainView({super.key});
 
   @override
-  Widget build(final BuildContext context) => AutoTabsScaffold(
-    homeIndex: 1,
-    appBarBuilder: (_, final tabsRouter) => _MainAppBar(tabsRouter: tabsRouter),
-    routes: const [StatisticsRoute(), OrdersRoute(), SettingsRoute()],
-    bottomNavigationBuilder:
-        (_, final tabsRouter) => _HomeBottomNavBar(tabsRouter: tabsRouter),
+  Widget build(final BuildContext context) => PopScope(
+    canPop: false,
+    child: AutoTabsScaffold(
+      homeIndex: 1,
+      appBarBuilder:
+          (_, final tabsRouter) => _MainAppBar(tabsRouter: tabsRouter),
+      routes: const [StatisticsRoute(), OrdersRoute(), SettingsRoute()],
+      bottomNavigationBuilder:
+          (_, final tabsRouter) => _HomeBottomNavBar(tabsRouter: tabsRouter),
+    ),
   );
 }

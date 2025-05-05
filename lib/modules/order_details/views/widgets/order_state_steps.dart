@@ -16,8 +16,8 @@ class _OrderStateSteps extends StatelessWidget {
       finishedStepIconColor: ColorManger.myGold,
       unreachedStepIconColor: Colors.transparent,
       borderThickness: 2,
-      defaultStepBorderType: BorderType.normal,
-      lineStyle: const LineStyle(lineType: LineType.normal),
+      stepBorderRadius: kNormalRadius,
+      stepShape: StepShape.rRectangle,
       showLoadingAnimation: false,
       stepRadius: kNormalRadius.r,
       onStepReached: (final index) {
