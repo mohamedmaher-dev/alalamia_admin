@@ -6,6 +6,7 @@ final kNormalMargin = 5.w;
 final kNormalRadius = 10.r;
 final kBottonHight = 35.h;
 final kSpacingBetweenWidgetsHight = 10.w;
+const kBackgroundColorAlpha = 35;
 
 // Medium Spacing
 final kMediumPadding = 10.w;

@@ -10,7 +10,7 @@ class FirebaseService {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    if (!kDebugMode) {
+    if (kReleaseMode) {
       FlutterError.onError = (final errorDetails) {
         FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
       };

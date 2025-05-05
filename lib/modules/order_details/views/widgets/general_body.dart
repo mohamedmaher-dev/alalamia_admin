@@ -5,6 +5,7 @@ class _GeneralBody extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    final theme = Theme.of(context);
     final args = Provider.of<OrdersDatum>(context);
     final orderDetails = Provider.of<OrdersDetailsResponseModel>(context);
     final language = Language.of(context);
@@ -13,7 +14,10 @@ class _GeneralBody extends StatelessWidget {
         children: [
           ListTile(
             leading: const Icon(CupertinoIcons.person_circle_fill),
-            title: Text(language.client_info),
+            title: Text(
+              language.client_info,
+              style: theme.textTheme.titleLarge,
+            ),
           ),
           Card(
             margin: EdgeInsets.symmetric(horizontal: kNormalMargin),
@@ -41,7 +45,10 @@ class _GeneralBody extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(CupertinoIcons.cube_box_fill),
-            title: Text(language.order_summary),
+            title: Text(
+              language.order_summary,
+              style: theme.textTheme.titleLarge,
+            ),
           ),
           Card(
             margin: EdgeInsets.symmetric(horizontal: kNormalMargin),

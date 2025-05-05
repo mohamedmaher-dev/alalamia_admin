@@ -4,13 +4,14 @@ class _OtherBody extends StatelessWidget {
   const _OtherBody();
   @override
   Widget build(final BuildContext context) {
+    final theme = Theme.of(context);
     final args = Provider.of<OrdersDatum>(context);
     final language = Language.of(context);
     return Column(
       children: [
         ListTile(
           leading: const Icon(Icons.more_rounded),
-          title: Text(language.other_info),
+          title: Text(language.other_info, style: theme.textTheme.titleLarge),
         ),
         Card(
           margin: EdgeInsets.symmetric(horizontal: kNormalMargin),

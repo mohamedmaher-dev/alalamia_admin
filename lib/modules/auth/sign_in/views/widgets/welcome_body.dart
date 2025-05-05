@@ -16,7 +16,6 @@ class _WelcomeBody extends StatelessWidget {
           ),
           subtitle: Text(
             language.please_input_your_data_to_sign_in,
-            style: TextStyles.ts10N,
             textAlign: TextAlign.center,
           ),
         ),

@@ -13,6 +13,7 @@ class _SettingsGeneralBodyView extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          leading: const Icon(Icons.settings),
           title: Text(language.general, style: theme.textTheme.titleLarge),
         ),
         Card(

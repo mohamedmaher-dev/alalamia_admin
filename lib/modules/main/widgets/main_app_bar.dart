@@ -33,7 +33,6 @@ class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           },
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: ColorManger.myGold,
             fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
           ),
         ),

@@ -12,6 +12,7 @@ class _SettingsProfileBody extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          leading: const Icon(CupertinoIcons.profile_circled),
           title: Text(language.my_profile, style: theme.textTheme.titleLarge),
         ),
         Card(

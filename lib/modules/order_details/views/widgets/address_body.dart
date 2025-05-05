@@ -5,6 +5,7 @@ class _AddressBody extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    final theme = Theme.of(context);
     final order = Provider.of<OrdersDetailsResponseModel>(context);
     final language = Language.of(context);
     if (order.address != null) {
@@ -12,7 +13,7 @@ class _AddressBody extends StatelessWidget {
         children: [
           ListTile(
             leading: const Icon(CupertinoIcons.location_circle_fill),
-            title: Text(language.address),
+            title: Text(language.address, style: theme.textTheme.titleLarge),
           ),
           Card(
             margin: EdgeInsets.symmetric(horizontal: kNormalMargin),
