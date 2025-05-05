@@ -59,10 +59,9 @@ class _GeneralBody extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: kNormalMargin),
             child: Column(
               children: [
-                _OrderStateSteps(
-                  orderStatus: args.status,
-                  orderId: args.id.toString(),
-                ),
+                if (args.status != OrderStatus.canceled)
+                  const _OrderStateSteps(),
+                if (args.status == OrderStatus.canceled) const _CancelBody(),
                 Row(
                   children: [
                     Expanded(
@@ -96,6 +95,42 @@ class _GeneralBody extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CancelBody extends StatelessWidget {
+  const _CancelBody();
+  @override
+  Widget build(final BuildContext context) {
+    final theme = Theme.of(context);
+    final language = Language.of(context);
+
+    final args = Provider.of<OrdersDatum>(context);
+    final orderDetails = Provider.of<OrdersDetailsResponseModel>(context);
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.center,
+      margin: EdgeInsets.all(kNormalMargin),
+      padding: EdgeInsets.all(kNormalMargin),
+      decoration: BoxDecoration(
+        color: args.status.orderStatusColor.withAlpha(kBackgroundColorAlpha),
+        borderRadius: BorderRadius.circular(kNormalRadius),
+      ),
+      child: Column(
+        children: [
+          Text(
+            language.status_canceled,
+            style: theme.textTheme.titleLarge!.copyWith(
+              color: args.status.orderStatusColor,
+            ),
+          ),
+          Text(
+            orderDetails.cancelNote.nullToString,
+            style: theme.textTheme.bodyMedium,
           ),
         ],
       ),
