@@ -32,9 +32,19 @@ class _HomeBottomNavBar extends StatelessWidget {
         ),
         SalomonBottomBarItem(
           icon: const Icon(Icons.settings),
-          title: Text(
-            language.settings,
-            style: const TextStyle(fontFamily: AppThemeData.fontFamily),
+          title: GestureDetector(
+            onLongPress: () {
+              if (tabsRouter.activeIndex == 2) {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (final context) => const AppInfoView(),
+                );
+              }
+            },
+            child: Text(
+              language.settings,
+              style: const TextStyle(fontFamily: AppThemeData.fontFamily),
+            ),
           ),
           selectedColor: ColorManger.myGold,
         ),

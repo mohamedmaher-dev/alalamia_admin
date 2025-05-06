@@ -6,6 +6,7 @@ import 'package:alalamia_admin/core/models/country_model.dart';
 import 'package:alalamia_admin/core/router/app_router.gr.dart';
 import 'package:alalamia_admin/core/themes/app_theme_data.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
+import 'package:alalamia_admin/core/widgets/app_info_view.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flag/flag_widget.dart';
 import 'package:flutter/cupertino.dart';
