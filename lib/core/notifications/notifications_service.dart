@@ -1,16 +1,12 @@
 import 'dart:async';
-import 'dart:io';
-
 import 'package:alalamia_admin/core/config/app_config_cubit.dart';
+import 'package:alalamia_admin/core/notifications/fcm_service.dart';
 import 'package:alalamia_admin/core/notifications/notifications_consts.dart';
-import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart';
-part 'fcm_service.dart';
 
 class NotificationsService {
   final AppConfig _appConfig;
-  final _fcmService = _FCMService();
+  final _fcmService = FCMService();
   NotificationsService(this._appConfig);
 
   Future<void> call() async {
@@ -19,20 +15,20 @@ class NotificationsService {
 
   Future<void> changeEnableNotifications({required final bool isTurnOn}) async {
     if (isTurnOn) {
-      await _fcmService.subscribeToTopicGeneralMethod(
-        topic: NotificationsConsts.adminTopic,
-      );
+      await _fcmService.getToken();
+      await _fcmService.subscribeToTopic(topic: NotificationsConsts.adminTopic);
     } else {
-      await _fcmService.unSubscribeToTopicGeneralMethod(
+      await _fcmService.unSubscribeToTopic(
         topic: NotificationsConsts.adminTopic,
       );
+      await _fcmService.deleteToken();
     }
-    await _fcmService._fcm.setAutoInitEnabled(isTurnOn);
+    await _fcmService.setAutoInitEnabled(isTurnOn: isTurnOn);
     _appConfig.changeTurnOnNotification(value: isTurnOn);
   }
 
   Future<NotificationSettings> get notificationPermissionGranted async =>
-      await _fcmService._fcm.getNotificationSettings();
+      await _fcmService.getNotificationSettings();
 }
 
 enum NotificationPermission { denied, granted, provisional }

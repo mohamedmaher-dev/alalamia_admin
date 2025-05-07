@@ -61,6 +61,10 @@ class AuthRepo {
       );
       // Call the API to sign in
       final data = await _signInMethod(signInRequestModel);
+      // Change enable notifications
+      await notificationsService.changeEnableNotifications(
+        isTurnOn: appConfig.state.turnOnNotification,
+      );
       return DataResult.success(data: data);
     } on DioException catch (e) {
       return DataResult.failure(
