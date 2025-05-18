@@ -55,7 +55,10 @@ class _ApprovedAndRejectButtons extends StatelessWidget {
       children: [
         const Divider(),
         Padding(
-          padding: EdgeInsets.all(kNormalPadding),
+          padding: EdgeInsets.symmetric(
+            vertical: kLargeMargin,
+            horizontal: kMediumMargin,
+          ),
           child: BlocListener<OrderStatusCubit, OrderStatusState>(
             listener:
                 (final context, final state) =>

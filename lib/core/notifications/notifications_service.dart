@@ -16,11 +16,12 @@ class NotificationsService {
   Future<void> changeEnableNotifications({required final bool isTurnOn}) async {
     if (isTurnOn) {
       await _fcmService.getToken();
-      await _fcmService.subscribeToTopic(topic: NotificationsConsts.adminTopic);
-    } else {
-      await _fcmService.unSubscribeToTopic(
-        topic: NotificationsConsts.adminTopic,
-      );
+    }
+    await _fcmService.setSubscribeToTopic(
+      topic: NotificationsConsts.adminTopic,
+      isSubscribe: isTurnOn,
+    );
+    if (!isTurnOn) {
       await _fcmService.deleteToken();
     }
     await _fcmService.setAutoInitEnabled(isTurnOn: isTurnOn);
