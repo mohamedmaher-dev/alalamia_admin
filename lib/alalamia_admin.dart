@@ -1,5 +1,4 @@
 import 'package:alalamia_admin/core/config/app_config_cubit.dart';
-import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/extension/bool_ext.dart';
 import 'package:alalamia_admin/core/extension/string_ext.dart';
 import 'package:alalamia_admin/core/router/app_router.dart';
@@ -23,7 +22,7 @@ class AlalamiaAdmin extends StatelessWidget {
               darkTheme: AppThemeData.theme,
               themeMode: config.isDarkMode.toThemeMode,
               debugShowCheckedModeBanner: false,
-              routerConfig: di<AppRouter>().config(),
+              routerConfig: AppRouter.instance.config(),
               localizationsDelegates: const [
                 Language.delegate,
                 GlobalMaterialLocalizations.delegate,

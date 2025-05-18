@@ -112,5 +112,6 @@
     "perrmission_granted" : "Permission granted",
     "time_ago" : "Time ago",
     "number_of_products" : "Number of products",
-    "successfully_copied" : "Successfully copied"
+    "successfully_copied" : "Successfully copied",
+    "more" : "More"
 }

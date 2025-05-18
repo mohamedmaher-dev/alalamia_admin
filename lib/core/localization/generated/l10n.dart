@@ -1189,6 +1189,16 @@ class Language {
       args: [],
     );
   }
+
+  /// `المزيد`
+  String get more {
+    return Intl.message(
+      'المزيد',
+      name: 'more',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Language> {

@@ -19,7 +19,6 @@ part 'widgets/main_bottom_nav_bar.dart';
 @RoutePage()
 class MainView extends StatelessWidget {
   const MainView({super.key});
-
   @override
   Widget build(final BuildContext context) => PopScope(
     canPop: false,

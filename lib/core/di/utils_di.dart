@@ -2,7 +2,6 @@ part of 'di.dart';
 
 Future<void> _utilsDiInit() async {
   di.registerLazySingleton<AppConfig>(AppConfig.new);
-  di.registerLazySingleton<AppRouter>(AppRouter.new);
   di.registerLazySingleton<LocalStorageService>(LocalStorageService.new);
   di.registerLazySingleton<NotificationsService>(
     () => NotificationsService(di<AppConfig>()),

@@ -15,6 +15,7 @@ class CustomListTile extends StatelessWidget {
     this.trailing,
     this.onLongPress,
     this.onTap,
+    this.titleDirection,
   });
   final Widget icon;
   final String title;
@@ -22,6 +23,7 @@ class CustomListTile extends StatelessWidget {
   final String? subTitle;
   final Color? backgroundColor, backgroundIconColor, titleColor;
   final Widget? trailing;
+  final TextDirection? titleDirection;
   final void Function()? onLongPress;
   final void Function()? onTap;
 
@@ -30,11 +32,11 @@ class CustomListTile extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       margin: EdgeInsets.all(kNormalMargin),
-      decoration: BoxDecoration(
-        color: backgroundColor ?? theme.colorScheme.surface,
-        borderRadius: BorderRadius.circular(kNormalRadius),
-      ),
       child: ListTile(
+        tileColor: backgroundColor ?? theme.colorScheme.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kNormalRadius),
+        ),
         contentPadding: EdgeInsets.symmetric(horizontal: kNormalPadding),
         dense: isDense,
         leading: Container(
@@ -51,6 +53,7 @@ class CustomListTile extends StatelessWidget {
             fontWeight: titleIsBold == true ? FontWeight.bold : null,
             color: titleColor,
           ),
+          textDirection: titleDirection,
         ),
         subtitle:
             subTitle == null

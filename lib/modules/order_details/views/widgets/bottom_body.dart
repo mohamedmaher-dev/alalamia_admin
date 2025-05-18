@@ -23,7 +23,7 @@ class _BottomBody extends StatelessWidget {
               style: TextStyles.tsP15B,
             ),
             subtitle: Text(language.total_price),
-            trailing: IconButton.outlined(
+            trailing: IconButton.filled(
               style: IconButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
@@ -32,7 +32,7 @@ class _BottomBody extends StatelessWidget {
                 ),
               ),
               onPressed: () => cubit.show(orderDetails, args),
-              icon: const Icon(CupertinoIcons.doc),
+              icon: const Icon(CupertinoIcons.doc, color: Colors.black),
             ),
           ),
           const _ApprovedAndRejectButtons(),

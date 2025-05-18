@@ -112,5 +112,6 @@
     "perrmission_granted" : "الاذن ممنوح",
     "time_ago" : "منذ",
     "number_of_products" : "عدد المنتجات",
-    "successfully_copied" : "تم النسخ بنجاح"
+    "successfully_copied" : "تم النسخ بنجاح",
+    "more" : "المزيد"
 }

@@ -94,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "location_desc":
             MessageLookupByLibrary.simpleMessage("Location description"),
         "log_out": MessageLookupByLibrary.simpleMessage("Log out"),
+        "more": MessageLookupByLibrary.simpleMessage("More"),
         "more_info": MessageLookupByLibrary.simpleMessage("More info"),
         "my_profile": MessageLookupByLibrary.simpleMessage("My profile"),
         "night_mode": MessageLookupByLibrary.simpleMessage("Night mode"),

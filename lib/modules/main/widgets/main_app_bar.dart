@@ -38,6 +38,22 @@ class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         subtitle: Text(userCredential.countryName),
       ),
+      actionsPadding: EdgeInsetsDirectional.only(end: kMediumPadding),
+      // actions: [
+      //   if (tabsRouter.activeIndex == 1)
+      //     IconButton(
+      //       style: IconButton.styleFrom(
+      //         backgroundColor:
+      //             Theme.of(context).colorScheme.surfaceContainerLow,
+      //         shape: RoundedRectangleBorder(
+      //           borderRadius: BorderRadius.circular(kNormalRadius),
+      //         ),
+      //       ),
+
+      //       onPressed: () {},
+      //       icon: const Icon(CupertinoIcons.search),
+      //     ),
+      // ],
     );
   }
 

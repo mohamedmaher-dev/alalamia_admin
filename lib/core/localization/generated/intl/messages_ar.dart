@@ -91,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "language_name": MessageLookupByLibrary.simpleMessage("العربية"),
         "location_desc": MessageLookupByLibrary.simpleMessage("وصف الموقع"),
         "log_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "more_info": MessageLookupByLibrary.simpleMessage("مزيد من المعلومات"),
         "my_profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "night_mode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),

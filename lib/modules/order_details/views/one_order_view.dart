@@ -8,6 +8,7 @@ import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:alalamia_admin/core/widgets/currency_view.dart';
 import 'package:alalamia_admin/core/widgets/custom_list_tile.dart';
+import 'package:alalamia_admin/core/widgets/empty_view.dart';
 import 'package:alalamia_admin/core/widgets/error_view.dart';
 import 'package:alalamia_admin/core/widgets/general_btn.dart';
 import 'package:alalamia_admin/core/widgets/loading_view.dart';
@@ -24,7 +25,7 @@ import 'package:alalamia_admin/modules/order_details/data/models/orders_details_
 import 'package:alalamia_admin/modules/order_details/data/models/orders_details_response_model/orders_details_response_model.dart';
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/datum.dart';
 import 'package:alalamia_admin/modules/orders/data/models/orders_response_model/order_status.dart';
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,6 @@ part 'widgets/bottom_body.dart';
 part 'widgets/order_state_steps.dart';
 part 'widgets/cart_body.dart';
 part 'widgets/general_body.dart';
-part 'widgets/address_body.dart';
 part 'widgets/other_body.dart';
 part 'widgets/tabs_body.dart';
 
@@ -102,7 +102,6 @@ class _OrderDetailsViewBody extends StatelessWidget {
                             children: const [
                               _GeneralBody(),
                               _CartBody(),
-                              _AddressBody(),
                               _OtherBody(),
                             ],
                           ),
