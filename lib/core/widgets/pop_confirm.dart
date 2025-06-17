@@ -22,6 +22,10 @@ class _PopUpConfirm extends StatelessWidget {
   Widget build(final BuildContext context) {
     final language = Language.of(context);
     return Card(
+      margin: EdgeInsets.symmetric(
+        vertical: kLargeMargin,
+        horizontal: kMediumMargin,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min, // Prevent excessive space usage
         children: [

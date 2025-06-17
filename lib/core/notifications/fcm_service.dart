@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:alalamia_admin/core/notifications/in_app_notifi.dart';
 import 'package:alalamia_admin/core/notifications/notifications_consts.dart';
+import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
@@ -11,7 +11,10 @@ class FCMService {
     _onForegroundHandler();
     _onBackgroundHandler();
     if (kDebugMode) {
-      await subscribeToTopic(topic: NotificationsConsts.adminTopic);
+      await setSubscribeToTopic(
+        topic: NotificationsConsts.adminTopic,
+        isSubscribe: true,
+      );
     }
   }
 
@@ -20,30 +23,30 @@ class FCMService {
     _firebaseMessagingBackgroundHandler,
   );
 
-  void _onForegroundHandler() => FirebaseMessaging.onMessage.listen(
-    (final RemoteMessage message) => InAppNotification.show(
-      message.notification!.title!,
-      message.notification!.body!,
-    ),
-  );
+  void _onForegroundHandler() =>
+      FirebaseMessaging.onMessage.listen((final RemoteMessage message) {
+        AppSnackBar.show(
+          title: message.notification!.title.toString(),
+          msg: message.notification!.body.toString(),
+          type: ContentType.help,
+        );
+      });
 
-  Future<void> subscribeToTopic({required final String topic}) async {
+  Future<void> setSubscribeToTopic({
+    required final String topic,
+    required final bool isSubscribe,
+  }) async {
     if (Platform.isIOS) {
-      await _topicInIOS(topic: topic, isSubscribe: true);
+      await _setSubscribeToTopicInIOS(topic: topic, isSubscribe: isSubscribe);
     } else {
-      await _fcm.subscribeToTopic(topic);
+      await _setSubscribeToTopicInAndroid(
+        topic: topic,
+        isSubscribe: isSubscribe,
+      );
     }
   }
 
-  Future<void> unSubscribeToTopic({required final String topic}) async {
-    if (Platform.isIOS) {
-      await _topicInIOS(topic: topic, isSubscribe: false);
-    } else {
-      await _fcm.unsubscribeFromTopic(topic);
-    }
-  }
-
-  Future<void> _topicInIOS({
+  Future<void> _setSubscribeToTopicInIOS({
     required final String topic,
     required final bool isSubscribe,
   }) async {
@@ -67,16 +70,27 @@ class FCMService {
     }
   }
 
+  Future<void> _setSubscribeToTopicInAndroid({
+    required final String topic,
+    required final bool isSubscribe,
+  }) async {
+    if (isSubscribe) {
+      await _fcm.subscribeToTopic(topic);
+    } else {
+      await _fcm.unsubscribeFromTopic(topic);
+    }
+  }
+
   Future<void> getToken() async {
-    // if (Platform.isAndroid) {
-    await _fcm.getToken();
-    // }
+    if (Platform.isAndroid) {
+      await _fcm.getToken();
+    }
   }
 
   Future<void> deleteToken() async {
-    // if (Platform.isAndroid) {
-    await _fcm.deleteToken();
-    // }
+    if (Platform.isAndroid) {
+      await _fcm.deleteToken();
+    }
   }
 
   Future<void> setAutoInitEnabled({required final bool isTurnOn}) async =>
