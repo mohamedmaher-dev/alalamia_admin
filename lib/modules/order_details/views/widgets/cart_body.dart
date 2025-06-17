@@ -170,8 +170,13 @@ class CartTableCell extends StatelessWidget {
   final double width;
   const CartTableCell({required this.text, required this.width, super.key});
   @override
-  Widget build(final BuildContext context) =>
-      SizedBox(width: width, child: Text(text, textAlign: TextAlign.center));
+  Widget build(final BuildContext context) => Padding(
+    padding: EdgeInsets.all(kNormalPadding),
+    child: SizedBox(
+      width: width - kNormalPadding * 2,
+      child: Text(text, textAlign: TextAlign.center),
+    ),
+  );
 }
 
 class GoldVerticalDivider extends StatelessWidget {

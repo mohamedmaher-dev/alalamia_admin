@@ -1,4 +1,5 @@
 {
+    "@@locale": "ar",
     "language_name" : "العربية",
     "welcome_back" : "مرحبا بعودتك",
     "please_input_your_data_to_sign_in" : "برجاء ادخال بياناتك لتسجيل الدخول",
@@ -113,5 +114,6 @@
     "time_ago" : "منذ",
     "number_of_products" : "عدد المنتجات",
     "successfully_copied" : "تم النسخ بنجاح",
-    "more" : "المزيد"
+    "more" : "المزيد",
+    "now" :  "الآن"
 }

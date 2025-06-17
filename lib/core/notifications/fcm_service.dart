@@ -1,6 +1,6 @@
 import 'dart:io';
+import 'package:alalamia_admin/core/notifications/in_app_notifi.dart';
 import 'package:alalamia_admin/core/notifications/notifications_consts.dart';
-import 'package:alalamia_admin/core/widgets/app_snack_bar.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
@@ -20,14 +20,12 @@ class FCMService {
     _firebaseMessagingBackgroundHandler,
   );
 
-  void _onForegroundHandler() =>
-      FirebaseMessaging.onMessage.listen((final RemoteMessage message) {
-        AppSnackBar.show(
-          title: message.notification!.title.toString(),
-          msg: message.notification!.body.toString(),
-          type: ContentType.help,
-        );
-      });
+  void _onForegroundHandler() => FirebaseMessaging.onMessage.listen(
+    (final RemoteMessage message) => InAppNotification.show(
+      message.notification!.title!,
+      message.notification!.body!,
+    ),
+  );
 
   Future<void> subscribeToTopic({required final String topic}) async {
     if (Platform.isIOS) {

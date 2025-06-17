@@ -3,8 +3,8 @@ import 'package:auto_route/auto_route.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'View,Route')
 class AppRouter extends RootStackRouter {
-  AppRouter._();
   static final AppRouter instance = AppRouter._();
+  AppRouter._();
   @override
   List<AutoRoute> get routes => [
     AutoRoute(page: SplashRoute.page, initial: true),

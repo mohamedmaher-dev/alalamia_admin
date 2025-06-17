@@ -76,6 +76,16 @@ class OrderDetailsRouteArgs {
   String toString() {
     return 'OrderDetailsRouteArgs{key: $key, args: $args}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! OrderDetailsRouteArgs) return false;
+    return key == other.key && args == other.args;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ args.hashCode;
 }
 
 /// generated route for

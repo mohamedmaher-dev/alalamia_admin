@@ -18,8 +18,10 @@ class Language {
   static Language? _current;
 
   static Language get current {
-    assert(_current != null,
-        'No instance of Language was loaded. Try to initialize the Language delegate before accessing Language.current.');
+    assert(
+      _current != null,
+      'No instance of Language was loaded. Try to initialize the Language delegate before accessing Language.current.',
+    );
     return _current!;
   }
 
@@ -41,8 +43,10 @@ class Language {
 
   static Language of(BuildContext context) {
     final instance = Language.maybeOf(context);
-    assert(instance != null,
-        'No instance of Language present in the widget tree. Did you add Language.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of Language present in the widget tree. Did you add Language.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -52,12 +56,7 @@ class Language {
 
   /// `العربية`
   String get language_name {
-    return Intl.message(
-      'العربية',
-      name: 'language_name',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('العربية', name: 'language_name', desc: '', args: []);
   }
 
   /// `مرحبا بعودتك`
@@ -82,72 +81,37 @@ class Language {
 
   /// `البريد الالكتروني`
   String get email {
-    return Intl.message(
-      'البريد الالكتروني',
-      name: 'email',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('البريد الالكتروني', name: 'email', desc: '', args: []);
   }
 
   /// `كلمة المرور`
   String get password {
-    return Intl.message(
-      'كلمة المرور',
-      name: 'password',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('كلمة المرور', name: 'password', desc: '', args: []);
   }
 
   /// `تسجيل الدخول`
   String get sign_in {
-    return Intl.message(
-      'تسجيل الدخول',
-      name: 'sign_in',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تسجيل الدخول', name: 'sign_in', desc: '', args: []);
   }
 
   /// `نجاح`
   String get success {
-    return Intl.message(
-      'نجاح',
-      name: 'success',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('نجاح', name: 'success', desc: '', args: []);
   }
 
   /// `فشل`
   String get failure {
-    return Intl.message(
-      'فشل',
-      name: 'failure',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('فشل', name: 'failure', desc: '', args: []);
   }
 
   /// `تحذير`
   String get warning {
-    return Intl.message(
-      'تحذير',
-      name: 'warning',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تحذير', name: 'warning', desc: '', args: []);
   }
 
   /// `تنبيه`
   String get notification {
-    return Intl.message(
-      'تنبيه',
-      name: 'notification',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تنبيه', name: 'notification', desc: '', args: []);
   }
 
   /// `لا يمكن ترك البريد الالكتروني فارغ`
@@ -202,42 +166,22 @@ class Language {
 
   /// `تصفية`
   String get filter {
-    return Intl.message(
-      'تصفية',
-      name: 'filter',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تصفية', name: 'filter', desc: '', args: []);
   }
 
   /// `ترتيب`
   String get sort {
-    return Intl.message(
-      'ترتيب',
-      name: 'sort',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('ترتيب', name: 'sort', desc: '', args: []);
   }
 
   /// `طلب`
   String get order {
-    return Intl.message(
-      'طلب',
-      name: 'order',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('طلب', name: 'order', desc: '', args: []);
   }
 
   /// `اسم العميل`
   String get client_name {
-    return Intl.message(
-      'اسم العميل',
-      name: 'client_name',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('اسم العميل', name: 'client_name', desc: '', args: []);
   }
 
   /// `رقم العميل`
@@ -252,12 +196,7 @@ class Language {
 
   /// `رقم الطلب`
   String get order_number {
-    return Intl.message(
-      'رقم الطلب',
-      name: 'order_number',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('رقم الطلب', name: 'order_number', desc: '', args: []);
   }
 
   /// `عدد المنتجات`
@@ -272,32 +211,17 @@ class Language {
 
   /// `تاريخ الطلب`
   String get order_date {
-    return Intl.message(
-      'تاريخ الطلب',
-      name: 'order_date',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تاريخ الطلب', name: 'order_date', desc: '', args: []);
   }
 
   /// `ابحث هنا`
   String get search_here {
-    return Intl.message(
-      'ابحث هنا',
-      name: 'search_here',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('ابحث هنا', name: 'search_here', desc: '', args: []);
   }
 
   /// `الطلبات`
   String get orders {
-    return Intl.message(
-      'الطلبات',
-      name: 'orders',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('الطلبات', name: 'orders', desc: '', args: []);
   }
 
   /// `طلبات خارجية`
@@ -312,32 +236,17 @@ class Language {
 
   /// `الاعدادات`
   String get settings {
-    return Intl.message(
-      'الاعدادات',
-      name: 'settings',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('الاعدادات', name: 'settings', desc: '', args: []);
   }
 
   /// `عام`
   String get general {
-    return Intl.message(
-      'عام',
-      name: 'general',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('عام', name: 'general', desc: '', args: []);
   }
 
   /// `الوضع الليلي`
   String get night_mode {
-    return Intl.message(
-      'الوضع الليلي',
-      name: 'night_mode',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('الوضع الليلي', name: 'night_mode', desc: '', args: []);
   }
 
   /// `اللغة الحالية`
@@ -352,22 +261,12 @@ class Language {
 
   /// `الملف الشخصي`
   String get my_profile {
-    return Intl.message(
-      'الملف الشخصي',
-      name: 'my_profile',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('الملف الشخصي', name: 'my_profile', desc: '', args: []);
   }
 
   /// `تسجيل الخروج`
   String get log_out {
-    return Intl.message(
-      'تسجيل الخروج',
-      name: 'log_out',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تسجيل الخروج', name: 'log_out', desc: '', args: []);
   }
 
   /// `الصفحة الرئيسية`
@@ -382,32 +281,17 @@ class Language {
 
   /// `منتج`
   String get product {
-    return Intl.message(
-      'منتج',
-      name: 'product',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('منتج', name: 'product', desc: '', args: []);
   }
 
   /// `الغاء`
   String get cancel {
-    return Intl.message(
-      'الغاء',
-      name: 'cancel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('الغاء', name: 'cancel', desc: '', args: []);
   }
 
   /// `نعم`
   String get yes {
-    return Intl.message(
-      'نعم',
-      name: 'yes',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('نعم', name: 'yes', desc: '', args: []);
   }
 
   /// `هل انت متاكد انك تريد تسجيل الخروج؟`
@@ -462,62 +346,32 @@ class Language {
 
   /// `السلة`
   String get the_cart {
-    return Intl.message(
-      'السلة',
-      name: 'the_cart',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('السلة', name: 'the_cart', desc: '', args: []);
   }
 
   /// `اسم المنتج`
   String get product_name {
-    return Intl.message(
-      'اسم المنتج',
-      name: 'product_name',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('اسم المنتج', name: 'product_name', desc: '', args: []);
   }
 
   /// `السعر الكلي`
   String get total_price {
-    return Intl.message(
-      'السعر الكلي',
-      name: 'total_price',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('السعر الكلي', name: 'total_price', desc: '', args: []);
   }
 
   /// `الفاتورة`
   String get invoice {
-    return Intl.message(
-      'الفاتورة',
-      name: 'invoice',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('الفاتورة', name: 'invoice', desc: '', args: []);
   }
 
   /// `تأكيد`
   String get confirm {
-    return Intl.message(
-      'تأكيد',
-      name: 'confirm',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('تأكيد', name: 'confirm', desc: '', args: []);
   }
 
   /// `العنوان`
   String get address {
-    return Intl.message(
-      'العنوان',
-      name: 'address',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('العنوان', name: 'address', desc: '', args: []);
   }
 
   /// `معلومات عامة`
@@ -532,12 +386,7 @@ class Language {
 
   /// `لا يوجد معلومات`
   String get no_info {
-    return Intl.message(
-      'لا يوجد معلومات',
-      name: 'no_info',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('لا يوجد معلومات', name: 'no_info', desc: '', args: []);
   }
 
   /// `فشل إرسال الإشعار`
@@ -622,12 +471,7 @@ class Language {
 
   /// `لا يوجد بيانات`
   String get no_data {
-    return Intl.message(
-      'لا يوجد بيانات',
-      name: 'no_data',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('لا يوجد بيانات', name: 'no_data', desc: '', args: []);
   }
 
   /// `محفظة العالمية`
@@ -642,32 +486,17 @@ class Language {
 
   /// `نقدًا`
   String get cash {
-    return Intl.message(
-      'نقدًا',
-      name: 'cash',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('نقدًا', name: 'cash', desc: '', args: []);
   }
 
   /// `باي بال`
   String get paypal {
-    return Intl.message(
-      'باي بال',
-      name: 'paypal',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('باي بال', name: 'paypal', desc: '', args: []);
   }
 
   /// `بطاقة`
   String get card {
-    return Intl.message(
-      'بطاقة',
-      name: 'card',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('بطاقة', name: 'card', desc: '', args: []);
   }
 
   /// `طريقة الدفع`
@@ -752,32 +581,17 @@ class Language {
 
   /// `موافقة`
   String get approve {
-    return Intl.message(
-      'موافقة',
-      name: 'approve',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('موافقة', name: 'approve', desc: '', args: []);
   }
 
   /// `رفض`
   String get reject {
-    return Intl.message(
-      'رفض',
-      name: 'reject',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('رفض', name: 'reject', desc: '', args: []);
   }
 
   /// `وصف`
   String get description {
-    return Intl.message(
-      'وصف',
-      name: 'description',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('وصف', name: 'description', desc: '', args: []);
   }
 
   /// `وصف الموقع`
@@ -862,12 +676,7 @@ class Language {
 
   /// `احصائيات`
   String get statistics {
-    return Intl.message(
-      'احصائيات',
-      name: 'statistics',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('احصائيات', name: 'statistics', desc: '', args: []);
   }
 
   /// `معلومات العميل`
@@ -882,32 +691,17 @@ class Language {
 
   /// `الكمية`
   String get quantity {
-    return Intl.message(
-      'الكمية',
-      name: 'quantity',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('الكمية', name: 'quantity', desc: '', args: []);
   }
 
   /// `السعر`
   String get price {
-    return Intl.message(
-      'السعر',
-      name: 'price',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('السعر', name: 'price', desc: '', args: []);
   }
 
   /// `وحدة`
   String get unit {
-    return Intl.message(
-      'وحدة',
-      name: 'unit',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('وحدة', name: 'unit', desc: '', args: []);
   }
 
   /// `تغيير الحالة`
@@ -962,12 +756,7 @@ class Language {
 
   /// `رقم الصنف`
   String get product_code {
-    return Intl.message(
-      'رقم الصنف',
-      name: 'product_code',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('رقم الصنف', name: 'product_code', desc: '', args: []);
   }
 
   /// `حدث خطأ ما`
@@ -1002,32 +791,17 @@ class Language {
 
   /// `السلة`
   String get cart {
-    return Intl.message(
-      'السلة',
-      name: 'cart',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('السلة', name: 'cart', desc: '', args: []);
   }
 
   /// `آخرى`
   String get other {
-    return Intl.message(
-      'آخرى',
-      name: 'other',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('آخرى', name: 'other', desc: '', args: []);
   }
 
   /// `حالة الطلب`
   String get order_status {
-    return Intl.message(
-      'حالة الطلب',
-      name: 'order_status',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('حالة الطلب', name: 'order_status', desc: '', args: []);
   }
 
   /// `ملخص الطلب`
@@ -1162,12 +936,7 @@ class Language {
 
   /// `منذ`
   String get time_ago {
-    return Intl.message(
-      'منذ',
-      name: 'time_ago',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('منذ', name: 'time_ago', desc: '', args: []);
   }
 
   /// `عدد المنتجات`
@@ -1192,12 +961,12 @@ class Language {
 
   /// `المزيد`
   String get more {
-    return Intl.message(
-      'المزيد',
-      name: 'more',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('المزيد', name: 'more', desc: '', args: []);
+  }
+
+  /// `الآن`
+  String get now {
+    return Intl.message('الآن', name: 'now', desc: '', args: []);
   }
 }
 
