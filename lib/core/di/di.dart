@@ -21,17 +21,29 @@ import 'package:alalamia_admin/modules/statistics/data/repos/statistics_repos.da
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
+// Import the dependency injection configuration files
 part 'utils_di.dart';
 part 'bloc_di.dart';
 part 'repos_di.dart';
 
+/// Global service locator instance for dependency injection
+/// Uses GetIt package to manage application dependencies
 GetIt di = GetIt.instance;
 
+/// Main dependency injection class that handles the initialization
+/// of all application dependencies including blocs, repositories, and services
 class DependencyInjection {
+  // Private constructor to prevent instantiation
   DependencyInjection._();
+
+  /// Initialize all dependency injection modules
+  /// This method must be called during app startup before using any dependencies
   static Future<void> init() async {
+    // Initialize all bloc/cubit dependencies
     await _blocDiInit();
+    // Initialize utility services and core dependencies
     await _utilsDiInit();
+    // Initialize repository dependencies
     await _reposDIInit();
   }
 }

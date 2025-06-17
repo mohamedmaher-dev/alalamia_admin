@@ -10,31 +10,45 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/localization/generated/l10n.dart';
 
+/// The main application widget for Alalamia Admin
+/// This class serves as the root widget that sets up the MaterialApp with
+/// routing, theming, localization, and other core app configurations.
 class AlalamiaAdmin extends StatelessWidget {
   const AlalamiaAdmin({super.key});
 
   @override
   Widget build(final BuildContext context) =>
-      BlocBuilder<AppConfig, AppConfigModel>(
-        builder:
-            (final _, final config) => MaterialApp.router(
-              theme: AppThemeData.theme,
-              darkTheme: AppThemeData.theme,
-              themeMode: config.isDarkMode.toThemeMode,
-              debugShowCheckedModeBanner: false,
-              routerConfig: AppRouter.instance.config(),
-              localizationsDelegates: const [
-                Language.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              supportedLocales: Language.delegate.supportedLocales,
-              locale: config.language.stringToLocale,
-              builder: (final context, final child) {
-                AppSnackBar.init(context);
-                return EasyLoading.init()(context, child);
-              },
-            ),
-      );
+  // Listen to app configuration changes using BlocBuilder
+  BlocBuilder<AppConfig, AppConfigModel>(
+    builder:
+        (final _, final config) => MaterialApp.router(
+          // Set the app theme (light and dark themes are the same)
+          theme: AppThemeData.theme,
+          darkTheme: AppThemeData.theme,
+          // Apply theme mode based on user's dark mode preference
+          themeMode: config.isDarkMode.toThemeMode,
+          // Disable the debug banner in release builds
+          debugShowCheckedModeBanner: false,
+          // Configure app routing using auto_route
+          routerConfig: AppRouter.instance.config(),
+          // Set up localization delegates for multi-language support
+          localizationsDelegates: const [
+            Language.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          // Define supported locales for the app
+          supportedLocales: Language.delegate.supportedLocales,
+          // Set current locale based on user's language preference
+          locale: config.language.stringToLocale,
+          // Builder to initialize global app components
+          builder: (final context, final child) {
+            // Initialize the global snack bar context
+            AppSnackBar.init(context);
+            // Initialize EasyLoading for showing loading indicators
+            return EasyLoading.init()(context, child);
+          },
+        ),
+  );
 }

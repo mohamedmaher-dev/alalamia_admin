@@ -6,6 +6,9 @@ import 'package:alalamia_admin/core/utils/app_info_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// Widget displaying comprehensive application information and metadata
+/// Shows app details like version, build number, install times, and platform info
+/// Useful for debugging, support, and app information screens
 class AppInfoView extends StatelessWidget {
   const AppInfoView({super.key});
 
@@ -13,23 +16,28 @@ class AppInfoView extends StatelessWidget {
   Widget build(final BuildContext context) {
     final language = Language.of(context);
     return Directionality(
+      // Force LTR direction for technical information display
       textDirection: TextDirection.ltr,
       child: ListView(
         shrinkWrap: true,
         children: [
           const Divider(),
+          // App name with platform-specific icon
           ListTile(
             leading: Icon(Platform.isAndroid ? Icons.android : Icons.apple),
             title: Text(AppInfoService.appName),
             subtitle: const Text('App name'),
           ),
+          // Package/Bundle identifier
           ListTile(
             leading: const Icon(CupertinoIcons.cube_box),
             title: Text(AppInfoService.packageName),
             subtitle: const Text('Package name'),
           ),
+          // Version and build number in a row layout
           Row(
             children: [
+              // App version number
               Expanded(
                 child: ListTile(
                   leading: const Icon(Icons.info_outline),
@@ -37,6 +45,7 @@ class AppInfoView extends StatelessWidget {
                   subtitle: const Text('Version'),
                 ),
               ),
+              // Build number
               Expanded(
                 child: ListTile(
                   leading: const Icon(Icons.build),
@@ -46,11 +55,13 @@ class AppInfoView extends StatelessWidget {
               ),
             ],
           ),
+          // App store where the app was installed from
           ListTile(
             leading: const Icon(Icons.store),
             title: Text(AppInfoService.installerStore.nullToString),
             subtitle: const Text('Installer store'),
           ),
+          // Original installation timestamp
           ListTile(
             leading: const Icon(Icons.install_mobile_rounded),
             title: Text(
@@ -60,6 +71,7 @@ class AppInfoView extends StatelessWidget {
             ),
             subtitle: const Text('Install time'),
           ),
+          // Last update timestamp
           ListTile(
             leading: const Icon(Icons.update_rounded),
             title: Text(

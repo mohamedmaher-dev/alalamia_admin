@@ -34,6 +34,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:provider/provider.dart';
+
+// Import widget components for modular order details UI
 part 'widgets/bottom_body.dart';
 part 'widgets/order_state_steps.dart';
 part 'widgets/cart_body.dart';
@@ -41,30 +43,42 @@ part 'widgets/general_body.dart';
 part 'widgets/other_body.dart';
 part 'widgets/tabs_body.dart';
 
+/// Comprehensive order details screen showing complete order information
+/// Provides tabbed interface for General info, Cart items, and Other details
+/// Includes order status management, invoice generation, and approval actions
 @RoutePage()
 class OrderDetailsView extends StatelessWidget {
   const OrderDetailsView({super.key, required this.args});
+
+  /// Basic order data passed from the orders list
   final OrdersDatum args;
 
   @override
   Widget build(final BuildContext context) => MultiBlocProvider(
     providers: [
+      // Invoice PDF generation cubit
       BlocProvider(create: (final context) => di<InvoiceCubit>()),
+      // Order details data fetching cubit (starts fetching immediately)
       BlocProvider(
         create:
             (final context) =>
                 di<OrderDetailsCubit>()..start(args.id.toString()),
       ),
+      // Order status change management cubit
       BlocProvider(create: (final context) => di<OrderStatusCubit>()),
+      // Tab navigation cubit for switching between sections
       BlocProvider(create: (final context) => OrderDetailsTabCubit()),
     ],
     child: Provider(
+      // Provide order args to all child widgets
       child: const _OrderDetailsViewBody(),
       create: (final context) => args,
     ),
   );
 }
 
+/// Private body widget containing the order details screen structure
+/// Handles different states (loading, success, error) and manages tab layout
 class _OrderDetailsViewBody extends StatelessWidget {
   const _OrderDetailsViewBody();
 
@@ -75,9 +89,12 @@ class _OrderDetailsViewBody extends StatelessWidget {
     return BlocBuilder<OrderDetailsCubit, OrderDetailsState>(
       builder:
           (final context, final state) => state.when(
+            // Show loading view while fetching order details
             loading: () => const LoadingView(),
+            // Show complete order details interface when data is loaded
             success:
                 (final order) => Provider(
+                  // Provide detailed order data to all child widgets
                   create: (final context) => order,
                   child: Scaffold(
                     appBar: AppBar(
@@ -90,28 +107,33 @@ class _OrderDetailsViewBody extends StatelessWidget {
                     ),
                     body: Column(
                       children: [
+                        // Tab selector for switching between sections
                         const _TabsBody(),
                         const Divider(),
+                        // Main content area with PageView for tab content
                         Expanded(
                           child: PageView(
                             controller: tabCubit.pageController,
+                            // Update tab state when user swipes between pages
                             onPageChanged:
                                 (final value) => tabCubit.changeTab(
                                   OrderDetailsTabsModel.values[value],
                                 ),
                             children: const [
-                              _GeneralBody(),
-                              _CartBody(),
-                              _OtherBody(),
+                              _GeneralBody(), // Customer and order info
+                              _CartBody(), // Order items and products
+                              _OtherBody(), // Status tracking and additional info
                             ],
                           ),
                         ),
                         const Divider(),
+                        // Bottom action area with pricing and approval buttons
                         const _BottomBody(),
                       ],
                     ),
                   ),
                 ),
+            // Show error view if order details fail to load
             failure: (final error) => const ErrorView(),
           ),
     );

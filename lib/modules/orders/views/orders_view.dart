@@ -22,6 +22,8 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+
+// Import widget parts for modular UI components
 part 'widgets/orders_search_form.dart';
 part 'widgets/orders_filter_body.dart';
 part 'widgets/orders_item_body.dart';
@@ -29,19 +31,27 @@ part 'widgets/orders_loading_body.dart';
 part 'widgets/orders_search_body.dart';
 part 'widgets/orders_pagination_body.dart';
 
+/// Main orders screen displaying list of orders with search and pagination
+/// Provides infinite scroll pagination and real-time search functionality
+/// Part of the main bottom navigation tab structure
 @RoutePage()
 class OrdersView extends StatelessWidget {
   const OrdersView({super.key});
+
   @override
   Widget build(final BuildContext context) => MultiBlocProvider(
     providers: [
+      // Orders management cubit for pagination and data fetching
       BlocProvider(create: (final context) => di<OrdersCubit>()),
+      // Search functionality cubit for local filtering
       BlocProvider(create: (final context) => di<OrdersSearchCubit>()),
     ],
     child: const _OrderViewBody(),
   );
 }
 
+/// Private body widget containing the main orders screen content
+/// Handles pull-to-refresh and conditional rendering based on search state
 class _OrderViewBody extends StatefulWidget {
   const _OrderViewBody();
 
@@ -49,13 +59,16 @@ class _OrderViewBody extends StatefulWidget {
   State<_OrderViewBody> createState() => _OrderViewBodyState();
 }
 
+/// State class for orders view body with refresh and search integration
 class _OrderViewBodyState extends State<_OrderViewBody> {
   @override
   Widget build(final BuildContext context) {
     final cubit = context.read<OrdersCubit>();
     final cubitSearch = context.read<OrdersSearchCubit>();
+
     return RefreshIndicator(
       strokeWidth: 1,
+      // Refresh orders list and clear search when user pulls down
       onRefresh: () async {
         cubit.pagingController.refresh();
         cubitSearch.clearSearch();
@@ -64,8 +77,13 @@ class _OrderViewBodyState extends State<_OrderViewBody> {
         builder:
             (final context, final cubitState) => Column(
               children: [
+                // Search form at the top of the screen
                 const _OrderSearchForm(),
+
+                // Show pagination view when search is disabled
                 if (cubitState is DisabledMode) const _OrdersPaginationBody(),
+
+                // Show search results when search is active (enabled or empty)
                 if (cubitState is EnabledMode || cubitState is EmptyMode)
                   const _OrdersSearchBody(),
               ],
