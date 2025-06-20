@@ -5,7 +5,6 @@ import 'package:alalamia_admin/core/networking/api_service.dart';
 import 'package:alalamia_admin/core/networking/dio_factory.dart';
 import 'package:alalamia_admin/core/notifications/notifications_repo.dart';
 import 'package:alalamia_admin/core/notifications/notifications_service.dart';
-import 'package:alalamia_admin/core/router/app_router.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/repos/auth_repo.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/controllers/sign_in_cubit/sign_in_cubit.dart';
 import 'package:alalamia_admin/modules/invoice/controllers/invoice/invoice_cubit.dart';
@@ -22,17 +21,29 @@ import 'package:alalamia_admin/modules/statistics/data/repos/statistics_repos.da
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
+// Import the dependency injection configuration files
 part 'utils_di.dart';
 part 'bloc_di.dart';
 part 'repos_di.dart';
 
+/// Global service locator instance for dependency injection
+/// Uses GetIt package to manage application dependencies
 GetIt di = GetIt.instance;
 
+/// Main dependency injection class that handles the initialization
+/// of all application dependencies including blocs, repositories, and services
 class DependencyInjection {
+  // Private constructor to prevent instantiation
   DependencyInjection._();
+
+  /// Initialize all dependency injection modules
+  /// This method must be called during app startup before using any dependencies
   static Future<void> init() async {
+    // Initialize all bloc/cubit dependencies
     await _blocDiInit();
+    // Initialize utility services and core dependencies
     await _utilsDiInit();
+    // Initialize repository dependencies
     await _reposDIInit();
   }
 }

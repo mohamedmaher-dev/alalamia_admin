@@ -11,19 +11,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+
+// Import statistics-specific widgets
 part 'widgets/statistics_slider_item.dart';
 
+/// Statistics and analytics screen displaying order metrics and insights
+/// Shows total orders count and breakdown by status using visual gauges
+/// Part of the main bottom navigation tab structure
 @RoutePage()
 class StatisticsView extends StatelessWidget {
   const StatisticsView({super.key});
 
   @override
   Widget build(final BuildContext context) => BlocProvider(
+    // Create statistics cubit and automatically start fetching data
     create: (final context) => di<StatisticsCubit>()..getStatistics(),
     child: const _StatisticsBodyView(),
   );
 }
 
+/// Private body widget containing the statistics dashboard content
 class _StatisticsBodyView extends StatelessWidget {
   const _StatisticsBodyView();
 
@@ -33,11 +40,15 @@ class _StatisticsBodyView extends StatelessWidget {
     return BlocBuilder<StatisticsCubit, StatisticsState>(
       builder:
           (final context, final state) => state.maybeMap(
+            // Show loading indicator while fetching statistics
             orElse: () => const LoadingView(),
+            // Show error view if statistics fetch fails
             failure: (final e) => const ErrorView(),
+            // Show statistics dashboard when data is loaded successfully
             success:
                 (final data) => RefreshIndicator(
                   strokeWidth: 1,
+                  // Refresh statistics data when user pulls down
                   onRefresh:
                       () async =>
                           await context.read<StatisticsCubit>().getStatistics(),
@@ -46,6 +57,7 @@ class _StatisticsBodyView extends StatelessWidget {
                       SliverFillRemaining(
                         child: Column(
                           children: [
+                            // Total orders count at the top
                             Expanded(
                               child: _StatSliderItem(
                                 showIndicator: false,
@@ -55,6 +67,7 @@ class _StatisticsBodyView extends StatelessWidget {
                                 color: ColorManger.myGold,
                               ),
                             ),
+                            // First row: Under Review and Approved orders
                             Expanded(
                               child: Row(
                                 children: [
@@ -81,6 +94,7 @@ class _StatisticsBodyView extends StatelessWidget {
                                 ],
                               ),
                             ),
+                            // Second row: Preparing and On The Way orders
                             Expanded(
                               child: Row(
                                 children: [
@@ -105,6 +119,7 @@ class _StatisticsBodyView extends StatelessWidget {
                                 ],
                               ),
                             ),
+                            // Third row: Delivered and Cancelled orders
                             Expanded(
                               child: Row(
                                 children: [
