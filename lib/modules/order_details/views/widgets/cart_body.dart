@@ -53,32 +53,44 @@ class _CartBodyState extends State<_CartBody> {
               itemCount: _localCart.length,
               itemBuilder: (final context, final index) {
                 final item = _localCart[index];
-                return CupertinoContextMenu(
-                  actions: [
-                    // Context menu action to hide items from view
-                    CupertinoContextMenuAction(
-                      trailingIcon: CupertinoIcons.eye_slash,
-                      child: const Text('Hide'),
-                      onPressed: () {
-                        setState(() {
-                          // Remove item from local view (doesn't affect original data)
-                          _localCart.removeAt(index);
-                          context.router.pop();
-                        });
-                      },
+                if (AppConfigModel.canHideCartItem) {
+                  return CupertinoContextMenu(
+                    actions: [
+                      // Context menu action to hide items from view
+                      CupertinoContextMenuAction(
+                        trailingIcon: CupertinoIcons.eye_slash,
+                        child: const Text('Hide'),
+                        onPressed: () {
+                          setState(() {
+                            // Remove item from local view (doesn't affect original data)
+                            _localCart.removeAt(index);
+                            context.router.pop();
+                          });
+                        },
+                      ),
+                    ],
+                    // Cart item row with golden border styling
+                    child: Container(
+                      height: kToolbarHeight,
+                      margin: const EdgeInsets.symmetric(vertical: 4),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.surface,
+                        border: Border.all(color: ColorManger.myGold),
+                        borderRadius: BorderRadius.circular(kNormalRadius),
+                      ),
+                      child: CartTableRow(item: item),
                     ),
-                  ],
-                  // Cart item row with golden border styling
-                  child: Container(
-                    height: kToolbarHeight,
-                    margin: const EdgeInsets.symmetric(vertical: 4),
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.surface,
-                      border: Border.all(color: ColorManger.myGold),
-                      borderRadius: BorderRadius.circular(kNormalRadius),
-                    ),
-                    child: CartTableRow(item: item),
+                  );
+                }
+                return Container(
+                  height: kToolbarHeight,
+                  margin: const EdgeInsets.symmetric(vertical: 4),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.surface,
+                    border: Border.all(color: ColorManger.myGold),
+                    borderRadius: BorderRadius.circular(kNormalRadius),
                   ),
+                  child: CartTableRow(item: item),
                 );
               },
             ),

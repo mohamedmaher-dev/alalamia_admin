@@ -2,23 +2,32 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'app_config_model.g.dart';
 part 'app_config_model.freezed.dart';
 
-/// Application configuration model that holds user preferences and app settings
-/// Uses Freezed for immutable data class generation with built-in JSON serialization
+/// App configuration model containing both static developer settings and user preferences
+/// This class uses Freezed for immutable data generation with JSON serialization support
 @freezed
 class AppConfigModel with _$AppConfigModel {
-  /// Creates an AppConfigModel with default values
+  /// Static configuration values that can be modified by developers
+
+  /// Controls whether users can hide items from their cart view
+  static bool canHideCartItem = false;
+
+  /// Determines whether main navigation pages should maintain their state when switching tabs
+  /// When true, pages preserve their scroll position and form data during tab navigation
+  static bool maintainStateMainPages = true;
+
+  /// Factory constructor for creating app configuration instances
   ///
-  /// [isDarkMode] - Whether the app should use dark theme (default: true)
-  /// [turnOnNotification] - Whether notifications are enabled (default: true)
-  /// [language] - Current app language code, supports 'ar' and 'en' (default: 'ar')
+  /// [isDarkMode] - Controls dark/light theme preference (defaults to dark theme)
+  /// [turnOnNotification] - Enables or disables push notifications (defaults to enabled)
+  /// [language] - Sets the application language ('ar' for Arabic, 'en' for English, defaults to Arabic)
   const factory AppConfigModel({
     @Default(true) final bool isDarkMode,
     @Default(true) final bool turnOnNotification,
     @Default('ar') final String language,
   }) = _AppConfigModel;
 
-  /// Creates an AppConfigModel instance from JSON data
-  /// Used for deserializing saved configuration from local storage
+  /// Factory constructor for JSON deserialization
+  /// Converts stored configuration data back into AppConfigModel instance
   factory AppConfigModel.fromJson(final Map<String, dynamic> json) =>
       _$AppConfigModelFromJson(json);
 }

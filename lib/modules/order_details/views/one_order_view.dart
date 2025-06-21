@@ -1,3 +1,4 @@
+import 'package:alalamia_admin/core/config/app_config_model.dart';
 import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/extension/order_payment_type.dart';
 import 'package:alalamia_admin/core/extension/order_status_ext.dart';
