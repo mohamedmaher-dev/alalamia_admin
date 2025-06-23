@@ -115,5 +115,8 @@
     "number_of_products" : "عدد المنتجات",
     "successfully_copied" : "تم النسخ بنجاح",
     "more" : "المزيد",
-    "now" :  "الآن"
+    "now" :  "الآن",
+    "something_went_wrong_please_try_again" : "حدث خطأ ما يرجى المحاولة مرة أخرى",
+    "try_again" : "أعد المحاولة"
+
 }

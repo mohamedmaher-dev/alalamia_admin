@@ -175,6 +175,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
     "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "something_went_wrong": MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
+    "something_went_wrong_please_try_again":
+        MessageLookupByLibrary.simpleMessage(
+          "حدث خطأ ما يرجى المحاولة مرة أخرى",
+        ),
     "sort": MessageLookupByLibrary.simpleMessage("ترتيب"),
     "statistics": MessageLookupByLibrary.simpleMessage("احصائيات"),
     "status_approved": MessageLookupByLibrary.simpleMessage("تمت الموافقة"),
@@ -196,6 +200,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "عنوان الإشعار",
     ),
     "total_price": MessageLookupByLibrary.simpleMessage("السعر الكلي"),
+    "try_again": MessageLookupByLibrary.simpleMessage("أعد المحاولة"),
     "unit": MessageLookupByLibrary.simpleMessage("وحدة"),
     "unknown_error": MessageLookupByLibrary.simpleMessage("خطأ غير معروف"),
     "warning": MessageLookupByLibrary.simpleMessage("تحذير"),

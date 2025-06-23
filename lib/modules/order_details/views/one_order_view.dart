@@ -85,8 +85,10 @@ class _OrderDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    final cubit = BlocProvider.of<OrderDetailsCubit>(context);
     final language = Language.of(context);
-    final tabCubit = context.read<OrderDetailsTabCubit>();
+    final tabCubit = BlocProvider.of<OrderDetailsTabCubit>(context);
+    final args = Provider.of<OrdersDatum>(context);
     return BlocBuilder<OrderDetailsCubit, OrderDetailsState>(
       builder:
           (final context, final state) => state.when(
@@ -135,7 +137,9 @@ class _OrderDetailsViewBody extends StatelessWidget {
                   ),
                 ),
             // Show error view if order details fail to load
-            failure: (final error) => const ErrorView(),
+            failure:
+                (final error) =>
+                    ErrorView(onPressed: () => cubit.start(args.id.toString())),
           ),
     );
   }
