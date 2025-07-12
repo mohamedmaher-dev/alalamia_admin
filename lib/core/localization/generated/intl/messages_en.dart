@@ -183,6 +183,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "something_went_wrong": MessageLookupByLibrary.simpleMessage(
       "Something went wrong",
     ),
+    "something_went_wrong_please_try_again":
+        MessageLookupByLibrary.simpleMessage(
+          "Something went wrong, please try again",
+        ),
     "sort": MessageLookupByLibrary.simpleMessage("Sort"),
     "statistics": MessageLookupByLibrary.simpleMessage("Statistics"),
     "status_approved": MessageLookupByLibrary.simpleMessage("Approved"),
@@ -204,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Title of notification",
     ),
     "total_price": MessageLookupByLibrary.simpleMessage("Total price"),
+    "try_again": MessageLookupByLibrary.simpleMessage("Try again"),
     "unit": MessageLookupByLibrary.simpleMessage("Unit"),
     "unknown_error": MessageLookupByLibrary.simpleMessage("Unknown error"),
     "warning": MessageLookupByLibrary.simpleMessage("Warning"),

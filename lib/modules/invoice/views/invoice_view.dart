@@ -1,3 +1,4 @@
+import 'package:alalamia_admin/core/models/country_model.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/utils/assets_manger.dart';
 import 'package:alalamia_admin/modules/order_details/data/models/orders_details_response_model/orders_details_response_model.dart';
@@ -66,7 +67,10 @@ Future<Uint8List> createStyledInvoice(
             _invoiceSummary(
               font: font,
               order: order,
-              currency: orderArgs.countryModel.currency,
+              currency:
+                  orderArgs.countryModel == null
+                      ? CountryModel.global.currency
+                      : orderArgs.countryModel!.currency,
             ),
             pw.Divider(thickness: 1),
           ],
