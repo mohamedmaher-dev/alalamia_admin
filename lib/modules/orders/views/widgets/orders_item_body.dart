@@ -53,7 +53,6 @@ class _OrderItemBody extends StatelessWidget {
                     ),
                     child: const Icon(CupertinoIcons.chevron_down),
                   ),
-                  tilePadding: EdgeInsetsDirectional.only(end: kLargePadding),
                   controlAffinity: ListTileControlAffinity.trailing,
                   // Main title showing customer info with avatar
                   title: CustomListTile(
@@ -61,7 +60,6 @@ class _OrderItemBody extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     backgroundIconColor: Colors.transparent,
                     title: model.userName,
-                    titleIsBold: true,
                     titleColor: ColorManger.primary,
                     subTitle: language.client_name,
                   ),
@@ -83,7 +81,6 @@ class _OrderItemBody extends StatelessWidget {
                       title: Jiffy.parse(model.bookingDate).yMMMMEEEEdjm,
                       subTitle: language.order_date,
                       icon: const Icon(CupertinoIcons.calendar),
-                      isDense: true,
                     ),
                   ],
                 ),
@@ -143,21 +140,11 @@ class _RowItemInfo extends StatelessWidget {
     children: [
       // Left column with first set of information
       Expanded(
-        child: CustomListTile(
-          title: title1,
-          subTitle: subTitle1,
-          icon: icon1,
-          isDense: true,
-        ),
+        child: CustomListTile(title: title1, subTitle: subTitle1, icon: icon1),
       ),
       // Right column with second set of information
       Expanded(
-        child: CustomListTile(
-          title: title2,
-          subTitle: subTitle2,
-          icon: icon2,
-          isDense: true,
-        ),
+        child: CustomListTile(title: title2, subTitle: subTitle2, icon: icon2),
       ),
     ],
   );
