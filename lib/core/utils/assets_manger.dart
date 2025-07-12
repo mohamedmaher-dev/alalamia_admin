@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class AssetsManger {
   AssetsManger._();
-
+  
   /// Assets for fontsAlmaraiRegular
   /// assets/fonts/Almarai-Regular.ttf
   static const String fontsAlmaraiRegular = "assets/fonts/Almarai-Regular.ttf";
@@ -20,10 +20,10 @@ class AssetsManger {
 
   /// Assets for imagesHorizontalLogo
   /// assets/images/horizontal_logo.png
-  static const String imagesHorizontalLogo =
-      "assets/images/horizontal_logo.png";
+  static const String imagesHorizontalLogo = "assets/images/horizontal_logo.png";
 
   /// Assets for imagesKsaCurrency
   /// assets/images/ksa_currency.svg
   static const String imagesKsaCurrency = "assets/images/ksa_currency.svg";
 }
+

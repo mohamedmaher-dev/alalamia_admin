@@ -16,7 +16,7 @@ class OrdersDatum {
   @JsonKey(name: 'aramex_id')
   final int? aramexId;
   @JsonKey(name: 'country_id')
-  final CountryModel countryModel;
+  final CountryModel? countryModel;
   @JsonKey(name: 'payment_type')
   final OrderPaymentType paymentType;
   final OrderStatus status;
