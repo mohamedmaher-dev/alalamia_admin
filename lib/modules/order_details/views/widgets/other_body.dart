@@ -7,16 +7,19 @@ class _OtherBody extends StatelessWidget {
   const _OtherBody();
 
   @override
-  Widget build(final BuildContext context) => const SingleChildScrollView(
-    child: Column(
-      children: [
-        // Customer delivery address information
-        _AddressBody(),
-        // Additional order information (payment, tracking)
-        _OtherInfoBody(),
-      ],
-    ),
-  );
+  Widget build(final BuildContext context) {
+    final details = Provider.of<OrdersDetailsResponseModel>(context);
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          // Customer delivery address information
+          if (details.address != null) const _AddressBody(),
+          // Additional order information (payment, tracking)
+          const _OtherInfoBody(),
+        ],
+      ),
+    );
+  }
 }
 
 /// Additional order information widget displaying payment and delivery details
@@ -51,27 +54,25 @@ class _OtherInfoBody extends StatelessWidget {
                 backgroundColor: theme.colorScheme.surfaceContainerLow,
                 backgroundIconColor: theme.colorScheme.surface,
               ),
-              const Divider(),
+              if (args.aramexId != null) const Divider(),
               // Delivery tracking number with copy functionality
-              CustomListTile(
-                icon: const Icon(Icons.delivery_dining),
-                title:
-                    args.aramexId == null
-                        ? language.no_data
-                        : args.aramexId.toString(),
-                subTitle: language.aramex_number,
-                trailing: IconButton(
-                  icon: const Icon(Icons.copy),
-                  // Copy tracking number to clipboard when pressed
-                  onPressed: () {
-                    Clipboard.setData(
-                      ClipboardData(text: args.aramexId.toString()),
-                    );
-                  },
+              if (args.aramexId != null)
+                CustomListTile(
+                  icon: const Icon(Icons.delivery_dining),
+                  title: args.aramexId.toString(),
+                  subTitle: language.aramex_number,
+                  trailing: IconButton(
+                    icon: const Icon(Icons.copy),
+                    // Copy tracking number to clipboard when pressed
+                    onPressed: () {
+                      Clipboard.setData(
+                        ClipboardData(text: args.aramexId.toString()),
+                      );
+                    },
+                  ),
+                  backgroundColor: theme.colorScheme.surfaceContainerLow,
+                  backgroundIconColor: theme.colorScheme.surface,
                 ),
-                backgroundColor: theme.colorScheme.surfaceContainerLow,
-                backgroundIconColor: theme.colorScheme.surface,
-              ),
             ],
           ),
         ),

@@ -1,3 +1,4 @@
+import 'package:alalamia_admin/core/config/app_config_model.dart';
 import 'package:alalamia_admin/core/networking/dio_factory.dart';
 import 'package:alalamia_admin/modules/auth/sign_in/data/repos/auth_repo.dart';
 import 'package:bloc/bloc.dart';
@@ -20,7 +21,7 @@ class SplashCubit extends Cubit<SplashState> {
   void start() async {
     // Get saved user credentials from local storage
     await authRepo.getUserCredential().then((final userCredential) async {
-      if (userCredential != null) {
+      if (userCredential != null && AppConfigModel.autoLogin) {
         // If credentials exist, try to refresh the authentication token
         final signInResult = await authRepo.refreshToken();
         signInResult.when(

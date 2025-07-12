@@ -21,7 +21,7 @@ Widget _invoiceInfo({
       alignment: pw.Alignment.centerRight,
       height: 20,
       child: pw.Text(
-        'العنوان : ${order.address!.name}', // Address
+        'العنوان : ${order.address == null ? 'لا يوجد' : order.address!.name}', // Address
         style: pw.TextStyle(font: font, fontSize: 15),
       ),
     ),

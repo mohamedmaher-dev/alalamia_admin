@@ -9,8 +9,6 @@ class CustomListTile extends StatelessWidget {
     super.key,
     required this.icon,
     required this.title,
-    this.titleIsBold,
-    this.isDense,
     this.subTitle,
     this.backgroundColor,
     this.backgroundIconColor,
@@ -18,7 +16,6 @@ class CustomListTile extends StatelessWidget {
     this.trailing,
     this.onLongPress,
     this.onTap,
-    this.titleDirection,
   });
 
   /// Icon widget displayed in the leading icon container
@@ -28,10 +25,6 @@ class CustomListTile extends StatelessWidget {
   final String title;
 
   /// Whether the title should be displayed in bold font weight
-  final bool? titleIsBold;
-
-  /// Whether the list tile should use dense (compact) layout
-  final bool? isDense;
 
   /// Optional secondary text displayed below the title
   final String? subTitle;
@@ -49,7 +42,6 @@ class CustomListTile extends StatelessWidget {
   final Widget? trailing;
 
   /// Text direction for the title (useful for RTL languages)
-  final TextDirection? titleDirection;
 
   /// Callback function for long press gestures
   final void Function()? onLongPress;
@@ -60,52 +52,58 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     final theme = Theme.of(context);
-    return Container(
-      // Add consistent margin around the list tile
-      margin: EdgeInsets.all(kNormalMargin),
-      child: ListTile(
-        // Use provided background color or theme default
-        tileColor: backgroundColor ?? theme.colorScheme.surface,
-        // Rounded corners for modern appearance
-        shape: RoundedRectangleBorder(
+    return InkWell(
+      borderRadius: BorderRadius.circular(kNormalRadius),
+      splashFactory: InkSplash.splashFactory,
+      onTap: onTap,
+      onLongPress: onLongPress,
+      child: Container(
+        padding: EdgeInsets.all(kNormalPadding),
+        // Add consistent margin around the list tile
+        decoration: BoxDecoration(
+          color: backgroundColor ?? theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(kNormalRadius),
         ),
-        // Consistent horizontal padding
-        contentPadding: EdgeInsets.symmetric(horizontal: kNormalPadding),
-        // Apply dense layout if specified
-        dense: isDense,
-        // Leading icon with styled container
-        leading: Container(
-          padding: EdgeInsets.all(kNormalPadding),
-          decoration: BoxDecoration(
-            // Use provided icon background color or theme default
-            color: backgroundIconColor ?? theme.colorScheme.surfaceContainerLow,
-            borderRadius: BorderRadius.circular(kNormalRadius),
-          ),
-          child: icon,
+        margin: EdgeInsets.all(kNormalMargin),
+        child: Row(
+          spacing: kSpacingBetweenWidgetsHight,
+          children: [
+            Container(
+              padding: EdgeInsets.all(kNormalPadding),
+              decoration: BoxDecoration(
+                // Use provided icon background color or theme default
+                color:
+                    backgroundIconColor ??
+                    theme.colorScheme.surfaceContainerLow,
+                borderRadius: BorderRadius.circular(kNormalRadius),
+              ),
+              child: icon,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: theme.textTheme.titleMedium!.copyWith(
+                      color: titleColor,
+                    ),
+                    maxLines: 1,
+                  ),
+                  if (subTitle != null)
+                    Text(
+                      subTitle!,
+                      style: theme.textTheme.labelMedium!.copyWith(
+                        color: Colors.grey,
+                      ),
+                      maxLines: 1,
+                    ),
+                ],
+              ),
+            ),
+            ?trailing,
+          ],
         ),
-        // Title with optional styling
-        title: Text(
-          title,
-          style: TextStyle(
-            // Apply bold font weight if specified
-            fontWeight: titleIsBold == true ? FontWeight.bold : null,
-            // Use custom title color if provided
-            color: titleColor,
-          ),
-          // Support custom text direction for internationalization
-          textDirection: titleDirection,
-        ),
-        // Optional subtitle with grey color
-        subtitle:
-            subTitle == null
-                ? null
-                : Text(subTitle!, style: const TextStyle(color: Colors.grey)),
-        // Optional trailing widget
-        trailing: trailing,
-        // Gesture handlers
-        onLongPress: onLongPress,
-        onTap: onTap,
       ),
     );
   }

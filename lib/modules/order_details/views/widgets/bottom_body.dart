@@ -20,7 +20,7 @@ class _BottomBody extends StatelessWidget {
           // Total price display with invoice generation button
           ListTile(
             leading: CurrencyView(
-              countryModel: args.countryModel,
+              countryModel: args.countryModel ?? CountryModel.global,
               textStyle: TextStyles.tsP15B,
             ),
             title: Text(
