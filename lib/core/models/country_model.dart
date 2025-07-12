@@ -6,6 +6,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 /// Used for order filtering, localization, and region-specific features
 enum CountryModel {
   /// Global/International option for worldwide orders
+  // @JsonValue(null)
+  // globalWithoutId(
+  //   name: 'عالمي - Global',
+  //   imagePath: AssetsManger.imagesGlobal,
+  //   currency: 'Unknown',
+  //   id: 0,
+  // ),
   @JsonValue('0')
   global(
     name: 'عالمي - Global',

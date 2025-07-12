@@ -115,5 +115,7 @@
     "number_of_products" : "Number of products",
     "successfully_copied" : "Successfully copied",
     "more" : "More",
-    "now" : "Now"
+    "now" : "Now",
+    "something_went_wrong_please_try_again" : "Something went wrong, please try again",
+    "try_again" : "Try again"
 }

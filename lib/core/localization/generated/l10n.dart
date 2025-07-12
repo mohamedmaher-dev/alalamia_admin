@@ -968,6 +968,21 @@ class Language {
   String get now {
     return Intl.message('الآن', name: 'now', desc: '', args: []);
   }
+
+  /// `حدث خطأ ما يرجى المحاولة مرة أخرى`
+  String get something_went_wrong_please_try_again {
+    return Intl.message(
+      'حدث خطأ ما يرجى المحاولة مرة أخرى',
+      name: 'something_went_wrong_please_try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أعد المحاولة`
+  String get try_again {
+    return Intl.message('أعد المحاولة', name: 'try_again', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Language> {

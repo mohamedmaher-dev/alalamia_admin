@@ -6,14 +6,16 @@ part 'app_config_model.freezed.dart';
 /// This class uses Freezed for immutable data generation with JSON serialization support
 @freezed
 class AppConfigModel with _$AppConfigModel {
-  /// Static configuration values that can be modified by developers
-
   /// Controls whether users can hide items from their cart view
   static bool canHideCartItem = false;
 
   /// Determines whether main navigation pages should maintain their state when switching tabs
   /// When true, pages preserve their scroll position and form data during tab navigation
   static bool maintainStateMainPages = true;
+
+  /// Determines whether the app should automatically log in the user when the app is opened
+  /// When true, the app will automatically log in the user when the app is opened
+  static bool autoLogin = true;
 
   /// Factory constructor for creating app configuration instances
   ///
