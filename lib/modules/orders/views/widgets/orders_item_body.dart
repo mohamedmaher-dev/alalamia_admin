@@ -1,13 +1,22 @@
 part of '../orders_view.dart';
 
+/// Individual order item widget displayed in the orders list
+/// Provides expandable card layout with order details and navigation
+/// Shows customer info, payment details, dates, and order status
 class _OrderItemBody extends StatelessWidget {
   const _OrderItemBody({
     required this.index,
     required this.model,
     required this.isLoading,
   });
+
+  /// Order data model containing all order information
   final OrdersDatum model;
+
+  /// Index position in the list (used for initial expansion state)
   final int index;
+
+  /// Whether this item is in loading state (for skeleton animation)
   final bool isLoading;
 
   @override
@@ -16,19 +25,26 @@ class _OrderItemBody extends StatelessWidget {
     final cubit = context.read<OrdersCubit>();
     final language = Language.of(context);
     return Provider(
+      // Provide order model to child widgets
       create: (final context) => model,
       child: GestureDetector(
+        // Navigate to order details when tapped and refresh list on return
         onTap: () async {
           await context.router.push(OrderDetailsRoute(args: model));
           cubit.pagingController.refresh();
         },
         child: Skeletonizer(
+          // Show skeleton loading animation when in loading state
           enabled: isLoading,
           child: Card(
             child: Column(
               children: [
+                // Expandable section with customer info and details
                 ExpansionTile(
+                  childrenPadding: EdgeInsets.zero,
+                  // Expand first item by default for better UX
                   initiallyExpanded: index == 0,
+                  // Custom trailing icon with styled container
                   trailing: Container(
                     padding: EdgeInsets.all(kNormalPadding),
                     decoration: BoxDecoration(
@@ -39,10 +55,40 @@ class _OrderItemBody extends StatelessWidget {
                   ),
                   tilePadding: EdgeInsetsDirectional.only(end: kLargePadding),
                   controlAffinity: ListTileControlAffinity.trailing,
-                  title: const _ClientTitleBody(),
-                  children: const <Widget>[_ExpandedBody()],
+                  // Main title showing customer info with avatar
+                  title: CustomListTile(
+                    icon: UserAvatarBody(userName: model.userName),
+                    backgroundColor: Colors.transparent,
+                    backgroundIconColor: Colors.transparent,
+                    title: model.userName,
+                    titleIsBold: true,
+                    titleColor: ColorManger.primary,
+                    subTitle: language.client_name,
+                  ),
+                  // Expanded content with payment and date information
+                  children: <Widget>[
+                    _RowItemInfo(
+                      title1: model.paymentType.paymentTypeText,
+                      subTitle1: language.payment_type,
+                      icon1: const Icon(CupertinoIcons.money_dollar_circle),
+                      // Calculate relative time (e.g., "2 hours ago")
+                      title2: Jiffy.parseFromDateTime(
+                        DateTime.parse(model.bookingDate).toUtc(),
+                      ).from(Jiffy.parseFromDateTime(DateTime.now().toUtc())),
+                      subTitle2: language.time_ago,
+                      icon2: const Icon(CupertinoIcons.clock),
+                    ),
+                    // Formatted order date display
+                    CustomListTile(
+                      title: Jiffy.parse(model.bookingDate).yMMMMEEEEdjm,
+                      subTitle: language.order_date,
+                      icon: const Icon(CupertinoIcons.calendar),
+                      isDense: true,
+                    ),
+                  ],
                 ),
-                _RowDataItemOrderItem(
+                // Contact and order identification information
+                _RowItemInfo(
                   icon1: const Icon(CupertinoIcons.phone),
                   title1: model.phone,
                   subTitle1: language.client_number,
@@ -50,6 +96,7 @@ class _OrderItemBody extends StatelessWidget {
                   title2: model.requestNumber,
                   subTitle2: language.order_number,
                 ),
+                // Order status indicator at bottom
                 const _StatusBody(),
               ],
             ),
@@ -60,39 +107,11 @@ class _OrderItemBody extends StatelessWidget {
   }
 }
 
-class _DataItemOrderItem extends StatelessWidget {
-  const _DataItemOrderItem({
-    required this.title,
-    required this.subTitle,
-    required this.icon,
-  });
-  final String title;
-  final String subTitle;
-  final Widget icon;
-
-  @override
-  Widget build(final BuildContext context) => ListTile(
-    dense: true,
-    leading: Container(
-      padding: EdgeInsets.all(kNormalPadding),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(kNormalRadius),
-      ),
-      child: icon,
-    ),
-    title: Text(
-      title,
-      style: const TextStyle(
-        color: ColorManger.myGold,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-    subtitle: Text(subTitle, style: const TextStyle(color: Colors.grey)),
-  );
-}
-
-class _RowDataItemOrderItem extends StatelessWidget {
-  const _RowDataItemOrderItem({
+/// Two-column information display widget for order details
+/// Creates side-by-side layout for displaying paired information items
+/// Used for phone/order number, payment/time info, etc.
+class _RowItemInfo extends StatelessWidget {
+  const _RowItemInfo({
     required this.title1,
     required this.subTitle1,
     required this.icon1,
@@ -100,65 +119,53 @@ class _RowDataItemOrderItem extends StatelessWidget {
     required this.subTitle2,
     required this.icon2,
   });
+
+  /// First column title text
   final String title1;
+
+  /// First column subtitle text
   final String subTitle1;
+
+  /// First column icon
   final Widget icon1;
+
+  /// Second column title text
   final String title2;
+
+  /// Second column subtitle text
   final String subTitle2;
+
+  /// Second column icon
   final Widget icon2;
 
   @override
   Widget build(final BuildContext context) => Row(
     children: [
+      // Left column with first set of information
       Expanded(
-        child: _DataItemOrderItem(
+        child: CustomListTile(
           title: title1,
           subTitle: subTitle1,
           icon: icon1,
+          isDense: true,
         ),
       ),
+      // Right column with second set of information
       Expanded(
-        child: _DataItemOrderItem(
+        child: CustomListTile(
           title: title2,
           subTitle: subTitle2,
           icon: icon2,
+          isDense: true,
         ),
       ),
     ],
   );
 }
 
-class _ExpandedBody extends StatelessWidget {
-  const _ExpandedBody();
-
-  @override
-  Widget build(final BuildContext context) {
-    final model = Provider.of<OrdersDatum>(context);
-    final language = Language.of(context);
-    return Column(
-      children: [
-        _RowDataItemOrderItem(
-          title1: model.paymentType.paymentTypeText,
-          subTitle1: language.payment_type,
-          icon1: const Icon(CupertinoIcons.money_dollar_circle),
-
-          title2: Jiffy.parseFromDateTime(
-            DateTime.parse(model.bookingDate).toUtc(),
-          ).from(Jiffy.parseFromDateTime(DateTime.now().toUtc())),
-          subTitle2: language.time_ago,
-          icon2: const Icon(CupertinoIcons.clock),
-        ),
-
-        _DataItemOrderItem(
-          title: Jiffy.parse(model.bookingDate).yMMMMEEEEdjm,
-          subTitle: language.order_date,
-          icon: const Icon(CupertinoIcons.calendar),
-        ),
-      ],
-    );
-  }
-}
-
+/// Order status indicator widget displayed at bottom of order cards
+/// Shows colored status text with background matching the order status
+/// Provides visual feedback for order state (pending, approved, canceled, etc.)
 class _StatusBody extends StatelessWidget {
   const _StatusBody();
 
@@ -170,43 +177,23 @@ class _StatusBody extends StatelessWidget {
       alignment: Alignment.center,
       padding: EdgeInsets.all(kNormalPadding),
       decoration: BoxDecoration(
-        color: model.status.orderStatusColor,
+        // Semi-transparent background using status color
+        color: model.status.orderStatusColor.withAlpha(kBackgroundColorAlpha),
+        // Rounded only bottom corners to match card design
         borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(kNormalRadius),
         ),
       ),
       child: Text(
         textAlign: TextAlign.center,
+        // Localized status text
         model.status.orderStatusText,
         style: Theme.of(context).textTheme.labelLarge!.copyWith(
-          color: Colors.black,
+          // Text color matches the status color
+          color: model.status.orderStatusColor,
           fontWeight: FontWeight.bold,
         ),
       ),
-    );
-  }
-}
-
-class _ClientTitleBody extends StatelessWidget {
-  const _ClientTitleBody();
-
-  @override
-  Widget build(final BuildContext context) {
-    final model = Provider.of<OrdersDatum>(context);
-    final language = Language.of(context);
-    return ListTile(
-      title: Text(
-        model.userName,
-        style: const TextStyle(
-          color: ColorManger.myGold,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      subtitle: Text(
-        language.client_name,
-        style: const TextStyle(color: Colors.grey),
-      ),
-      leading: UserAvatarBody(userName: model.userName),
     );
   }
 }

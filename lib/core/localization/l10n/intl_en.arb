@@ -1,4 +1,5 @@
-{
+{   
+    "@@locale": "en",
     "language_name" : "English",
     "welcome_back" : "Welcome back",
     "please_input_your_data_to_sign_in" : "Please input your data to sign in",
@@ -112,5 +113,7 @@
     "perrmission_granted" : "Permission granted",
     "time_ago" : "Time ago",
     "number_of_products" : "Number of products",
-    "successfully_copied" : "Successfully copied"
+    "successfully_copied" : "Successfully copied",
+    "more" : "More",
+    "now" : "Now"
 }

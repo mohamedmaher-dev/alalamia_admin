@@ -1,92 +1,76 @@
 part of '../one_order_view.dart';
 
+/// Order status progression widget using step indicator design
+/// Displays the current order state and allows status changes through tap interaction
+/// Provides visual feedback for order lifecycle from review to delivery
 class _OrderStateSteps extends StatelessWidget {
-  const _OrderStateSteps({required this.orderStatus, required this.orderId});
-  final String orderId;
-  final OrderStatus orderStatus;
+  const _OrderStateSteps();
 
   @override
   Widget build(final BuildContext context) {
+    final args = Provider.of<OrdersDatum>(context);
     final cubit = context.read<OrderStatusCubit>();
-    final activeStep = orderStatus.enumToindex;
+    // Convert order status enum to step index for visual progression
+    final activeStep = args.status.enumToindex;
     final language = Language.of(context);
+
     return EasyStepper(
+      // Current active step based on order status
       activeStep: activeStep,
+      // Golden color scheme for active and completed steps
       activeStepTextColor: ColorManger.myGold,
-      unreachedStepTextColor: ColorManger.myGold,
       finishedStepTextColor: ColorManger.myGold,
-      defaultStepBorderType: BorderType.normal,
-      lineStyle: const LineStyle(lineType: LineType.normal),
+      finishedStepIconColor: ColorManger.myGold,
+      // Transparent for unreached steps
+      unreachedStepIconColor: Colors.transparent,
+      // Visual styling matching app design
+      borderThickness: 2,
+      stepBorderRadius: kNormalRadius,
+      stepShape: StepShape.rRectangle,
       showLoadingAnimation: false,
-      stepRadius: 10,
+      stepRadius: kNormalRadius.r,
+      // Handle step tap for status change confirmation
       onStepReached: (final index) {
-        if (orderStatus != OrderStatus.canceled) {
-          showChangerPopUpConfirm(
-            context: context,
-            title: language.change_status,
-            subtitle:
-                language.are_you_sure_you_want_to_change_this_order_status,
-            onPressed: () {
-              cubit.changeStatus(index, orderStatus.enumToindex, orderId);
-            },
-          );
-        }
+        showChangerPopUpConfirm(
+          context: context,
+          title: language.change_status,
+          subtitle: language.are_you_sure_you_want_to_change_this_order_status,
+          onPressed: () {
+            // Change order status when user confirms
+            cubit.changeStatus(
+              index,
+              args.status.enumToindex,
+              args.id.toString(),
+            );
+          },
+        );
       },
+      // Define all possible order status steps
       steps: [
+        // Step 1: Under Review
+        EasyStep(icon: const Icon(Icons.circle), title: language.status_review),
+        // Step 2: Approved
         EasyStep(
-          customStep: CircleAvatar(
-            radius: 7,
-            backgroundColor: activeStep >= 0 ? ColorManger.myGold : Colors.grey,
-          ),
-          title: language.status_review,
+          icon: const Icon(Icons.circle),
+          title: language.status_approved,
+          topTitle: true,
         ),
-        if (orderStatus == OrderStatus.canceled)
-          EasyStep(
-            customStep: const CircleAvatar(
-              radius: 7,
-              backgroundColor: Colors.red,
-            ),
-            title: language.status_canceled,
-            topTitle: true,
-          ),
-        if (orderStatus != OrderStatus.canceled)
-          EasyStep(
-            customStep: CircleAvatar(
-              radius: 7,
-              backgroundColor:
-                  activeStep >= 1 ? ColorManger.myGold : Colors.grey,
-            ),
-            title: language.status_approved,
-            topTitle: true,
-          ),
-        if (orderStatus != OrderStatus.canceled)
-          EasyStep(
-            customStep: CircleAvatar(
-              radius: 7,
-              backgroundColor:
-                  activeStep >= 2 ? ColorManger.myGold : Colors.grey,
-            ),
-            title: language.status_preparing,
-          ),
-        if (orderStatus != OrderStatus.canceled)
-          EasyStep(
-            customStep: CircleAvatar(
-              radius: 7,
-              backgroundColor:
-                  activeStep >= 3 ? ColorManger.myGold : Colors.grey,
-            ),
-            title: language.status_on_the_way,
-            topTitle: true,
-          ),
-        if (orderStatus != OrderStatus.canceled)
-          EasyStep(
-            customStep: CircleAvatar(
-              radius: 7,
-              backgroundColor:
-                  activeStep >= 4 ? ColorManger.myGold : Colors.grey,
-            ),
-            title: language.status_delivered,
-          ),
+        // Step 3: Preparing
+        EasyStep(
+          icon: const Icon(Icons.circle),
+          title: language.status_preparing,
+        ),
+        // Step 4: On the Way
+        EasyStep(
+          icon: const Icon(Icons.circle),
+          title: language.status_on_the_way,
+          topTitle: true,
+        ),
+        // Step 5: Delivered
+        EasyStep(
+          icon: const Icon(Icons.circle),
+          title: language.status_delivered,
+        ),
       ],
     );
   }
