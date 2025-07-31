@@ -32,7 +32,6 @@ class _GeneralBody extends StatelessWidget {
                 CustomListTile(
                   icon: UserAvatarBody(userName: args.userName),
                   title: args.userName,
-                  titleIsBold: true,
                   titleColor: ColorManger.myGold,
                   subTitle: language.client_name,
                   backgroundColor: Colors.transparent,

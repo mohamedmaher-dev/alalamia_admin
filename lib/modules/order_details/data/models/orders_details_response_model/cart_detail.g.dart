@@ -7,21 +7,20 @@ part of 'cart_detail.dart';
 // **************************************************************************
 
 CartDetail _$CartDetailFromJson(Map<String, dynamic> json) => CartDetail(
-  sku: json['sku'] as String,
+  skuDynamic: json['sku'],
   productAr: json['product_ar'] as String?,
   productEn: json['product_en'] as String?,
   quantity: json['quantity'] as String?,
   price: json['price'] as String?,
-  unit:
-      json['unit'] == null
-          ? null
-          : Unit.fromJson(json['unit'] as Map<String, dynamic>),
+  unit: json['unit'] == null
+      ? null
+      : Unit.fromJson(json['unit'] as Map<String, dynamic>),
   requestType: json['request_type'] as String?,
 );
 
 Map<String, dynamic> _$CartDetailToJson(CartDetail instance) =>
     <String, dynamic>{
-      'sku': instance.sku,
+      'sku': instance.skuDynamic,
       'product_ar': instance.productAr,
       'product_en': instance.productEn,
       'quantity': instance.quantity,

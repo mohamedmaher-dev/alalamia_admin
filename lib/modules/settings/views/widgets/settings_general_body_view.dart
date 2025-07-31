@@ -30,36 +30,45 @@ class _SettingsGeneralBodyView extends StatelessWidget {
                 backgroundIconColor: theme.colorScheme.surface,
                 title: language.night_mode,
                 trailing: BlocBuilder<SettingsCubit, SettingsState>(
-                  builder:
-                      (final context, final state) => Switch(
-                        // Show current theme mode state
-                        value: appConfig.state.isDarkMode,
-                        // Toggle theme when switch is changed
-                        onChanged: (final value) => settingsCubit.changeTheme(),
-                      ),
+                  builder: (final context, final state) => Switch(
+                    // Show dark/light mode icon
+                    thumbIcon: WidgetStatePropertyAll(
+                      appConfig.state.isDarkMode
+                          ? const Icon(Icons.dark_mode)
+                          : const Icon(Icons.light_mode),
+                    ),
+                    // Show current theme mode state
+                    value: appConfig.state.isDarkMode,
+                    // Toggle theme when switch is changed
+                    onChanged: (final value) => settingsCubit.changeTheme(),
+                  ),
                 ),
                 backgroundColor: Colors.transparent,
               ),
-              const Divider(),
+              const Divider(height: 0),
               // Push notifications enable/disable toggle
               CustomListTile(
                 icon: const Icon(CupertinoIcons.bell_fill),
                 backgroundIconColor: theme.colorScheme.surface,
                 title: language.notifications,
                 trailing: BlocBuilder<SettingsCubit, SettingsState>(
-                  builder:
-                      (final context, final state) => Switch(
-                        // Show current notification permission state
-                        value: appConfig.state.turnOnNotification,
-                        // Update notification settings when switch is changed
-                        onChanged:
-                            (final value) => settingsCubit
-                                .changeEnableNotifications(newValue: value),
-                      ),
+                  builder: (final context, final state) => Switch(
+                    // Show notifications on/off icon
+                    thumbIcon: WidgetStatePropertyAll(
+                      appConfig.state.turnOnNotification
+                          ? const Icon(Icons.notifications)
+                          : const Icon(Icons.notifications_off),
+                    ),
+                    // Show current notification permission state
+                    value: appConfig.state.turnOnNotification,
+                    // Update notification settings when switch is changed
+                    onChanged: (final value) => settingsCubit
+                        .changeEnableNotifications(newValue: value),
+                  ),
                 ),
                 backgroundColor: Colors.transparent,
               ),
-              const Divider(),
+              const Divider(height: 0),
               // Language selection control
               CustomListTile(
                 icon: const Icon(Icons.language),

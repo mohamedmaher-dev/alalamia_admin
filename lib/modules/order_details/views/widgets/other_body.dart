@@ -54,9 +54,9 @@ class _OtherInfoBody extends StatelessWidget {
                 backgroundColor: theme.colorScheme.surfaceContainerLow,
                 backgroundIconColor: theme.colorScheme.surface,
               ),
-              if (args.aramexId != null) const Divider(),
-              // Delivery tracking number with copy functionality
-              if (args.aramexId != null)
+              if (args.aramexId != null) ...[
+                const Divider(),
+                // Delivery tracking number with copy functionality
                 CustomListTile(
                   icon: const Icon(Icons.delivery_dining),
                   title: args.aramexId.toString(),
@@ -73,6 +73,7 @@ class _OtherInfoBody extends StatelessWidget {
                   backgroundColor: theme.colorScheme.surfaceContainerLow,
                   backgroundIconColor: theme.colorScheme.surface,
                 ),
+              ],
             ],
           ),
         ),

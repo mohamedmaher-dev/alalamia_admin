@@ -14,6 +14,7 @@ class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
     // Get current user credentials and country information
     final userCredential =
         di<LocalStorageService>().userCredential ?? UserCredential.empty();
+    final appConfig = context.watch<AppConfig>();
     final countryModel = CountryModel.fromId(userCredential.countryId);
     final language = Language.of(context);
 
@@ -24,18 +25,17 @@ class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: ListTile(
         minTileHeight: kToolbarHeight,
         // Display country flag or icon
-        leading:
-            countryModel.countryCode != null
-                // Show flag widget for countries with ISO codes
-                ? Flag.fromString(
-                  countryModel.countryCode!,
-                  height: 25.r,
-                  width: 25.r,
-                  borderRadius: 100,
-                  fit: BoxFit.fill,
-                )
-                // Fallback to image asset for countries without flags
-                : Image.asset(countryModel.imagePath!),
+        leading: countryModel.countryCode != null
+            // Show flag widget for countries with ISO codes
+            ? Flag.fromString(
+                countryModel.countryCode!,
+                height: 25.r,
+                width: 25.r,
+                borderRadius: 100,
+                fit: BoxFit.fill,
+              )
+            // Fallback to image asset for countries without flags
+            : Image.asset(countryModel.imagePath!),
         // Dynamic title based on active tab
         title: Text(
           switch (tabsRouter.activeIndex) {
@@ -55,21 +55,24 @@ class _MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       // Consistent padding for action buttons
       actionsPadding: EdgeInsetsDirectional.only(end: kMediumPadding),
 
-      // Commented out search action for future implementation
-      // actions: [
-      //   if (tabsRouter.activeIndex == 1)
-      //     IconButton(
-      //       style: IconButton.styleFrom(
-      //         backgroundColor:
-      //             Theme.of(context).colorScheme.surfaceContainerLow,
-      //         shape: RoundedRectangleBorder(
-      //           borderRadius: BorderRadius.circular(kNormalRadius),
-      //         ),
-      //       ),
-      //       onPressed: () {},
-      //       icon: const Icon(CupertinoIcons.search),
-      //     ),
-      // ],
+      actions: [
+        if (!appConfig.state.turnOnNotification)
+          IconButton(
+            style: IconButton.styleFrom(
+              backgroundColor: ColorManger.myGold.withAlpha(
+                kBackgroundColorAlpha,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(kNormalRadius),
+              ),
+            ),
+            onPressed: () => tabsRouter.setActiveIndex(2),
+            icon: const Icon(
+              Icons.notifications_off_rounded,
+              color: ColorManger.myGold,
+            ),
+          ),
+      ],
     );
   }
 

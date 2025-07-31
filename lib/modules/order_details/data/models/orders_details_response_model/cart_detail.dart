@@ -12,7 +12,7 @@ class CartDetail {
   /// Stock keeping unit (SKU) - unique product identifier
   /// Used for inventory tracking and product identification
   @JsonKey(name: 'sku')
-  final String sku;
+  final dynamic skuDynamic;
 
   /// Product name in Arabic language
   /// Primary product display name for Arabic-speaking users
@@ -45,7 +45,7 @@ class CartDetail {
   /// SKU is required as it's the primary product identifier
   /// Other fields are optional to handle various product types and data completeness
   const CartDetail({
-    required this.sku,
+    this.skuDynamic,
     this.productAr,
     this.productEn,
     this.quantity,
@@ -62,4 +62,7 @@ class CartDetail {
   /// Converts cart detail instance to JSON for API requests
   /// Used when sending cart item data to the backend or generating reports
   Map<String, dynamic> toJson() => _$CartDetailToJson(this);
+
+  /// Returns the SKU as a string
+  String get sku => skuDynamic.toString();
 }

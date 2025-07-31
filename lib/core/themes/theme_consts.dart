@@ -27,7 +27,7 @@ final kBottonHight = 35.h;
 final kSpacingBetweenWidgetsHight = 10.w;
 
 /// Alpha value for background color overlays and transparency effects
-const kBackgroundColorAlpha = 35;
+const kBackgroundColorAlpha = 26;
 
 // ========================================
 // MEDIUM SPACING (10-15 units)

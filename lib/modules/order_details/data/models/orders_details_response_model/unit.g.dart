@@ -14,10 +14,9 @@ Unit _$UnitFromJson(Map<String, dynamic> json) => Unit(
   unitTypeName: json['unit_type_name'] as String?,
   backgroundColorRow: json['background_color_row'] as String?,
   name: json['name'] as String?,
-  unitType:
-      json['unit_type'] == null
-          ? null
-          : UnitType.fromJson(json['unit_type'] as Map<String, dynamic>),
+  unitType: json['unit_type'] == null
+      ? null
+      : UnitType.fromJson(json['unit_type'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$UnitToJson(Unit instance) => <String, dynamic>{

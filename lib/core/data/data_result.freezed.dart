@@ -99,11 +99,10 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
   $Res call({Object? data = freezed}) {
     return _then(
       _$SuccessImpl<T>(
-        data:
-            freezed == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as T,
+        data: freezed == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as T,
       ),
     );
   }
@@ -243,11 +242,10 @@ class __$$FailureImplCopyWithImpl<T, $Res>
   $Res call({Object? error = null}) {
     return _then(
       _$FailureImpl<T>(
-        error:
-            null == error
-                ? _value.error
-                : error // ignore: cast_nullable_to_non_nullable
-                    as AppError,
+        error: null == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                  as AppError,
       ),
     );
   }

@@ -23,10 +23,7 @@ class _BottomBody extends StatelessWidget {
               countryModel: args.countryModel ?? CountryModel.global,
               textStyle: TextStyles.tsP15B,
             ),
-            title: Text(
-              orderDetails.priceSum.toString(),
-              style: TextStyles.tsP15B,
-            ),
+            title: Text(orderDetails.priceSum, style: TextStyles.tsP15B),
             subtitle: Text(language.total_price),
             trailing: IconButton.filled(
               style: IconButton.styleFrom(
@@ -71,9 +68,8 @@ class _ApprovedAndRejectButtons extends StatelessWidget {
           ),
           child: BlocListener<OrderStatusCubit, OrderStatusState>(
             // Listen to order status change operations
-            listener:
-                (final context, final state) =>
-                    orderStatusListener(context, state),
+            listener: (final context, final state) =>
+                orderStatusListener(context, state),
             child: Row(
               children: [
                 // Approve button - shown for requested or canceled orders
@@ -83,20 +79,19 @@ class _ApprovedAndRejectButtons extends StatelessWidget {
                     child: GeneralBtn(
                       title: language.approve,
                       icon: CupertinoIcons.checkmark_alt,
-                      onPressed:
-                          () => _showConfirmationDialog(
-                            context,
-                            language.approve_this_order,
-                            language.do_you_want_to_approve_this_order,
-                            () {
-                              // Change status to received/approved
-                              orderStatusCubit.changeStatus(
-                                OrderStatus.received.enumToindex,
-                                args.status.enumToindex,
-                                args.id.toString(),
-                              );
-                            },
-                          ),
+                      onPressed: () => _showConfirmationDialog(
+                        context,
+                        language.approve_this_order,
+                        language.do_you_want_to_approve_this_order,
+                        () {
+                          // Change status to received/approved
+                          orderStatusCubit.changeStatus(
+                            OrderStatus.received.enumToindex,
+                            args.status.enumToindex,
+                            args.id.toString(),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 SizedBox(width: kNormalPadding),
@@ -107,20 +102,19 @@ class _ApprovedAndRejectButtons extends StatelessWidget {
                       color: ColorManger.red,
                       title: language.cancel,
                       icon: CupertinoIcons.clear,
-                      onPressed:
-                          () => _showConfirmationDialog(
-                            context,
-                            language.reject_this_order,
-                            language.do_you_want_to_reject_this_order,
-                            () {
-                              // Change status to canceled
-                              orderStatusCubit.changeStatus(
-                                OrderStatus.canceled.enumToindex,
-                                args.status.enumToindex,
-                                args.id.toString(),
-                              );
-                            },
-                          ),
+                      onPressed: () => _showConfirmationDialog(
+                        context,
+                        language.reject_this_order,
+                        language.do_you_want_to_reject_this_order,
+                        () {
+                          // Change status to canceled
+                          orderStatusCubit.changeStatus(
+                            OrderStatus.canceled.enumToindex,
+                            args.status.enumToindex,
+                            args.id.toString(),
+                          );
+                        },
+                      ),
                     ),
                   ),
               ],

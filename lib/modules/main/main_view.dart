@@ -1,3 +1,4 @@
+import 'package:alalamia_admin/core/config/app_config_cubit.dart';
 import 'package:alalamia_admin/core/di/di.dart';
 import 'package:alalamia_admin/core/local_storage/local_storage_service.dart';
 import 'package:alalamia_admin/core/local_storage/models/user_credential_model.dart';
@@ -11,6 +12,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flag/flag_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -33,13 +35,13 @@ class MainView extends StatelessWidget {
       // Start with Orders tab (index 1) as the primary focus
       homeIndex: 1,
       // Custom app bar with dynamic content based on current tab
-      appBarBuilder:
-          (_, final tabsRouter) => _MainAppBar(tabsRouter: tabsRouter),
+      appBarBuilder: (_, final tabsRouter) =>
+          _MainAppBar(tabsRouter: tabsRouter),
       // Define the three main navigation routes
       routes: const [StatisticsRoute(), OrdersRoute(), SettingsRoute()],
       // Custom bottom navigation bar with tab switching logic
-      bottomNavigationBuilder:
-          (_, final tabsRouter) => _HomeBottomNavBar(tabsRouter: tabsRouter),
+      bottomNavigationBuilder: (_, final tabsRouter) =>
+          _HomeBottomNavBar(tabsRouter: tabsRouter),
     ),
   );
 }

@@ -11,19 +11,17 @@ OrdersDetailsResponseModel _$OrdersDetailsResponseModelFromJson(
 ) => OrdersDetailsResponseModel(
   userName: json['user_name'] as String?,
   requestNo: json['request_no'] as String?,
-  cartDetail:
-      (json['cart_detail'] as List<dynamic>?)
-          ?.map((e) => CartDetail.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  cartDetail: (json['cart_detail'] as List<dynamic>?)
+      ?.map((e) => CartDetail.fromJson(e as Map<String, dynamic>))
+      .toList(),
   sum: (json['sum'] as num?)?.toInt(),
-  priceSum: (json['price_sum'] as num?)?.toDouble(),
+  priceSumDynamic: json['price_sum'],
   coupon: json['coupon'],
   remainingAmount: json['remaining_amount'],
   receivingType: json['receiving_type'] as String?,
-  address:
-      json['address'] == null
-          ? null
-          : Address.fromJson(json['address'] as Map<String, dynamic>),
+  address: json['address'] == null
+      ? null
+      : Address.fromJson(json['address'] as Map<String, dynamic>),
   desc: json['desc'] as String?,
   cancelNote: json['cancel_note'] as String?,
   hospitality: json['hospitality'],
@@ -41,7 +39,7 @@ Map<String, dynamic> _$OrdersDetailsResponseModelToJson(
   'request_no': instance.requestNo,
   'cart_detail': instance.cartDetail,
   'sum': instance.sum,
-  'price_sum': instance.priceSum,
+  'price_sum': instance.priceSumDynamic,
   'coupon': instance.coupon,
   'remaining_amount': instance.remainingAmount,
   'receiving_type': instance.receivingType,

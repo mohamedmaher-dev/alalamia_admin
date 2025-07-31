@@ -66,21 +66,18 @@ class _$AppConfigModelCopyWithImpl<$Res, $Val extends AppConfigModel>
   }) {
     return _then(
       _value.copyWith(
-            isDarkMode:
-                null == isDarkMode
-                    ? _value.isDarkMode
-                    : isDarkMode // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            turnOnNotification:
-                null == turnOnNotification
-                    ? _value.turnOnNotification
-                    : turnOnNotification // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            language:
-                null == language
-                    ? _value.language
-                    : language // ignore: cast_nullable_to_non_nullable
-                        as String,
+            isDarkMode: null == isDarkMode
+                ? _value.isDarkMode
+                : isDarkMode // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            turnOnNotification: null == turnOnNotification
+                ? _value.turnOnNotification
+                : turnOnNotification // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            language: null == language
+                ? _value.language
+                : language // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -119,21 +116,18 @@ class __$$AppConfigModelImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$AppConfigModelImpl(
-        isDarkMode:
-            null == isDarkMode
-                ? _value.isDarkMode
-                : isDarkMode // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        turnOnNotification:
-            null == turnOnNotification
-                ? _value.turnOnNotification
-                : turnOnNotification // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        language:
-            null == language
-                ? _value.language
-                : language // ignore: cast_nullable_to_non_nullable
-                    as String,
+        isDarkMode: null == isDarkMode
+            ? _value.isDarkMode
+            : isDarkMode // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        turnOnNotification: null == turnOnNotification
+            ? _value.turnOnNotification
+            : turnOnNotification // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        language: null == language
+            ? _value.language
+            : language // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

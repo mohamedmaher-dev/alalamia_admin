@@ -218,11 +218,10 @@ class __$$SuccessImplCopyWithImpl<$Res>
   $Res call({Object? orderDetails = null}) {
     return _then(
       _$SuccessImpl(
-        orderDetails:
-            null == orderDetails
-                ? _value.orderDetails
-                : orderDetails // ignore: cast_nullable_to_non_nullable
-                    as OrdersDetailsResponseModel,
+        orderDetails: null == orderDetails
+            ? _value.orderDetails
+            : orderDetails // ignore: cast_nullable_to_non_nullable
+                  as OrdersDetailsResponseModel,
       ),
     );
   }
@@ -370,11 +369,10 @@ class __$$FailureImplCopyWithImpl<$Res>
   $Res call({Object? error = null}) {
     return _then(
       _$FailureImpl(
-        error:
-            null == error
-                ? _value.error
-                : error // ignore: cast_nullable_to_non_nullable
-                    as AppError,
+        error: null == error
+            ? _value.error
+            : error // ignore: cast_nullable_to_non_nullable
+                  as AppError,
       ),
     );
   }

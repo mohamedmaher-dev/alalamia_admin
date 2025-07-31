@@ -16,10 +16,10 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.2.0+5
+version: 1.2.1+6
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.8.1
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -76,6 +76,7 @@ dependencies:
 
   # ===== Networking =====
   dio: ^5.8.0+1
+  retrofit: ^4.4.2
 
   # ===== Local Storage =====
   hive_ce: ^2.10.1
@@ -98,7 +99,6 @@ dependencies:
   # ===== Code Gen =====
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
-  retrofit: ^4.4.2
 
   # ===== Helpers =====
   package_info_plus: ^8.3.0

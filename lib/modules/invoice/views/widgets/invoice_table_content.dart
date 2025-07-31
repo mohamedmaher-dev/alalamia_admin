@@ -20,57 +20,57 @@ Widget _invoiceTableContent({
     order.cartDetail!.length,
     (final index) => pw.TableRow(
       // Alternating row background for better readability
-      decoration:
-          index % 2 == 0
-              ? const pw.BoxDecoration(color: PdfColors.grey100)
-              : null,
-      children:
-          [
-            // Product name in Arabic
-            pw.Padding(
-              padding: pw.EdgeInsets.all(kNormalPadding),
-              child: pw.Text(
-                order.cartDetail![index].productAr!,
-                style: pw.TextStyle(font: font, fontSize: 12),
-              ),
-            ),
-            // Product SKU/code
-            pw.Padding(
-              padding: pw.EdgeInsets.all(kNormalPadding),
-              child: pw.Text(
-                order.cartDetail![index].sku,
-                style: pw.TextStyle(font: font, fontSize: 12),
-                textAlign: pw.TextAlign.center,
-              ),
-            ),
-            // Product quantity
-            pw.Padding(
-              padding: pw.EdgeInsets.all(kNormalPadding),
-              child: pw.Text(
-                order.cartDetail![index].quantity!,
-                style: pw.TextStyle(font: font, fontSize: 12),
-                textAlign: pw.TextAlign.center,
-              ),
-            ),
-            // Unit type (kg, pieces, etc.)
-            pw.Padding(
-              padding: pw.EdgeInsets.all(kNormalPadding),
-              child: pw.Text(
-                order.cartDetail![index].unit!.name!,
-                style: pw.TextStyle(font: font, fontSize: 12),
-                textAlign: pw.TextAlign.center,
-              ),
-            ),
-            // Product price
-            pw.Padding(
-              padding: pw.EdgeInsets.all(kNormalPadding),
-              child: pw.Text(
-                order.cartDetail![index].price!,
-                style: pw.TextStyle(font: font, fontSize: 12),
-                textAlign: pw.TextAlign.center,
-              ),
-            ),
-          ].reversed.toList(), // Reverse for RTL layout
+      decoration: index % 2 == 0
+          ? const pw.BoxDecoration(color: PdfColors.grey100)
+          : null,
+      children: [
+        // Product name in Arabic
+        pw.Padding(
+          padding: pw.EdgeInsets.all(kNormalPadding),
+          child: pw.Text(
+            order.cartDetail![index].productAr!,
+            style: pw.TextStyle(font: font, fontSize: 12),
+          ),
+        ),
+        // Product SKU/code
+        pw.Padding(
+          padding: pw.EdgeInsets.all(kNormalPadding),
+          child: pw.Text(
+            order.cartDetail![index].sku.toString(),
+            style: pw.TextStyle(font: font, fontSize: 12),
+            textAlign: pw.TextAlign.center,
+          ),
+        ),
+        // Product quantity
+        pw.Padding(
+          padding: pw.EdgeInsets.all(kNormalPadding),
+          child: pw.Text(
+            order.cartDetail![index].quantity!,
+            style: pw.TextStyle(font: font, fontSize: 12),
+            textAlign: pw.TextAlign.center,
+          ),
+        ),
+        // Unit type (kg, pieces, etc.)
+        pw.Padding(
+          padding: pw.EdgeInsets.all(kNormalPadding),
+          child: pw.Text(
+            order.cartDetail![index].unit == null
+                ? Language.current.no_data
+                : order.cartDetail![index].unit!.name!,
+            style: pw.TextStyle(font: font, fontSize: 12),
+            textAlign: pw.TextAlign.center,
+          ),
+        ),
+        // Product price
+        pw.Padding(
+          padding: pw.EdgeInsets.all(kNormalPadding),
+          child: pw.Text(
+            order.cartDetail![index].price!,
+            style: pw.TextStyle(font: font, fontSize: 12),
+            textAlign: pw.TextAlign.center,
+          ),
+        ),
+      ].reversed.toList(), // Reverse for RTL layout
     ),
   ),
   // Dashed border around entire table for professional appearance

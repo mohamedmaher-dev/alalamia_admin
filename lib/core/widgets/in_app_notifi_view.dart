@@ -98,24 +98,29 @@ class _InAppNotifiViewState extends State<InAppNotifiView>
     top: kLargeMargin,
     left: kNormalMargin,
     right: kNormalMargin,
-    child: SlideTransition(
-      position: _offsetAnimation,
-      child: Material(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(10),
-        child: Dismissible(
-          // Allow swipe to dismiss
-          onDismissed: (final direction) => closeNotifi(),
-          key: GlobalKey(),
-          child: Card(
-            elevation: 10,
-            child: Column(
-              children: [
-                // Notification content
-                _InAppNotifiBody(title: widget.title, message: widget.message),
-                // Progress indicator showing time remaining
-                _LinearProgress(duration: widget.duration),
-              ],
+    child: SafeArea(
+      child: SlideTransition(
+        position: _offsetAnimation,
+        child: Material(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(10),
+          child: Dismissible(
+            // Allow swipe to dismiss
+            onDismissed: (final direction) => closeNotifi(),
+            key: GlobalKey(),
+            child: Card(
+              elevation: 10,
+              child: Column(
+                children: [
+                  // Notification content
+                  _InAppNotifiBody(
+                    title: widget.title,
+                    message: widget.message,
+                  ),
+                  // Progress indicator showing time remaining
+                  _LinearProgress(duration: widget.duration),
+                ],
+              ),
             ),
           ),
         ),

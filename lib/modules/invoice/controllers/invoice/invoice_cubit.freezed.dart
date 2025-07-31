@@ -608,21 +608,18 @@ class __$$ShowSuccessImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$ShowSuccessImpl(
-        pdfData:
-            null == pdfData
-                ? _value.pdfData
-                : pdfData // ignore: cast_nullable_to_non_nullable
-                    as Uint8List,
-        cubit:
-            null == cubit
-                ? _value.cubit
-                : cubit // ignore: cast_nullable_to_non_nullable
-                    as InvoiceCubit,
-        order:
-            null == order
-                ? _value.order
-                : order // ignore: cast_nullable_to_non_nullable
-                    as OrdersDetailsResponseModel,
+        pdfData: null == pdfData
+            ? _value.pdfData
+            : pdfData // ignore: cast_nullable_to_non_nullable
+                  as Uint8List,
+        cubit: null == cubit
+            ? _value.cubit
+            : cubit // ignore: cast_nullable_to_non_nullable
+                  as InvoiceCubit,
+        order: null == order
+            ? _value.order
+            : order // ignore: cast_nullable_to_non_nullable
+                  as OrdersDetailsResponseModel,
       ),
     );
   }
@@ -979,11 +976,10 @@ class __$$SaveSuccessImplCopyWithImpl<$Res>
   $Res call({Object? file = null}) {
     return _then(
       _$SaveSuccessImpl(
-        file:
-            null == file
-                ? _value.file
-                : file // ignore: cast_nullable_to_non_nullable
-                    as XFile,
+        file: null == file
+            ? _value.file
+            : file // ignore: cast_nullable_to_non_nullable
+                  as XFile,
       ),
     );
   }

@@ -82,11 +82,10 @@ class _$OrderDetailsTabStateCopyWithImpl<
   $Res call({Object? tab = null}) {
     return _then(
       _value.copyWith(
-            tab:
-                null == tab
-                    ? _value.tab
-                    : tab // ignore: cast_nullable_to_non_nullable
-                        as OrderDetailsTabsModel,
+            tab: null == tab
+                ? _value.tab
+                : tab // ignore: cast_nullable_to_non_nullable
+                      as OrderDetailsTabsModel,
           )
           as $Val,
     );
@@ -121,11 +120,10 @@ class __$$ChangeImplCopyWithImpl<$Res>
   $Res call({Object? tab = null}) {
     return _then(
       _$ChangeImpl(
-        tab:
-            null == tab
-                ? _value.tab
-                : tab // ignore: cast_nullable_to_non_nullable
-                    as OrderDetailsTabsModel,
+        tab: null == tab
+            ? _value.tab
+            : tab // ignore: cast_nullable_to_non_nullable
+                  as OrderDetailsTabsModel,
       ),
     );
   }
