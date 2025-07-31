@@ -107,11 +107,10 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({Object? appConfigModel = null}) {
     return _then(
       _$InitialImpl(
-        appConfigModel:
-            null == appConfigModel
-                ? _value.appConfigModel
-                : appConfigModel // ignore: cast_nullable_to_non_nullable
-                    as AppConfigModel,
+        appConfigModel: null == appConfigModel
+            ? _value.appConfigModel
+            : appConfigModel // ignore: cast_nullable_to_non_nullable
+                  as AppConfigModel,
       ),
     );
   }
@@ -384,7 +383,7 @@ class __$$FailureImplCopyWithImpl<$Res>
         null == e
             ? _value.e
             : e // ignore: cast_nullable_to_non_nullable
-                as AppError,
+                  as AppError,
       ),
     );
   }

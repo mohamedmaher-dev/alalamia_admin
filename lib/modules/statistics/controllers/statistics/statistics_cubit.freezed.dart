@@ -592,41 +592,34 @@ class __$$SuccessImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SuccessImpl(
-        orders:
-            null == orders
-                ? _value.orders
-                : orders // ignore: cast_nullable_to_non_nullable
-                    as int,
-        underReview:
-            null == underReview
-                ? _value.underReview
-                : underReview // ignore: cast_nullable_to_non_nullable
-                    as int,
-        approved:
-            null == approved
-                ? _value.approved
-                : approved // ignore: cast_nullable_to_non_nullable
-                    as int,
-        prepareing:
-            null == prepareing
-                ? _value.prepareing
-                : prepareing // ignore: cast_nullable_to_non_nullable
-                    as int,
-        onTheWay:
-            null == onTheWay
-                ? _value.onTheWay
-                : onTheWay // ignore: cast_nullable_to_non_nullable
-                    as int,
-        delivered:
-            null == delivered
-                ? _value.delivered
-                : delivered // ignore: cast_nullable_to_non_nullable
-                    as int,
-        cancelled:
-            null == cancelled
-                ? _value.cancelled
-                : cancelled // ignore: cast_nullable_to_non_nullable
-                    as int,
+        orders: null == orders
+            ? _value.orders
+            : orders // ignore: cast_nullable_to_non_nullable
+                  as int,
+        underReview: null == underReview
+            ? _value.underReview
+            : underReview // ignore: cast_nullable_to_non_nullable
+                  as int,
+        approved: null == approved
+            ? _value.approved
+            : approved // ignore: cast_nullable_to_non_nullable
+                  as int,
+        prepareing: null == prepareing
+            ? _value.prepareing
+            : prepareing // ignore: cast_nullable_to_non_nullable
+                  as int,
+        onTheWay: null == onTheWay
+            ? _value.onTheWay
+            : onTheWay // ignore: cast_nullable_to_non_nullable
+                  as int,
+        delivered: null == delivered
+            ? _value.delivered
+            : delivered // ignore: cast_nullable_to_non_nullable
+                  as int,
+        cancelled: null == cancelled
+            ? _value.cancelled
+            : cancelled // ignore: cast_nullable_to_non_nullable
+                  as int,
       ),
     );
   }

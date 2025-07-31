@@ -111,11 +111,10 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({Object? isShowPassword = null}) {
     return _then(
       _$InitialImpl(
-        isShowPassword:
-            null == isShowPassword
-                ? _value.isShowPassword
-                : isShowPassword // ignore: cast_nullable_to_non_nullable
-                    as bool,
+        isShowPassword: null == isShowPassword
+            ? _value.isShowPassword
+            : isShowPassword // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -505,11 +504,10 @@ class __$$FailureImplCopyWithImpl<$Res>
   $Res call({Object? e = null}) {
     return _then(
       _$FailureImpl(
-        e:
-            null == e
-                ? _value.e
-                : e // ignore: cast_nullable_to_non_nullable
-                    as AppError,
+        e: null == e
+            ? _value.e
+            : e // ignore: cast_nullable_to_non_nullable
+                  as AppError,
       ),
     );
   }

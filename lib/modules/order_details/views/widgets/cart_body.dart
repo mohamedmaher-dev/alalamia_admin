@@ -21,11 +21,10 @@ class _CartBodyState extends State<_CartBody> {
   void initState() {
     super.initState();
     // Create local copy of cart items from provider data
-    final cart =
-        Provider.of<OrdersDetailsResponseModel>(
-          context,
-          listen: false,
-        ).cartDetail!;
+    final cart = Provider.of<OrdersDetailsResponseModel>(
+      context,
+      listen: false,
+    ).cartDetail!;
     _localCart = List<CartDetail>.from(cart);
   }
 
@@ -109,7 +108,7 @@ class _TableHeaderBody extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final language = Language.current;
+    final language = Language.of(context);
     return Container(
       padding: EdgeInsets.all(kNormalPadding),
       decoration: BoxDecoration(
@@ -146,48 +145,53 @@ class CartTableRow extends StatelessWidget {
   const CartTableRow({required this.item, super.key});
 
   @override
-  Widget build(final BuildContext context) => LayoutBuilder(
-    builder: (final context, final constraints) {
-      // Calculate responsive column widths
-      final totalParts = 7;
-      final dividerWidth = 1.0;
-      final dividerCount = 4;
-      final totalDividerSpace = dividerWidth * dividerCount;
-      final availableWidth =
-          constraints.maxWidth == double.infinity
-              ? ScreenUtil().screenWidth
-              : constraints.maxWidth - totalDividerSpace;
-      final unitWidth = availableWidth / totalParts;
+  Widget build(final BuildContext context) {
+    final language = Language.of(context);
+    return LayoutBuilder(
+      builder: (final context, final constraints) {
+        // Calculate responsive column widths
+        final totalParts = 7;
+        final dividerWidth = 1.0;
+        final dividerCount = 4;
+        final totalDividerSpace = dividerWidth * dividerCount;
+        final availableWidth = constraints.maxWidth == double.infinity
+            ? ScreenUtil().screenWidth
+            : constraints.maxWidth - totalDividerSpace;
+        final unitWidth = availableWidth / totalParts;
 
-      return Row(
-        children: [
-          // Product name (3x width for longer text)
-          CartTableCell(
-            text: item.productAr.nullToString,
-            width: unitWidth * 3,
-          ),
-          const GoldVerticalDivider(),
-          // Product SKU/code
-          CartTableCell(text: item.sku, width: unitWidth),
-          const GoldVerticalDivider(),
-          // Quantity with number formatting
-          CartTableCell(
-            text: _converQuantity(item.quantity.nullToString),
-            width: unitWidth,
-          ),
-          const GoldVerticalDivider(),
-          // Unit type (kg, pieces, etc.)
-          CartTableCell(text: item.unit!.name.nullToString, width: unitWidth),
-          const GoldVerticalDivider(),
-          // Price with number formatting
-          CartTableCell(
-            text: _converQuantity(item.price.nullToString),
-            width: unitWidth,
-          ),
-        ],
-      );
-    },
-  );
+        return Row(
+          children: [
+            // Product name (3x width for longer text)
+            CartTableCell(
+              text: item.productAr.nullToString,
+              width: unitWidth * 3,
+            ),
+            const GoldVerticalDivider(),
+            // Product SKU/code
+            CartTableCell(text: item.sku.toString(), width: unitWidth),
+            const GoldVerticalDivider(),
+            // Quantity with number formatting
+            CartTableCell(
+              text: _converQuantity(item.quantity.nullToString),
+              width: unitWidth,
+            ),
+            const GoldVerticalDivider(),
+            // Unit type (kg, pieces, etc.)
+            CartTableCell(
+              text: item.unit == null ? language.no_data : item.unit!.name!,
+              width: unitWidth,
+            ),
+            const GoldVerticalDivider(),
+            // Price with number formatting
+            CartTableCell(
+              text: _converQuantity(item.price.nullToString),
+              width: unitWidth,
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
 
 /// Table header cell widget for column titles

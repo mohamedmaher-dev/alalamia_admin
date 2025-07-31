@@ -31,6 +31,12 @@ class _SettingsGeneralBodyView extends StatelessWidget {
                 title: language.night_mode,
                 trailing: BlocBuilder<SettingsCubit, SettingsState>(
                   builder: (final context, final state) => Switch(
+                    // Show dark/light mode icon
+                    thumbIcon: WidgetStatePropertyAll(
+                      appConfig.state.isDarkMode
+                          ? const Icon(Icons.dark_mode)
+                          : const Icon(Icons.light_mode),
+                    ),
                     // Show current theme mode state
                     value: appConfig.state.isDarkMode,
                     // Toggle theme when switch is changed
@@ -47,6 +53,12 @@ class _SettingsGeneralBodyView extends StatelessWidget {
                 title: language.notifications,
                 trailing: BlocBuilder<SettingsCubit, SettingsState>(
                   builder: (final context, final state) => Switch(
+                    // Show notifications on/off icon
+                    thumbIcon: WidgetStatePropertyAll(
+                      appConfig.state.turnOnNotification
+                          ? const Icon(Icons.notifications)
+                          : const Icon(Icons.notifications_off),
+                    ),
                     // Show current notification permission state
                     value: appConfig.state.turnOnNotification,
                     // Update notification settings when switch is changed

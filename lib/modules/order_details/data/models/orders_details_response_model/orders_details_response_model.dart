@@ -32,7 +32,7 @@ class OrdersDetailsResponseModel {
   /// Total monetary value of all items in the order
   /// Used for price calculations and invoice totals
   @JsonKey(name: 'price_sum')
-  final double? priceSum;
+  final dynamic priceSumDynamic;
 
   /// Coupon or discount code applied to the order (dynamic type for flexibility)
   /// Can be string, object, or null based on backend implementation
@@ -96,7 +96,7 @@ class OrdersDetailsResponseModel {
     this.requestNo,
     this.cartDetail,
     this.sum,
-    this.priceSum,
+    this.priceSumDynamic,
     this.coupon,
     this.remainingAmount,
     this.receivingType,
@@ -120,4 +120,7 @@ class OrdersDetailsResponseModel {
   /// Converts order details instance to JSON for API requests or storage
   /// Used when sending order data to backend or caching locally
   Map<String, dynamic> toJson() => _$OrdersDetailsResponseModelToJson(this);
+
+  /// Returns the total price sum of all cart items in the order
+  String get priceSum => priceSumDynamic.toString();
 }

@@ -1,3 +1,4 @@
+import 'package:alalamia_admin/core/localization/generated/l10n.dart';
 import 'package:alalamia_admin/core/models/country_model.dart';
 import 'package:alalamia_admin/core/themes/theme_consts.dart';
 import 'package:alalamia_admin/core/utils/assets_manger.dart';
@@ -44,36 +45,34 @@ Future<Uint8List> createStyledInvoice(
       pageFormat: PdfPageFormat.a4,
       // Consistent margins around content
       margin: const pw.EdgeInsets.all(32),
-      build:
-          (final context) => [
-            // Invoice header with company branding and title
-            _invoiceTitle(font: font),
-            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-            pw.Divider(thickness: 1),
+      build: (final context) => [
+        // Invoice header with company branding and title
+        _invoiceTitle(font: font),
+        pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+        pw.Divider(thickness: 1),
 
-            // Customer and order information section
-            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-            _invoiceInfo(font: font, order: order, userPhone: orderArgs.phone),
+        // Customer and order information section
+        pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+        _invoiceInfo(font: font, order: order, userPhone: orderArgs.phone),
 
-            // Table header for order items
-            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-            _invoiceTableHeader(font: font),
+        // Table header for order items
+        pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+        _invoiceTableHeader(font: font),
 
-            // Order items table with product details and pricing
-            _invoiceTableContent(font: font, order: order),
+        // Order items table with product details and pricing
+        _invoiceTableContent(font: font, order: order),
 
-            // Pricing summary with totals and currency
-            pw.SizedBox(height: kSpacingBetweenWidgetsHight),
-            _invoiceSummary(
-              font: font,
-              order: order,
-              currency:
-                  orderArgs.countryModel == null
-                      ? CountryModel.global.currency
-                      : orderArgs.countryModel!.currency,
-            ),
-            pw.Divider(thickness: 1),
-          ],
+        // Pricing summary with totals and currency
+        pw.SizedBox(height: kSpacingBetweenWidgetsHight),
+        _invoiceSummary(
+          font: font,
+          order: order,
+          currency: orderArgs.countryModel == null
+              ? CountryModel.global.currency
+              : orderArgs.countryModel!.currency,
+        ),
+        pw.Divider(thickness: 1),
+      ],
     ),
   );
 

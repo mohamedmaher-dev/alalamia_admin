@@ -218,11 +218,10 @@ class __$$EnabledModeImplCopyWithImpl<$Res>
   $Res call({Object? orders = null}) {
     return _then(
       _$EnabledModeImpl(
-        orders:
-            null == orders
-                ? _value._orders
-                : orders // ignore: cast_nullable_to_non_nullable
-                    as List<OrdersDatum>,
+        orders: null == orders
+            ? _value._orders
+            : orders // ignore: cast_nullable_to_non_nullable
+                  as List<OrdersDatum>,
       ),
     );
   }
